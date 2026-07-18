@@ -1,204 +1,272 @@
 <style>
   .hero {
     text-align: center;
-    padding: 3rem 0;
-    max-width: 720px;
+    padding: 6rem 0 4rem 0;
+    max-width: 800px;
     margin: 0 auto;
   }
   .hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    letter-spacing: -0.03em;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ffffff 30%, var(--primary) 70%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .hero p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    font-weight: 400;
   }
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
   .book-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 4rem 0;
+    gap: 3rem;
+    margin: 6rem 0;
   }
-  @media (max-width: 768px) {
-    .book-grid { grid-template-columns: 1fr; }
+  @media (max-width: 868px) {
+    .book-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   }
   .book-card {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .book-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
   .book-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary);
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(17, 24, 39, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  .book-card:hover::before {
+    opacity: 1;
   }
   .book-card-cover-container {
-    background: #070a12;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: radial-gradient(circle at center, rgba(30, 41, 59, 0.4) 0%, transparent 80%);
+    border-radius: 12px;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
   }
   .book-card-cover {
-    max-height: 180px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    border-radius: 4px;
+    max-height: 220px;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+    border-radius: 6px;
+    transition: transform 0.4s ease;
+  }
+  .book-card:hover .book-card-cover {
+    transform: scale(1.03) rotate(-1deg);
   }
   .book-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    color: var(--text);
   }
   .book-tagline {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--primary);
-    font-weight: 500;
-    margin-bottom: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
   }
   .book-desc {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
     flex: 1;
+    line-height: 1.6;
   }
   .book-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
   }
   .badge {
-    background-color: var(--code-bg);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--text);
-    padding: 0.25rem 0.75rem;
+    padding: 0.35rem 0.9rem;
     border-radius: 50px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
   .badge-primary {
-    background-color: rgba(56, 189, 248, 0.1);
+    background-color: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.15);
     color: var(--primary);
   }
   .book-action {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   .book-action .btn { flex: 1; }
 
   /* Pitch Sections */
   .pitch-section {
-    padding: 4rem 0;
+    padding: 6rem 0;
     border-top: 1px solid var(--border);
   }
   .pitch-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 3.5rem;
     text-align: center;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
   }
-  @media (max-width: 768px) {
-    .features-grid { grid-template-columns: 1fr; }
+  @media (max-width: 868px) {
+    .features-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
   .feature-box {
-    background-color: rgba(30, 41, 59, 0.2);
+    background: rgba(17, 24, 39, 0.3);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+  .feature-box:hover {
+    border-color: rgba(99, 102, 241, 0.25);
+    background: rgba(17, 24, 39, 0.5);
   }
   .feature-box h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
   }
   .feature-box p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
+    line-height: 1.6;
   }
   
   .faq-list {
-    max-width: 720px;
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
+    background: rgba(17, 24, 39, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: border-color 0.3s ease;
+  }
+  .faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.12);
   }
   .faq-item h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
   }
   .faq-item p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-muted);
+    line-height: 1.6;
   }
 
   .author-card {
     display: flex;
-    gap: 2rem;
-    background-color: var(--surface);
+    gap: 3rem;
+    background: rgba(17, 24, 39, 0.4);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem;
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 3.5rem;
     align-items: center;
   }
   @media (max-width: 768px) {
-    .author-card { flex-direction: column; text-align: center; }
+    .author-card { flex-direction: column; text-align: center; gap: 2rem; padding: 2.5rem; }
   }
   .author-avatar {
-    width: 100px;
-    height: 100px;
-    background-color: var(--code-bg);
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.1));
+    border: 1px solid var(--border);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   .author-info h4 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
   }
   .author-info p {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
   }
   .author-info a {
     color: var(--primary);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: transform 0.2s ease;
+  }
+  .author-info a:hover {
+    color: var(--primary-hover);
   }
 </style>
 
 <section class="hero">
   <h1>Engineered Browser Automation</h1>
-  <p>Practical handbooks for senior developers, SREs, and data engineers. Learn to build resilient, stealthy, and self-healing pipelines that run unattended 24/7.</p>
+  <p>Production-grade handbooks for senior engineers, SREs, and data builders. Learn to deploy self-healing, undetectable, and highly parallel crawler engines that run 24/7/365.</p>
   <div class="hero-actions">
-    <a href="#featured-books" class="btn btn-primary">Browse Handbooks</a>
+    <a href="#featured-books" class="btn btn-primary">Explore Handbooks</a>
   </div>
 </section>
 
@@ -208,7 +276,7 @@
     {% for book in books %}
     <div class="book-card">
       <div class="book-card-cover-container">
-        <img class="book-card-cover" src="/assets/covers/{{ book.id }}-thumbnail.png" alt="{{ book.title }} Cover" width="135" height="180">
+        <img class="book-card-cover" src="/assets/covers/{{ book.id }}-thumbnail.png" alt="{{ book.title }} Cover" width="165" height="220">
       </div>
       <h4 class="book-title">{{ book.title }}</h4>
       <div class="book-tagline">{{ book.subtitle }}</div>
@@ -217,13 +285,13 @@
       <div class="book-meta">
         <span class="badge badge-primary">Version {{ book.version }}</span>
         <span class="badge">${{ book.price_usd }} USD</span>
-        <span class="badge">PDF &amp; EPUB</span>
-        <span class="badge">Full Codebase</span>
+        <span class="badge">PDF + EPUB Included</span>
+        <span class="badge">Starter Repository</span>
       </div>
 
       <div class="book-action">
         <a href="/books/{{ book.id }}/" class="btn btn-secondary" id="details-{{ book.id }}">View Details</a>
-        <a href="{{ book.gumroad_url }}" class="btn btn-primary" id="buy-{{ book.id }}" target="_blank">Buy Now</a>
+        <a href="{{ book.gumroad_url }}" class="btn btn-primary" id="buy-{{ book.id }}" target="_blank">Download Now</a>
       </div>
     </div>
     {% endfor %}
@@ -234,16 +302,16 @@
   <h3 class="pitch-title">Why These Guides Are Different</h3>
   <div class="features-grid">
     <div class="feature-box">
-      <h4>Zero Theory, All Production</h4>
-      <p>Written exclusively from post-mortems and live production systems. Every pattern is verified and runs 24/7 under Docker orchestrations.</p>
+      <h4>Post-Mortem Backed</h4>
+      <p>Written entirely from real production incident analysis reports and failure scenarios. We skip abstract theories and build resilient codebases.</p>
     </div>
     <div class="feature-box">
-      <h4>Asynchronous by Default</h4>
-      <p>Harness the full speed of Python asyncio. Avoid synchronous blocking and handle thousands of concurrent requests natively.</p>
+      <h4>Asynchronous Execution</h4>
+      <p>Fully leverage modern Python concurrency. Bypass synchronous blocking bottlenecks and orchestration stalls with high-performance asyncio.</p>
     </div>
     <div class="feature-box">
-      <h4>Anti-Bot Evasion Techniques</h4>
-      <p>Skip standard WebDriver bindings. Communicate directly over the Chrome DevTools Protocol (CDP) to bypass security filters seamlessly.</p>
+      <h4>Chrome DevTools Protocol</h4>
+      <p>Navigate directly over raw Chrome CDP boundaries. Evade web app security controls and fingerprinting monitors without Selenium driver layers.</p>
     </div>
   </div>
 </section>
