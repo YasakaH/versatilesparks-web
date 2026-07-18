@@ -28,13 +28,13 @@ def extract_pdf_section(src_path, dest_path, max_pages):
 def main():
     os.makedirs(DOWNLOADS, exist_ok=True)
     
-    # Extract first 12 pages for V1 (Cover, Frontmatter, TOC, Chapter 1)
+    # Extract first 15 pages for V1 (Cover, Frontmatter, TOC, Chapter 1, Recipe 1)
     v1_dest = os.path.join(DOWNLOADS, "python-browser-automation-cookbook-sample.pdf")
-    extract_pdf_section(V1_PDF, v1_dest, max_pages=12)
+    extract_pdf_section(V1_PDF, v1_dest, max_pages=15)
     
-    # Extract first 22 pages for V2 (Cover, Frontmatter, TOC, Mindset, Chapter 1)
+    # Extract first 36 pages for V2 (Cover, Frontmatter, TOC, Mindset, Chapter 1, Recipe 1)
     v2_dest = os.path.join(DOWNLOADS, "browser-automation-playbook-sample.pdf")
-    extract_pdf_section(V2_PDF, v2_dest, max_pages=22)
+    extract_pdf_section(V2_PDF, v2_dest, max_pages=36)
 
 if __name__ == "__main__":
     main()
