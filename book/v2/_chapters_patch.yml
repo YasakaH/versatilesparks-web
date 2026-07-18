@@ -1,0 +1,14 @@
+    - production-operations.md
+    - appendix-versions.md
+    - part: "Bonus Content"
+      chapters:
+        - bonus/automation-pattern-catalog.md
+        - bonus/failure-playbook.md
+        - bonus/war-stories.md
+        - bonus/architecture-field-guide.md
+        - bonus/automation-design-review.md
+        - bonus/Production Reference Library.md
+        - dist-extra/README.md
+    - part: "Appendix"
+      chapters:
+        - dist-extra/docs/Errata.md

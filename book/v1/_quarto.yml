@@ -1,0 +1,173 @@
+project:
+  type: book
+  output-dir: ../dist-v1
+
+book:
+  title: ""
+  subtitle: "Working Smarter with nodriver"
+  author: "Yasaka Hanini"
+  date: today
+  language: en
+  description: "A practical cookbook for browser automation with Python and nodriver. Covers navigation, data extraction, authentication, stealth, and production deployment."
+  keyword: "browser automation, python, nodriver, web scraping, automation"
+
+  chapters:
+    - index.md
+    - 00-copyright.md
+    - chapter-00.md
+    - part: "Foundations"
+      chapters:
+        - chapter-01.md
+        - chapter-02.md
+        - chapter-03.md
+    - part: "Data & Operations"
+      chapters:
+        - chapter-04.md
+        - chapter-05.md
+        - chapter-06.md
+    - part: "Production"
+      chapters:
+        - chapter-07.md
+        - chapter-08.md
+    - part: "Production Systems"
+      chapters:
+        - part-iv.md
+    - appendix-versions.md
+
+  page-navigation: true
+  cover-image: cover-front.png
+
+format:
+  pdf:
+    documentclass: report
+    classoption:
+      - openany
+    fontsize: 11pt
+    keep-tex: true
+    papersize: letter
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    linkcolor: blue
+    urlcolor: blue
+    citecolor: blue
+    links-as-notes: false
+    pdf-engine: xelatex
+    include-before-body:
+      text: |
+        \renewenvironment{Shaded}{%
+          \begin{tcolorbox}[
+            enhanced,
+            breakable,
+            colback={shadecolor},
+            colframe={shadecolor},
+            leftrule=0.5pt,
+            rightrule=0pt,
+            toprule=0pt,
+            bottomrule=0pt,
+            arc=0pt,
+            outer arc=0pt,
+            left=14pt,
+            right=5pt,
+            top=5pt,
+            bottom=5pt,
+            boxsep=0pt
+          ]%
+        }{%
+          \end{tcolorbox}%
+        }
+        \thispagestyle{empty}
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{C:/Users/varas/personalities/cookbook/book/v1/cover-front.png}}
+        \null
+        \newpage
+        \thispagestyle{empty}
+        \begin{center}
+        \vspace*{4cm}
+        {\Huge\bfseries Python Browser Automation Cookbook}\\[1cm]
+        {\Large Working Smarter with nodriver}\\[2cm]
+        {\large Yasaka Hanini}\\[1cm]
+        {\large \today}
+        \vfill
+        \end{center}
+        \newpage
+    include-after-body:
+      text: |
+        \clearpage
+        \thispagestyle{empty}
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{C:/Users/varas/personalities/cookbook/book/v1/cover-back.png}}
+        \null
+    include-in-header:
+      text: |
+        \setcounter{secnumdepth}{1}
+
+        \usepackage{eso-pic}
+        \usepackage{fvextra}
+        \usepackage{fontspec}
+        \usepackage[most]{tcolorbox}
+        \usepackage{float}
+        \floatplacement{figure}{htbp}
+        \setkeys{Gin}{width=\linewidth,keepaspectratio}
+        \makeatletter
+        \newcommand{\centerfloat}{\centering}
+        \makeatother
+
+        \setmainfont{TeX Gyre Pagella}[
+          Scale=1.0,
+          Ligatures={Common,TeX},
+        ]
+        \setsansfont{TeX Gyre Heros}[
+          Scale=MatchLowercase,
+        ]
+        \setmonofont{TeX Gyre Cursor}[
+          Scale=0.88,
+          Ligatures=NoCommon,
+        ]
+
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[LE,RO]{\slshape \leftmark}
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0.4pt}
+        \renewcommand{\footrulewidth}{0pt}
+
+        \definecolor{codecolor}{HTML}{003b4f}
+        \definecolor{shadecolor}{RGB}{241,243,245}
+
+        \newcommand{\codefs}{\fontsize{9.0}{12}\selectfont}
+
+        \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
+          commandchars=\\\{\},
+          breaklines=true,
+          fontsize=\codefs,
+          formatcom=\color{codecolor}\ttfamily,
+        }
+
+        % Section heading colors
+        \usepackage{titlesec}
+        \titleformat{\chapter}{\Huge\bfseries\color{blue!60!black}}{}{0em}{}
+        \titleformat{\section}{\Large\bfseries\color{blue!50!black}}{}{0em}{}
+        \titleformat{\subsection}{\large\bfseries\color{blue!40!black}}{}{0em}{}
+
+        % Table styling
+        \usepackage{booktabs}
+        \usepackage{array}
+        \renewcommand{\arraystretch}{1.2}
+        \AtBeginEnvironment{longtable}{\small}
+        \AtBeginEnvironment{tabular}{\small}
+
+        % Prevent orphans
+        \clubpenalty=10000
+        \widowpenalty=10000
+    fig-format: png
+    fig-dpi: 300
+    fig-width: 5.5
+    fig-height: 3.5
+    fig-pos: 'htbp'
+
+  epub:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    css: epub.css

@@ -1,0 +1,21 @@
+---
+title: ""
+---
+
+# Production Reference Library
+
+## Browser Automation Engineering — Five-Volume Reference Set
+
+This collection accompanies the *Browser Automation Playbook — Production Engineering Edition* (Version 2.0.0).
+
+| Document | Description |
+|----------|-------------|
+| Architecture Field Guide | Decision matrices, reference architectures, scaling roadmap |
+| Failure Playbook | 15 failure patterns with diagnosis and recovery |
+| Pattern Catalog | 15 engineering patterns with Intent, Context, and Forces |
+| Design Review Checklist | Pre-flight and full review for automation projects |
+| War Stories | 20 production incidents with root cause analysis |
+
+© 2026 Yasaka Hanini. All rights reserved.
+
+Version 2.0.0

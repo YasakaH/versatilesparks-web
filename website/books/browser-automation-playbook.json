@@ -1,0 +1,67 @@
+{
+  "id": "browser-automation-playbook",
+  "title": "Browser Automation Playbook",
+  "subtitle": "Production Engineering Edition",
+  "author": "Yasaka Hanini",
+  "description": "An enterprise-grade handbook for building reliable, self-healing browser automation pipelines. Covers raw Chrome DevTools Protocol (CDP) manipulation, resilient containerization, advanced anti-bot evasion, and system recovery workflows.",
+  "price_usd": 59,
+  "price_inr": 4999,
+  "version": "2.0.0",
+  "released": "2026-07-18",
+  "formats": [
+    "Comprehensive PDF (392 pages, full-color layouts)",
+    "Reflowable EPUB (e-reader and mobile optimized)",
+    "Production-grade Python codebase",
+    "Docker Compose templates for headless clusters",
+    "Standalone Production Reference Library & Failure Case Studies"
+  ],
+  "gumroad_url": "https://gum.co/browser-automation-playbook",
+  "changelog": [
+    {
+      "version": "2.0.0",
+      "date": "2026-07-18",
+      "changes": [
+        "Initial public release (Version 2.0.0).",
+        "392 pages across 14 chapters, including a full Production Reference Library.",
+        "Renamed incident headings to 'Production Incident' and analysis to 'Engineering Analysis' across all chapters.",
+        "Added advanced chapters on Shadow DOM, virtualized lists, Docker Compose, and memory drift daemons."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What browser and tools are used in this playbook?",
+      "a": "This playbook focuses on asynchronous Python automation using 'nodriver' and direct raw Chrome DevTools Protocol (CDP) integration, bypassing high-cost driver layers."
+    },
+    {
+      "q": "What is the 'Production Reference Library' mentioned in the product description?",
+      "a": "It is a standalone, curated PDF set of 20 post-mortem analysis reports, failure scenarios, and design review checklists summarizing five years of real-world enterprise browser automation incidents."
+    },
+    {
+      "q": "Do I need to buy Book 1 first?",
+      "a": "No, Book 2 stands on its own. While Book 1 (Cookbook) is recipe-oriented for specific tasks, Book 2 (Playbook) focuses on the system architecture, reliability engineering, and infrastructure scaling required to run hundreds of headless browsers unattended in production."
+    }
+  ],
+  "toc": [
+    "Part I: Foundations (Chapters 1–5)",
+    "Chapter 1: The Modern Automation Mindset",
+    "Chapter 2: Stable Selectors & Asynchronous Elements",
+    "Chapter 3: Cookie Management & Persistent Profiles",
+    "Chapter 4: Under the Hood: Chrome DevTools Protocol (CDP)",
+    "Chapter 5: Intercepting Network Layers & Request Manipulation",
+    "Part II: Data & Operations (Chapters 6–10)",
+    "Chapter 6: Form Interaction Layers",
+    "Chapter 7: Stealth and Anti-Bot Evasion",
+    "Chapter 8: Data Schemas & Change Auditing",
+    "Chapter 9: Telemetry, Observability & Logs Analysis",
+    "Chapter 10: Scheduling & Production Run Loops",
+    "Part III: Advanced Production (Chapters 11–14)",
+    "Chapter 11: Shadow DOM & iFrame Traversals",
+    "Chapter 12: Traversing Virtualized Lists",
+    "Chapter 13: Containerization & Docker compose Orchestration",
+    "Chapter 14: Self-Healing Workers & Process Recovery",
+    "Part IV: Bonus Content (Reference Library)",
+    "Chapter 15: Failure Playbook (Symptom-to-Diagnosis)",
+    "Chapter 16: Operational checklists & War Stories"
+  ]
+}

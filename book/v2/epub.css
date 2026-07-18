@@ -1,0 +1,90 @@
+/* EPUB Styles */
+body {
+  font-family: serif;
+  line-height: 1.6;
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: sans-serif;
+  page-break-after: avoid;
+}
+
+h1 { font-size: 1.8em; margin-top: 2em; }
+h2 { font-size: 1.4em; margin-top: 1.5em; }
+h3 { font-size: 1.2em; margin-top: 1.2em; }
+
+code {
+  font-family: monospace;
+  font-size: 0.9em;
+  background-color: #f4f4f4;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 1em;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 4px solid #0a7cff;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background: #f0f7ff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.callout {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+}
+
+.callout-note {
+  background: #e8f4fd;
+  border-left: 4px solid #0a7cff;
+}
+
+.callout-warning {
+  background: #fff8e1;
+  border-left: 4px solid #ffa000;
+}
+
+.callout-tip {
+  background: #e8f5e9;
+  border-left: 4px solid #43a047;
+}

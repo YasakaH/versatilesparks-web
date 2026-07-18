@@ -1,0 +1,12 @@
+services:
+  worker:
+    build: .
+    image: browser-worker
+    volumes:
+      - ./data:/app/data
+      - ./profiles:/app/profiles
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    restart: unless-stopped
+    shm_size: 2gb

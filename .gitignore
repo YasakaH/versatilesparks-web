@@ -1,0 +1,29 @@
+# Python envs
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Quarto & TeX Build Outputs
+.quarto/
+*_files/
+*.aux
+*.log
+*.toc
+*.tex
+*.pdf
+*.epub
+book/dist/
+book/dist-v1/
+book/dist-v2/
+dist-v1/
+dist-v2/
+
+# Release bundles (Keep source code only, ignore build outputs)
+releases/
+Products/
+*.zip
+
+# Local configuration
+.env
+.wrangler/

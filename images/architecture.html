@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookbook Architecture</title>
+<style>
+  body { background: #020617; color: #e2e8f0; font-family: 'JetBrains Mono', monospace; margin: 0; padding: 40px; display: flex; justify-content: center; }
+  .container { max-width: 1000px; width: 100%; }
+  h1 { font-size: 24px; color: #22d3ee; border-bottom: 1px solid #1e293b; padding-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .dot { width: 10px; height: 10px; background: #22d3ee; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  svg { width: 100%; background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .card-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .card h3 { margin: 0; font-size: 14px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+  .card ul { margin: 0; padding: 0; list-style: none; }
+  .card li { font-size: 13px; color: #cbd5e1; padding: 4px 0; }
+  .card li::before { content: '> '; color: #475569; }
+  .footer { text-align: center; margin-top: 16px; font-size: 11px; color: #475569; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1><span class="dot"></span> Python Browser Automation Cookbook — Architecture</h1>
+
+  <svg viewBox="0 0 960 520">
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+      </pattern>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+      </marker>
+    </defs>
+    <rect width="960" height="520" fill="url(#grid)"/>
+
+    <!-- Legend -->
+    <rect x="730" y="420" width="210" height="90" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <text x="740" y="440" fill="#475569" font-size="10">Legend</text>
+    <rect x="740" y="448" width="12" height="12" rx="2" fill="rgba(8,51,68,0.4)" stroke="#22d3ee"/>
+    <text x="758" y="458" fill="#94a3b8" font-size="10">Python Script</text>
+    <rect x="740" y="465" width="12" height="12" rx="2" fill="rgba(6,78,59,0.4)" stroke="#34d399"/>
+    <text x="758" y="475" fill="#94a3b8" font-size="10">nodriver / CDP</text>
+    <rect x="740" y="482" width="12" height="12" rx="2" fill="rgba(120,53,15,0.3)" stroke="#fbbf24"/>
+    <text x="758" y="492" fill="#94a3b8" font-size="10">Chrome Browser</text>
+
+    <!-- Background rects for all components -->
+    <rect x="80" y="80" width="220" height="90" rx="6" fill="#0f172a"/>
+    <rect x="80" y="80" width="220" height="90" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="100" y="110" fill="#22d3ee" font-size="12">recipes/</text>
+    <text x="100" y="128" fill="#94a3b8" font-size="9">01_launch_browser.py</text>
+    <text x="100" y="142" fill="#94a3b8" font-size="9">10_retry_failures.py</text>
+    <text x="100" y="156" fill="#94a3b8" font-size="9">... 30 recipes total</text>
+
+    <rect x="370" y="80" width="220" height="90" rx="6" fill="#0f172a"/>
+    <rect x="370" y="80" width="220" height="90" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="390" y="110" fill="#22d3ee" font-size="12">common/</text>
+    <text x="390" y="128" fill="#94a3b8" font-size="9">browser.py — launch/close</text>
+    <text x="390" y="142" fill="#94a3b8" font-size="9">config.py — HEADLESS, TIMEOUT</text>
+    <text x="390" y="156" fill="#94a3b8" font-size="9">logging.py — stdout logger</text>
+    <text x="390" y="170" fill="#94a3b8" font-size="9">retry.py — async retry</text>
+
+    <rect x="660" y="80" width="220" height="90" rx="6" fill="#0f172a"/>
+    <rect x="660" y="80" width="220" height="90" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="680" y="110" fill="#34d399" font-size="12">starter-kit/</text>
+    <text x="680" y="128" fill="#94a3b8" font-size="9">copy → my-project/</text>
+    <text x="680" y="142" fill="#94a3b8" font-size="9">pip install nodriver</text>
+    <text x="680" y="156" fill="#94a3b8" font-size="9">python recipes/example.py</text>
+
+    <!-- Middle layer - nodriver / CDP -->
+    <rect x="320" y="240" width="320" height="70" rx="6" fill="#0f172a"/>
+    <rect x="320" y="240" width="320" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="340" y="268" fill="#34d399" font-size="12">nodriver v0.50.3 (CDP layer)</text>
+    <text x="340" y="288" fill="#94a3b8" font-size="9">Communicates via Chrome DevTools Protocol</text>
+    <text x="340" y="302" fill="#94a3b8" font-size="9">No WebDriver protocol — reduces fingerprints</text>
+
+    <!-- Bottom layer - Chrome -->
+    <rect x="320" y="370" width="320" height="70" rx="6" fill="#0f172a"/>
+    <rect x="320" y="370" width="320" height="70" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="340" y="398" fill="#fbbf24" font-size="12">Chrome Browser</text>
+    <text x="340" y="418" fill="#94a3b8" font-size="9">Persistent profiles, cookies, cache</text>
+    <text x="340" y="432" fill="#94a3b8" font-size="9">Headless / GUI mode via config</text>
+
+    <!-- Arrows between layers -->
+    <line x1="190" y1="170" x2="420" y2="240" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="480" y1="170" x2="480" y2="240" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="770" y1="170" x2="540" y2="240" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="480" y1="310" x2="480" y2="370" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+    <!-- Label on middle arrow -->
+    <rect x="440" y="325" width="90" height="18" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="444" y="338" fill="#64748b" font-size="9">async API calls</text>
+  </svg>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background: #22d3ee;"></div>
+        <h3>30 Recipes</h3>
+      </div>
+      <ul>
+        <li>Part I: Foundations (12)</li>
+        <li>Part II: Interaction (10)</li>
+        <li>Part III: Data (7)</li>
+        <li>Part IV: Production (1)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background: #34d399;"></div>
+        <h3>Key Patterns</h3>
+      </div>
+      <ul>
+        <li>Verify state, don't assume</li>
+        <li>Retry transients, stop on permanents</li>
+        <li>Wait for state, not sleep</li>
+        <li>Stable selectors over brittle</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background: #fbbf24;"></div>
+        <h3>Technical Debt</h3>
+      </div>
+      <ul>
+        <li>Local HTML fixtures (v2)</li>
+        <li>Common selectors.py (v2)</li>
+        <li>CI/CD recipe drift (v2)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    Python Browser Automation Cookbook · v1 · 2026-07-15
+  </div>
+</div>
+</body>
+</html>

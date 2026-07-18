@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python Browser Automation Cookbook — Yasaka Hanini</title>
+<style>
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.48;
+  color: #1e293b;
+  position: relative;
+}
+
+/* Coding-theme geometric watermark — bottom-right, fades toward center */
+.page-watermark {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  height: 58%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20400%27%20width%3D%27400%27%20height%3D%27400%27%3E%20%20%3Cdefs%3E%20%20%20%20%3ClinearGradient%20id%3D%27g%27%20x1%3D%27100%25%27%20y1%3D%27100%25%27%20x2%3D%270%25%27%20y2%3D%270%25%27%3E%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230b1630%27%20stop-opacity%3D%270.14%27/%3E%20%20%20%20%20%20%3Cstop%20offset%3D%2745%25%27%20stop-color%3D%27%230891b2%27%20stop-opacity%3D%270.07%27/%3E%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%230b1630%27%20stop-opacity%3D%270%27/%3E%20%20%20%20%3C/linearGradient%3E%20%20%3C/defs%3E%20%20%3C%21--%20grid%20--%3E%20%20%3Cg%20stroke%3D%27url%28%23g%29%27%20stroke-width%3D%270.8%27%20fill%3D%27none%27%3E%20%20%20%20%3Cpath%20d%3D%27M40%2040h320v320H40z%27/%3E%20%20%20%20%3Cpath%20d%3D%27M40%20120h320M40%20200h320M40%20280h320M120%2040v320M200%2040v320M280%2040v320%27/%3E%20%20%3C/g%3E%20%20%3C%21--%20brackets%20/%20code%20shapes%20--%3E%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%230b1630%27%20stroke-width%3D%271.6%27%20stroke-opacity%3D%270.10%27%3E%20%20%20%20%3Cpath%20d%3D%27M90%2090h40v20h-20v60h20v20H90z%27/%3E%20%20%20%20%3Cpath%20d%3D%27M310%2090h-40v20h20v60h-20v20h40%27/%3E%20%20%20%20%3Cpath%20d%3D%27M160%20300l20-30%2020%2030M200%20300l20-30%2020%2030%27/%3E%20%20%20%20%3Ccircle%20cx%3D%27200%27%20cy%3D%27180%27%20r%3D%2736%27%20stroke-dasharray%3D%274%203%27/%3E%20%20%20%20%3Cpath%20d%3D%27M200%20144v72M164%20180h72%27/%3E%20%20%3C/g%3E%20%20%3C%21--%20nodes%20--%3E%20%20%3Cg%20fill%3D%27%230891b2%27%20fill-opacity%3D%270.08%27%3E%20%20%20%20%3Ccircle%20cx%3D%27120%27%20cy%3D%27120%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%27120%27%20r%3D%274%27/%3E%20%20%20%20%3Ccircle%20cx%3D%27280%27%20cy%3D%27120%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27120%27%20cy%3D%27200%27%20r%3D%274%27/%3E%20%20%20%20%3Ccircle%20cx%3D%27280%27%20cy%3D%27200%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27120%27%20cy%3D%27280%27%20r%3D%274%27/%3E%20%20%20%20%3Ccircle%20cx%3D%27200%27%20cy%3D%27280%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27280%27%20cy%3D%27280%27%20r%3D%274%27/%3E%20%20%3C/g%3E%20%20%3C%21--%20chevrons%20--%3E%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%2322d3ee%27%20stroke-width%3D%271.2%27%20stroke-opacity%3D%270.09%27%3E%20%20%20%20%3Cpath%20d%3D%27M300%20320l24-16-24-16M324%20320l24-16-24-16%27/%3E%20%20%20%20%3Cpath%20d%3D%27M60%20340h80M60%20350h55M60%20360h70%27/%3E%20%20%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  opacity: 1;
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 85% at 100% 100%,
+    rgba(0,0,0,0.95) 0%,
+    rgba(0,0,0,0.45) 42%,
+    rgba(0,0,0,0.12) 68%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 85% at 100% 100%,
+    rgba(0,0,0,0.95) 0%,
+    rgba(0,0,0,0.45) 42%,
+    rgba(0,0,0,0.12) 68%,
+    transparent 100%
+  );
+}
+
+/* Real page margins via padding on the content root */
+main.book {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 16mm 18mm 16mm 18mm;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+main.book > * {
+  max-width: 100%;
+}
+
+/* Major sections only (Chapter / Part / Appendix) force a new page — not every h1 */
+h1 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17pt;
+  font-weight: 650;
+  color: #0b1630;
+  margin: 14pt 0 8pt;
+  padding-bottom: 5pt;
+  border-bottom: 1.2pt solid #0b1630;
+  page-break-before: auto;
+  page-break-after: avoid;
+  line-height: 1.22;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+h1.chapter-start {
+  page-break-before: always;
+  margin-top: 0;
+}
+h1:first-of-type,
+h1.chapter-start:first-of-type {
+  page-break-before: auto;
+}
+
+h2 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: 650;
+  color: #0f2744;
+  margin: 12pt 0 5pt;
+  page-break-after: avoid;
+  line-height: 1.28;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+h3 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5pt;
+  font-weight: 650;
+  color: #1e3a5f;
+  margin: 9pt 0 3pt;
+  page-break-after: avoid;
+  max-width: 100%;
+}
+
+p {
+  margin: 0 0 6.5pt;
+  orphans: 2;
+  widows: 2;
+  text-align: justify;
+  hyphens: auto;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+em { font-style: italic; }
+strong { font-weight: 700; color: #0b1630; }
+
+ul, ol {
+  margin: 0 0 8pt;
+  padding-left: 16pt;
+  max-width: 100%;
+}
+li {
+  margin-bottom: 2.5pt;
+  overflow-wrap: break-word;
+}
+li::marker { color: #64748b; }
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 6pt 0 10pt;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+  font-family: "Segoe UI", Arial, sans-serif;
+  table-layout: fixed;
+}
+th {
+  background: #0b1630;
+  color: #f8fafc;
+  font-weight: 600;
+  text-align: left;
+  padding: 4.5pt 5.5pt;
+  border: 0.4pt solid #0b1630;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+td {
+  padding: 4pt 5.5pt;
+  border: 0.4pt solid #cbd5e1;
+  vertical-align: top;
+  color: #1e293b;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+
+pre {
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-size: 8.5pt;
+  line-height: 1.38;
+  background: #f1f5f9;
+  color: #0f172a;
+  border-left: 2.2pt solid #0b1630;
+  padding: 6pt 8pt;
+  margin: 5pt 0 9pt;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  border-radius: 0 2pt 2pt 0;
+}
+code {
+  font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+  font-size: 9pt;
+  background: #f1f5f9;
+  color: #0f2744;
+  padding: 0.5pt 2.5pt;
+  border-radius: 2pt;
+  word-break: break-word;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+figure {
+  margin: 10pt 0 11pt;
+  page-break-inside: avoid;
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+figure img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 95mm;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 0.4pt solid #e2e8f0;
+  border-radius: 2pt;
+  object-fit: contain;
+}
+figcaption {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 9pt;
+  color: #475569;
+  margin-top: 4pt;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.35;
+  max-width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: 0.4pt solid #cbd5e1;
+  margin: 8pt 0;
+}
+
+blockquote {
+  margin: 6pt 0 9pt;
+  padding: 5pt 9pt;
+  border-left: 2pt solid #0891b2;
+  background: #f0f9ff;
+  color: #0f2744;
+  font-style: italic;
+  max-width: 100%;
+}
+blockquote p { margin-bottom: 0; }
+
+.part-divider {
+  page-break-before: always;
+  margin: 18pt 0 10pt;
+  text-align: center;
+}
+.part-divider h1 {
+  border: none;
+  page-break-before: avoid;
+  font-size: 18pt;
+  letter-spacing: 0.03em;
+  margin: 0 0 6pt;
+}
+.part-divider p {
+  text-align: center;
+  color: #64748b;
+  font-size: 11pt;
+  font-style: italic;
+}
+
+</style>
+</head>
+<body>
+<div class="page-watermark" aria-hidden="true"></div>
+<main class="book">
+<h2>Table of Contents</h2>
+<p><strong>Preface</strong> <strong>The Production Mindset</strong> <strong>How This Book Works</strong> <strong>How nodriver Actually Works</strong></p>
+<p><strong>Chapter 0: Before You Begin</strong> — 0.1 Required Environment — 0.2 Verify Python — 0.3 Create Project Environment — 0.4 Install Dependencies — 0.5 Verify Chrome Installation — 0.6 First Test</p>
+<p><strong>Part I — Foundations</strong></p>
+<ul>
+<li>Chapter 1: Getting Started (4 recipes)</li>
+<li>Chapter 2: Browser Control (4 recipes)</li>
+<li>Chapter 3: Production Foundations (4 recipes)</li>
+</ul>
+<p><strong>Part II — Interaction</strong></p>
+<ul>
+<li>Chapter 4: Elements &amp; Forms (6 recipes)</li>
+<li>Chapter 5: Authentication &amp; Sessions (4 recipes)</li>
+</ul>
+<p><strong>Part III — Extraction &amp; Downloads</strong></p>
+<ul>
+<li>Chapter 6: Data Collection (5 recipes)</li>
+</ul>
+<p><strong>Part IV — Production</strong></p>
+<ul>
+<li>Chapter 7: Reliable Automation (2 recipes)</li>
+<li>Chapter 8: Starter Kit (1 recipe)</li>
+</ul>
+<p><strong>Appendix: Common Patterns &amp; Reference</strong></p>
+<hr />
+<h1 class="chapter-start">Preface</h1>
+<h2>Why Browser Automation Breaks</h2>
+<p>Browser automation has a dirty secret.</p>
+<p>Most scripts work once. Then the page changes, the selector breaks, the network flakes, and you spend two hours debugging why a button click stopped working.</p>
+<p>This isn&#x27;t your fault. Most browser automation material is written by people who have automated one thing once. This book is written from dozens of production automation projects that had to survive broken selectors, flaky networks, unexpected modals, and all the other ways the real world breaks optimistic code.</p>
+<h2>What Makes This Book Different</h2>
+<ol>
+<li><strong>Depth over breadth</strong> — 30 recipes, each with decision tables, failure modes, and production rules. Not 100 shallow snippets.</li>
+<li><strong>Correct API usage</strong> — Every recipe uses tested nodriver calls. No deprecated patterns.</li>
+<li><strong>Progressive complexity</strong> — Each chapter builds on the previous one. By Chapter 8 you are generating reusable project scaffolds.</li>
+<li><strong>Senior engineer voice</strong> — The goal is to teach judgment, not APIs. You finish each chapter understanding <em>why</em>, not just <em>how</em>.</li>
+</ol>
+<h2>Who This Book Is For</h2>
+<p>You know Python. You have written some async code. You want to automate browser tasks that are reliable enough to run unattended.</p>
+<p>Not a Python beginner. Not a senior automation architect. Somewhere in between, wanting to close the gap between hobby scripts and production automation.</p>
+<h2>What You Need</h2>
+<ul>
+<li>Python 3.11+</li>
+<li>A computer with Chrome or Brave installed</li>
+<li>20 minutes to set up the environment in Chapter 0</li>
+<li>Patience for the first few recipes while the concepts solidify</li>
+</ul>
+<hr />
+<h1>The Production Mindset</h1>
+<p>Before you write a single line of code, understand this:</p>
+<p><strong>Every production automation problem falls into five categories.</strong></p>
+<table>
+<thead><tr><th>#</th><th>Category</th><th>Covers</th><th>Chapter</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Browser lifecycle</td><td>Launch, close, profiles, tabs</td><td>1</td></tr>
+<tr><td>2</td><td>Waiting and state</td><td>When to act, when to wait</td><td>3</td></tr>
+<tr><td>3</td><td>Element reliability</td><td>Which selectors survive redesigns</td><td>4</td></tr>
+<tr><td>4</td><td>Authentication state</td><td>Logins, cookies, sessions</td><td>5</td></tr>
+<tr><td>5</td><td>Failure recovery</td><td>When to retry, when to stop</td><td>7</td></tr>
+</tbody></table>
+<p>Every recipe in this book solves exactly one of these five problems. When you encounter a new automation challenge in your own work, ask: <em>&quot;Which of the five categories does this belong to?&quot;</em> The answer tells you which chapter to revisit.</p>
+<hr />
+<h1>How This Book Works</h1>
+<h2>Structure</h2>
+<p>8 chapters, 30 recipes. Each chapter teaches a cohesive set of skills.</p>
+<p>Every recipe follows the same structure:</p>
+<ul>
+<li><strong>Why This Matters</strong> — The real-world motivation</li>
+<li><strong>The Code</strong> — A complete, runnable example</li>
+<li><strong>Code Walkthrough</strong> — What each part does and why it exists</li>
+<li><strong>Decision Table</strong> — When to use this approach vs alternatives</li>
+<li><strong>Production Rule</strong> — One sentence to remember</li>
+<li><strong>Used In Real Projects</strong> — Legitimate use cases and when to avoid</li>
+</ul>
+<h2>Running Recipes</h2>
+<p>Every recipe is a standalone Python script. Run from the cookbook root:</p>
+<pre><code class="lang-bash">PYTHONPATH=. python recipes/01_launch_browser.py</code></pre>
+<h2>The Common Module</h2>
+<p><code>common/</code> contains shared code reused across recipes. It is also the library you will copy into your own projects (Recipe 30 shows how).</p>
+<table>
+<thead><tr><th>File</th><th>Lines</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>browser.py</code></td><td>30</td><td>Launch and close browser sessions</td></tr>
+<tr><td><code>config.py</code></td><td>25</td><td>Centralized defaults (headless, timeout, ports)</td></tr>
+<tr><td><code>logging.py</code></td><td>20</td><td>Standard output logger</td></tr>
+<tr><td><code>retry.py</code></td><td>50</td><td>Async retry with configurable backoff</td></tr>
+</tbody></table>
+<h2>Images and Diagrams</h2>
+<p>Visual assets are in <code>images/</code>. Open the Mermaid HTML file in a browser to see the flowcharts inline.</p>
+<hr />
+<h1>How nodriver Actually Works</h1>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/cookbook_architecture.png" alt="Figure 1. Cookbook architecture — recipes share a common layer over nodriver CDP." />
+  <figcaption>Figure 1. Cookbook architecture — recipes share a common layer over nodriver CDP.</figcaption>
+</figure>
+<p>This single page explains the entire book.</p>
+<p>Most developers think browser automation works like this:</p>
+<pre><code class="lang-">Python script  →  directly controls  →  HTML page</code></pre>
+<p><strong>That is wrong.</strong></p>
+<p>The real architecture is a chain of processes:</p>
+<pre><code class="lang-">Your Python Application (asyncio)
+        │
+        │  async function calls
+        ▼
+nodriver (Python library)
+        │
+        │  serializes to CDP JSON messages
+        ▼
+Chrome DevTools Protocol (WebSocket)
+        │
+        │  sent over local WebSocket connection
+        ▼
+Chrome Browser Process (separate OS process)
+        │
+        │  interprets commands, executes in renderer
+        ▼
+Website (remote server)</code></pre>
+<h2>Why This Architecture Matters</h2>
+<p><strong>Everything is async.</strong> Your Python code sends a command (like &quot;click this button&quot;) and waits for a response. The browser processes the command in its own event loop. This is why every nodriver call uses <code>await</code>.</p>
+<p><strong>Browser sessions disconnect.</strong> If your Python process crashes, the browser keeps running. If the browser crashes, CDP errors propagate back. You must handle both directions.</p>
+<p><strong>Profiles are OS-level directories.</strong> Chrome stores cookies, local storage, and extensions in a directory on your filesystem. Pointing to the same directory across runs preserves state. Wiping the directory starts fresh.</p>
+<p><strong>CDP is not Selenium WebDriver.</strong> CDP is Chrome&#x27;s native debugging protocol. It has no extra abstraction layer. This makes nodriver faster and more direct than Selenium, but also means you are working closer to the metal.</p>
+<p><strong>Understanding this chain is the single most important thing in this book.</strong> Every recipe assumes you know what CDP is and why your Python code talks to a browser process, not to HTML directly.</p>
+<hr />
+<h1 class="chapter-start">Chapter 0: Before You Begin</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Most setup guides tell you to &quot;pip install nodriver&quot; and call it done. Then you hit the first error — wrong Python version, missing Chrome, permission issues, version mismatch — and you have no mental map of what&#x27;s broken.</p>
+<p>This chapter walks through a complete, verified setup. By the end, you have launched a browser from Python and closed it successfully. Chapter 1 starts from there.</p>
+<hr />
+<h2>0.1 Required Environment</h2>
+<p>Your automation stack has five layers. Every layer must be present and compatible.</p>
+<pre><code class="lang-">Your Machine (Windows / macOS / Linux)
+        │
+Python 3.11+ (virtual environment)
+        │
+nodriver 0.50.3 (pip package)
+        │
+Chrome 130+ (browser)
+        │
+Your Automation Scripts</code></pre>
+<p>The next five sections verify each layer.</p>
+<hr />
+<h2>0.2 Verify Python</h2>
+<p>Open a terminal and run:</p>
+<pre><code class="lang-bash">python --version</code></pre>
+<p><strong>Expected output:</strong></p>
+<pre><code class="lang-">Python 3.11.x</code></pre>
+<p><strong>Why 3.11?</strong> Three reasons:</p>
+<ol>
+<li><strong>Async performance</strong> — Python 3.11 optimized async task switching. Browser automation makes thousands of async calls per session. The speed difference vs 3.9 is measurable.</li>
+<li><strong>Error messages</strong> — 3.11+ pinpoints the exact expression that failed in a traceback. When a <code>page.find()</code> returns None and your code crashes on <code>None.text</code>, the traceback shows you exactly where.</li>
+<li><strong>Typing support</strong> — 3.11 added <code>Self</code> type and improved <code>TypedDict</code>. nodriver&#x27;s type hints are most accurate under 3.11+.</li>
+</ol>
+<p>If you see 3.8 or lower, install Python 3.11 from [python.org](https://python.org) before proceeding.</p>
+<hr />
+<h2>0.3 Create Project Environment</h2>
+<p>Never install automation dependencies globally. Browser tooling has frequent version conflicts with system packages and other projects.</p>
+<pre><code class="lang-bash">mkdir browser-automation-project
+cd browser-automation-project
+python -m venv .venv</code></pre>
+<p>Activate the environment:</p>
+<p><strong>Windows (cmd/PowerShell):</strong></p>
+<pre><code class="lang-bash">.venv\Scripts\activate</code></pre>
+<p><strong>Windows (Git Bash):</strong></p>
+<pre><code class="lang-bash">source .venv/Scripts/activate</code></pre>
+<p><strong>macOS / Linux:</strong></p>
+<pre><code class="lang-bash">source .venv/bin/activate</code></pre>
+<p>Your prompt should now show <code>(.venv)</code> at the beginning.</p>
+<hr />
+<h2>0.4 Install Dependencies</h2>
+<p>Upgrade pip first. Pip versions older than 22 can silently install wrong versions.</p>
+<pre><code class="lang-bash">pip install --upgrade pip
+pip install nodriver==0.50.3</code></pre>
+<p>Pin the version in a requirements file. This ensures reproducible installs across machines and deployments.</p>
+<pre><code class="lang-bash">pip freeze &gt; requirements.txt</code></pre>
+<p><strong>Why pin nodriver?</strong> Browser automation is sensitive to three things that change between versions:</p>
+<ul>
+<li><strong>Chromium protocol changes</strong> — Chrome updates the CDP protocol frequently. nodriver must match.</li>
+<li><strong>API surface changes</strong> — What worked in 0.48 may not work in 0.50.</li>
+<li><strong>Bug fixes</strong> — A patch version may change behavior of <code>find()</code>, <code>click()</code>, or <code>send_keys()</code>.</li>
+</ul>
+<p>A <code>requirements.txt</code> with pinned versions is your insurance against &quot;it worked yesterday.&quot;</p>
+<hr />
+<h2>0.5 Verify Chrome Installation</h2>
+<p>nodriver controls Chrome. It does not replace Chrome.</p>
+<p><strong>Windows:</strong> Open Chrome and go to <code>chrome://version</code>. Note the version number.</p>
+<p><strong>macOS / Linux:</strong></p>
+<pre><code class="lang-bash">google-chrome --version
+# or
+chromium-browser --version</code></pre>
+<p><strong>Expected:</strong> Version 130 or higher.</p>
+<p><strong>What if Chrome is not installed?</strong> Download from [google.com/chrome](https://google.com/chrome). Chromium (the open-source base) also works.</p>
+<p><strong>What about Brave, Edge, or other Chromium browsers?</strong> They work. Specify the executable path when calling <code>launch_browser()</code>. The cookbook uses Chrome by default.</p>
+<hr />
+<h2>0.6 First Test</h2>
+<p>Create a small verification script before running any recipes.</p>
+<p>Create <code>test_browser.py</code>:</p>
+<pre><code class="lang-python">import asyncio
+import nodriver as uc
+
+async def main():
+    browser = await uc.start()
+    page = await browser.get(&quot;https://example.com&quot;)
+    title = await page.title()
+    print(f&quot;Chrome opened. Page: {title}&quot;)
+    browser.stop()
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<p>Run it:</p>
+<pre><code class="lang-bash">python test_browser.py</code></pre>
+<p><strong>Expected output:</strong></p>
+<pre><code class="lang-">Chrome opened. Page: Example Domain</code></pre>
+<p><strong>What to check for:</strong></p>
+<table>
+<thead><tr><th>Observation</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>Chrome window appears and closes</td><td>Browser works, CDP connected</td></tr>
+<tr><td>Error &quot;Chrome not found&quot;</td><td>Chrome path missing</td></tr>
+<tr><td>Error &quot;Connection refused&quot;</td><td>Port conflict, close other Chrome instances</td></tr>
+<tr><td>Error &quot;ModuleNotFoundError: nodriver&quot;</td><td>Environment not activated or not installed</td></tr>
+</tbody></table>
+<p><strong>If the test fails:</strong> Fix the issue now. Every recipe in this book assumes a working browser connection. Debugging a broken environment while learning new concepts is frustrating and unnecessary.</p>
+<hr />
+<h2>You are ready for Recipe 1.</h2>
+<hr />
+<div class="part-divider"><h1>Part I — Foundations</h1></div>
+<p>The first three chapters give you everything you need to launch a browser, control it, and write robust automation on top of it. By the end of Part I, you will understand the browser lifecycle (category 1), waiting and state (category 2), and have reusable infrastructure for every automation project.</p>
+<hr />
+<h1 class="chapter-start">Chapter 1: Getting Started</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Browser automation fails most often because developers treat the browser as a simple object. It is not. It is a separate operating system process that speaks a wire protocol. Launching it, managing its lifecycle, and reusing its state across runs are not &quot;setup steps.&quot; They are the foundation your automation reliability depends on.</p>
+<p>This chapter covers four recipes. Each solves one piece of the browser lifecycle:</p>
+<ol>
+<li>Launch and close — the minimal loop</li>
+<li>Tabs — working with multiple pages</li>
+<li>Profiles — persisting state across runs</li>
+<li>Configuration — controlling how the browser starts</li>
+</ol>
+<hr />
+<h2>Recipe 1: Launch and Close a Browser</h2>
+<p><strong>File:</strong> <code>recipes/01_launch_browser.py</code> <strong>Images:</strong> <code>images/cookbook_mermaid.html</code> (Diagram 6 — Architecture)</p>
+<h3>Why This Matters</h3>
+<p>Your Python code controls a <strong>separate Chrome process</strong> through a <strong>WebSocket connection</strong>. This is not a library calling internal functions. It is an inter-process communication channel. If you do not understand this, every timeout error and connection refused will look like a bug when it is actually a lifecycle misunderstanding.</p>
+<p>The minimal loop — launch, navigate, close — is the heartbeat of every automation project. Get this right and everything else follows.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    title = await page.title()
+    print(f&quot;Page title: {title}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>launch_browser()</code> starts Chrome with a temporary profile and connects via CDP. Every call gets a clean session with no leftover state from previous runs.</p>
+<p><code>browser.get()</code> navigates to a URL and returns an object representing the page. It waits for the page&#x27;s load event before returning.</p>
+<p><code>await page.title()</code> retrieves the document title. This is a simple CDP script evaluation.</p>
+<p><code>close_browser()</code> terminates the browser process. If you forget this, Chrome stays running in the background.</p>
+<h3>Decision Table</h3>
+<table>
+<thead><tr><th>Goal</th><th>Fresh launch</th><th>Reuse profile</th></tr></thead>
+<tbody>
+<tr><td>One-off scrape</td><td>✅</td><td>❌</td></tr>
+<tr><td>Run every hour</td><td>❌</td><td>✅</td></tr>
+<tr><td>Test environment</td><td>✅</td><td>❌</td></tr>
+<tr><td>Authenticated session</td><td>❌</td><td>✅</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Always call <code>close_browser()</code>. An orphaned browser process consumes memory and may block the CDP port for the next run.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> One-off scrapes, testing, development exploration. <strong>Avoid:</strong> Long-running servers where browser instances accumulate.</p>
+<hr />
+<h2>Recipe 2: Open and Manage Browser Tabs</h2>
+<p><strong>File:</strong> <code>recipes/02_manage_tabs.py</code></p>
+<h3>Why This Matters</h3>
+<p>Each browser tab is an independent execution context with its own cookies, local storage, and DOM. When you open a new tab, you get a fresh environment even within the same browser process. This is useful for parallel scraping, multi-account testing, and separating concerns without launching multiple browser processes.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    tab1 = await browser.get(&quot;https://example.com&quot;)
+    tab2 = await browser.create_new_page()
+    await tab2.get(&quot;https://httpbin.org&quot;)
+    all_tabs = browser.tabs
+    print(f&quot;Open tabs: {len(all_tabs)}&quot;)
+    await tab1.bring_to_front()
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>browser.create_new_page()</code> opens a blank tab. <code>browser.get()</code> can also create a new tab if the current one is busy. <code>browser.tabs</code> returns the list of open tab objects. <code>bring_to_front()</code> activates a specific tab, which matters for screenshots and focus-dependent interactions.</p>
+<h3>Decision Table</h3>
+<table>
+<thead><tr><th>Scenario</th><th>New tab</th><th>Reuse tab</th></tr></thead>
+<tbody>
+<tr><td>Parallel data collection from different domains</td><td>✅</td><td>❌</td></tr>
+<tr><td>Sequential navigation on one site</td><td>❌</td><td>✅</td></tr>
+<tr><td>Login first, then scrape</td><td>❌</td><td>✅</td></tr>
+<tr><td>Compare two pages simultaneously</td><td>✅</td><td>❌</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Use tabs for parallel work, not sequential steps. A single tab with sequential navigation is simpler and less error-prone.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Price comparison, multi-site monitoring, A/B testing tools. <strong>Avoid:</strong> Long-running automation where tabs accumulate memory.</p>
+<hr />
+<h2>Recipe 3: Reuse a Browser Profile Across Sessions</h2>
+<p><strong>File:</strong> <code>recipes/03_persistent_profile.py</code></p>
+<h3>Why This Matters</h3>
+<p>Every fresh browser launch starts with no cookies, no local storage, no saved logins. For automation that needs to stay logged in across runs, you need a persistent profile directory. The profile is a directory on your filesystem where Chrome stores its state. Point to the same directory every time, and you get the same session.</p>
+<h3>What&#x27;s Inside a Browser Profile</h3>
+<table>
+<thead><tr><th>Data</th><th>Stored?</th><th>Useful For</th></tr></thead>
+<tbody>
+<tr><td>Cookies</td><td>✅</td><td>Login session</td></tr>
+<tr><td>Local storage</td><td>✅</td><td>Site preferences</td></tr>
+<tr><td>Cache</td><td>✅</td><td>Faster page loads</td></tr>
+<tr><td>Extensions</td><td>✅</td><td>Custom browser tools</td></tr>
+<tr><td>History</td><td>❌</td><td>Not useful for automation</td></tr>
+</tbody></table>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+PROFILE_DIR = Path(&quot;./profiles/my_profile&quot;)
+PROFILE_DIR.mkdir(parents=True, exist_ok=True)
+
+async def main():
+    browser = await launch_browser(user_data_dir=str(PROFILE_DIR))
+    page = await browser.get(&quot;https://example.com&quot;)
+    print(f&quot;Using profile: {PROFILE_DIR}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>user_data_dir</code> tells Chrome where to store and load profile data. On the first run, Chrome creates the directory with default settings. On subsequent runs, Chrome loads the existing data, including cookies and local storage.</p>
+<h3>Decision Table</h3>
+<table>
+<thead><tr><th>Factor</th><th>Fresh profile</th><th>Persistent profile</th></tr></thead>
+<tbody>
+<tr><td>Start clean</td><td>✅ Always</td><td>❌ Has previous state</td></tr>
+<tr><td>Resume login</td><td>❌</td><td>✅</td></tr>
+<tr><td>Disk usage</td><td>None</td><td>~50 MB after first run</td></tr>
+<tr><td>Reproducibility</td><td>High</td><td>Depends on state</td></tr>
+<tr><td>Security risk</td><td>Minimal</td><td>Profile has data</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Use persistent profiles for authenticated sessions. Use fresh profiles for one-off scrapes where reproducibility matters more than speed.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Daily dashboard data collection, admin panel automation, internal tool workflows. <strong>Avoid:</strong> CI/CD pipelines where each run must start from a known clean state.</p>
+<hr />
+<h2>Recipe 4: Customize Browser Startup Options</h2>
+<p><strong>File:</strong> <code>recipes/04_configure_startup.py</code></p>
+<h3>Why This Matters</h3>
+<p>Default Chrome settings assume a human user with a monitor and keyboard. Automation often needs no window, no extensions, no audio, or a specific viewport. These are not preferences. They are configuration that affects whether your automation works at all in a given environment.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+import os
+from common.browser import launch_browser, close_browser
+
+async def main():
+    headless = os.environ.get(&quot;HEADLESS&quot;, &quot;false&quot;).lower() == &quot;true&quot;
+    browser = await launch_browser(
+        headless=headless,
+        window_size=(1920, 1080),
+        arguments=[&quot;--disable-extensions&quot;, &quot;--mute-audio&quot;],
+    )
+    page = await browser.get(&quot;https://example.com&quot;)
+    print(f&quot;Headless: {headless}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>launch_browser()</code> passes <code>headless</code>, <code>window_size</code>, and <code>arguments</code> through to Chrome. The <code>config.py</code> module provides defaults so you don&#x27;t repeat arguments in every script.</p>
+<h3>Decision Table</h3>
+<table>
+<thead><tr><th>Argument</th><th>Effect</th><th>Use Case</th></tr></thead>
+<tbody>
+<tr><td><code>--headless=new</code></td><td>No visible window</td><td>Servers, CI</td></tr>
+<tr><td><code>--window-size=1920,1080</code></td><td>Large desktop viewport</td><td>Layout-dependent automation</td></tr>
+<tr><td><code>--disable-extensions</code></td><td>Fewer processes, less memory</td><td>Scraping</td></tr>
+<tr><td><code>--mute-audio</code></td><td>No sound</td><td>Background execution</td></tr>
+<tr><td><code>--proxy-server=...</code></td><td>Route traffic</td><td>IP rotation, geo-testing</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Put browser arguments in <code>config.py</code>, not in your recipe scripts. When a Chrome update deprecates an argument, you change it in one place.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Server deployments, Docker containers, scheduled cron tasks. <strong>Avoid:</strong> No situation — every automation project needs configuration.</p>
+<hr />
+<h1 class="chapter-start">Chapter 2: Browser Control</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Launching a browser is one thing. Controlling it — navigating, capturing state, running scripts inside pages, inspecting cookies — is another. Most developers know the first recipe and skip the next three. Then they hit a problem that screenshots or JavaScript or state inspection would have solved in seconds.</p>
+<p>This chapter covers four browser control operations you will use in nearly every automation project.</p>
+<hr />
+<h2>Recipe 5: Navigate Like a User</h2>
+<p><strong>File:</strong> <code>recipes/05_navigation.py</code></p>
+<h3>Why This Matters</h3>
+<p>Navigation is not just &quot;go to a URL.&quot; You need to scroll, wait for JavaScript-rendered content, and verify where the browser ended up. A navigation that works on your machine may timeout on a server.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org&quot;)
+    await page.scroll_down(delta_y=500)
+    await page.sleep(1)
+    url = page.url
+    print(f&quot;Current URL: {url}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>browser.get()</code> waits for the load event. <code>scroll_down()</code> moves the viewport. <code>page.url</code> reads the current URL synchronously.</p>
+<h3>Production Rule</h3>
+<p>Do not use <code>time.sleep()</code>. Use nodriver&#x27;s built-in wait mechanisms (Recipe 9).</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Any automation that visits multiple pages. <strong>Avoid:</strong> API-first applications where the browser is just a rendering layer.</p>
+<hr />
+<h2>Recipe 6: Capture Screenshots</h2>
+<p><strong>File:</strong> <code>recipes/06_screenshots.py</code></p>
+<h3>Why This Matters</h3>
+<p>Screenshots are your primary debugging tool when automation runs unattended. A log message says &quot;button not found.&quot; A screenshot shows <em>why</em> — cookie banner covering it, page still loading, unexpected error page.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    await page.save_screenshot()
+    print(&quot;Screenshot captured&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>page.save_screenshot()</code> captures the visible viewport. Without a path argument, it saves to a timestamped filename. Provide a path to save with a known name.</p>
+<h3>Production Rule</h3>
+<p>Capture screenshots on failure, not on every step. Too many screenshots slow automation and fill disk space.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Debugging CI failures, visual regression testing, generating previews. <strong>Avoid:</strong> High-frequency automation where disk I/O matters.</p>
+<hr />
+<h2>Recipe 7: Execute JavaScript in the Page</h2>
+<p><strong>File:</strong> <code>recipes/07_javascript.py</code></p>
+<h3>Why This Matters</h3>
+<p>Not everything is exposed through nodriver&#x27;s API. Sometimes you need to read data that only exists in JavaScript memory, trigger a function, or measure page performance. <code>evaluate()</code> is your escape hatch.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    try:
+        result = await page.evaluate(&quot;document.title&quot;)
+        print(f&quot;Title via JS: {result}&quot;)
+        dimensions = await page.evaluate(&quot;({w: innerWidth, h: innerHeight})&quot;)
+        print(f&quot;Viewport: {dimensions[&#x27;w&#x27;]}x{dimensions[&#x27;h&#x27;]}&quot;)
+    except Exception as e:
+        print(f&quot;JS execution failed: {e}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>page.evaluate()</code> runs JavaScript in the page context. Return values are serialized to JSON. You can return numbers, strings, arrays, objects. You cannot return DOM elements or functions.</p>
+<h3>Why It Fails</h3>
+<table>
+<thead><tr><th>Issue</th><th>Symptom</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Page not loaded</td><td>Timeout</td><td>Wait before evaluating</td></tr>
+<tr><td>DOM element returned</td><td>Serialization error</td><td>Extract properties in JS</td></tr>
+<tr><td>Content Security Policy</td><td>Blocked</td><td>Cannot bypass</td></tr>
+<tr><td>Too-large result</td><td>Truncated</td><td>Return smaller objects</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Always wrap <code>evaluate()</code> in try/except. JS execution is the most common single point of failure in browser automation.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Extracting SPA state, triggering React/Vue actions, reading performance metrics. <strong>Avoid:</strong> Data available through <code>element.text</code> or <code>element.attrs</code> — those are faster.</p>
+<hr />
+<h2>Recipe 8: Inspect Browser State</h2>
+<p><strong>File:</strong> <code>recipes/08_browser_state.py</code></p>
+<h3>Why This Matters</h3>
+<p>Automation produces side effects: cookies set, local storage populated, session tokens created. Inspecting this state is how you verify that your automation actually did what you think it did.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org/cookies/set?name=value&quot;)
+    cookies = browser.cookies
+    print(f&quot;Cookies: {cookies}&quot;)
+    ls = await page.get_local_storage()
+    print(f&quot;Local storage: {ls}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>browser.cookies</code> returns all browser cookies as a list of dictionaries. Each includes <code>name</code>, <code>value</code>, <code>domain</code>, <code>path</code>, <code>httpOnly</code>, <code>secure</code>, and <code>expires</code>. <code>get_local_storage()</code> returns all local storage key-value pairs for the current origin.</p>
+<h3>Production Rule</h3>
+<p>Read state to verify automation side effects. Do not assume the browser state is what you expect.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Debugging login flows, verifying session persistence, auditing cookie scope. <strong>Avoid:</strong> Production logging of cookie values (security risk).</p>
+<hr />
+<h1 class="chapter-start">Chapter 3: Production Foundations</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Developers skip the &quot;boring&quot; stuff — waiting, retrying, logging, configuration — and jump straight to interaction scripts. Their scripts work for a day, then break on a slow network, a missing element, or an unhandled error. The boring stuff is not boring. It is the difference between a script and a system.</p>
+<hr />
+<h2>Recipe 9: Wait for Meaningful State</h2>
+<p><strong>File:</strong> <code>recipes/09_wait_for_elements.py</code></p>
+<h3>Why This Matters</h3>
+<p>The most common root cause of automation failures is acting before the page is ready. Developers write <code>time.sleep(3)</code> which works on their machine and breaks on the server. The fix is not a longer sleep. The fix is waiting for a specific condition.</p>
+<h3>Wait for What Matters</h3>
+<table>
+<thead><tr><th>Condition</th><th>What it signals</th><th>How to Wait</th></tr></thead>
+<tbody>
+<tr><td>Element exists</td><td>In the DOM</td><td><code>page.find(&quot;selector&quot;, timeout=N)</code></td></tr>
+<tr><td>Text appears</td><td>Content rendered</td><td><code>page.wait_for(text=&quot;...&quot;)</code></td></tr>
+<tr><td>Spinner disappears</td><td>Loading finished</td><td>Poll until not found</td></tr>
+<tr><td>URL changed</td><td>Navigation completed</td><td>Check <code>page.url</code></td></tr>
+<tr><td>Element removed</td><td>Action processed</td><td>Poll until element gone</td></tr>
+</tbody></table>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    heading = await page.find(&quot;h1&quot;, timeout=5)
+    if heading:
+        print(f&quot;Heading: {heading.text}&quot;)
+    link = await page.find(&quot;a&quot;)
+    if link:
+        print(f&quot;First link: {link.text}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>page.find()</code> with a <code>timeout</code> waits up to that many seconds. nodriver retries internally. Without a timeout, it returns immediately or returns None.</p>
+<h3>Decision Table: Wait Strategy</h3>
+<table>
+<thead><tr><th>Page Type</th><th>Strategy</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Static HTML</td><td>No wait</td><td>Content is immediate</td></tr>
+<tr><td>Server-rendered</td><td><code>find()</code> with 5s timeout</td><td>Server response time</td></tr>
+<tr><td>SPA</td><td><code>find()</code> + text check</td><td>JS renders asynchronously</td></tr>
+<tr><td>Infinite scroll</td><td>Scroll + item count</td><td>Multiple load events</td></tr>
+<tr><td>With loading spinners</td><td>Wait for spinner to disappear</td><td>Signals loading complete</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Never use <code>time.sleep()</code>. Wait for a specific condition. If you do not know what to wait for, your automation is guessing.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Every automation project without exception. <strong>Avoid:</strong> No situation. You always need to wait for something.</p>
+<hr />
+<h2>Recipe 10: Retry Transient Failures</h2>
+<p><strong>File:</strong> <code>recipes/10_retry_failures.py</code></p>
+<h3>Why This Matters</h3>
+<p>Networks fail. Servers timeout. Pages crash. Some failures are temporary and worth retrying. Others are permanent and retrying wastes time. The skill is knowing the difference.</p>
+<h3>When to Retry vs When to Stop</h3>
+<table>
+<thead><tr><th>Failure</th><th>Retry?</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>TimeoutError</td><td>✅</td><td>Network blip, server under load</td></tr>
+<tr><td>ConnectionError</td><td>✅</td><td>Temporary routing issue</td></tr>
+<tr><td>HTTP 500 / 502 / 503</td><td>✅</td><td>Server may recover</td></tr>
+<tr><td>Element not found once</td><td>✅</td><td>Page may not be ready</td></tr>
+<tr><td>Invalid CSS selector</td><td>❌</td><td>Will never work</td></tr>
+<tr><td>Invalid credentials</td><td>❌</td><td>Will never work</td></tr>
+<tr><td>CAPTCHA</td><td>❌</td><td>Will not resolve itself</td></tr>
+<tr><td>Element not found after 3 retries</td><td>❌</td><td>Page likely changed</td></tr>
+</tbody></table>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+from common.retry import retry
+
+async def main():
+    browser = await launch_browser()
+    page = await retry(
+        browser.get,
+        &quot;https://httpbin.org/delay/3&quot;,
+        exceptions=(TimeoutError, ConnectionError),
+        max_retries=3,
+        delay=1,
+    )
+    print(f&quot;Loaded: {await page.title()}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p>The <code>retry()</code> helper takes a callable and retryable exceptions. If the callable raises one of those, it waits <code>delay</code> seconds and tries again, up to <code>max_retries</code> times.</p>
+<p><strong>Bad practice:</strong></p>
+<pre><code class="lang-python">await retry(fn, exceptions=(Exception,))  # Retries everything</code></pre>
+<p>A selector typo gets retried 3 times before failing. Wasted time, hides bugs.</p>
+<p><strong>Good practice:</strong></p>
+<pre><code class="lang-python">await retry(fn, exceptions=(TimeoutError, ConnectionError))  # Only transient</code></pre>
+<p>A typo fails immediately on the first call. You see the error and fix it.</p>
+<h3>Production Rule</h3>
+<p>Be specific about which exceptions to retry. A broad <code>except Exception</code> hides bugs behind retries.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Network-dependent operations, page loads, form submissions. <strong>Avoid:</strong> Local operations (file reads, selector queries) that never fail transiently.</p>
+<hr />
+<h2>Recipe 11: Add Useful Logging</h2>
+<p><strong>File:</strong> <code>recipes/11_logging.py</code></p>
+<h3>Why This Matters</h3>
+<p>Unattended automation produces no visible output. When it fails, you need to know <em>where</em> and <em>why</em> without re-running. Good logging answers both questions.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+from common.logging import logger
+
+async def main():
+    logger.info(&quot;Starting browser automation&quot;)
+    browser = await launch_browser()
+    logger.info(&quot;Browser launched&quot;)
+    page = await browser.get(&quot;https://example.com&quot;)
+    title = await page.title()
+    logger.info(f&quot;Page loaded: {title}&quot;)
+    await close_browser(browser)
+    logger.info(&quot;Done&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p>The <code>logger</code> wraps Python&#x27;s standard logging with a consistent format. Log levels:</p>
+<table>
+<thead><tr><th>Level</th><th>When to Use</th></tr></thead>
+<tbody>
+<tr><td><code>debug</code></td><td>Development details you turn off in production</td></tr>
+<tr><td><code>info</code></td><td>Normal progress milestones</td></tr>
+<tr><td><code>warning</code></td><td>Something unexpected but recoverable</td></tr>
+<tr><td><code>error</code></td><td>Failure that stops automation</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Log at <code>info</code> for normal progress and <code>error</code> for failures. Use <code>debug</code> during development and turn it off in production. Too much logging is as bad as too little.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Every unattended automation run. <strong>Avoid:</strong> Outputting sensitive data (passwords, tokens, personal information).</p>
+<hr />
+<h2>Recipe 12: Customize Cookbook Configuration</h2>
+<p><strong>File:</strong> <code>recipes/12_configuration.py</code></p>
+<h3>Why This Matters</h3>
+<p>Hardcoded values — timeouts, ports, headless mode — make automation brittle. The same code that runs on your laptop must run on a server with different settings.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.config import HEADLESS, TIMEOUT, LOG_LEVEL, logger
+from common.browser import launch_browser, close_browser
+
+async def main():
+    logger.info(f&quot;Headless: {HEADLESS}, Timeout: {TIMEOUT}s, Log level: {LOG_LEVEL}&quot;)
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;, timeout=TIMEOUT)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>config.py</code> reads environment variables with sensible defaults:</p>
+<table>
+<thead><tr><th>Variable</th><th>Default</th><th>Override</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>HEADLESS</code></td><td><code>false</code></td><td><code>HEADLESS=true</code></td><td>Run without GUI</td></tr>
+<tr><td><code>TIMEOUT</code></td><td><code>30</code></td><td><code>TIMEOUT=60</code></td><td>Default operation timeout</td></tr>
+<tr><td><code>LOG_LEVEL</code></td><td><code>info</code></td><td><code>LOG_LEVEL=debug</code></td><td>Logging verbosity</td></tr>
+</tbody></table>
+<h3>Production Rule</h3>
+<p>Environment variables for configuration. Same code, different environments.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Deploying the same code to dev, staging, and production environments. <strong>Avoid:</strong> Hardcoding production credentials in scripts (use environment variables or a secrets manager).</p>
+<hr />
+<div class="part-divider"><h1>Part II — Interaction</h1></div>
+<p>You know how to launch, control, and configure a browser. Now you need to interact with pages: find elements, click, fill forms, handle authentication.</p>
+<p>Part II covers categories 3 (element reliability) and 4 (authentication state).</p>
+<hr />
+<h1 class="chapter-start">Chapter 4: Elements &amp; Forms</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Most automation scripts fail at the interaction layer. Not because clicking is difficult. Because websites are dynamic. Elements appear late. Selectors change between deployments. Overlays block intended clicks. Validation happens asynchronously.</p>
+<p>This chapter teaches you to interact with pages the way production automation systems do: with stable selectors, state-aware clicking, and recovery patterns.</p>
+<hr />
+<h2>Recipe 13: Find Elements Using Stable Selectors</h2>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/selector_hierarchy.png" alt="Figure 2. Selector priority — prefer purpose over position." />
+  <figcaption>Figure 2. Selector priority — prefer purpose over position.</figcaption>
+</figure>
+<p><strong>File:</strong> <code>recipes/13_find_elements.py</code> <strong>Images:</strong> <code>images/selector_hierarchy.png</code>, <code>images/cookbook_mermaid.html</code> (Diagram 1)</p>
+<h3>Why This Matters</h3>
+<p>The wrong selector breaks automation when the page changes. A selector that works today fails tomorrow — not because the element is gone, but because a CSS class was renamed or a div was restructured. Choose selectors by stability, not convenience.</p>
+<h3>Selector Priority</h3>
+<table>
+<thead><tr><th>Priority</th><th>Selector</th><th>Example</th><th>Stability</th></tr></thead>
+<tbody>
+<tr><td>⭐⭐⭐⭐⭐</td><td><code>data-testid</code></td><td><code>[data-testid=&quot;login-btn&quot;]</code></td><td>Max</td></tr>
+<tr><td>⭐⭐⭐⭐</td><td><code>id</code></td><td><code>#submit-button</code></td><td>High</td></tr>
+<tr><td>⭐⭐⭐</td><td><code>name</code></td><td><code>input[name=&quot;email&quot;]</code></td><td>Medium</td></tr>
+<tr><td>⭐⭐</td><td>CSS class</td><td><code>.btn-primary</code></td><td>Medium</td></tr>
+<tr><td>⭐</td><td>CSS hierarchy</td><td><code>div &gt; ul &gt; li</code></td><td>Low</td></tr>
+<tr><td>🚫</td><td>XPath</td><td><code>//div[3]/span</code></td><td>Fragile</td></tr>
+</tbody></table>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+
+    # Preferred: data-testid
+    login_button = await page.find(&quot;[data-testid=&#x27;login-button&#x27;]&quot;)
+    if login_button:
+        await login_button.click()
+
+    # Fallback: name attribute
+    search_input = await page.find(&quot;input[name=&#x27;search&#x27;]&quot;)
+    if search_input:
+        await search_input.send_keys(&quot;automation&quot;)
+
+    # Last resort: semantic type selector
+    submit = await page.find(&quot;button[type=&#x27;submit&#x27;]&quot;)
+    if submit:
+        await submit.click()
+
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p>The code demonstrates the priority in practice: data-testid first, then name, then type-based CSS. Each level is a fallback when the previous one is unavailable.</p>
+<h3>Production Rule</h3>
+<p>Prefer selectors that describe purpose, not position. <code>data-testid</code> over CSS hierarchy every time.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Any automation that uses selectors. <strong>Avoid:</strong> XPath — there is always a better selector.</p>
+<hr />
+<h2>Recipe 14: Click Elements Reliably</h2>
+<p><strong>File:</strong> <code>recipes/14_click_elements.py</code></p>
+<h3>Why This Matters</h3>
+<p>A visible element is not clickable. It can be hidden behind an overlay, disabled, or off-screen. The click is trivial. The preparation is what makes automation reliable.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def safe_click(element):
+    try:
+        await element.scroll_into_view()
+        await element.click()
+        return True
+    except Exception as e:
+        print(f&quot;Click failed: {e}&quot;)
+        return False
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    link = await page.find(&quot;a&quot;)
+    if link:
+        await safe_click(link)
+        await page.sleep(1)
+        print(f&quot;After click: {page.url}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Code Walkthrough</h3>
+<p><code>scroll_into_view()</code> brings the element into the viewport. Overlays (cookie banners, chat widgets, sticky headers) cause clicks to land on the wrong element.</p>
+<h3>Production Rule</h3>
+<p>Scroll before click. An out-of-viewport click fails silently.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> Every script that clicks anything. <strong>Avoid:</strong> JavaScript-triggered clicks via <code>evaluate()</code>.</p>
+<hr />
+<h2>Recipe 15: Fill Forms</h2>
+<p><strong>File:</strong> <code>recipes/15_fill_forms.py</code></p>
+<h3>Why This Matters</h3>
+<p>Forms are the most common web interaction. The pattern is always the same: find the input by name, type the value, move to the next field.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org/forms/post&quot;)
+    name = await page.find(&quot;input[name=&#x27;custname&#x27;]&quot;)
+    if name:
+        await name.send_keys(&quot;Test User&quot;)
+    tel = await page.find(&quot;input[name=&#x27;custtel&#x27;]&quot;)
+    if tel:
+        await tel.send_keys(&quot;555-0123&quot;)
+    email = await page.find(&quot;input[name=&#x27;custemail&#x27;]&quot;)
+    if email:
+        await email.send_keys(&quot;test@example.com&quot;)
+    await page.sleep(2)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Find form inputs by <code>name</code> attribute. IDs may be dynamic but names are intentional.</p>
+<hr />
+<h2>Recipe 16: Upload Files</h2>
+<p><strong>File:</strong> <code>recipes/16_upload_files.py</code></p>
+<h3>Why This Matters</h3>
+<p>File uploads need a dedicated API. <code>send_keys()</code> does not work on <code>&lt;input type=&quot;file&quot;&gt;</code>.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org/post&quot;)
+    file_input = await page.find(&quot;input[type=&#x27;file&#x27;]&quot;)
+    if file_input:
+        test_file = Path(&quot;test_upload.txt&quot;)
+        test_file.write_text(&quot;Hello from cookbook!&quot;)
+        await file_input.send_file(str(test_file.resolve()))
+        print(f&quot;Uploaded: {test_file}&quot;)
+        test_file.unlink()
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Use absolute paths for file uploads. Relative paths break when the working directory changes.</p>
+<hr />
+<h2>Recipe 17: Select Dropdown Options</h2>
+<p><strong>File:</strong> <code>recipes/17_select_dropdown.py</code></p>
+<h3>Why This Matters</h3>
+<p>Dropdown <code>&lt;select&gt;</code> elements need <code>select_option()</code>, not <code>send_keys()</code>.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org/forms/post&quot;)
+    size = await page.find(&quot;select&quot;)
+    if size:
+        await size.select_option(&quot;large&quot;)
+        print(&quot;Selected: large&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Select by value when stable, by label when values are auto-generated.</p>
+<hr />
+<h2>Recipe 18: Handle Dialogs and Pop-ups</h2>
+<p><strong>File:</strong> <code>recipes/18_dialogs_popups.py</code></p>
+<h3>Why This Matters</h3>
+<p>Pop-ups block your automation. Handle them before critical interactions.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def dismiss_cookie_banner(page):
+    selectors = [
+        &quot;button:has-text(&#x27;Accept&#x27;)&quot;,
+        &quot;button:has-text(&#x27;OK&#x27;)&quot;,
+        &quot;button:has-text(&#x27;Got it&#x27;)&quot;,
+        &quot;.cookie-banner button&quot;,
+        &quot;#cookie-consent button&quot;,
+    ]
+    for sel in selectors:
+        btn = await page.find(sel, timeout=2)
+        if btn:
+            await btn.click()
+            return True
+    return False
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    if await dismiss_cookie_banner(page):
+        print(&quot;Dismissed cookie banner&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Check for overlays before clicking primary elements. A banner costs 2 seconds. A failed click costs a retry loop.</p>
+<hr />
+<h1 class="chapter-start">Chapter 5: Authentication &amp; Sessions</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Authentication is the most common production automation challenge. Logging in once is easy. Staying logged in, verifying session state, managing multiple accounts — that is where most implementations break.</p>
+<hr />
+<h2>Recipe 19: Log In and Verify Authentication</h2>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/login_verification.png" alt="Figure 3. Login verification — never assume authentication succeeded." />
+  <figcaption>Figure 3. Login verification — never assume authentication succeeded.</figcaption>
+</figure>
+<p><strong>File:</strong> <code>recipes/19_login_forms.py</code> <strong>Images:</strong> <code>images/cookbook_mermaid.html</code> (Diagram 5)</p>
+<h3>Why This Matters</h3>
+<p>Submit does not mean success. You must verify authentication actually happened. Check for multiple signals: logout button, URL change, account menu.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def login_succeeded(page):
+    signals = [
+        page.find(&quot;a:has-text(&#x27;Logout&#x27;)&quot;),
+        page.find(&quot;a:has-text(&#x27;Sign out&#x27;)&quot;),
+        page.find(&quot;[data-testid=&#x27;account-menu&#x27;]&quot;),
+    ]
+    results = await asyncio.gather(*signals, return_exceptions=True)
+    return any(bool(r) for r in results if not isinstance(r, Exception))
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com/login&quot;)
+    username = await page.find(&quot;input[name=&#x27;username&#x27;]&quot;)
+    password = await page.find(&quot;input[name=&#x27;password&#x27;]&quot;)
+    if username and password:
+        await username.send_keys(&quot;testuser&quot;)
+        await password.send_keys(&quot;testpass&quot;)
+        submit = await page.find(&quot;button[type=&#x27;submit&#x27;]&quot;)
+        if submit:
+            await submit.click()
+    await page.sleep(3)
+    if await login_succeeded(page):
+        print(&quot;Login successful&quot;)
+    else:
+        print(&quot;Login failed&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Never assume login succeeded. Verify using at least two independent signals.</p>
+<h3>Used In Real Projects</h3>
+<p><strong>Good fit:</strong> SaaS dashboards, admin panels, internal tools. <strong>Avoid:</strong> CAPTCHA-protected logins.</p>
+<hr />
+<h2>Recipe 20: Work with Cookies</h2>
+<p><strong>File:</strong> <code>recipes/20_cookies.py</code></p>
+<h3>Why This Matters</h3>
+<p>Cookies carry session state across requests. Knowing how to read, save, and restore them is essential for session reuse.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+import json
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+COOKIE_FILE = Path(&quot;cookies.json&quot;)
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://httpbin.org/cookies/set?session=abc123&quot;)
+    cookies = browser.cookies
+    print(f&quot;Got {len(cookies)} cookies&quot;)
+    COOKIE_FILE.write_text(json.dumps(cookies, indent=2))
+    print(f&quot;Saved to {COOKIE_FILE}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Save cookies in JSON format. Portable across runs, inspectable manually.</p>
+<hr />
+<h2>Recipe 21: Reuse Authenticated Sessions</h2>
+<p><strong>File:</strong> <code>recipes/21_reuse_sessions.py</code></p>
+<h3>Why This Matters</h3>
+<p>Logging in on every run is slow and risks rate limiting or CAPTCHA. Save and restore authenticated state.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+import json
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+COOKIE_FILE = Path(&quot;cookies.json&quot;)
+
+async def is_authenticated(page):
+    logout = await page.find(&quot;a:has-text(&#x27;Logout&#x27;)&quot;, timeout=3)
+    return logout is not None
+
+async def restore_session(browser, cookie_file):
+    if not cookie_file.exists():
+        return False
+    cookies = json.loads(cookie_file.read_text())
+    for c in cookies:
+        await browser.add_cookie(c)
+    return True
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    restored = await restore_session(browser, COOKIE_FILE)
+    if restored and await is_authenticated(page):
+        print(&quot;Session valid&quot;)
+    else:
+        print(&quot;Session expired&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Always verify session after loading cookies. Sessions expire without warning.</p>
+<hr />
+<h2>Recipe 22: Manage Multiple Accounts</h2>
+<p><strong>File:</strong> <code>recipes/22_multi_account.py</code></p>
+<h3>Why This Matters</h3>
+<p>Different automation tasks need different user contexts. Keep accounts isolated.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+import json
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+async def switch_profile(browser, profile_dir):
+    cookie_file = Path(profile_dir) / &quot;cookies.json&quot;
+    if cookie_file.exists():
+        cookies = json.loads(cookie_file.read_text())
+        for c in cookies:
+            await browser.add_cookie(c)
+        return True
+    return False
+
+async def main():
+    browser = await launch_browser()
+    await switch_profile(browser, &quot;./profiles/admin&quot;)
+    page = await browser.get(&quot;https://example.com&quot;)
+    print(&quot;Using admin profile&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>One profile directory per account. Never share cookies between contexts.</p>
+<hr />
+<div class="part-divider"><h1>Part III — Extraction &amp; Downloads</h1></div>
+<p>Now you can interact with pages and maintain sessions. This part covers data collection: extracting tables, handling pagination, downloading files.</p>
+<hr />
+<h1 class="chapter-start">Chapter 6: Data Collection</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Extracting data is the most common automation goal. But real web pages do not present clean datasets. Tables have missing cells. Pages paginate indefinitely. Downloads appear incomplete. This chapter teaches extraction that handles real-world data.</p>
+<hr />
+<h2>Recipe 23: Extract Structured Tables</h2>
+<p><strong>File:</strong> <code>recipes/23_extract_tables.py</code></p>
+<h3>Why This Matters</h3>
+<p>HTML tables look clean in the browser. Under the hood they have colspan, rowspan, missing cells, and mixed <code>td</code>/<code>th</code> elements.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+async def extract_table(page):
+    rows = await page.find_all(&quot;tr&quot;)
+    data = []
+    for row in rows:
+        cells = await row.find_all(&quot;td&quot;) or await row.find_all(&quot;th&quot;)
+        data.append([(await c.text).strip() for c in cells])
+    return data
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    table = await page.find(&quot;table&quot;)
+    if table:
+        data = await extract_table(table)
+        for row in data[:5]:
+            print(row)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Test table extraction against at least 5 pages. Tables vary more than any other HTML structure.</p>
+<hr />
+<h2>Recipe 24: Handle Pagination</h2>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/pagination_safety.png" alt="Figure 4. Pagination safety — three independent stop conditions." />
+  <figcaption>Figure 4. Pagination safety — three independent stop conditions.</figcaption>
+</figure>
+<p><strong>File:</strong> <code>recipes/24_pagination.py</code> <strong>Images:</strong> <code>images/pagination_safety.png</code>, <code>images/cookbook_mermaid.html</code></p>
+<h3>Why This Matters</h3>
+<p>Pagination without safety guards runs forever on a broken page. Three independent stop conditions protect against infinite loops.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+MAX_PAGES = 100
+
+async def has_next_page(page):
+    btn = await page.find(&quot;.pagination .next, a:has-text(&#x27;Next&#x27;)&quot;, timeout=3)
+    if not btn:
+        return False
+    classes = await btn.get_attribute(&quot;class&quot;) or &quot;&quot;
+    return &quot;disabled&quot; not in classes
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    page_num = 0
+    while await has_next_page(page) and page_num &lt; MAX_PAGES:
+        print(f&quot;Page {page_num + 1}&quot;)
+        next_btn = await page.find(&quot;.pagination .next, a:has-text(&#x27;Next&#x27;)&quot;)
+        if next_btn:
+            await next_btn.click()
+            await page.sleep(2)
+            page_num += 1
+    print(f&quot;Done after {page_num} pages&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Always set MAX_PAGES. A broken page can generate infinite &quot;next&quot; buttons.</p>
+<hr />
+<h2>Recipe 25: Scrape Infinite Scroll Pages</h2>
+<p><strong>File:</strong> <code>recipes/25_infinite_scroll.py</code></p>
+<h3>Why This Matters</h3>
+<p>Infinite scroll has no &quot;next&quot; button. You must detect when content stops loading.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+
+MAX_SCROLLS = 50
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    prev_height = 0
+    stable_count = 0
+    for i in range(MAX_SCROLLS):
+        await page.scroll_down(delta_y=1000)
+        await page.sleep(2)
+        height = await page.evaluate(&quot;document.body.scrollHeight&quot;)
+        if height == prev_height:
+            stable_count += 1
+            if stable_count &gt;= 3:
+                print(f&quot;No new content after {i+1} scrolls&quot;)
+                break
+        else:
+            stable_count = 0
+        prev_height = height
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Check 3 times before concluding there is no more content. Network latency delays loading.</p>
+<hr />
+<h2>Recipe 26: Download Files Reliably</h2>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/download_lifecycle.png" alt="Figure 5. Download lifecycle — complete means stable size, not the click." />
+  <figcaption>Figure 5. Download lifecycle — complete means stable size, not the click.</figcaption>
+</figure>
+<p><strong>File:</strong> <code>recipes/26_download_files.py</code> <strong>Images:</strong> <code>images/download_lifecycle.png</code></p>
+<h3>Why This Matters</h3>
+<p>A file on disk does not mean the download is complete. Chrome writes temporary <code>.crdownload</code> files first.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+DOWNLOAD_DIR = Path(&quot;./downloads&quot;)
+DOWNLOAD_DIR.mkdir(exist_ok=True)
+
+async def wait_for_download(page, link_selector, timeout=30):
+    link = await page.find(link_selector)
+    if not link:
+        raise ValueError(f&quot;Link not found&quot;)
+    before = set(DOWNLOAD_DIR.iterdir())
+    await link.click()
+    for _ in range(timeout):
+        after = set(DOWNLOAD_DIR.iterdir()) - before
+        new_files = [f for f in after if f.suffix != &quot;.crdownload&quot;]
+        if new_files:
+            return new_files[0]
+        await page.sleep(1)
+    raise TimeoutError(&quot;Download did not complete&quot;)
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    file_path = await wait_for_download(page, &quot;a[download]&quot;)
+    print(f&quot;Downloaded: {file_path}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>A <code>.crdownload</code> file is not a completed download. Wait for the final filename.</p>
+<hr />
+<h2>Recipe 27: Extract Images and Media</h2>
+<p><strong>File:</strong> <code>recipes/27_extract_images.py</code></p>
+<h3>Why This Matters</h3>
+<p>Image URLs on the page are often relative. You need to resolve them to absolute paths before downloading.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from urllib.parse import urljoin
+from common.browser import launch_browser, close_browser
+
+async def main():
+    browser = await launch_browser()
+    page = await browser.get(&quot;https://example.com&quot;)
+    images = await page.find_all(&quot;img&quot;)
+    base = page.url
+    for img in images:
+        src = img.attrs.get(&quot;src&quot;, &quot;&quot;)
+        alt = img.attrs.get(&quot;alt&quot;, &quot;&quot;)
+        full_url = urljoin(base, src)
+        print(f&quot;{alt[:30]:30s} {full_url}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Always convert relative image URLs to absolute. A relative URL is useless outside the page context.</p>
+<hr />
+<div class="part-divider"><h1>Part IV — Production</h1></div>
+<p>The final part turns your scripts into production systems that run reliably without supervision.</p>
+<p>Part IV covers category 5: failure recovery.</p>
+<hr />
+<h1 class="chapter-start">Chapter 7: Reliable Automation</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>A script that works on your laptop at 2 PM fails on the server at 3 AM. Production automation needs consistency and a decision framework for handling failures.</p>
+<hr />
+<h2>Recipe 28: Build Automation That Resembles Normal Usage</h2>
+<p><strong>File:</strong> <code>recipes/28_stealth_automation.py</code></p>
+<h3>Why This Matters</h3>
+<p>Some websites detect automation and block it. The goal is not to hide. It is to avoid triggering obvious detection signals.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from pathlib import Path
+from common.browser import launch_browser, close_browser
+
+PROFILE = Path(&quot;./profiles/stealth_profile&quot;)
+
+async def main():
+    browser = await launch_browser(
+        user_data_dir=str(PROFILE),
+        window_size=(1366, 768),
+    )
+    page = await browser.get(&quot;https://example.com&quot;)
+    print(f&quot;Browser: {await page.evaluate(&#x27;navigator.userAgent&#x27;)}&quot;)
+    await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Consistent profiles and viewport size matter more than any single trick.</p>
+<hr />
+<h2>Recipe 29: Build Resilient Browser Automation</h2>
+<figure>
+  <img src="file:///C:/Users/varas/personalities/cookbook/images/stop_vs_retry_flow.png" alt="Figure 6. Stop vs retry — temporary failures may retry; permanent ones must stop." />
+  <figcaption>Figure 6. Stop vs retry — temporary failures may retry; permanent ones must stop.</figcaption>
+</figure>
+<p><strong>File:</strong> <code>recipes/29_resilient_automation.py</code> <strong>Images:</strong> <code>images/stop_vs_retry_flow.png</code>, <code>images/cookbook_mermaid.html</code></p>
+<h3>Why This Matters</h3>
+<p>Production automation must handle failures without human intervention. The decision framework: temporary? retry within budget? success? continue. Otherwise stop.</p>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from common.browser import launch_browser, close_browser
+from common.logging import logger
+from common.retry import retry
+
+async def main():
+    browser = await launch_browser()
+    try:
+        page = await retry(
+            browser.get,
+            &quot;https://httpbin.org/delay/3&quot;,
+            exceptions=(TimeoutError, ConnectionError),
+            max_retries=3,
+            delay=2,
+        )
+        logger.info(f&quot;Loaded: {await page.title()}&quot;)
+    except Exception as e:
+        logger.error(f&quot;Failed after retries: {e}&quot;)
+    finally:
+        await close_browser(browser)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Complete successfully or fail with enough information for the next run. Not to run forever.</p>
+<hr />
+<h1 class="chapter-start">Chapter 8: Starter Kit</h1>
+<h2>The Problem This Chapter Solves</h2>
+<p>Every automation project starts the same way: create directories, write common modules, add a main file. This chapter eliminates setup work by generating a complete project scaffold.</p>
+<hr />
+<h2>Recipe 30: Production Browser Automation Starter Kit</h2>
+<p><strong>File:</strong> <code>recipes/30_starter_kit.py</code></p>
+<h3>Why This Matters</h3>
+<p>A standard project structure means every automation project you build follows the same conventions. After this recipe, you never set up a project from scratch again.</p>
+<h3>The Starter Kit</h3>
+<p>Run this recipe to generate a complete project:</p>
+<pre><code class="lang-">my-automation/
+├── common/
+│   ├── browser.py
+│   ├── config.py
+│   ├── logging.py
+│   └── retry.py
+├── recipes/
+│   └── example.py
+├── profiles/
+├── downloads/
+├── logs/
+├── .env
+├── requirements.txt
+├── README.md
+└── main.py</code></pre>
+<h3>7-Step Walkthrough</h3>
+<pre><code class="lang-">1. Clone     → python recipes/30_starter_kit.py
+2. Install   → pip install -r requirements.txt
+3. Configure → edit .env (HEADLESS, TIMEOUT)
+4. Run       → python main.py
+5. Add       → write your selectors
+6. Add       → write your workflow
+7. Deploy    → set HEADLESS=true, schedule via cron</code></pre>
+<h3>The Code</h3>
+<pre><code class="lang-python">import asyncio
+from pathlib import Path
+
+PROJECT_NAME = &quot;my-automation&quot;
+
+async def create_starter_kit(name=PROJECT_NAME):
+    base = Path(name)
+    dirs = [&quot;common&quot;, &quot;recipes&quot;, &quot;profiles&quot;, &quot;downloads&quot;, &quot;logs&quot;]
+    for d in dirs:
+        (base / d).mkdir(parents=True, exist_ok=True)
+    (base / &quot;common&quot; / &quot;__init__.py&quot;).write_text(&quot;&quot;)
+    (base / &quot;requirements.txt&quot;).write_text(&quot;nodriver&gt;=0.50.3\n&quot;)
+    (base / &quot;README.md&quot;).write_text(f&quot;# {name}\n\nBrowser automation project.\n&quot;)
+    (base / &quot;.env&quot;).write_text(&quot;HEADLESS=false\nTIMEOUT=30\nLOG_LEVEL=info\n&quot;)
+    return base
+
+async def main():
+    project = await create_starter_kit()
+    print(f&quot;Created: {project.resolve()}&quot;)
+    for f in sorted(project.rglob(&quot;*&quot;)):
+        if f.is_file():
+            print(f&quot;  {f.relative_to(project)}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre>
+<h3>Production Rule</h3>
+<p>Use the starter kit for every new automation project. It saves 15 minutes of boilerplate.</p>
+<hr />
+<h1 class="chapter-start">Appendix: Common Patterns &amp; Reference</h1>
+<h2>Common Failures and Fixes</h2>
+<table>
+<thead><tr><th>Error</th><th>Likely Cause</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td><code>TimeoutError</code></td><td>Page did not load</td><td>Retry with backoff</td></tr>
+<tr><td><code>NoneType has no text</code></td><td>Element not found</td><td>Check selector and wait</td></tr>
+<tr><td><code>Target closed</code></td><td>Page navigated</td><td>Re-find element</td></tr>
+<tr><td><code>Connection refused</code></td><td>Browser not running</td><td>Start browser first</td></tr>
+</tbody></table>
+<h2>nodriver vs Selenium</h2>
+<table>
+<thead><tr><th>Feature</th><th>nodriver</th><th>Selenium</th></tr></thead>
+<tbody>
+<tr><td>Protocol</td><td>CDP (native)</td><td>WebDriver (translated)</td></tr>
+<tr><td>Setup</td><td>pip install</td><td>Driver + browser</td></tr>
+<tr><td>Async</td><td>Native</td><td>Third-party wrappers</td></tr>
+<tr><td>Speed</td><td>Faster</td><td>Slower</td></tr>
+<tr><td>Community</td><td>Smaller</td><td>Larger</td></tr>
+</tbody></table>
+<h2>The Five Categories (Recap)</h2>
+<table>
+<thead><tr><th>#</th><th>Category</th><th>Key Question</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Browser lifecycle</td><td>Is the browser running?</td></tr>
+<tr><td>2</td><td>Waiting and state</td><td>Is the page ready?</td></tr>
+<tr><td>3</td><td>Element reliability</td><td>Will this selector survive?</td></tr>
+<tr><td>4</td><td>Authentication state</td><td>Is the session still valid?</td></tr>
+<tr><td>5</td><td>Failure recovery</td><td>Should I retry or stop?</td></tr>
+</tbody></table>
+<h2>File Structure</h2>
+<pre><code class="lang-">cookbook/
+├── common/          ← Shared modules
+├── recipes/         ← 30 recipe scripts
+├── profiles/        ← Browser profiles (auto-created)
+├── images/          ← Diagrams and visual assets
+├── README.md        ← This book
+└── REASONING.md     ← Development decisions</code></pre>
+<h2>Recommended Reading Order</h2>
+<ol>
+<li>Chapter 0 — Setup</li>
+<li>Chapters 1-3 — Foundations</li>
+<li>Chapters 4-5 — Interaction</li>
+<li>Chapter 6 — Extraction</li>
+<li>Chapters 7-8 — Production</li>
+<li>Appendix — Reference</li>
+</ol>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookbook Mermaid Diagrams</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#0B1630',
+      primaryTextColor: '#FFFFFF',
+      primaryBorderColor: '#22D3EE',
+      lineColor: '#64748B',
+      secondaryColor: '#111827',
+      tertiaryColor: '#172554'
+    }
+  });
+</script>
+<style>
+  body { background: #050B1A; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; padding: 40px; max-width: 1200px; margin: 0 auto; }
+  h1 { color: #22d3ee; border-bottom: 1px solid #1e293b; padding-bottom: 16px; }
+  .label { font-size: 10px; color: #64748B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  .card { background: #0B1630; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; }
+  .card h2 { color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 20px 0; }
+  .mermaid { text-align: center; }
+  .mermaid svg { max-width: 100%; height: auto; }
+  .footer { text-align: center; margin-top: 40px; color: #475569; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>Python Browser Automation Cookbook — Mermaid Diagrams</h1>
+<div class="label">Unified visual system · Dark theme · Version 2</div>
+<div class="gallery">
+
+  <!-- 1: Selector Priority -->
+  <div class="card">
+    <h2>01 — Selector Priority (Recipe 13)</h2>
+    <div class="mermaid">
+flowchart TD
+A["data-* attributes<br/>test hooks"]:::best
+B["Stable ID"]:::good
+C["Name attributes"]:::medium
+D["Semantic CSS classes"]:::medium
+E["CSS hierarchy"]:::weak
+F["XPath positioning"]:::bad
+A --> B --> C --> D --> E --> F
+classDef best fill:#083344,stroke:#22D3EE,color:#fff
+classDef good fill:#064E3B,stroke:#34D399,color:#fff
+classDef medium fill:#78350F,stroke:#F59E0B,color:#fff
+classDef weak fill:#374151,stroke:#9CA3AF,color:#fff
+classDef bad fill:#450A0A,stroke:#EF4444,color:#fff
+    </div>
+  </div>
+
+  <!-- 2: Stop vs Retry -->
+  <div class="card">
+    <h2>02 — Stop vs Retry (Recipe 29)</h2>
+    <div class="mermaid">
+flowchart TD
+A["Automation failure"] --> B{"Temporary condition?"}
+B -->|YES| C{"Retry budget available?"}
+C -->|YES| D["Retry operation"]
+D --> E{"Recovered?"}
+E -->|YES| F["Continue workflow"]
+E -->|NO| G["Log failure"]
+C -->|NO| G
+B -->|NO| G
+G --> H["Stop safely"]
+classDef start fill:#083344,stroke:#22D3EE,color:#fff
+classDef retry fill:#064E3B,stroke:#34D399,color:#fff
+classDef stop fill:#450A0A,stroke:#EF4444,color:#fff
+class A start
+class D,F retry
+class G,H stop
+    </div>
+  </div>
+
+  <!-- 3: Pagination -->
+  <div class="card">
+    <h2>03 — Pagination Safety (Recipe 24)</h2>
+    <div class="mermaid">
+flowchart LR
+A["Extract current page"]
+A --> B{"More pages?"}
+B -->|"No Next button"| STOP
+B -->|"Disabled Next"| STOP
+B -->|"Max pages reached"| STOP
+B -->|"Continue"| C["Navigate next page"]
+C --> A
+STOP["Safe termination"]
+classDef stop fill:#450A0A,stroke:#EF4444,color:white
+class STOP stop
+    </div>
+  </div>
+
+  <!-- 4: Download -->
+  <div class="card">
+    <h2>04 — Download Lifecycle (Recipe 26)</h2>
+    <div class="mermaid">
+flowchart LR
+A["Trigger download"]
+--> B["Temporary browser file"]
+--> C["File actively written"]
+--> D{"Completion verified?"}
+D -->|No| C
+D -->|Yes| E["Rename / process final file"]
+classDef process fill:#083344,stroke:#22D3EE,color:white
+classDef done fill:#064E3B,stroke:#34D399,color:white
+class A,B,C process
+class E done
+    </div>
+  </div>
+
+  <!-- 5: Login -->
+  <div class="card">
+    <h2>05 — Login Verification (Recipe 19)</h2>
+    <div class="mermaid">
+flowchart TD
+A["Submit credentials"]
+--> B{"Authenticated state verified?"}
+B -->|"Logout button / account menu / dashboard"| C["Continue"]
+B -->|"Challenge detected"| D["Log and stop"]
+B -->|"Invalid credentials"| E["Stop and review"]
+B -->|"Session expired"| F["Authenticate again"]
+classDef success fill:#064E3B,stroke:#34D399,color:white
+classDef fail fill:#450A0A,stroke:#EF4444,color:white
+class C success
+class D,E fail
+    </div>
+  </div>
+
+  <!-- 6: Architecture -->
+  <div class="card">
+    <h2>06 — Cookbook Architecture</h2>
+    <div class="mermaid">
+flowchart TB
+A["30 Production Recipes"]
+A --> B["Reusable Common Layer"]
+B --> C["Browser Lifecycle"]
+B --> D["Configuration"]
+B --> E["Retry System"]
+B --> F["Logging"]
+C --> G["nodriver CDP"]
+G --> H["Chrome Browser"]
+I["Starter Kit"] --> B
+classDef main fill:#083344,stroke:#22D3EE,color:white
+classDef core fill:#172554,stroke:#38BDF8,color:white
+classDef browser fill:#064E3B,stroke:#34D399,color:white
+class A,I main
+class B,C,D,E,F core
+class G,H browser
+    </div>
+  </div>
+
+</div>
+<div class="footer">Mermaid v11 · Dark theme (#050B1A) · Open in any browser</div>
+</body>
+</html>

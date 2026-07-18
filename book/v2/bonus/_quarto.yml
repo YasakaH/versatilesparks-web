@@ -1,0 +1,22 @@
+project:
+  type: book
+  output-dir: ../../dist/reference-library
+
+book:
+  title: "Production Reference Library"
+  author: "Yasaka Hanini"
+  date: today
+  chapters:
+    - index.qmd
+    - architecture-field-guide.md
+    - failure-playbook.md
+    - automation-pattern-catalog.md
+    - automation-design-review.md
+    - war-stories.md
+
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    papersize: letter
+    colorlinks: true

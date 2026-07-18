@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Cover</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: #050b1a;
+    overflow: hidden;
+  }
+  .hero {
+    display: block;
+    width: 210mm;
+    height: 297mm;
+    object-fit: cover;
+    object-position: left center;
+  }
+  .fallback {
+    width: 210mm;
+    height: 297mm;
+    color: #e2e8f0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 28mm 22mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(160deg, #050b1a 0%, #0b1630 55%, #1e0a3c 100%);
+  }
+  .fallback h1 { font-size: 26pt; font-weight: 600; line-height: 1.2; color: #fff; margin-bottom: 12pt; }
+  .fallback .sub { font-size: 12pt; color: #67e8f9; margin-bottom: 24pt; }
+  .fallback .auth { font-size: 11pt; color: #94a3b8; }
+</style>
+</head>
+<body>
+  <img class="hero" src="file:///C:/Users/varas/personalities/cookbook/images/hero.png" alt="Python Browser Automation Cookbook" />
+</body>
+</html>

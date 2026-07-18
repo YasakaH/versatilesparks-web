@@ -1,0 +1,58 @@
+<style>
+  .simple-page {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .simple-page h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .simple-page .subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .simple-content {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+  }
+  .simple-content h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .simple-content p {
+    margin-bottom: 1.25rem;
+  }
+  .simple-content ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .simple-content li {
+    margin-bottom: 0.5rem;
+  }
+  .simple-content a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .simple-content a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<article class="simple-page">
+  <h2>{{ page_title }}</h2>
+  {% if subtitle %}
+  <div class="subtitle">{{ subtitle }}</div>
+  {% endif %}
+  <div class="simple-content">
+    {{ content_body }}
+  </div>
+</article>

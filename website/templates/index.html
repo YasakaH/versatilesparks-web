@@ -1,0 +1,279 @@
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 4rem 0;
+  }
+  @media (max-width: 768px) {
+    .book-grid { grid-template-columns: 1fr; }
+  }
+  .book-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .book-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+  }
+  .book-card-cover-container {
+    background: #070a12;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 4/3;
+  }
+  .book-card-cover {
+    max-height: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 4px;
+  }
+  .book-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .book-tagline {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .book-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  .book-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .badge {
+    background-color: var(--code-bg);
+    color: var(--text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .badge-primary {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+  }
+  .book-action {
+    display: flex;
+    gap: 1rem;
+  }
+  .book-action .btn { flex: 1; }
+
+  /* Pitch Sections */
+  .pitch-section {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .pitch-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+  .feature-box {
+    background-color: rgba(30, 41, 59, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .feature-box h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .feature-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+  .faq-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .faq-item p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .author-card {
+    display: flex;
+    gap: 2rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .author-card { flex-direction: column; text-align: center; }
+  }
+  .author-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: var(--code-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  .author-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .author-info p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .author-info a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+</style>
+
+<section class="hero">
+  <h1>Engineered Browser Automation</h1>
+  <p>Practical handbooks for senior developers, SREs, and data engineers. Learn to build resilient, stealthy, and self-healing pipelines that run unattended 24/7.</p>
+  <div class="hero-actions">
+    <a href="#featured-books" class="btn btn-primary">Browse Handbooks</a>
+  </div>
+</section>
+
+<section class="pitch-section" id="featured-books">
+  <h3 class="pitch-title">Featured Publications</h3>
+  <div class="book-grid">
+    {% for book in books %}
+    <div class="book-card">
+      <div class="book-card-cover-container">
+        <img class="book-card-cover" src="/assets/covers/{{ book.id }}-cover.png" alt="{{ book.title }} Cover" width="135" height="180">
+      </div>
+      <h4 class="book-title">{{ book.title }}</h4>
+      <div class="book-tagline">{{ book.subtitle }}</div>
+      <p class="book-desc">{{ book.description }}</p>
+      
+      <div class="book-meta">
+        <span class="badge badge-primary">Version {{ book.version }}</span>
+        <span class="badge">${{ book.price_usd }} USD</span>
+        <span class="badge">PDF &amp; EPUB</span>
+        <span class="badge">Full Codebase</span>
+      </div>
+
+      <div class="book-action">
+        <a href="/books/{{ book.id }}/" class="btn btn-secondary" id="details-{{ book.id }}">View Details</a>
+        <a href="{{ book.gumroad_url }}" class="btn btn-primary" id="buy-{{ book.id }}" target="_blank">Buy Now</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="pitch-section">
+  <h3 class="pitch-title">Why These Guides Are Different</h3>
+  <div class="features-grid">
+    <div class="feature-box">
+      <h4>Zero Theory, All Production</h4>
+      <p>Written exclusively from post-mortems and live production systems. Every pattern is verified and runs 24/7 under Docker orchestrations.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Asynchronous by Default</h4>
+      <p>Harness the full speed of Python asyncio. Avoid synchronous blocking and handle thousands of concurrent requests natively.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Anti-Bot Evasion Techniques</h4>
+      <p>Skip standard WebDriver bindings. Communicate directly over the Chrome DevTools Protocol (CDP) to bypass security filters seamlessly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pitch-section">
+  <h3 class="pitch-title">Common Questions</h3>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h4>Do the books include downloadable source code?</h4>
+      <p>Yes. Every purchase includes a companion ZIP archive containing the complete, commented Python source code, staging configurations, utility functions, and orchestration tools.</p>
+    </div>
+    <div class="faq-item">
+      <h4>In what formats are the books delivered?</h4>
+      <p>You will receive both high-fidelity layout PDF files (ideal for desktop reading/printing) and fully reflowable EPUB files (optimized for Kindle and other mobile e-readers).</p>
+    </div>
+    <div class="faq-item">
+      <h4>Are updates included?</h4>
+      <p>Yes. When errata or new versions are released, you will receive an automatic email notification from Gumroad to download the latest files free of charge.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pitch-section">
+  <h3 class="pitch-title">About the Author</h3>
+  <div class="author-card">
+    <div class="author-avatar">👨‍💻</div>
+    <div class="author-info">
+      <h4>Yasaka Hanini</h4>
+      <p>Yasaka Hanini is a software engineer specializing in browser internals, distributed data scrapers, and telemetry-guided web operations. He builds high-stability pipelines that crawl millions of requests daily without human supervision.</p>
+      <a href="/about.html">Read publishing philosophy &rarr;</a>
+    </div>
+  </div>
+</section>
