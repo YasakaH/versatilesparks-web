@@ -1,0 +1,23 @@
+---
+id: "profiles"
+title: "Browser Profiles"
+summary: "Isolating user directories, caches, cookies, and local storages using isolated directories."
+difficulty: "Beginner"
+requires: ["anti-detection"]
+used_by: ["cdp"]
+tags: ["profiles", "storage", "isolation"]
+aliases: ["chrome profile", "user data directory", "profile configuration"]
+introduced: "v1.0.0"
+updated: "v1.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+Chrome uses User Data Directories to store configuration profiles. Maintaining isolated profile directories allows concurrent daemons to run without colliding.
+
+### Implementation Checklist
+
+1. **Path Isolation:** Give each daemon container a dedicated profile subdirectory.
+2. **Lock Exclusions:** Remove `SingletonLock` symlinks when starting Chrome on POSIX environments.
+3. **Preference Patching:** Pre-edit `Preferences` JSON files to disable telemetry, updates, and crash prompts.

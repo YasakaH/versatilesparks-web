@@ -1,0 +1,25 @@
+---
+id: "recipe-1"
+title: "Launch and Close a Browser"
+concepts: ["profiles"]
+difficulty: "Beginner"
+environment: ["Python", "nodriver"]
+downloads: ["recipes/01_launch_browser.py"]
+book: "cookbook"
+---
+
+The basic lifecycle loop of browser automation starts with launching a clean process, connecting via CDP, navigating, and terminating cleanly.
+
+```python
+import asyncio
+import nodriver as uc
+
+async def main():
+    browser = await uc.start()
+    page = await browser.get("https://example.com")
+    print(await page.get_content())
+    browser.stop()
+
+if __name__ == "__main__":
+    uc.loop().run_until_complete(main())
+```

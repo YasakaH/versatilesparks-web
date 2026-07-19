@@ -1,0 +1,23 @@
+---
+id: "recovery"
+title: "Self-Healing & Recovery"
+summary: "Writing intelligent retry networks and process recovery engines to survive transient failures."
+difficulty: "Advanced"
+requires: ["observability"]
+used_by: []
+tags: ["recovery", "resilience", "healing", "daemons"]
+aliases: ["failover", "process manager", "retry systems"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+Daemon scrapers operating 24/7 face network dropouts, proxy bans, and browser crashes. A self-healing system detects anomalies, terminates corrupt processes, and recovers automatically.
+
+### Architecture
+
+1. **Anomaly Detectors:** Set up watchdog monitors that check if a browser call is hung or executing too slowly.
+2. **Hard Terminations:** Force-kill Chrome processes via PID locks if WebSocket commands timeout.
+3. **Task Retries:** Queue tasks with backoff algorithms, dynamically routing retries through clean proxies.

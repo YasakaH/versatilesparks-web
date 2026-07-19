@@ -1,0 +1,23 @@
+---
+id: "cookies"
+title: "Cookies"
+summary: "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins."
+difficulty: "Beginner"
+requires: ["authentication"]
+used_by: ["sessions"]
+tags: ["cookies", "http", "state"]
+aliases: ["cookie", "cookie jar", "session cookie"]
+introduced: "v1.0.0"
+updated: "v1.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+Cookies are key-value state parameters sent by the browser in HTTP headers. In browser automation, dumping active cookies allows you to recreate states without walking through interactive login steps.
+
+### Strategic Implementation
+
+1. **JSON Serialization:** Convert cookies into array schemas containing expiry dates, domain bounds, and paths.
+2. **Injecting Before Navigation:** Set cookies via CDP before triggering page navigation to prevent redirection loops.
+3. **Decoupled domains:** Inject cookies targeting specific subdomains separately to honor security scopes.

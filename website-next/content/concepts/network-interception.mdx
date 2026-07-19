@@ -1,0 +1,23 @@
+---
+id: "network-interception"
+title: "Network Interception"
+summary: "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary."
+difficulty: "Advanced"
+requires: ["cdp"]
+used_by: ["scaling"]
+tags: ["network", "interception", "mocking", "proxy"]
+aliases: ["request blocking", "response mocking", "network interception"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+Intercepting network actions at the CDP level allows you to block heavy media files (images, CSS), mock API endpoints, inject custom authorization headers, and route traffic through specialized proxy configurations.
+
+### Key Applications
+
+1. **Asset Blocking:** Block image, font, and analytics requests to reduce bandwidth by up to 80%.
+2. **Payload Interception:** Intercept raw fetch payloads to extract JSON data streams directly without page DOM parsing.
+3. **Response Overriding:** Inject mock mockups or stub responses for testing error state workflows.

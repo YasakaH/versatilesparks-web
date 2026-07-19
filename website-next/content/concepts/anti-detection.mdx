@@ -1,0 +1,23 @@
+---
+id: "anti-detection"
+title: "Anti Detection"
+summary: "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests."
+difficulty: "Advanced"
+requires: ["sessions"]
+used_by: ["fingerprints", "profiles"]
+tags: ["stealth", "cloudflare", "datadome", "bot-bypass"]
+aliases: ["bot evasion", "stealth", "bypass"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110, nodriver >= 1.0"
+last_reviewed: "2026-07-18"
+---
+
+Modern anti-bot monitors evaluate browser characteristics, runtime properties, network signatures, and behavior cadence. Evading detection requires matching human-like telemetry signatures on every layer.
+
+### Primary Techniques
+
+1. **CDP Stealth:** Hide variables like `navigator.webdriver` by injecting custom scripts at document creation.
+2. **Network Signatures:** Match client TLS client-hello structures with standard Chrome handshakes.
+3. **Behavioral Timing:** Apply random delays and non-linear mouse paths to simulate organic human interactions.

@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090909;
+  --foreground: #f2f2f2;
+  --surface: #111111;
+  --card: #161616;
+  --border: #242424;
+  --text-muted: #8a8a8a;
+  --accent: #f5f2eb;
+  --accent-hover: #e8e4db;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* SVG Dependency Line Animation */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.dependency-line {
+  stroke-dasharray: 8, 4;
+  stroke-dashoffset: 12;
+  animation: drawLine 1s linear infinite;
+}

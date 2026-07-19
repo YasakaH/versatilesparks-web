@@ -1,0 +1,21 @@
+---
+id: "recipe-19"
+title: "Session Persistence via Cookie Dumping"
+concepts: ["persistent-sessions", "cookies"]
+difficulty: "Intermediate"
+environment: ["Python", "nodriver"]
+downloads: ["recipes/ch05/19_login_forms.py"]
+book: "cookbook"
+---
+
+Dumping and re-injecting active cookie structures allows you to recreate authenticated states without stepping through login triggers.
+
+```python
+import json
+import nodriver as uc
+
+async def save_cookies(page, filename="cookies.json"):
+    cookies = await page.send(uc.api.network.get_cookies())
+    with open(filename, "w") as f:
+        json.dump(cookies, f)
+```

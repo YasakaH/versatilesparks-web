@@ -1,0 +1,23 @@
+---
+id: "authentication"
+title: "Authentication"
+summary: "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage."
+difficulty: "Intermediate"
+requires: []
+used_by: ["cookies", "sessions"]
+tags: ["auth", "cookies", "tokens"]
+aliases: ["login", "credentials", "mfa"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110, nodriver >= 1.0"
+last_reviewed: "2026-07-18"
+---
+
+Authentication is the entry point for most advanced browser automation tasks. When scraping protected user spaces, you must navigate multi-factor auth (MFA), password forms, and token verification without raising bot alerts.
+
+### Core Problems
+
+1. **Undetectable Form Fills:** Typing credentials via standard `.send_keys()` triggers Javascript event monitors that verify keyboard-timing cadence.
+2. **Persistence:** Constant relogins trigger rate limits and IP reputation drops. You must dump and reuse authentication states.
+3. **MFA Telemetry:** Bypassing OTP / App prompts requires synchronous manual handoffs or API webhooks.

@@ -1,0 +1,23 @@
+---
+id: "sessions"
+title: "Persistent Sessions"
+summary: "Reusing profiles and cookie states to maintain active authentications across browser runs."
+difficulty: "Intermediate"
+requires: ["authentication", "cookies"]
+used_by: ["anti-detection"]
+tags: ["sessions", "persistence", "state"]
+aliases: ["persistent login", "profile sessions", "user data dir"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+A session encapsulates a user's entire state: cookies, local storage, indexedDB, cache files, and browser configurations. Reusing sessions reduces server overhead and decreases bot detection rates.
+
+### Best Practices
+
+1. **User Data Directory:** Launch Chrome pointing to a dedicated folder containing the browser profile data.
+2. **Graceful Shutdowns:** Ensure Chrome writes session states to disk before terminating the process.
+3. **Session Lock Bypass:** Clear stale `.lock` files from the Chrome profile directory before launching a daemon.

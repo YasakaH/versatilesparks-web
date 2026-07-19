@@ -1,0 +1,23 @@
+---
+id: "observability"
+title: "Observability"
+summary: "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health."
+difficulty: "Intermediate"
+requires: ["scaling"]
+used_by: ["recovery"]
+tags: ["telemetry", "metrics", "monitoring", "grafana"]
+aliases: ["metrics logging", "logs", "monitoring metrics"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-18"
+---
+
+Observability gives you visibility into running browser processes: CPU cycles, memory usage, task queues, success rates, and active proxy speeds.
+
+### Essential Metrics
+
+1. **Memory Allocations:** Track Chrome RSS memory to trigger rolling restarts before exhaustion occurs.
+2. **Page Telemetry:** Log navigation performance, DOM completion duration, and error frequencies.
+3. **Structured logs:** Format runtime console metrics into readable JSON schemas for log-aggregators (Loki, Elasticsearch).

@@ -1,0 +1,23 @@
+---
+id: "scaling"
+title: "Scaling & Orchestration"
+summary: "Running concurrent browser pools inside containerized environments (Docker, Kubernetes)."
+difficulty: "Advanced"
+requires: ["network-interception"]
+used_by: ["observability"]
+tags: ["scaling", "docker", "orchestration", "performance"]
+aliases: ["concurrency", "browser pool", "docker configurations"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110, nodriver >= 1.0"
+last_reviewed: "2026-07-18"
+---
+
+Operating a cluster of browser instances requires scaling memory bounds, preventing memory leak loops, running inside head-deprived Linux environments, and managing proxy load balancers.
+
+### Execution Plan
+
+1. **Shared Memory Access:** Configure `/dev/shm` in Docker containers to avoid tab crashes from low memory limits.
+2. **Zombie Process Cleanup:** Use tiny-inits (`tini`) in Docker entries to clean up orphaned Chrome processes.
+3. **Queue Balancing:** Maintain a pool manager that routes tasks to warm, idling browser targets.

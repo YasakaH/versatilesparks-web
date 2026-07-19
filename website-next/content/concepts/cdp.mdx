@@ -1,0 +1,23 @@
+---
+id: "cdp"
+title: "Chrome DevTools Protocol (CDP)"
+summary: "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control."
+difficulty: "Advanced"
+requires: ["fingerprints", "profiles"]
+used_by: ["network-interception"]
+tags: ["cdp", "chrome-devtools", "low-level"]
+aliases: ["devtools", "cdp commands", "websocket connection"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110, nodriver >= 1.0"
+last_reviewed: "2026-07-18"
+---
+
+The Chrome DevTools Protocol allows direct instrument control, inspection, and manipulation of Chromium-based browsers. Connecting over WebSocket bypasses standard API detection limits.
+
+### Essential Operations
+
+1. **Target Attachment:** Attach to specific pages, frames, or service workers via unique CDP targets.
+2. **Method Execution:** Send JSON payload commands (`Runtime.evaluate`, `Page.addScriptToEvaluateOnNewDocument`).
+3. **Event Subscriptions:** Listen to network logs (`Network.requestWillBeSent`) or console outputs.
