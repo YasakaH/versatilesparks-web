@@ -28,7 +28,155 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
-      "body": "Modern anti-bot monitors evaluate browser characteristics, runtime properties, network signatures, and behavior cadence. Evading detection requires matching human-like telemetry signatures on every layer.\n\n### Primary Techniques\n\n1. **CDP Stealth:** Hide variables like `navigator.webdriver` by injecting custom scripts at document creation.\n2. **Network Signatures:** Match client TLS client-hello structures with standard Chrome handshakes.\n3. **Behavioral Timing:** Apply random delays and non-linear mouse paths to simulate organic human interactions."
+      "slug": "anti-detection",
+      "body": "Modern anti-bot monitors evaluate browser characteristics, runtime properties, network signatures, and behavior cadence. Evading detection requires matching human-like telemetry signatures on every layer.\n\n### Primary Techniques\n\n1. **CDP Stealth:** Hide variables like `navigator.webdriver` by injecting custom scripts at document creation.\n2. **Network Signatures:** Match client TLS client-hello structures with standard Chrome handshakes.\n3. **Behavioral Timing:** Apply random delays and non-linear mouse paths to simulate organic human interactions.",
+      "related": [
+        "proxies"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v1-19",
+          "title": "Log In and Verify Authentication",
+          "slug": "recipe-v1-19",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-20",
+          "title": "Work with Cookies",
+          "slug": "recipe-v1-20",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-21",
+          "title": "Reuse Authenticated Sessions",
+          "slug": "recipe-v1-21",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-22",
+          "title": "Manage Multiple Accounts",
+          "slug": "recipe-v1-22",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-28",
+          "title": "Stealth Configuration",
+          "slug": "recipe-v2-28",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-29",
+          "title": "Resilient Automation Patterns",
+          "slug": "recipe-v2-29",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-41",
+          "title": "Reliable Drag and Drop",
+          "slug": "recipe-v2-41",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-42",
+          "title": "Working With iFrames",
+          "slug": "recipe-v2-42",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-43",
+          "title": "Shadow DOM Automation",
+          "slug": "recipe-v2-43",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-44",
+          "title": "Rich Text Editors",
+          "slug": "recipe-v2-44",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-45",
+          "title": "Keyboard and Clipboard Automation",
+          "slug": "recipe-v2-45",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "authentication",
@@ -55,7 +203,189 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
-      "body": "Authentication is the entry point for most advanced browser automation tasks. When scraping protected user spaces, you must navigate multi-factor auth (MFA), password forms, and token verification without raising bot alerts.\n\n### Core Problems\n\n1. **Undetectable Form Fills:** Typing credentials via standard `.send_keys()` triggers Javascript event monitors that verify keyboard-timing cadence.\n2. **Persistence:** Constant relogins trigger rate limits and IP reputation drops. You must dump and reuse authentication states.\n3. **MFA Telemetry:** Bypassing OTP / App prompts requires synchronous manual handoffs or API webhooks."
+      "slug": "authentication",
+      "body": "Authentication is the entry point for most advanced browser automation tasks. When scraping protected user spaces, you must navigate multi-factor auth (MFA), password forms, and token verification without raising bot alerts.\n\n### Core Problems\n\n1. **Undetectable Form Fills:** Typing credentials via standard `.send_keys()` triggers Javascript event monitors that verify keyboard-timing cadence.\n2. **Persistence:** Constant relogins trigger rate limits and IP reputation drops. You must dump and reuse authentication states.\n3. **MFA Telemetry:** Bypassing OTP / App prompts requires synchronous manual handoffs or API webhooks.",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v1-10",
+          "title": "Retry Transient Failures",
+          "slug": "recipe-v1-10",
+          "book": "cookbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-11",
+          "title": "Add Useful Logging",
+          "slug": "recipe-v1-11",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-12",
+          "title": "Customize Cookbook Configuration",
+          "slug": "recipe-v1-12",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-9",
+          "title": "Wait for Meaningful State",
+          "slug": "recipe-v1-9",
+          "book": "cookbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-13",
+          "title": "Find Elements Reliably",
+          "slug": "recipe-v2-13",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-14",
+          "title": "Click Elements Without Race Conditions",
+          "slug": "recipe-v2-14",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-15",
+          "title": "Fill Forms Reliably",
+          "slug": "recipe-v2-15",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-16",
+          "title": "File Uploads",
+          "slug": "recipe-v2-16",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-17",
+          "title": "Select Dropdown Options",
+          "slug": "recipe-v2-17",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-18",
+          "title": "Dialogs, Alerts, and Popups",
+          "slug": "recipe-v2-18",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-19",
+          "title": "Login Forms",
+          "slug": "recipe-v2-19",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-20",
+          "title": "Cookie Persistence",
+          "slug": "recipe-v2-20",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-21",
+          "title": "Session Reuse",
+          "slug": "recipe-v2-21",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-22",
+          "title": "Multi-Account Isolation",
+          "slug": "recipe-v2-22",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "cdp",
@@ -84,7 +414,186 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
-      "body": "The Chrome DevTools Protocol allows direct instrument control, inspection, and manipulation of Chromium-based browsers. Connecting over WebSocket bypasses standard API detection limits.\n\n### Essential Operations\n\n1. **Target Attachment:** Attach to specific pages, frames, or service workers via unique CDP targets.\n2. **Method Execution:** Send JSON payload commands (`Runtime.evaluate`, `Page.addScriptToEvaluateOnNewDocument`).\n3. **Event Subscriptions:** Listen to network logs (`Network.requestWillBeSent`) or console outputs."
+      "slug": "cdp",
+      "body": "The Chrome DevTools Protocol allows direct instrument control, inspection, and manipulation of Chromium-based browsers. Connecting over WebSocket bypasses standard API detection limits.\n\n### Essential Operations\n\n1. **Target Attachment:** Attach to specific pages, frames, or service workers via unique CDP targets.\n2. **Method Execution:** Send JSON payload commands (`Runtime.evaluate`, `Page.addScriptToEvaluateOnNewDocument`).\n3. **Event Subscriptions:** Listen to network logs (`Network.requestWillBeSent`) or console outputs.",
+      "related": [
+        "proxies"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v1-23",
+          "title": "Extract Structured Tables",
+          "slug": "recipe-v1-23",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-24",
+          "title": "Handle Pagination",
+          "slug": "recipe-v1-24",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-25",
+          "title": "Scrape Infinite Scroll Pages",
+          "slug": "recipe-v1-25",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-26",
+          "title": "Download Files Reliably",
+          "slug": "recipe-v1-26",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-27",
+          "title": "Extract Images and Media",
+          "slug": "recipe-v1-27",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-5",
+          "title": "Navigate Like a User",
+          "slug": "recipe-v1-5",
+          "book": "cookbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-6",
+          "title": "Capture Screenshots",
+          "slug": "recipe-v1-6",
+          "book": "cookbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-7",
+          "title": "Execute JavaScript in the Page",
+          "slug": "recipe-v1-7",
+          "book": "cookbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-8",
+          "title": "Inspect Browser State",
+          "slug": "recipe-v1-8",
+          "book": "cookbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-31",
+          "title": "Intercept and Analyze Network Traffic with CDP",
+          "slug": "recipe-v2-31",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-32",
+          "title": "Block Unnecessary Resources for Performance",
+          "slug": "recipe-v2-32",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-33",
+          "title": "Debug JavaScript Failures Through Console Logs",
+          "slug": "recipe-v2-33",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-34",
+          "title": "Measure Browser Performance",
+          "slug": "recipe-v2-34",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-35",
+          "title": "Emulate Different Browser Environments",
+          "slug": "recipe-v2-35",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "cookies",
@@ -112,7 +621,139 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "Cookies are key-value state parameters sent by the browser in HTTP headers. In browser automation, dumping active cookies allows you to recreate states without walking through interactive login steps.\n\n### Strategic Implementation\n\n1. **JSON Serialization:** Convert cookies into array schemas containing expiry dates, domain bounds, and paths.\n2. **Injecting Before Navigation:** Set cookies via CDP before triggering page navigation to prevent redirection loops.\n3. **Decoupled domains:** Inject cookies targeting specific subdomains separately to honor security scopes."
+      "slug": "cookies",
+      "body": "Cookies are key-value state parameters sent by the browser in HTTP headers. In browser automation, dumping active cookies allows you to recreate states without walking through interactive login steps.\n\n### Strategic Implementation\n\n1. **JSON Serialization:** Convert cookies into array schemas containing expiry dates, domain bounds, and paths.\n2. **Injecting Before Navigation:** Set cookies via CDP before triggering page navigation to prevent redirection loops.\n3. **Decoupled domains:** Inject cookies targeting specific subdomains separately to honor security scopes.",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v1-13",
+          "title": "Find Elements Using Stable Selectors",
+          "slug": "recipe-v1-13",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-14",
+          "title": "Click Elements Reliably",
+          "slug": "recipe-v1-14",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-15",
+          "title": "Fill Forms",
+          "slug": "recipe-v1-15",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-16",
+          "title": "Upload Files",
+          "slug": "recipe-v1-16",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-17",
+          "title": "Select Dropdown Options",
+          "slug": "recipe-v1-17",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-18",
+          "title": "Handle Dialogs and Pop-ups",
+          "slug": "recipe-v1-18",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-19",
+          "title": "Login Forms",
+          "slug": "recipe-v2-19",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-20",
+          "title": "Cookie Persistence",
+          "slug": "recipe-v2-20",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-21",
+          "title": "Session Reuse",
+          "slug": "recipe-v2-21",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-22",
+          "title": "Multi-Account Isolation",
+          "slug": "recipe-v2-22",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "fingerprints",
@@ -141,7 +782,96 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "A browser fingerprint is a unique identifier generated by compiling device characteristics. Anti-bot scripts run Canvas rendering, audio API, and font checks to detect mismatched environments.\n\n### Core Strategies\n\n1. **User Agent & Client Hints:** Match browser headers with navigator metadata.\n2. **Canvas Noise:** Inject minor variations to canvas rendering outputs to prevent tracking without breaking images.\n3. **Hardware Spoofing:** Override memory boundaries and core counts (`navigator.hardwareConcurrency`)."
+      "slug": "fingerprints",
+      "body": "A browser fingerprint is a unique identifier generated by compiling device characteristics. Anti-bot scripts run Canvas rendering, audio API, and font checks to detect mismatched environments.\n\n### Core Strategies\n\n1. **User Agent & Client Hints:** Match browser headers with navigator metadata.\n2. **Canvas Noise:** Inject minor variations to canvas rendering outputs to prevent tracking without breaking images.\n3. **Hardware Spoofing:** Override memory boundaries and core counts (`navigator.hardwareConcurrency`).",
+      "related": [
+        "proxies",
+        "profiles"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v1-19",
+          "title": "Log In and Verify Authentication",
+          "slug": "recipe-v1-19",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-20",
+          "title": "Work with Cookies",
+          "slug": "recipe-v1-20",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-21",
+          "title": "Reuse Authenticated Sessions",
+          "slug": "recipe-v1-21",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-22",
+          "title": "Manage Multiple Accounts",
+          "slug": "recipe-v1-22",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-28",
+          "title": "Stealth Configuration",
+          "slug": "recipe-v2-28",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-29",
+          "title": "Resilient Automation Patterns",
+          "slug": "recipe-v2-29",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "network-interception",
@@ -170,7 +900,262 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "Intercepting network actions at the CDP level allows you to block heavy media files (images, CSS), mock API endpoints, inject custom authorization headers, and route traffic through specialized proxy configurations.\n\n### Key Applications\n\n1. **Asset Blocking:** Block image, font, and analytics requests to reduce bandwidth by up to 80%.\n2. **Payload Interception:** Intercept raw fetch payloads to extract JSON data streams directly without page DOM parsing.\n3. **Response Overriding:** Inject mock mockups or stub responses for testing error state workflows."
+      "slug": "network-interception",
+      "body": "Intercepting network actions at the CDP level allows you to block heavy media files (images, CSS), mock API endpoints, inject custom authorization headers, and route traffic through specialized proxy configurations.\n\n### Key Applications\n\n1. **Asset Blocking:** Block image, font, and analytics requests to reduce bandwidth by up to 80%.\n2. **Payload Interception:** Intercept raw fetch payloads to extract JSON data streams directly without page DOM parsing.\n3. **Response Overriding:** Inject mock mockups or stub responses for testing error state workflows.",
+      "related": [
+        "proxies"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v1-23",
+          "title": "Extract Structured Tables",
+          "slug": "recipe-v1-23",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-24",
+          "title": "Handle Pagination",
+          "slug": "recipe-v1-24",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-25",
+          "title": "Scrape Infinite Scroll Pages",
+          "slug": "recipe-v1-25",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-26",
+          "title": "Download Files Reliably",
+          "slug": "recipe-v1-26",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-27",
+          "title": "Extract Images and Media",
+          "slug": "recipe-v1-27",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-23",
+          "title": "Extract Data From Tables",
+          "slug": "recipe-v2-23",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-24",
+          "title": "Pagination",
+          "slug": "recipe-v2-24",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-25",
+          "title": "Infinite Scroll",
+          "slug": "recipe-v2-25",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-26",
+          "title": "Download Files",
+          "slug": "recipe-v2-26",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-27",
+          "title": "Extract Images and Media",
+          "slug": "recipe-v2-27",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-31",
+          "title": "Intercept and Analyze Network Traffic with CDP",
+          "slug": "recipe-v2-31",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-32",
+          "title": "Block Unnecessary Resources for Performance",
+          "slug": "recipe-v2-32",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-33",
+          "title": "Debug JavaScript Failures Through Console Logs",
+          "slug": "recipe-v2-33",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-34",
+          "title": "Measure Browser Performance",
+          "slug": "recipe-v2-34",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-35",
+          "title": "Emulate Different Browser Environments",
+          "slug": "recipe-v2-35",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-52",
+          "title": "Validate Scraped Records Before Storage",
+          "slug": "recipe-v2-52",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-53",
+          "title": "Normalize and Export Trusted Data",
+          "slug": "recipe-v2-53",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-54",
+          "title": "Incremental Scraping & Change Detection",
+          "slug": "recipe-v2-54",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-55",
+          "title": "Structural Page Comparison",
+          "slug": "recipe-v2-55",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-56",
+          "title": "Data Provenance & Audit Trails",
+          "slug": "recipe-v2-56",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "observability",
@@ -199,7 +1184,227 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "Observability gives you visibility into running browser processes: CPU cycles, memory usage, task queues, success rates, and active proxy speeds.\n\n### Essential Metrics\n\n1. **Memory Allocations:** Track Chrome RSS memory to trigger rolling restarts before exhaustion occurs.\n2. **Page Telemetry:** Log navigation performance, DOM completion duration, and error frequencies.\n3. **Structured logs:** Format runtime console metrics into readable JSON schemas for log-aggregators (Loki, Elasticsearch)."
+      "slug": "observability",
+      "body": "Observability gives you visibility into running browser processes: CPU cycles, memory usage, task queues, success rates, and active proxy speeds.\n\n### Essential Metrics\n\n1. **Memory Allocations:** Track Chrome RSS memory to trigger rolling restarts before exhaustion occurs.\n2. **Page Telemetry:** Log navigation performance, DOM completion duration, and error frequencies.\n3. **Structured logs:** Format runtime console metrics into readable JSON schemas for log-aggregators (Loki, Elasticsearch).",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v1-28",
+          "title": "Build Automation That Resembles Normal Usage",
+          "slug": "recipe-v1-28",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-29",
+          "title": "Build Resilient Browser Automation",
+          "slug": "recipe-v1-29",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-10",
+          "title": "Retry Failures Intelligently",
+          "slug": "recipe-v2-10",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-11",
+          "title": "Structured Logging",
+          "slug": "recipe-v2-11",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-12",
+          "title": "Configuration Management",
+          "slug": "recipe-v2-12",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-31",
+          "title": "Intercept and Analyze Network Traffic with CDP",
+          "slug": "recipe-v2-31",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-32",
+          "title": "Block Unnecessary Resources for Performance",
+          "slug": "recipe-v2-32",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-33",
+          "title": "Debug JavaScript Failures Through Console Logs",
+          "slug": "recipe-v2-33",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-34",
+          "title": "Measure Browser Performance",
+          "slug": "recipe-v2-34",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-35",
+          "title": "Emulate Different Browser Environments",
+          "slug": "recipe-v2-35",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-46",
+          "title": "Deploy Browser Automation with Docker",
+          "slug": "recipe-v2-46",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-47",
+          "title": "Schedule Reliable Automation Jobs",
+          "slug": "recipe-v2-47",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-48",
+          "title": "Store Automation Data Safely",
+          "slug": "recipe-v2-48",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-49",
+          "title": "Observability and Metrics",
+          "slug": "recipe-v2-49",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-50",
+          "title": "Recovery and Health Management",
+          "slug": "recipe-v2-50",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-51",
+          "title": "Secrets and Configuration Management",
+          "slug": "recipe-v2-51",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-9",
+          "title": "Wait for Elements Correctly",
+          "slug": "recipe-v2-9",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "profiles",
@@ -227,7 +1432,384 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "Chrome uses User Data Directories to store configuration profiles. Maintaining isolated profile directories allows concurrent daemons to run without colliding.\n\n### Implementation Checklist\n\n1. **Path Isolation:** Give each daemon container a dedicated profile subdirectory.\n2. **Lock Exclusions:** Remove `SingletonLock` symlinks when starting Chrome on POSIX environments.\n3. **Preference Patching:** Pre-edit `Preferences` JSON files to disable telemetry, updates, and crash prompts."
+      "slug": "profiles",
+      "body": "Chrome uses User Data Directories to store configuration profiles. Maintaining isolated profile directories allows concurrent daemons to run without colliding.\n\n### Implementation Checklist\n\n1. **Path Isolation:** Give each daemon container a dedicated profile subdirectory.\n2. **Lock Exclusions:** Remove `SingletonLock` symlinks when starting Chrome on POSIX environments.\n3. **Preference Patching:** Pre-edit `Preferences` JSON files to disable telemetry, updates, and crash prompts.",
+      "related": [
+        "fingerprints",
+        "proxies"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v1-1",
+          "title": "Launch and Close a Browser",
+          "slug": "recipe-v1-1",
+          "book": "cookbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-2",
+          "title": "Open and Manage Browser Tabs",
+          "slug": "recipe-v1-2",
+          "book": "cookbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-3",
+          "title": "Reuse a Browser Profile Across Sessions",
+          "slug": "recipe-v1-3",
+          "book": "cookbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-4",
+          "title": "Customize Browser Startup Options",
+          "slug": "recipe-v1-4",
+          "book": "cookbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-1",
+          "title": "Launch and Close a Browser",
+          "slug": "recipe-v2-1",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-2",
+          "title": "Open and Manage Browser Tabs",
+          "slug": "recipe-v2-2",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-3",
+          "title": "Reuse a Browser Profile Across Sessions",
+          "slug": "recipe-v2-3",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-36",
+          "title": "Audit Your Browser Environment",
+          "slug": "recipe-v2-36",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-37",
+          "title": "Build Reproducible Browser Environments",
+          "slug": "recipe-v2-37",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-38",
+          "title": "Browser Profile Isolation",
+          "slug": "recipe-v2-38",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-39",
+          "title": "Regional Configuration Testing",
+          "slug": "recipe-v2-39",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-4",
+          "title": "Customize Browser Startup Options",
+          "slug": "recipe-v2-4",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-40",
+          "title": "Diagnose Browser Compatibility",
+          "slug": "recipe-v2-40",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-5",
+          "title": "Navigation and Wait Strategies",
+          "slug": "recipe-v2-5",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-6",
+          "title": "Page Navigation and Screenshots",
+          "slug": "recipe-v2-6",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-7",
+          "title": "JavaScript Execution",
+          "slug": "recipe-v2-7",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-8",
+          "title": "Browser State Persistence",
+          "slug": "recipe-v2-8",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
+    },
+    {
+      "id": "proxies",
+      "title": "Proxies & IP Rotation",
+      "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+      "difficulty": "Intermediate",
+      "requires": [
+        "anti-detection"
+      ],
+      "used_by": [
+        "cdp",
+        "network-interception"
+      ],
+      "tags": [
+        "proxy",
+        "ip-rotation",
+        "scraping",
+        "stealth"
+      ],
+      "aliases": [
+        "proxy",
+        "residential proxy",
+        "rotation",
+        "ip pool",
+        "forward proxy",
+        "backconnect proxy"
+      ],
+      "introduced": "v1.0.0",
+      "updated": "v2.0.0",
+      "deprecated": false,
+      "compatible_with": "Chrome >= 110",
+      "last_reviewed": "2026-07-19",
+      "slug": "proxies",
+      "body": "Proxies mask your crawler's origin IP address. To scrape at scale, you must rotate residential, datacenter, and mobile proxies dynamically while managing session cookies and headers.\n\n### Strategic Implementation\n\n1. **Residential Proxy Pools:** Use proxies with residential ISP associations to bypass Akamai and Cloudflare IP reputation scores.\n2. **Backconnect Gateways:** Route requests through a single entry point that auto-rotates IPs on every request or connection run.\n3. **Authentication & Protocol:** Configure proxies in nodriver using Chrome command-line args (`--proxy-server=http://user:pass@ip:port`).",
+      "related": [
+        "fingerprints",
+        "profiles"
+      ],
+      "recipes": [
+        {
+          "id": "recipe-v2-19",
+          "title": "Login Forms",
+          "slug": "recipe-v2-19",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-22",
+          "title": "Multi-Account Isolation",
+          "slug": "recipe-v2-22",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-28",
+          "title": "Stealth Configuration",
+          "slug": "recipe-v2-28",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-29",
+          "title": "Resilient Automation Patterns",
+          "slug": "recipe-v2-29",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-31",
+          "title": "Intercept and Analyze Network Traffic with CDP",
+          "slug": "recipe-v2-31",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-32",
+          "title": "Block Unnecessary Resources for Performance",
+          "slug": "recipe-v2-32",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-33",
+          "title": "Debug JavaScript Failures Through Console Logs",
+          "slug": "recipe-v2-33",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-34",
+          "title": "Measure Browser Performance",
+          "slug": "recipe-v2-34",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-35",
+          "title": "Emulate Different Browser Environments",
+          "slug": "recipe-v2-35",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "recovery",
@@ -254,7 +1836,139 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "Daemon scrapers operating 24/7 face network dropouts, proxy bans, and browser crashes. A self-healing system detects anomalies, terminates corrupt processes, and recovers automatically.\n\n### Architecture\n\n1. **Anomaly Detectors:** Set up watchdog monitors that check if a browser call is hung or executing too slowly.\n2. **Hard Terminations:** Force-kill Chrome processes via PID locks if WebSocket commands timeout.\n3. **Task Retries:** Queue tasks with backoff algorithms, dynamically routing retries through clean proxies."
+      "slug": "recovery",
+      "body": "Daemon scrapers operating 24/7 face network dropouts, proxy bans, and browser crashes. A self-healing system detects anomalies, terminates corrupt processes, and recovers automatically.\n\n### Architecture\n\n1. **Anomaly Detectors:** Set up watchdog monitors that check if a browser call is hung or executing too slowly.\n2. **Hard Terminations:** Force-kill Chrome processes via PID locks if WebSocket commands timeout.\n3. **Task Retries:** Queue tasks with backoff algorithms, dynamically routing retries through clean proxies.",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v2-10",
+          "title": "Retry Failures Intelligently",
+          "slug": "recipe-v2-10",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-11",
+          "title": "Structured Logging",
+          "slug": "recipe-v2-11",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-12",
+          "title": "Configuration Management",
+          "slug": "recipe-v2-12",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-46",
+          "title": "Deploy Browser Automation with Docker",
+          "slug": "recipe-v2-46",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-47",
+          "title": "Schedule Reliable Automation Jobs",
+          "slug": "recipe-v2-47",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-48",
+          "title": "Store Automation Data Safely",
+          "slug": "recipe-v2-48",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-49",
+          "title": "Observability and Metrics",
+          "slug": "recipe-v2-49",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-50",
+          "title": "Recovery and Health Management",
+          "slug": "recipe-v2-50",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-51",
+          "title": "Secrets and Configuration Management",
+          "slug": "recipe-v2-51",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-9",
+          "title": "Wait for Elements Correctly",
+          "slug": "recipe-v2-9",
+          "book": "playbook",
+          "difficulty": "Beginner",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "scaling",
@@ -283,7 +1997,132 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
-      "body": "Operating a cluster of browser instances requires scaling memory bounds, preventing memory leak loops, running inside head-deprived Linux environments, and managing proxy load balancers.\n\n### Execution Plan\n\n1. **Shared Memory Access:** Configure `/dev/shm` in Docker containers to avoid tab crashes from low memory limits.\n2. **Zombie Process Cleanup:** Use tiny-inits (`tini`) in Docker entries to clean up orphaned Chrome processes.\n3. **Queue Balancing:** Maintain a pool manager that routes tasks to warm, idling browser targets."
+      "slug": "scaling",
+      "body": "Operating a cluster of browser instances requires scaling memory bounds, preventing memory leak loops, running inside head-deprived Linux environments, and managing proxy load balancers.\n\n### Execution Plan\n\n1. **Shared Memory Access:** Configure `/dev/shm` in Docker containers to avoid tab crashes from low memory limits.\n2. **Zombie Process Cleanup:** Use tiny-inits (`tini`) in Docker entries to clean up orphaned Chrome processes.\n3. **Queue Balancing:** Maintain a pool manager that routes tasks to warm, idling browser targets.",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v1-30",
+          "title": "Production Browser Automation Starter Kit",
+          "slug": "recipe-v1-30",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-30",
+          "title": "The Production Starter Kit",
+          "slug": "recipe-v2-30",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-30a",
+          "title": "Docker Deployment",
+          "slug": "recipe-v2-30a",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-46",
+          "title": "Deploy Browser Automation with Docker",
+          "slug": "recipe-v2-46",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-47",
+          "title": "Schedule Reliable Automation Jobs",
+          "slug": "recipe-v2-47",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-48",
+          "title": "Store Automation Data Safely",
+          "slug": "recipe-v2-48",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-49",
+          "title": "Observability and Metrics",
+          "slug": "recipe-v2-49",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-50",
+          "title": "Recovery and Health Management",
+          "slug": "recipe-v2-50",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-51",
+          "title": "Secrets and Configuration Management",
+          "slug": "recipe-v2-51",
+          "book": "playbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     },
     {
       "id": "sessions",
@@ -312,12 +2151,144 @@
       "deprecated": false,
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
-      "body": "A session encapsulates a user's entire state: cookies, local storage, indexedDB, cache files, and browser configurations. Reusing sessions reduces server overhead and decreases bot detection rates.\n\n### Best Practices\n\n1. **User Data Directory:** Launch Chrome pointing to a dedicated folder containing the browser profile data.\n2. **Graceful Shutdowns:** Ensure Chrome writes session states to disk before terminating the process.\n3. **Session Lock Bypass:** Clear stale `.lock` files from the Chrome profile directory before launching a daemon."
+      "slug": "sessions",
+      "body": "A session encapsulates a user's entire state: cookies, local storage, indexedDB, cache files, and browser configurations. Reusing sessions reduces server overhead and decreases bot detection rates.\n\n### Best Practices\n\n1. **User Data Directory:** Launch Chrome pointing to a dedicated folder containing the browser profile data.\n2. **Graceful Shutdowns:** Ensure Chrome writes session states to disk before terminating the process.\n3. **Session Lock Bypass:** Clear stale `.lock` files from the Chrome profile directory before launching a daemon.",
+      "related": [],
+      "recipes": [
+        {
+          "id": "recipe-v1-13",
+          "title": "Find Elements Using Stable Selectors",
+          "slug": "recipe-v1-13",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-14",
+          "title": "Click Elements Reliably",
+          "slug": "recipe-v1-14",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-15",
+          "title": "Fill Forms",
+          "slug": "recipe-v1-15",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-16",
+          "title": "Upload Files",
+          "slug": "recipe-v1-16",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-17",
+          "title": "Select Dropdown Options",
+          "slug": "recipe-v1-17",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v1-18",
+          "title": "Handle Dialogs and Pop-ups",
+          "slug": "recipe-v1-18",
+          "book": "cookbook",
+          "difficulty": "Advanced",
+          "environment": [
+            "Python",
+            "nodriver"
+          ]
+        },
+        {
+          "id": "recipe-v2-19",
+          "title": "Login Forms",
+          "slug": "recipe-v2-19",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-20",
+          "title": "Cookie Persistence",
+          "slug": "recipe-v2-20",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-21",
+          "title": "Session Reuse",
+          "slug": "recipe-v2-21",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        },
+        {
+          "id": "recipe-v2-22",
+          "title": "Multi-Account Isolation",
+          "slug": "recipe-v2-22",
+          "book": "playbook",
+          "difficulty": "Intermediate",
+          "environment": [
+            "Python",
+            "nodriver",
+            "Docker"
+          ]
+        }
+      ],
+      "books": [
+        {
+          "id": "cookbook",
+          "title": "Python Browser Automation Cookbook",
+          "slug": "cookbook",
+          "version": "1.0.0"
+        },
+        {
+          "id": "playbook",
+          "title": "Browser Automation Playbook",
+          "slug": "playbook",
+          "version": "2.0.0"
+        }
+      ]
     }
   ],
   "recipes": [
     {
-      "id": "recipe-1",
+      "id": "recipe-v1-1",
       "title": "Launch and Close a Browser",
       "concepts": [
         "profiles"
@@ -331,14 +2302,29 @@
         "recipes/01_launch_browser.py"
       ],
       "book": "cookbook",
-      "body": "The basic lifecycle loop of browser automation starts with launching a clean process, connecting via CDP, navigating, and terminating cleanly.\n\n```python\nimport asyncio\nimport nodriver as uc\n\nasync def main():\n    browser = await uc.start()\n    page = await browser.get(\"https://example.com\")\n    print(await page.get_content())\n    browser.stop()\n\nif __name__ == \"__main__\":\n    uc.loop().run_until_complete(main())\n```"
+      "slug": "recipe-v1-1",
+      "body": "This recipe covers 'Launch and Close a Browser' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
     },
     {
-      "id": "recipe-19",
-      "title": "Session Persistence via Cookie Dumping",
+      "id": "recipe-v1-10",
+      "title": "Retry Transient Failures",
       "concepts": [
-        "persistent-sessions",
-        "cookies"
+        "authentication"
       ],
       "difficulty": "Intermediate",
       "environment": [
@@ -346,14 +2332,539 @@
         "nodriver"
       ],
       "downloads": [
-        "recipes/ch05/19_login_forms.py"
+        "recipes/010_launch_browser.py"
       ],
       "book": "cookbook",
-      "body": "Dumping and re-injecting active cookie structures allows you to recreate authenticated states without stepping through login triggers.\n\n```python\nimport json\nimport nodriver as uc\n\nasync def save_cookies(page, filename=\"cookies.json\"):\n    cookies = await page.send(uc.api.network.get_cookies())\n    with open(filename, \"w\") as f:\n        json.dump(cookies, f)\n```"
+      "slug": "recipe-v1-10",
+      "body": "This recipe covers 'Retry Transient Failures' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
     },
     {
-      "id": "recipe-42",
-      "title": "CDP Network Interception & Request Mocking",
+      "id": "recipe-v1-11",
+      "title": "Add Useful Logging",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/011_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-11",
+      "body": "This recipe covers 'Add Useful Logging' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-12",
+      "title": "Customize Cookbook Configuration",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/012_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-12",
+      "body": "This recipe covers 'Customize Cookbook Configuration' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-13",
+      "title": "Find Elements Using Stable Selectors",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/013_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-13",
+      "body": "This recipe covers 'Find Elements Using Stable Selectors' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-14",
+      "title": "Click Elements Reliably",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/014_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-14",
+      "body": "This recipe covers 'Click Elements Reliably' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-15",
+      "title": "Fill Forms",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/015_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-15",
+      "body": "This recipe covers 'Fill Forms' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-16",
+      "title": "Upload Files",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/016_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-16",
+      "body": "This recipe covers 'Upload Files' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-17",
+      "title": "Select Dropdown Options",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/017_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-17",
+      "body": "This recipe covers 'Select Dropdown Options' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-18",
+      "title": "Handle Dialogs and Pop-ups",
+      "concepts": [
+        "cookies",
+        "sessions"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/018_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-18",
+      "body": "This recipe covers 'Handle Dialogs and Pop-ups' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-19",
+      "title": "Log In and Verify Authentication",
+      "concepts": [
+        "anti-detection",
+        "fingerprints"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/019_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-19",
+      "body": "This recipe covers 'Log In and Verify Authentication' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-2",
+      "title": "Open and Manage Browser Tabs",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/02_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-2",
+      "body": "This recipe covers 'Open and Manage Browser Tabs' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-20",
+      "title": "Work with Cookies",
+      "concepts": [
+        "anti-detection",
+        "fingerprints"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/020_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-20",
+      "body": "This recipe covers 'Work with Cookies' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-21",
+      "title": "Reuse Authenticated Sessions",
+      "concepts": [
+        "anti-detection",
+        "fingerprints"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/021_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-21",
+      "body": "This recipe covers 'Reuse Authenticated Sessions' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-22",
+      "title": "Manage Multiple Accounts",
+      "concepts": [
+        "anti-detection",
+        "fingerprints"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/022_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-22",
+      "body": "This recipe covers 'Manage Multiple Accounts' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-23",
+      "title": "Extract Structured Tables",
       "concepts": [
         "cdp",
         "network-interception"
@@ -364,10 +2875,2825 @@
         "nodriver"
       ],
       "downloads": [
-        "recipes/ch10/42_network_mocking.py"
+        "recipes/023_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-23",
+      "body": "This recipe covers 'Extract Structured Tables' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-24",
+      "title": "Handle Pagination",
+      "concepts": [
+        "cdp",
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/024_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-24",
+      "body": "This recipe covers 'Handle Pagination' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-25",
+      "title": "Scrape Infinite Scroll Pages",
+      "concepts": [
+        "cdp",
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/025_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-25",
+      "body": "This recipe covers 'Scrape Infinite Scroll Pages' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-26",
+      "title": "Download Files Reliably",
+      "concepts": [
+        "cdp",
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/026_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-26",
+      "body": "This recipe covers 'Download Files Reliably' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-27",
+      "title": "Extract Images and Media",
+      "concepts": [
+        "cdp",
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/027_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-27",
+      "body": "This recipe covers 'Extract Images and Media' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-28",
+      "title": "Build Automation That Resembles Normal Usage",
+      "concepts": [
+        "observability"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/028_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-28",
+      "body": "This recipe covers 'Build Automation That Resembles Normal Usage' from Chapter 7 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-29",
+      "title": "Build Resilient Browser Automation",
+      "concepts": [
+        "observability"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/029_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-29",
+      "body": "This recipe covers 'Build Resilient Browser Automation' from Chapter 7 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-3",
+      "title": "Reuse a Browser Profile Across Sessions",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/03_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-3",
+      "body": "This recipe covers 'Reuse a Browser Profile Across Sessions' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-30",
+      "title": "Production Browser Automation Starter Kit",
+      "concepts": [
+        "scaling"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/030_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-30",
+      "body": "This recipe covers 'Production Browser Automation Starter Kit' from Chapter 8 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-4",
+      "title": "Customize Browser Startup Options",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/04_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-4",
+      "body": "This recipe covers 'Customize Browser Startup Options' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-5",
+      "title": "Navigate Like a User",
+      "concepts": [
+        "cdp"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/05_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-5",
+      "body": "This recipe covers 'Navigate Like a User' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-6",
+      "title": "Capture Screenshots",
+      "concepts": [
+        "cdp"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/06_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-6",
+      "body": "This recipe covers 'Capture Screenshots' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-7",
+      "title": "Execute JavaScript in the Page",
+      "concepts": [
+        "cdp"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/07_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-7",
+      "body": "This recipe covers 'Execute JavaScript in the Page' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-8",
+      "title": "Inspect Browser State",
+      "concepts": [
+        "cdp"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/08_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-8",
+      "body": "This recipe covers 'Inspect Browser State' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v1-9",
+      "title": "Wait for Meaningful State",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver"
+      ],
+      "downloads": [
+        "recipes/09_launch_browser.py"
+      ],
+      "book": "cookbook",
+      "slug": "recipe-v1-9",
+      "body": "This recipe covers 'Wait for Meaningful State' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "cookbook",
+        "title": "Python Browser Automation Cookbook",
+        "slug": "cookbook",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-1",
+      "title": "Launch and Close a Browser",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch01/1_code.py"
       ],
       "book": "playbook",
-      "body": "Intercept and modify requests at the network boundary using the low-level Chrome DevTools Protocol.\n\n```python\nimport nodriver as uc\n\nasync def main():\n    browser = await uc.start()\n    page = await browser.get(\"https://example.com\")\n    \n    # Enable network interception\n    await page.send(uc.api.network.enable())\n```"
+      "slug": "recipe-v2-1",
+      "body": "This recipe covers 'Launch and Close a Browser' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-10",
+      "title": "Retry Failures Intelligently",
+      "concepts": [
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch03/10_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-10",
+      "body": "This recipe covers 'Retry Failures Intelligently' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-11",
+      "title": "Structured Logging",
+      "concepts": [
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch03/11_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-11",
+      "body": "This recipe covers 'Structured Logging' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-12",
+      "title": "Configuration Management",
+      "concepts": [
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch03/12_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-12",
+      "body": "This recipe covers 'Configuration Management' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-13",
+      "title": "Find Elements Reliably",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/13_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-13",
+      "body": "This recipe covers 'Find Elements Reliably' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-14",
+      "title": "Click Elements Without Race Conditions",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/14_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-14",
+      "body": "This recipe covers 'Click Elements Without Race Conditions' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-15",
+      "title": "Fill Forms Reliably",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/15_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-15",
+      "body": "This recipe covers 'Fill Forms Reliably' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-16",
+      "title": "File Uploads",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/16_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-16",
+      "body": "This recipe covers 'File Uploads' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-17",
+      "title": "Select Dropdown Options",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/17_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-17",
+      "body": "This recipe covers 'Select Dropdown Options' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-18",
+      "title": "Dialogs, Alerts, and Popups",
+      "concepts": [
+        "authentication"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch04/18_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-18",
+      "body": "This recipe covers 'Dialogs, Alerts, and Popups' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-19",
+      "title": "Login Forms",
+      "concepts": [
+        "authentication",
+        "sessions",
+        "cookies",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch05/19_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-19",
+      "body": "This recipe covers 'Login Forms' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-2",
+      "title": "Open and Manage Browser Tabs",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch01/2_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-2",
+      "body": "This recipe covers 'Open and Manage Browser Tabs' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-20",
+      "title": "Cookie Persistence",
+      "concepts": [
+        "authentication",
+        "sessions",
+        "cookies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch05/20_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-20",
+      "body": "This recipe covers 'Cookie Persistence' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-21",
+      "title": "Session Reuse",
+      "concepts": [
+        "authentication",
+        "sessions",
+        "cookies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch05/21_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-21",
+      "body": "This recipe covers 'Session Reuse' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-22",
+      "title": "Multi-Account Isolation",
+      "concepts": [
+        "authentication",
+        "sessions",
+        "cookies",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch05/22_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-22",
+      "body": "This recipe covers 'Multi-Account Isolation' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "authentication",
+          "title": "Authentication",
+          "slug": "authentication",
+          "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "sessions",
+          "title": "Persistent Sessions",
+          "slug": "sessions",
+          "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "cookies",
+          "title": "Cookies",
+          "slug": "cookies",
+          "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+          "difficulty": "Beginner"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-23",
+      "title": "Extract Data From Tables",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch06/23_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-23",
+      "body": "This recipe covers 'Extract Data From Tables' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-24",
+      "title": "Pagination",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch06/24_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-24",
+      "body": "This recipe covers 'Pagination' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-25",
+      "title": "Infinite Scroll",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch06/25_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-25",
+      "body": "This recipe covers 'Infinite Scroll' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-26",
+      "title": "Download Files",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch06/26_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-26",
+      "body": "This recipe covers 'Download Files' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-27",
+      "title": "Extract Images and Media",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch06/27_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-27",
+      "body": "This recipe covers 'Extract Images and Media' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-28",
+      "title": "Stealth Configuration",
+      "concepts": [
+        "anti-detection",
+        "fingerprints",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch07/28_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-28",
+      "body": "This recipe covers 'Stealth Configuration' from Chapter 7 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-29",
+      "title": "Resilient Automation Patterns",
+      "concepts": [
+        "anti-detection",
+        "fingerprints",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch07/29_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-29",
+      "body": "This recipe covers 'Resilient Automation Patterns' from Chapter 7 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "fingerprints",
+          "title": "Fingerprinting",
+          "slug": "fingerprints",
+          "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-3",
+      "title": "Reuse a Browser Profile Across Sessions",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch01/3_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-3",
+      "body": "This recipe covers 'Reuse a Browser Profile Across Sessions' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-30",
+      "title": "The Production Starter Kit",
+      "concepts": [
+        "scaling"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch08/30_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-30",
+      "body": "This recipe covers 'The Production Starter Kit' from Chapter 8 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-30a",
+      "title": "Docker Deployment",
+      "concepts": [
+        "scaling"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch08/30a_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-30a",
+      "body": "This recipe covers 'Docker Deployment' from Chapter 8 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-31",
+      "title": "Intercept and Analyze Network Traffic with CDP",
+      "concepts": [
+        "cdp",
+        "network-interception",
+        "observability",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch09/31_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-31",
+      "body": "This recipe covers 'Intercept and Analyze Network Traffic with CDP' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-32",
+      "title": "Block Unnecessary Resources for Performance",
+      "concepts": [
+        "cdp",
+        "network-interception",
+        "observability",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch09/32_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-32",
+      "body": "This recipe covers 'Block Unnecessary Resources for Performance' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-33",
+      "title": "Debug JavaScript Failures Through Console Logs",
+      "concepts": [
+        "cdp",
+        "network-interception",
+        "observability",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch09/33_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-33",
+      "body": "This recipe covers 'Debug JavaScript Failures Through Console Logs' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-34",
+      "title": "Measure Browser Performance",
+      "concepts": [
+        "cdp",
+        "network-interception",
+        "observability",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch09/34_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-34",
+      "body": "This recipe covers 'Measure Browser Performance' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-35",
+      "title": "Emulate Different Browser Environments",
+      "concepts": [
+        "cdp",
+        "network-interception",
+        "observability",
+        "proxies"
+      ],
+      "difficulty": "Intermediate",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch09/35_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-35",
+      "body": "This recipe covers 'Emulate Different Browser Environments' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "cdp",
+          "title": "Chrome DevTools Protocol (CDP)",
+          "slug": "cdp",
+          "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "proxies",
+          "title": "Proxies & IP Rotation",
+          "slug": "proxies",
+          "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+          "difficulty": "Intermediate"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-36",
+      "title": "Audit Your Browser Environment",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch10/36_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-36",
+      "body": "This recipe covers 'Audit Your Browser Environment' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-37",
+      "title": "Build Reproducible Browser Environments",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch10/37_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-37",
+      "body": "This recipe covers 'Build Reproducible Browser Environments' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-38",
+      "title": "Browser Profile Isolation",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch10/38_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-38",
+      "body": "This recipe covers 'Browser Profile Isolation' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-39",
+      "title": "Regional Configuration Testing",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch10/39_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-39",
+      "body": "This recipe covers 'Regional Configuration Testing' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-4",
+      "title": "Customize Browser Startup Options",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch01/4_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-4",
+      "body": "This recipe covers 'Customize Browser Startup Options' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-40",
+      "title": "Diagnose Browser Compatibility",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch10/40_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-40",
+      "body": "This recipe covers 'Diagnose Browser Compatibility' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-41",
+      "title": "Reliable Drag and Drop",
+      "concepts": [
+        "anti-detection"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch11/41_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-41",
+      "body": "This recipe covers 'Reliable Drag and Drop' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-42",
+      "title": "Working With iFrames",
+      "concepts": [
+        "anti-detection"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch11/42_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-42",
+      "body": "This recipe covers 'Working With iFrames' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-43",
+      "title": "Shadow DOM Automation",
+      "concepts": [
+        "anti-detection"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch11/43_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-43",
+      "body": "This recipe covers 'Shadow DOM Automation' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-44",
+      "title": "Rich Text Editors",
+      "concepts": [
+        "anti-detection"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch11/44_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-44",
+      "body": "This recipe covers 'Rich Text Editors' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-45",
+      "title": "Keyboard and Clipboard Automation",
+      "concepts": [
+        "anti-detection"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch11/45_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-45",
+      "body": "This recipe covers 'Keyboard and Clipboard Automation' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "anti-detection",
+          "title": "Anti Detection",
+          "slug": "anti-detection",
+          "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-46",
+      "title": "Deploy Browser Automation with Docker",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/46_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-46",
+      "body": "This recipe covers 'Deploy Browser Automation with Docker' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-47",
+      "title": "Schedule Reliable Automation Jobs",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/47_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-47",
+      "body": "This recipe covers 'Schedule Reliable Automation Jobs' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-48",
+      "title": "Store Automation Data Safely",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/48_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-48",
+      "body": "This recipe covers 'Store Automation Data Safely' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-49",
+      "title": "Observability and Metrics",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/49_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-49",
+      "body": "This recipe covers 'Observability and Metrics' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-5",
+      "title": "Navigation and Wait Strategies",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch02/5_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-5",
+      "body": "This recipe covers 'Navigation and Wait Strategies' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-50",
+      "title": "Recovery and Health Management",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/50_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-50",
+      "body": "This recipe covers 'Recovery and Health Management' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-51",
+      "title": "Secrets and Configuration Management",
+      "concepts": [
+        "scaling",
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch12/51_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-51",
+      "body": "This recipe covers 'Secrets and Configuration Management' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "scaling",
+          "title": "Scaling & Orchestration",
+          "slug": "scaling",
+          "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+          "difficulty": "Advanced"
+        },
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-52",
+      "title": "Validate Scraped Records Before Storage",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch13/52_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-52",
+      "body": "This recipe covers 'Validate Scraped Records Before Storage' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-53",
+      "title": "Normalize and Export Trusted Data",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch13/53_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-53",
+      "body": "This recipe covers 'Normalize and Export Trusted Data' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-54",
+      "title": "Incremental Scraping & Change Detection",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch13/54_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-54",
+      "body": "This recipe covers 'Incremental Scraping & Change Detection' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-55",
+      "title": "Structural Page Comparison",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch13/55_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-55",
+      "body": "This recipe covers 'Structural Page Comparison' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-56",
+      "title": "Data Provenance & Audit Trails",
+      "concepts": [
+        "network-interception"
+      ],
+      "difficulty": "Advanced",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch13/56_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-56",
+      "body": "This recipe covers 'Data Provenance & Audit Trails' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "network-interception",
+          "title": "Network Interception",
+          "slug": "network-interception",
+          "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-6",
+      "title": "Page Navigation and Screenshots",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch02/6_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-6",
+      "body": "This recipe covers 'Page Navigation and Screenshots' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-7",
+      "title": "JavaScript Execution",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch02/7_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-7",
+      "body": "This recipe covers 'JavaScript Execution' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-8",
+      "title": "Browser State Persistence",
+      "concepts": [
+        "profiles"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch02/8_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-8",
+      "body": "This recipe covers 'Browser State Persistence' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "profiles",
+          "title": "Browser Profiles",
+          "slug": "profiles",
+          "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+          "difficulty": "Beginner"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "id": "recipe-v2-9",
+      "title": "Wait for Elements Correctly",
+      "concepts": [
+        "observability",
+        "recovery"
+      ],
+      "difficulty": "Beginner",
+      "environment": [
+        "Python",
+        "nodriver",
+        "Docker"
+      ],
+      "downloads": [
+        "recipes/ch03/9_code.py"
+      ],
+      "book": "playbook",
+      "slug": "recipe-v2-9",
+      "body": "This recipe covers 'Wait for Elements Correctly' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "conceptObjects": [
+        {
+          "id": "observability",
+          "title": "Observability",
+          "slug": "observability",
+          "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+          "difficulty": "Intermediate"
+        },
+        {
+          "id": "recovery",
+          "title": "Self-Healing & Recovery",
+          "slug": "recovery",
+          "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+          "difficulty": "Advanced"
+        }
+      ],
+      "bookObject": {
+        "id": "playbook",
+        "title": "Browser Automation Playbook",
+        "slug": "playbook",
+        "version": "2.0.0"
+      }
     }
   ],
   "books": [
@@ -385,6 +5711,7 @@
         "Reflowable EPUB",
         "15 complete Python scripts"
       ],
+      "slug": "cookbook",
       "body": "### Working Smarter with nodriver\n\nThis cookbook provides 15 highly focused, production-grade recipes built on asynchronous Python and the native Chrome DevTools Protocol.\n\n* **Anti-Bot Evading:** Bypass standard webdriver detection boundaries.\n* **Shadow DOM Traversal:** Traverse virtual shadow roots natively.\n* **Session Persistence:** Save and reuse active authentication cookie jars."
     },
     {
@@ -402,6 +5729,7 @@
         "60 complete Python scripts",
         "Docker Staging files"
       ],
+      "slug": "playbook",
       "body": "### Production Engineering Edition\n\nA masterclass in designing, deploying, and maintaining high-performance headless browser pools. Written exclusively for senior SREs, backend developers, and scraping architects.\n\n* **Concurreny & Pooling:** Run headless clusters with optimized memory footprint.\n* **Low-Level CDP intercept:** Capture API request streams at the websocket layer.\n* **Process Watchdogs:** Auto-kill and repair leaking browser instances."
     }
   ]

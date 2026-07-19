@@ -11,25 +11,16 @@
 ```
 cookbook/
 ├── README.md              ← this file (project overview)
-├── book/                  ← manuscript source (Pandoc-ready)
-│   ├── chapters/          ← 15 chapter files split from the book
-│   ├── appendix/          ← recipe index, architecture map
-│   ├── styles/            ← EPUB CSS
-│   └── metadata.yaml      ← Pandoc metadata
-├── recipes/               ← runnable Python code
-│   ├── ch01/ … ch14/      ← 60 recipe files, organized by chapter
-├── common/                ← reusable modules
-│   ├── browser.py         ← browser lifecycle
-│   ├── retry.py           ← retry with backoff
-│   ├── idempotency.py     ← @idempotent decorator, UPSERT
-│   ├── network_queue.py   ← asyncio.Queue CDP handler
-│   ├── data_pipeline.py   ← validation, quarantine, alerts
-│   ├── metrics.py         ← observability collector
-│   ├── recovery.py        ← RecoveryManager, FailureType
-│   └── visual_diff.py     ← DOM region comparison
-├── assets/                ← diagrams and images
-├── tools/                 ← build scripts
-└── releases/              ← generated PDFs/EPUBs
+├── book/                 ← manuscript source (Pandoc/Quarto-ready)
+├── recipes/              ← runnable Python code (ch01 … ch14)
+├── common/               ← reusable modules (browser, retry, recovery…)
+├── website-next/          ← Next.js 16 marketing/docs site (static export)
+│   ├── content/          ← MDX for books, concepts, recipes
+│   ├── src/              ← App-router pages + components
+│   └── scripts/          ← content validation + compile scripts
+├── Products/             ← Gumroad product assets + listing copy (gitignored)
+├── .github/workflows/    ← Cloudflare Pages deploy workflow
+└── assets/               ← diagrams and images
 ```
 
 ## Editions
@@ -45,6 +36,21 @@ cookbook/
 pip install nodriver
 python recipes/ch01/01_launch_browser.py
 ```
+
+## Website (website-next)
+
+The marketing and documentation site is a Next.js 16 app that exports to static HTML.
+
+```bash
+cd website-next
+npm ci
+npm run build      # validates content, compiles MDX, exports to ./out
+npx serve out     # preview locally
+```
+
+Deploys are automatic via `.github/workflows/deploy.yml`: every push to
+`master` that touches `website-next/**` builds the site on GitHub Actions and
+publishes `website-next/out` to Cloudflare Pages (`versatilesparks` project).
 
 ## Build From Source
 

@@ -3,9 +3,11 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main
+      - master
     paths:
-      - 'website/**'
+      - 'website-next/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -14,22 +16,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: website-next/package-lock.json
 
       - name: Install dependencies
-        run: |
-          pip install PyMuPDF jinja2
+        working-directory: website-next
+        run: npm ci
 
-      - name: Generate site
-        run: |
-          python website/scripts/build_site.py
+      - name: Build static site
+        working-directory: website-next
+        run: npm run build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy website --project-name=versatilesparks
+          command: pages deploy website-next/out --project-name=versatilesparks

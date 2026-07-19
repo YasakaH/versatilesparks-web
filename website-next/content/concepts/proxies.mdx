@@ -1,0 +1,23 @@
+---
+id: "proxies"
+title: "Proxies & IP Rotation"
+summary: "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools."
+difficulty: "Intermediate"
+requires: ["anti-detection"]
+used_by: ["cdp", "network-interception"]
+tags: ["proxy", "ip-rotation", "scraping", "stealth"]
+aliases: ["proxy", "residential proxy", "rotation", "ip pool", "forward proxy", "backconnect proxy"]
+introduced: "v1.0.0"
+updated: "v2.0.0"
+deprecated: false
+compatible_with: "Chrome >= 110"
+last_reviewed: "2026-07-19"
+---
+
+Proxies mask your crawler's origin IP address. To scrape at scale, you must rotate residential, datacenter, and mobile proxies dynamically while managing session cookies and headers.
+
+### Strategic Implementation
+
+1. **Residential Proxy Pools:** Use proxies with residential ISP associations to bypass Akamai and Cloudflare IP reputation scores.
+2. **Backconnect Gateways:** Route requests through a single entry point that auto-rotates IPs on every request or connection run.
+3. **Authentication & Protocol:** Configure proxies in nodriver using Chrome command-line args (`--proxy-server=http://user:pass@ip:port`).
