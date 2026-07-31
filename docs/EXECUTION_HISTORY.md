@@ -461,6 +461,23 @@ Until: traffic exists, clicks measured, sales measured.
 
 ---
 
+## Iteration 15 — Cloudflare account identification
+
+**Question:** which Cloudflare account hosts `versatilesparks.qzz.io`?
+
+**Findings:**
+- `qzz.io` is a real registered domain; NS = `ns1/2/3.qzz.io` (self-hosted authoritative DNS with glue); apex `142.171.123.133` is a live VPS (unreachable from the VPN network, but resolves).
+- `versatilesparks.qzz.io` → Cloudflare proxied IPs → the `qzz.io` zone lives in Cloudflare (orange-cloud record for the subdomain).
+- `versatilesparks.pages.dev` resolves → the Cloudflare Pages project `versatilesparks` exists with a prior deployment.
+- No Cloudflare credentials existed on this machine (no env keys, no wrangler config, no tokens in `.env` files, no hardcoded account ID in any git history).
+- The earlier public-DNS test failures were caused by the local VPN (`bdvpnservice_1`, DNS 198.18.0.33/127.0.0.1) blocking direct DNS/IP traffic — DoH (dns.google / cloudflare-dns.com) resolves everything correctly. DNS was never broken.
+
+**Answer (user-provided):** Cloudflare account email = **libdynwordpress@yahoo.com**. The zone `qzz.io` + Pages project `versatilesparks` + custom domain binding `versatilesparks.qzz.io` live in this account.
+
+**Secrets policy:** never store the account email in public files; do not commit any CF token. Deployment credentials live in GitHub Actions secrets + hermes `.env` (user-scoped machine file).
+
+---
+
 ## Session Context Preservation
 
 **Environment:**
