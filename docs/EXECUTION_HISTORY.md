@@ -433,6 +433,34 @@ Until: traffic exists, clicks measured, sales measured.
 
 ---
 
+## Iteration 14 — Hosting consolidation: Cloudflare Pages origin, GitHub Pages retired
+
+**Reviewer direction (user):** Do not point qzz.io to GitHub Pages. Keep DNS untouched. Cloudflare Pages is already in the stack — restore it as the single origin. Restructure the repo to commit source, not generated output, and let Cloudflare (via workflow) build and deploy.
+
+**Investigation findings:**
+1. The old GitHub Actions workflow was recovered from history (`6836893`): `npm ci && npm run build` in `website-next/`, then `cloudflare/wrangler-action@v3 pages deploy website-next/out --project-name=versatilesparks`. Needs two repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (neither exists on the repo; no CF credentials anywhere locally — the user must add them).
+2. The Cloudflare Pages project (`versatilesparks`) is presumed alive: qzz.io serves an old Next.js build through Cloudflare IPs — consistent with a stale Pages deployment.
+3. **Root cause of the Iteration 13 corruption finally identified:** `npm run build` wipes `website-next/out/` — including the out/.git that had been initialized for deployment. Subsequent `git add -A` from that directory walked up and operated on the **cookbook's real .git** (which held the full original history), sweeping the entire cookbook worktree (including `.reddit-creds.json`) into deployment commits. The cookbook repo and the deployment repo were one repo all along.
+4. Secret audit of the full git history: `.env` was never committed (gitignored); `.reddit-creds.json` appears in exactly one commit (f82111c, the corrupted one) — now unreachable on the remote after the clean force-push. Exposure limited to Reddit client_id + refresh_token. GUMROAD_ACCESS_TOKEN never leaked.
+
+**Changes made:**
+- `.gitignore`: added `.reddit-*` (covers .reddit-creds.json, engagement log, last-run files, status).
+- `.github/workflows/deploy.yml`: branch trigger `master` → `main`.
+- Repo rebuilt as **source repo** on the clean original history: branch reset to `6836893` (last clean source commit), worktree staged with the full current cookbook state, `.reddit-*` untracked, sample PDFs in `website-next/out/downloads` untracked, committed as `adc07f3` (1263 files changed vs 6836893). Force-pushed to `YasakaH/versatilesparks-web` main.
+- **GitHub Pages disabled** (DELETE /pages). DNS untouched. Main now = source (website-next/, articles/, docs/, tools/, workflow).
+- Remote tree verified via API: deploy.yml present, website-next source present, zero secret files.
+
+**User action required (single remaining step):**
+1. Add secrets to `YasakaH/versatilesparks-web`: `CLOUDFLARE_API_TOKEN` (Pages:Edit permission) and `CLOUDFLARE_ACCOUNT_ID` (Account → Workers & Pages → right sidebar).
+2. Trigger the workflow (push or workflow_dispatch) — it builds and deploys to project `versatilesparks`.
+3. If the project was deleted: create in Cloudflare dashboard → Pages → Create → Connect to GitHub → repo → framework preset Next.js → root `website-next` → build `npm ci && npm run build` → output `out/` → then verify qzz.io custom domain binding.
+4. Verify at https://versatilesparks.qzz.io/blog/why-browser-profiles-break (article + CTA).
+5. Rotate Reddit credentials (D-023).
+
+**Publishing behavior after this:** `git push` of `website-next/**` changes auto-deploys. Article/doc pushes do not trigger (workflow path filter). Local flow: edit article → `npm run build` local verification → push → live.
+
+---
+
 ## Session Context Preservation
 
 **Environment:**

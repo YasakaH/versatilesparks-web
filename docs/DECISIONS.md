@@ -109,3 +109,15 @@ Record of irreversible / load-bearing decisions. Append-only. Date each entry.
 **Date:** 2026-07-31
 **Decision:** Pinterest publishing requires funnel integrity, NOT sales: article loads, CTA visible, Gumroad ?ref tracking works, book page exists. Do not wait for first sales â€” Pinterest may generate them.
 **Reason:** Requiring sales before enabling a traffic source that has never been tested is circular.
+
+## D-022 — Cloudflare Pages is the origin; GitHub Pages retired
+**Date:** 2026-07-31
+**Decision:** The canonical website is served by Cloudflare Pages (project name ersatilesparks), deployed from the GitHub source repo via the .github/workflows/deploy.yml workflow (build: 
+pm ci && npm run build in website-next/, deploy: wrangler pages deploy website-next/out --project-name=versatilesparks). GitHub Pages was enabled during Iteration 13 then **disabled**; DNS for ersatilesparks.qzz.io was never changed (still Cloudflare).
+**Reason:** One deployment path only (GitHub ? Cloudflare Pages ? qzz.io). Cloudflare already owned the DNS and the old build was already served from the Pages project. Two origins would create confusion about which build is live.
+**Repo policy:** YasakaH/versatilesparks-web main = source, never generated output. The workflow triggers only on website-next/** paths, so article/docs pushes do not redeploy.
+
+## D-023 — Reddit credentials treated as exposed
+**Date:** 2026-07-31
+**Decision:** .reddit-creds.json was committed to the public deployment repo during the Iteration 13 corruption. Treat the Reddit client_id and refresh_token as compromised.
+**Action:** rotate/regenerate the Reddit app credentials; .reddit-* and .env are now gitignored at the cookbook root (verified: zero tracked). Rotation is the user's action.
