@@ -220,6 +220,12 @@ The difference is every step handles a real-world failure mode instead of assumi
 | Shared profiles | Isolated directories | Profile corruption and crashes |
 | No retry logic | Exponential backoff | Silent failures at scale |
 
+**Code examples:**
+
+* [Retry with backoff](https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/retry-with-backoff.md) — retries that don't hammer the target
+* [Browser profile management](https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/browser-profile-management.md) — shared-profile corruption, fixed
+* [Session health checks](https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/session-health-check.md) — sleep-until-it-works, replaced
+
 **If you're building automations that need to survive for days — not minutes — the cookbook goes much deeper.**
 
 It includes:

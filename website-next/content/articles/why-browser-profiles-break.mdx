@@ -274,6 +274,11 @@ Launch Browser                      Check Profile Lock
 
 Profiles aren't mysterious. They're directories with lock files and SQLite databases — and every failure mode above follows directly from treating them as either disposable or indestructible. The correct model is a managed resource with a lifecycle, a health check, and a recovery path.
 
+**Code examples:**
+
+* [Browser profile management](https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/browser-profile-management.md) — lifecycle, lock checks, isolation
+* [Session health checks](https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/session-health-check.md) — detect a dead session before the job starts
+
 **If you're building automations that need to survive for days — not minutes — the Python Browser Automation Cookbook goes deeper into these production patterns.**
 
 It includes:
