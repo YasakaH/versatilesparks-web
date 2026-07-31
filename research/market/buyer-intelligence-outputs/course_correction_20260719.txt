@@ -1,0 +1,66 @@
+═══════════════════════════════════════════════════════════════════
+EXECUTION INTEGRITY — COURSE CORRECTION
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# DIAGNOSIS
+
+The journey lost the original abstraction:
+
+  Data integrity
+    → Execution integrity
+    → Automation reliability
+    → AI agent reliability
+    → AI agent debugger (too small)
+
+Agent Replay may be a good developer tool, but it is not the
+original company thesis. It risks becoming:
+  AI debugging tool → AI observability → competes with LangSmith/Langfuse
+
+That is the crowded AI tooling ecosystem we set out to avoid.
+
+# THE CORRECTION
+
+The invariant was never "AI." It was:
+
+  "Truth preservation in automated systems."
+
+The four primitives were the actual discovery:
+  1. Identity — who performed the action?
+  2. Intent — was this the intended action?
+  3. Evidence — what proves it happened?
+  4. Time — when did it happen?
+
+Those are not AI concepts. They are DATA INTEGRITY PRIMITIVES.
+
+# THE REVISED COMPANY THESIS
+
+"As software becomes autonomous, organizations lose visibility into
+why decisions happen and whether actions are trustworthy. We build an
+integrity layer that records, verifies, and proves automated execution
+across AI agents, workflows, and enterprise systems."
+
+Not "Agent Replay" — but "Execution Ledger" or "Trust Layer for Automation."
+
+# THE PRODUCT HIERARCHY (Corrected)
+
+  Execution Ledger (tamper-evident record of automated actions)
+    → Replay becomes a feature
+    → Debugging becomes a feature
+    → Compliance becomes a feature
+    → Governance becomes a feature
+
+# THE WEDGE QUESTION (Unanswered)
+
+What is the smallest product that creates a trusted execution record,
+without being trapped as an AI debugging tool?
+
+Candidates (where integrity failure has immediate financial cost):
+  1. Financial automation integrity (payments, refunds, invoices)
+  2. Enterprise automation integrity (CRM, ERP, HR systems)
+  3. AI agent governance (verify authorization before action)
+
+# THE DECISION
+
+Optimize for "strongest unavoidable future need," not "easiest adoption."
+═══════════════════════════════════════════════════════════════════

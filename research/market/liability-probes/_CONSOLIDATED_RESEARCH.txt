@@ -1,0 +1,127 @@
+═══════════════════════════════════════════════════════════════════
+AI LIABILITY VALUE CHAIN — CONSOLIDATED RESEARCH
+Date: 2026-07-19 | Probes: Level 1-3 across 8 nodes
+═══════════════════════════════════════════════════════════════════
+
+# 1. MARKET STRUCTURE
+
+## Carriers (Active, Funded)
+
+| Company | Stage | Focus | Key Signal |
+|---------|-------|-------|------------|
+| Corgi | $268M total, $2.6B valuation | AI-native full-stack insurance | Doubled valuation in weeks. Market pricing this as major category. |
+| Armilla | $25M raised, Lloyd's Coverholder | Affirmative AI liability up to $25M | Backed by Chaucer, Axis, Convex, Swiss Re. First policy Apr 2025. |
+| Mount | YC P26 (2026), 2 people | AI agent insurance carrier | Hiring founding engineer for underwriting engine — building from scratch. |
+| Klaimee | YC P26 (2026) | E&O + risk cert for AI agents | Three-block system: public scan + 30 governance questions + 100 behavioral probes. $50K guarantee. |
+| Munich Re aiSure | Since 2018 | Model-performance cover | Incumbent reinsurer, steady presence. |
+
+## Revenue Signal
+Corgi's $268M raise and $2.6B valuation is the strongest signal that 
+capital markets believe this is a real category. They're an 18-month-old 
+company with no public claims data, valued at $2.6B. That's forward 
+pricing of a category, not a company.
+
+# 2. THE FORCING FUNCTIONS
+
+## Regulatory
+- ISO CG 40 47 / CG 40 48 (Jan 2026): AI exclusions now default in ~82% of US P&C policies
+- EU AI Act (Aug 2, 2026): Mandatory traceability for high-risk AI systems. Fines up to €35M.
+- EU Product Liability Directive (Dec 2026): AI classified as "product" with strict liability
+- Colorado AI Act (Jun 2026): Already in effect
+- NAIC model bulletin: Pushing toward named controls and auditable evidence
+
+## Legal Precedent
+- Air Canada (2024): Company liable for chatbot hallucination. "Chatbot is part of the website."
+- Chevrolet (2023): Chatbot offered $76K SUV for $1. 20M views. Reputational damage.
+- Multiple coding agent incidents (2025-2026): Production databases deleted, data fabricated.
+
+## Klaimee confirms:
+  "Major insurers like Berkshire, Chubb, and Travelers are winning state 
+  approval to exclude AI liability from standard commercial policies."
+
+# 3. THE CLAIMS INVESTIGATION GAP
+
+## Current State (Manual, Fragmented)
+
+When an AI agent causes loss:
+  1. Company exports logs from 3-5 different systems (IDE, cloud, git, comms)
+  2. Security engineer manually reconstructs timeline (30+ hours minimum)
+  3. Claims adjuster tries to map: tool called? permissions? authorization?
+  4. No standardized evidence format exists
+  5. Weeks later: coverage decision or denial
+
+## Concrete Cost Data
+  - PocketOS incident: $57K loss, 9 seconds execution, 30+ hours investigation
+  - Cyber IR retainers: $10K-$100K/year, mid-market engagement $25K-$500K
+  - AI forensics market: $4.8B (2025) → $28.6B (2035), 19.5% CAGR
+  - AI claims automation reduces cost per claim 30-40% (industry data)
+
+## What Insurers Actually Need (per article analysis)
+  "Are inputs, outputs, tool calls, human overrides, system prompts 
+  captured?" — LinkedIn article on AI agent insurance
+  "After a loss, the insurer needs evidence: Which tool did the agent call?
+  What permissions did it have? Who approved the action? What changed?
+  Can the record be trusted after the fact?" — 2muchcoffee.com
+
+# 4. INFRASTRUCTURE GAP
+
+## What Exists
+  - ProofSnap: Blockchain timestamps for AI outputs (chatbot liability)
+  - TrueScreen: QTSP digital seals + eIDAS timestamps (general data cert)
+  - SWEAR: Digital evidence authentication (physical security footage)
+
+None capture FULL AGENT EXECUTION provenance (tool calls, decisions,
+state changes, sequence, evidence artifacts).
+
+## The Missing Primitive (Björn Roberg, Apr 2026)
+  "Record → Replay → Expire"
+  Record: inputs, outputs, side-effect evidence, timestamps
+  Replay: conformance test against live target
+  Expire: TTL-bound attestation that re-verifies on drift
+
+No shipping product has the TTL/expiry piece.
+
+## Our EPR Format Maps To This
+  Event model → Record
+  Diff engine → Replay
+  TTL not yet built → Expire
+
+# 5. FRAMEWORK COMPATIBILITY
+
+Current agent frameworks produce proprietary, non-standardized traces:
+  - OpenAI Agents SDK: proprietary format
+  - LangGraph: LangSmith traces (debugging, not underwriting)
+  - CrewAI: log format
+  - MCP servers: protocol-level logging
+
+No framework emits a standardized insurance-grade evidence packet.
+Every carrier (Mount, Klaimee, Armilla) builds their own data pipeline
+from scratch.
+
+  "Existing carriers either exclude AI risk, price it badly, or avoid
+  it entirely because they do not know how to assess deployed AI
+  systems." — Mount job posting
+
+# 6. COMPETITIVE THREATS TO THE THESIS
+
+  - If LangSmith/Langfuse expands into compliance exports → Layer 3 shrinks
+  - If OpenAI/Anthropic standardizes execution traces → proprietary lock-in
+  - If carriers build internal tooling → fragmented, no standard
+  - If regulators define the format → commodity
+
+  The strongest defense: the TTL/expiry primitive. Carriers won't build
+  this. Framework vendors won't prioritize it. Regulators haven't
+  specified it. It's the one piece that requires independent infrastructure.
+
+# 7. KEY UNANSWERED QUESTION
+
+  "How many AI claims have actually been paid?"
+
+  We have incidents (PocketOS, Replit, Air Canada, Chevrolet) but no
+  evidence that any AI liability insurance policy has paid a claim yet.
+  The market is pre-claims. That means:
+    - Carriers are pricing risk without loss data
+    - The first major claim will validate or invalidate the category
+    - Infrastructure built now is forward-looking
+
+═══════════════════════════════════════════════════════════════════

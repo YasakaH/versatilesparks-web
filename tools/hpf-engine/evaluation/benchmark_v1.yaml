@@ -1,0 +1,117 @@
+# HPF Benchmark v1 — Frozen benchmark for evaluation
+# 30 questions covering all 5 reasoning modes
+
+benchmark:
+  name: "HPF Benchmark v1"
+  description: "Browser automation knowledge domain — 30 questions across 5 reasoning modes"
+  frozen: "2025-07-28"
+  failure_reasons:
+    - KnowledgeGap       # Missing knowledge object; expand domain
+    - Retrieval          # Wrong/missing objects retrieved; fix retriever
+    - Reasoning          # Mode or logic wrong; fix evidence builder
+    - Evidence           # Weak or missing evidence; fix evidence builder
+    - Rendering          # Markdown or formatting bad; fix renderer
+    - Hallucination      # Falsified information; fix pipeline
+    - ModelKnowledge     # Frontier model wins via broader training data
+    - EvaluatorDisagreement  # Scorer disagrees with rubric application
+
+questions:
+  # === Explain (8 questions) ===
+  - id: "E01"
+    mode: "explain"
+    question: "What is CDP?"
+  - id: "E02"
+    mode: "explain"
+    question: "What is WebDriver?"
+  - id: "E03"
+    mode: "explain"
+    question: "How does nodriver work?"
+  - id: "E04"
+    mode: "explain"
+    question: "What is a browser session lifecycle?"
+  - id: "E05"
+    mode: "explain"
+    question: "Why do browser profiles matter?"
+  - id: "E06"
+    mode: "explain"
+    question: "What is anti-detection in browser automation?"
+  - id: "E07"
+    mode: "explain"
+    question: "How does the retry with backoff pattern work?"
+  - id: "E08"
+    mode: "explain"
+    question: "What is incremental extraction?"
+
+  # === Compare (6 questions) ===
+  - id: "C01"
+    mode: "compare"
+    question: "CDP vs WebDriver"
+  - id: "C02"
+    mode: "compare"
+    question: "Playwright vs nodriver"
+  - id: "C03"
+    mode: "compare"
+    question: "Selenium vs Playwright"
+  - id: "C04"
+    mode: "compare"
+    question: "CSS selectors vs XPath"
+  - id: "C05"
+    mode: "compare"
+    question: "Exponential backoff vs fixed backoff"
+  - id: "C06"
+    mode: "compare"
+    question: "Browser profile vs fresh session"
+
+  # === Decide (6 questions) ===
+  - id: "D01"
+    mode: "decide"
+    question: "Should I migrate from Selenium?"
+  - id: "D02"
+    mode: "decide"
+    question: "Should I retry on HTTP 429?"
+  - id: "D03"
+    mode: "decide"
+    question: "Should I use data-testid selectors?"
+  - id: "D04"
+    mode: "decide"
+    question: "Should I implement health checks?"
+  - id: "D05"
+    mode: "decide"
+    question: "Should I use a fresh browser profile per session?"
+  - id: "D06"
+    mode: "decide"
+    question: "Should I use anti-detection techniques?"
+
+  # === Troubleshoot (6 questions) ===
+  - id: "T01"
+    mode: "troubleshoot"
+    question: "Why do sessions expire unexpectedly?"
+  - id: "T02"
+    mode: "troubleshoot"
+    question: "Why are selectors flaky?"
+  - id: "T03"
+    mode: "troubleshoot"
+    question: "Why does my scraper get blocked?"
+  - id: "T04"
+    mode: "troubleshoot"
+    question: "Why does the browser crash after multiple navigations?"
+  - id: "T05"
+    mode: "troubleshoot"
+    question: "Why is data extraction missing content?"
+  - id: "T06"
+    mode: "troubleshoot"
+    question: "Why does the health check keep failing?"
+
+  # === Design (4 questions) ===
+  - id: "DS01"
+    mode: "design"
+    question: "Design a resilient scraper"
+  - id: "DS02"
+    mode: "design"
+    question: "Build a production download pipeline"
+  - id: "DS03"
+    mode: "design"
+    question: "Design a retry mechanism for CDP operations"
+  - id: "DS04"
+    mode: "design"
+    question: "Design a session management system for browser automation"

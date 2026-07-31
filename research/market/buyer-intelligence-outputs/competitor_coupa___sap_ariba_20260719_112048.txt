@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Coupa / SAP Ariba
+Date: 2026-07-19 11:20:48
+=================================================================
+
+  What they do: Procurement & AP
+  Their focus: Buyer-side system of record
+  Threat to us: LOW — profit from asymmetry
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  Coupa sells to BUYERS. It's designed to optimize procurement for the buyer, not to create neutral truth between buyer and supplier. A verification layer would let suppliers dispute rejected invoices — reducing buyer leverage. Coupa will never build this.

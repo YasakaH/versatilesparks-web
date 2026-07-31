@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/validate-content.js && node scripts/compile-content.js",
+    "prebuild": "node scripts/validate-content.js && node scripts/compile-content.js && node scripts/generate-search-index.js && node scripts/release-audit.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "compile": "node scripts/compile-content.js",
-    "validate": "node scripts/validate-content.js"
+    "validate": "node scripts/validate-content.js",
+    "search-index": "node scripts/generate-search-index.js",
+    "audit": "node scripts/compile-content.js && node scripts/generate-search-index.js && node scripts/release-audit.js"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

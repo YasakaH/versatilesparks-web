@@ -1,0 +1,10 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → B → B2
+Depth: Level 3
+Leaf: B2 — Output not verified (0pts)
+============================================================
+
+B2: Output not verified (0pts)
+  Data extracted but format changed. Data is wrong. No validation.

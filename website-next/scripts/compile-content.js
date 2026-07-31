@@ -19,7 +19,6 @@ function parseFrontmatter(fileContent) {
     const key = line.substring(0, colonIndex).trim();
     let valStr = line.substring(colonIndex + 1).trim();
 
-    // Parse values (arrays, strings, numbers, booleans)
     if (valStr.startsWith('[') && valStr.endsWith(']')) {
       metadata[key] = valStr.substring(1, valStr.length - 1)
         .split(',')
@@ -37,27 +36,14 @@ function parseFrontmatter(fileContent) {
   return { metadata, body };
 }
 
-/**
- * Auto-derive related concepts for a given concept when `related` is not
- * explicitly curated in frontmatter. Strategy:
- *   1. Sibling concepts (share a requires or used_by) — strongest signal.
- *   2. Concepts sharing a tag — weaker signal.
- *
- * Direct graph neighbours (requires + used_by) are excluded because they are
- * already shown in the dependency panel of the concept page.
- *
- * Returns a de-duplicated, ordered list of concept IDs (excluding self and
- * direct graph neighbours).
- */
 function deriveRelated(concept, allConcepts) {
   const directNeighbours = new Set([
     ...(concept.requires || []),
     ...(concept.used_by || []),
   ]);
 
-  const scored = new Map(); // id -> score
+  const scored = new Map();
 
-  // Sibling signal: concepts that share a requires or used_by entry
   (concept.requires || []).forEach(reqId => {
     allConcepts.forEach(other => {
       if (other.id === concept.id) return;
@@ -75,7 +61,6 @@ function deriveRelated(concept, allConcepts) {
     });
   });
 
-  // Tag overlap signal
   (concept.tags || []).forEach(tag => {
     allConcepts.forEach(other => {
       if (other.id === concept.id) return;
@@ -85,8 +70,6 @@ function deriveRelated(concept, allConcepts) {
     });
   });
 
-  // Filter out direct graph neighbours (they're already shown elsewhere),
-  // sort by score desc then by id for stable ordering, take top 5.
   return Array.from(scored.entries())
     .filter(([id]) => !directNeighbours.has(id))
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
@@ -94,53 +77,45 @@ function deriveRelated(concept, allConcepts) {
     .map(([id]) => id);
 }
 
+function loadDir(cat) {
+  const catDir = path.join(contentDir, cat);
+  if (!fs.existsSync(catDir)) return [];
+  return fs.readdirSync(catDir).filter(f => f.endsWith('.mdx')).map(file => {
+    const filePath = path.join(catDir, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { metadata, body } = parseFrontmatter(fileContent);
+    const slug = metadata.slug || (cat === 'books' ? file.replace(/\.mdx$/, '') : metadata.id);
+    return { ...metadata, slug, body, _file: file };
+  });
+}
+
 function compile() {
   const db = {
     concepts: [],
     recipes: [],
-    books: []
+    books: [],
+    problems: [],
+    articles: []
   };
 
-  const categories = ['concepts', 'recipes', 'books'];
-
+  const categories = ['concepts', 'recipes', 'books', 'problems', 'articles'];
   categories.forEach(cat => {
-    const catDir = path.join(contentDir, cat);
-    if (!fs.existsSync(catDir)) return;
-
-    const files = fs.readdirSync(catDir).filter(f => f.endsWith('.mdx'));
-    files.forEach(file => {
-      const filePath = path.join(catDir, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { metadata, body } = parseFrontmatter(fileContent);
-
-      // Derive a slug for routing if not explicitly provided.
-      // Uses `id` for concepts and recipes, and the filename (without
-      // extension) for books since book ids may contain version dots.
-      const slug =
-        metadata.slug ||
-        (cat === 'books'
-          ? file.replace(/\.mdx$/, '')
-          : metadata.id);
-
-      db[cat].push({
-        ...metadata,
-        slug,
-        body
-      });
-    });
+    db[cat] = loadDir(cat);
   });
 
-  // ---- Enrichment pass: related concepts + per-concept recipe/book lists ----
   const conceptIndex = new Map(db.concepts.map(c => [c.id, c]));
+  const problemIndex = new Map(db.problems.map(p => [p.id, p]));
 
+  // Auto-derive related concepts
   db.concepts.forEach(concept => {
-    // Related: explicit frontmatter wins, otherwise auto-derive.
     if (!concept.related || concept.related.length === 0) {
       concept.related = deriveRelated(concept, db.concepts);
     }
+    if (!concept.group) concept.group = "general";
+    if (!concept.next_steps) concept.next_steps = [];
   });
 
-  // Attach recipe summaries + book associations to each concept.
+  // Attach recipe summaries + book associations to each concept
   db.concepts.forEach(concept => {
     const linkedRecipes = db.recipes.filter(r =>
       (r.concepts || []).includes(concept.id)
@@ -163,9 +138,38 @@ function compile() {
         slug: b.slug,
         version: b.version,
       }));
+
+    // Attach problems
+    concept.problems = db.problems
+      .filter(p => (p.concept || '').toLowerCase() === concept.id)
+      .map(p => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        error_patterns: p.error_patterns || [],
+        severity: p.severity || "common",
+      }));
+
+      // Attach articles (from articles/json/manifest.json if exists)
+    const manifestPath = path.join(__dirname, '../../articles/json/manifest.json');
+    if (fs.existsSync(manifestPath)) {
+      const raw = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+      // Support both legacy (array) and generated ({_meta, articles}) formats
+      const entries = Array.isArray(raw) ? raw : (raw.articles || []);
+      concept.articles = entries
+        .filter(function(a) { return (a.concepts || []).includes(concept.id); })
+        .map(function(a) { return {
+          slug: a.slug || '',
+          title: a.title || '',
+          description: a.description || '',
+          tags: a.tags || [],
+        }; });
+    } else {
+      concept.articles = [];
+    }
   });
 
-  // Attach concept summaries to each recipe for richer recipe pages.
+  // Attach concept summaries to each recipe
   db.recipes.forEach(recipe => {
     recipe.conceptObjects = (recipe.concepts || [])
       .map(cid => conceptIndex.get(cid))
@@ -177,13 +181,20 @@ function compile() {
         summary: c.summary,
         difficulty: c.difficulty,
       }));
-  });
 
-  // Attach book object (not just id) to each recipe.
-  db.recipes.forEach(recipe => {
     const book = db.books.find(b => b.id === recipe.book);
     recipe.bookObject = book
       ? { id: book.id, title: book.title, slug: book.slug, version: book.version }
+      : null;
+
+    if (!recipe.prerequisites) recipe.prerequisites = [];
+  });
+
+  // Attach concept object to each problem
+  db.problems.forEach(problem => {
+    const concept = conceptIndex.get((problem.concept || '').toLowerCase());
+    problem.conceptObject = concept
+      ? { id: concept.id, title: concept.title, slug: concept.slug, summary: concept.summary, difficulty: concept.difficulty }
       : null;
   });
 
@@ -201,6 +212,8 @@ function compile() {
   ${db.concepts.length} concepts
   ${db.recipes.length} recipes
   ${db.books.length} books
+  ${db.problems.length} problems
+  ${db.articles.length} articles
   -> src/db/knowledge-base.json`);
 }
 

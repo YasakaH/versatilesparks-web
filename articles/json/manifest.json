@@ -1,0 +1,149 @@
+{
+  "_meta": {
+    "generated": true,
+    "generator": "consume_handoff.py",
+    "knowledge_package_version": "0.2.0",
+    "schema_version": "1.0",
+    "generated_at": "2026-07-30T10:32:33Z",
+    "entry_count": 6
+  },
+  "articles": [
+    {
+      "slug": "why-browser-profiles-break",
+      "title": "Why Your nodriver Browser Profiles Break (and How to Fix Them)",
+      "description": "Explain profile mechanics, common failure modes, and recovery strategies. Covers: profile-locked, profile-corruption.",
+      "concepts": [
+        "profiles",
+        "sessions",
+        "scaling"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "profiles",
+        "cdp"
+      ],
+      "date": "2026-07-31",
+      "published": true,
+      "urls": {
+        "website": "https://versatilesparks.qzz.io/blog/why-browser-profiles-break",
+        "devto": "https://dev.to/fromyasaka/why-your-nodriver-browser-profiles-break-and-how-to-fix-them-521c"
+      },
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    },
+    {
+      "slug": "automation-detection-signals",
+      "title": "What Automation Detection Looks Like in 2026",
+      "description": "Catalog current detection signals and their mitigation trade-offs. Covers: navigator.webdriver flag, cdp detection, permission query signals.",
+      "concepts": [
+        "anti-detection",
+        "fingerprints"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "browser-automation",
+        "anti-detection"
+      ],
+      "date": "2026-07-30",
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    },
+    {
+      "slug": "fresh-vs-persistent-profiles",
+      "title": "Fresh vs Persistent Browser Profiles: When to Use Which",
+      "description": "Help readers choose the right profile strategy for their use case. Covers: profile-locked, cross-session tracking.",
+      "concepts": [
+        "profiles",
+        "anti-detection",
+        "sessions"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "browser-automation",
+        "profiles"
+      ],
+      "date": "2026-07-30",
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    },
+    {
+      "slug": "browser-fingerprint-primer",
+      "title": "How Browser Fingerprinting Works",
+      "description": "Explain fingerprinting mechanisms and their role in automation detection. Covers: canvas fingerprint, WebGL fingerprint, audio fingerprint.",
+      "concepts": [
+        "fingerprints",
+        "anti-detection"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "browser-automation",
+        "fingerprints"
+      ],
+      "date": "2026-07-30",
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    },
+    {
+      "slug": "anti-detection-strategy-guide",
+      "title": "Anti-Detection Strategy: What Works, What Doesn't",
+      "description": "Systematic approach to reducing automation detection risk. Covers: navigator.webdriver, cdp detection, permission queries, canvas fingerprint.",
+      "concepts": [
+        "anti-detection",
+        "fingerprints",
+        "profiles"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "browser-automation",
+        "anti-detection",
+        "advanced"
+      ],
+      "date": "2026-07-30",
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    },
+    {
+      "slug": "5-mistakes-nodriver-beginners",
+      "title": "5 Mistakes New nodriver Users Make (and How to Avoid Them)",
+      "description": "You migrated to nodriver for the low-level CDP control. But that flexibility comes with its own production gotchas — here are the five I see most often and how to fix each one.",
+      "concepts": [
+        "nodriver",
+        "python",
+        "browser-automation",
+        "web-scraping",
+        "cdp"
+      ],
+      "tags": [
+        "nodriver",
+        "python",
+        "webscraping",
+        "cdp"
+      ],
+      "date": "2026-07-29",
+      "published": true,
+      "urls": {
+        "website": "https://versatilesparks.qzz.io/blog/5-mistakes-nodriver-beginners",
+        "devto": "https://dev.to/fromyasaka/5-mistakes-new-nodriver-users-make-and-how-to-avoid-them-3dap"
+      },
+      "platforms": [
+        "website",
+        "devto"
+      ]
+    }
+  ]
+}

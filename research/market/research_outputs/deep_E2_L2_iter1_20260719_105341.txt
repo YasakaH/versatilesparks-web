@@ -1,0 +1,35 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: E2
+Date: 2026-07-19 10:53:41
+Iteration: 1 | Depth: Level 2
+Path: E2 → E2_tech_cause
+=================================================================
+
+CURRENT PROBLEM: E2
+  No state persistence
+  Session state lost on crash or restart. Must login again. Everything begins from scratch. No continuity across runs.
+  Score: 10pts
+  Industries: browser
+
+  Supporting evidence (1 cases):
+    [browser] Browser Use Cloud detail: Fresh browser environment per session. No cookie sharing, no localStorage. 
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] E2_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [2] E2_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [3] E2_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [4] E2_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'E2_tech_cause' (score: 30)
+Path so far: E2 → E2_tech_cause

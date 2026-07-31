@@ -1,0 +1,36 @@
+{
+  "qid": "C03",
+  "mode": "compare",
+  "question": "Selenium vs Playwright",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 3
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Selenium vs Playwright",
+        "mode": "compare",
+        "entities": [
+          "selenium",
+          "playwright"
+        ],
+        "retrieved": [
+          "playwright-concept",
+          "selenium-concept",
+          "webdriver-concept"
+        ],
+        "argument_keys": [
+          "criteria",
+          "scoring",
+          "tradeoffs",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

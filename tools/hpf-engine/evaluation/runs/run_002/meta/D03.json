@@ -1,0 +1,35 @@
+{
+  "qid": "D03",
+  "mode": "decide",
+  "question": "Should I use data-testid selectors?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I use data-testid selectors?",
+        "mode": "decide",
+        "entities": [
+          "selector",
+          "data-testid"
+        ],
+        "retrieved": [
+          "selector-strategy-pattern"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "qid": "C02",
+  "mode": "compare",
+  "question": "Playwright vs nodriver",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 2
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Playwright vs nodriver",
+        "mode": "compare",
+        "entities": [
+          "nodriver",
+          "playwright"
+        ],
+        "retrieved": [
+          "nodriver-concept",
+          "playwright-concept"
+        ],
+        "argument_keys": [
+          "criteria",
+          "scoring",
+          "tradeoffs",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

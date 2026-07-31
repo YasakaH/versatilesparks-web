@@ -1,0 +1,112 @@
+═══════════════════════════════════════════════════════════════════
+LIABILITY VALUE CHAIN — WORKFLOW MAP & FINDINGS
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# KEY FINDINGS
+
+## 1. The market is forming fast — but raw
+
+- "Field went from zero to ~10 funded entrants in a year" (bjro.dev, Apr 2026)
+- Corgi: $160M Series B at $1.3B valuation (May 2026)
+- Armilla: $25M raised, Lloyd's-backed MGA
+- Mount: YC P26, 2-person team, hiring founding engineer for underwriting engine
+- Klaimee: YC, risk scoring + certification
+- First policy written: ElevenLabs (Feb 2026)
+
+## 2. Every carrier is building their underwriting engine from scratch
+
+Mount's job posting:
+  "Build the MVP underwriting engine used to score and price AI risk"
+  "Design the data flows, heuristics, and product logic"
+  "Existing carriers either exclude AI risk, price it badly, or avoid it
+   entirely because they do not know how to assess deployed AI systems"
+
+This confirms: NO standardized trace data format exists. Every carrier
+builds their own data pipeline from proprietary framework traces.
+
+## 3. The missing primitive is identified by the industry
+
+Blog post by Björn Roberg (Apr 2026):
+
+  "What's still missing is narrower and sharper: Record → Replay → Expire"
+  "Record a session: inputs, outputs, side-effect evidence, timestamps"
+  "Replay that recording as a conformance test against the live target"
+  "Expire: the bundle carries a TTL — past expiry it's stale"
+  "That is the only attestation shape that means anything"
+
+This is EXACTLY the EPR format we built. The blog describes:
+  - Record: our Event model + receipt
+  - Replay: our diff engine + viewer
+  - Expire: TTL-bound attestation (not yet built)
+
+## 4. The two possible business paths
+
+Blog identifies two forks:
+
+  (a) "Substrate carries insurance" — You underwrite risk directly
+      → Bigger company, harder, needs insurance partner
+      → Klaimee is the only attempt
+
+  (b) "Stay in audit lane" — Attestation that auditors accept
+      → Smaller business, faster to build, acquirable
+      → Where most current cohort sits
+
+Our opportunity: Layer 3 infrastructure doesn't pick a side.
+It serves BOTH paths. Carriers (a) and auditors (b) both need
+standardized, verifiable execution evidence.
+
+## 5. The workflow map (reconstructed from evidence)
+
+Current state (manual, ad-hoc):
+
+  Agent causes incident
+    ↓
+  Customer exports logs from multiple frameworks
+    ↓
+  Security engineer reconstructs timeline manually
+    ↓
+  Different trace formats from different frameworks
+    ↓
+  Claims analyst correlates tool calls
+    ↓
+  Manual decision: covered or excluded?
+    ↓
+  Payout (weeks later)
+
+  "The first audits may be too manual. The first claims may be painful." (LinkedIn)
+
+## 6. What infrastructure would remove
+
+  Manual trace collection across frameworks → automated EPR receipts
+  Manual timeline reconstruction → standardized event sequence
+  Manual claims investigation → verifiable evidence bundle
+  Disputed claims → replayable execution record
+
+## 7. The killer question from the blog
+
+  "Does EVERY insurer reconstruct execution history DIFFERENTLY?"
+  → Yes. Every carrier builds their own pipeline from scratch.
+  → This is exactly how FICO-like infrastructure emerges.
+
+  "If someone ships [Record → Replay → Expire] as boring open-source
+   infrastructure... Stage 1 is infrastructure, not business."
+  → The author explicitly calls for someone to build this layer.
+
+═══════════════════════════════════════════════════════════════════
+
+# THE INFRASTRUCTURE THESIS
+
+The market is real. Carriers exist. They all need trace evidence.
+They all build it manually today. Nobody sells the layer beneath them.
+
+The product: standardized execution evidence format (EPR) + 
+TTL-bound attestation that re-verifies on drift.
+
+The customer: carriers (Mount, Klaimee, Armilla, Corgi) + 
+enterprises deploying agents who need evidence for their insurers.
+
+The wedge: "Your underwriting engine needs standardized trace data.
+We are the pipeline. You build the policy."
+
+═══════════════════════════════════════════════════════════════════

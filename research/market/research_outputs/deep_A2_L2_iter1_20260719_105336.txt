@@ -1,0 +1,30 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: A2
+Date: 2026-07-19 10:53:36
+Iteration: 1 | Depth: Level 2
+Path: A2 → A2_no_alert
+=================================================================
+
+CURRENT PROBLEM: A2
+  Partial failure undetected
+  Batch of N items processes. M fail silently. Report shows overall success. Nobody checks the M failures.
+  Score: 20pts
+  Industries: cross, procurement
+
+  Supporting evidence (2 cases):
+    [cross] PagerDuty 2024: Dashboard shows red for 3 workflows. Team doesn't look. Status averaged int
+    [procurement] EDI industry: EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN delivers 9,953. B
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] A2_no_alert: No notification channel configured (30pts [cross,procurement])
+       Evidence: EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN delivers 9,953. Buyer ...
+       Evidence: 3 cases — top: [cross] Cron job sends report to dead email alias. 2 subscribers bot
+
+  [2] A2_partial_failure: Subset failures invisible in aggregate success (10pts [procurement])
+       Success rate masks individual failures. EDI 850 batch: 10,000 POs. 47 invalid supplier codes. V
+       Evidence: 1 cases — top: [procurement] EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN de
+
+DECISION: Descending into 'A2_no_alert' (score: 30)
+Path so far: A2 → A2_no_alert

@@ -1,0 +1,17 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → A → A4
+Depth: Level 3
+Leaf: A4 — Delayed discovery (40pts)
+============================================================
+
+A4: Delayed discovery (40pts $8,100,200,000 [cross,healthcare,logistics,procurement])
+  Failure surfaces days/weeks later. By then recovery is impossible or funds are gone.
+  Top case: [cross] Cron job sends report to email alias. Alias has 2 subscribers, both left co
+
+Full evidence:
+  [cross] EDB #1064: Cron job sends report to email alias. Alias has 2 subscribers, both left company
+  [healthcare] GAO 2025: $5.1B improper payments. Average detection time: 18 months. By then, funds canno ($5,100,000,000)
+  [logistics] TIA 2024: Cargo theft: 72hr average detection delay. By then, container is empty and re-ro ($200,000)
+  [procurement] FBI BEC 2025: Invoice fraud detected 60 days after payment. By then, funds moved through 4 she ($3,000,000,000)

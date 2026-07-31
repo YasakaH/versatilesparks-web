@@ -1,0 +1,40 @@
+{
+  "qid": "D05",
+  "mode": "decide",
+  "question": "Should I use a fresh browser profile per session?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I use a fresh browser profile per session?",
+        "mode": "decide",
+        "entities": [
+          "browser profile",
+          "session",
+          "browser"
+        ],
+        "retrieved": [
+          "session-lifecycle-concept",
+          "browser-profiles-concept",
+          "health-check-pattern",
+          "playwright-concept",
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    }
+  }
+}

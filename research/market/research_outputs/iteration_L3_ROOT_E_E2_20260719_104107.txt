@@ -1,0 +1,10 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → E → E2
+Depth: Level 3
+Leaf: E2 — No state persistence (0pts)
+============================================================
+
+E2: No state persistence (0pts)
+  Session state lost on crash. Must login again. Restart from beginning.

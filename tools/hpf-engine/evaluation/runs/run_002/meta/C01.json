@@ -1,0 +1,38 @@
+{
+  "qid": "C01",
+  "mode": "compare",
+  "question": "CDP vs WebDriver",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 7
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "CDP vs WebDriver",
+        "mode": "compare",
+        "entities": [
+          "cdp",
+          "webdriver"
+        ],
+        "retrieved": [
+          "webdriver-concept",
+          "cdp-concept",
+          "nodriver-concept",
+          "playwright-concept",
+          "selenium-concept"
+        ],
+        "argument_keys": [
+          "criteria",
+          "scoring",
+          "tradeoffs",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

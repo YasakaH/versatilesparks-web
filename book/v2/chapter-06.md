@@ -270,43 +270,43 @@ async def extract_image_urls(page, selector: str = "img") -> list[str]:
 
 ## Common Mistakes
 
-### [✗] Not validating data type after extraction
+### [X] Not validating data type after extraction
 
 A price extracted as `"₹89,999"` is a string. Downstream systems expect a float. Storing the string breaks reporting, sorting, and aggregation.
 
 **Fix:** Parse and type-convert every field before storing. Use `common/data_pipeline.py`.
 
-### [✗] Assuming all rows have the same number of cells
+### [X] Assuming all rows have the same number of cells
 
 Merged rows, hidden columns, and variable-length data produce jagged arrays. Code that assumes `row[3]` is always the price will index out of bounds.
 
 **Fix:** Check row length before accessing cells. Fall back to `None` for missing cells.
 
-### [✗] Reading the entire page into memory
+### [X] Reading the entire page into memory
 
 Pages with thousands of rows can consume hundreds of megabytes. Loading everything before processing risks OOM on small VPS instances.
 
 **Fix:** Process and discard in batches — extract, validate, store, then free the DOM references.
 
-### [✗] Not handling empty pages
+### [X] Not handling empty pages
 
 A page that loads but shows "no results" still has a valid DOM. The extraction code returns zero rows. Downstream systems see zero and think the catalog is empty.
 
 **Fix:** Check for an explicit "no results" indicator. Log a warning when extraction returns zero rows.
 
-### [✗] Capping pagination but not runtime
+### [X] Capping pagination but not runtime
 
 A script with `MAX_PAGES = 100` may still run for hours if each page loads slowly. The timeout protects against infinite loops but not against long loops.
 
 **Fix:** Set both a page cap and a maximum runtime (`asyncio.wait_for` on the entire extraction).
 
-### [✗] Storing raw HTML as the source of truth
+### [X] Storing raw HTML as the source of truth
 
 HTML contains dynamic elements (timestamps, session IDs, ad placeholders) that change every load. Storing raw HTML is expensive and does not provide a stable diff target.
 
 **Fix:** Extract and store structured data. Keep raw HTML only as a debugging artifact for the most recent failure.
 
-### [✗] Extracting from the wrong rendering context
+### [X] Extracting from the wrong rendering context
 
 A `<select>` dropdown shows visible text, but the value sent to the server is the `value` attribute. Extracting the visible text gives you the label, not the data.
 
@@ -375,10 +375,10 @@ Extraction is a pipeline, not a single operation. Every field must be parsed, ty
 - Confidence scores make data quality visible to operators
 
 ### Common Mistakes
-- [✗] Not validating data type after extraction — "₹89,999" stored as string breaks reporting
-- [✗] Assuming all rows have the same structure — merged cells produce jagged arrays
-- [✗] Not handling empty pages — zero rows returned, treated as "catalog empty"
-- [✗] Capping pages but not runtime — MAX_PAGES=100 runs for 6 hours on slow pages
+- [X] Not validating data type after extraction — "₹89,999" stored as string breaks reporting
+- [X] Assuming all rows have the same structure — merged cells produce jagged arrays
+- [X] Not handling empty pages — zero rows returned, treated as "catalog empty"
+- [X] Capping pages but not runtime — MAX_PAGES=100 runs for 6 hours on slow pages
 
 ### Senior Takeaways
 - Extraction without validation is reading, not engineering

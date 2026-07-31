@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:48
+Path: enterprise_it → L2
+Depth: Level 2
+=================================================================
+
+WEDGE: enterprise_it — Enterprise IT Automation Verification
+  Prove that scheduled scripts, CI/CD pipelines, and infrastructure automation actually did what they were supposed to do.
+  Tagline: Ansible says 'ok=10 changed=5.' What actually changed?
+  Pain: No output artifact. Exit code = 0 but nothing happened. 18-month undetected cron failures. CI/CD deploys wrong version silently.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  50 █████░░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  70 ███████░░░
+  incumbent_weakness  :  85 ████████░░
+  switching_cost      :  60 ██████░░░░
+  OVERALL             : 67
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (DevOps Director / Head of IT Operations / CISO)
+  budget: Budget: $1-5M/yr for monitoring + observability (Datadog, Splunk, PagerDuty)
+  switching_cost: MEDIUM — Datadog/Splunk are entrenched, but verification layer is additive OTel extension, not a rip-and-replace
+  buying_trigger: Technical trigger (outage)
+  incumbent_weakness: Incumbents can't verify without hurting their model
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: DevOps Director / Head of IT Operations / CISO
+  Budget: $1-5M/yr for monitoring + observability (Datadog, Splunk, PagerDuty)
+  Current vendor: Datadog, Splunk, PagerDuty, Ansible AWX, Jenkins, GitHub Actions
+  Current alternative: Log aggregation, dashboard alerts, manual runbook verification, post-hoc log spelunking
+  Switching cost: MEDIUM — Datadog/Splunk are entrenched, but verification layer is additive OTel extension, not a rip-and-replace
+  Buying trigger: Critical deployment breaks silently → 6-hour outage → post-mortem finds automation reported success → CTO mandates execution verification on all pipelines
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  Datadog sells monitoring (metrics/logs/traces), not execution verification. They show you data; they don't tell you if it's correct. Adding verification would expose how much of their monitoring is noise.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  CI/CD verification plugin: wraps each pipeline step with evidence capture (input hash, output hash, diff, exit code + context, confirmation of intended state).
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 3:
+----------------------------------------
+  Budget holder: VP-level or C-suite; procurement cycle 30-90 days

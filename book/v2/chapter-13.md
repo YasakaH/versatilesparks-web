@@ -153,12 +153,12 @@ Data Contract
 
 Every stored record MUST include:
 
-  ✓ Required fields (sku, name, price, url)
-  ✓ Correct types (price is numeric, not text)
-  ✓ Valid ranges (price > 0, name not empty)
-  ✓ Provenance (source URL, scraper version, collected at)
-  ✓ Environment snapshot reference (Recipe 39)
-  ✓ Run ID
+  [Y] Required fields (sku, name, price, url)
+  [Y] Correct types (price is numeric, not text)
+  [Y] Valid ranges (price > 0, name not empty)
+  [Y] Provenance (source URL, scraper version, collected at)
+  [Y] Environment snapshot reference (Recipe 39)
+  [Y] Run ID
 
     ↓
 
@@ -396,12 +396,12 @@ Track these metrics over time. A sudden increase in quarantined records means a 
 
 ## Common Data Engineering Mistakes
 
-- [✗] Saving raw HTML as truth
-- [✗] Trusting every extracted value without validation
-- [✗] Hashing entire pages (timestamps break dedup)
-- [✗] Deleting invalid records instead of quarantining
-- [✗] Ignoring provenance — "where did this come from?"
-- [✗] Exporting directly from the browser instead of validated storage
+- [X] Saving raw HTML as truth
+- [X] Trusting every extracted value without validation
+- [X] Hashing entire pages (timestamps break dedup)
+- [X] Deleting invalid records instead of quarantining
+- [X] Ignoring provenance — "where did this come from?"
+- [X] Exporting directly from the browser instead of validated storage
 
 
 ## Chapter Summary
@@ -425,11 +425,11 @@ The patterns in this chapter — validation, quarantine, normalization, incremen
 - Provenance answers "where did this come from?" Lineage answers "how did it get here?"
 
 ### Common Mistakes
-- [✗] Not validating data type — strings stored where numbers are expected
-- [✗] Assuming all records have the same structure — merged cells produce jagged arrays
-- [✗] Hashing entire pages for dedup — timestamps and nonces change every load
-- [✗] Deleting invalid records instead of quarantining — loses evidence of failure patterns
-- [✗] Storing raw HTML as the source of truth — expensive and not a stable diff target
+- [X] Not validating data type — strings stored where numbers are expected
+- [X] Assuming all records have the same structure — merged cells produce jagged arrays
+- [X] Hashing entire pages for dedup — timestamps and nonces change every load
+- [X] Deleting invalid records instead of quarantining — loses evidence of failure patterns
+- [X] Storing raw HTML as the source of truth — expensive and not a stable diff target
 
 ### Senior Takeaways
 - The Trust Pyramid shows data trust is layered — each layer adds confidence

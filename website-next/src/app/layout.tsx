@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

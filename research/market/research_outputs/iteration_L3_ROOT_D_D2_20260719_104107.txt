@@ -1,0 +1,10 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → D → D2
+Depth: Level 3
+Leaf: D2 — Records altered after fact (0pts)
+============================================================
+
+D2: Records altered after fact (0pts)
+  EHR modified after adverse event. Audit trail controlled by same party. No external witness.

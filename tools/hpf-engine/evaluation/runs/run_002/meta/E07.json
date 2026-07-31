@@ -1,0 +1,35 @@
+{
+  "qid": "E07",
+  "mode": "explain",
+  "question": "How does the retry with backoff pattern work?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 8
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "How does the retry with backoff pattern work?",
+        "mode": "explain",
+        "entities": [
+          "retry",
+          "backoff"
+        ],
+        "retrieved": [
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

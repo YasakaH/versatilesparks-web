@@ -1,0 +1,41 @@
+{
+  "qid": "DS04",
+  "mode": "design",
+  "question": "Design a session management system for browser automation",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Design a session management system for browser automation",
+        "mode": "design",
+        "entities": [
+          "session",
+          "session management",
+          "browser",
+          "automation"
+        ],
+        "retrieved": [
+          "session-lifecycle-concept",
+          "browser-profiles-concept",
+          "playwright-concept",
+          "selenium-concept",
+          "health-check-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "approaches",
+          "recommended",
+          "pitfalls",
+          "best_practices"
+        ]
+      }
+    }
+  }
+}

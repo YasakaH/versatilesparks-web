@@ -1,0 +1,23 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_094311
+Path: A
+Depth: Level 1
+============================================================
+
+A: Fails silently (40pts [browser,procurement])
+  Automation breaks but nobody is notified. Failure is detected days/weeks later or never at all.
+  Evidence: 4 cases
+    [browser] Bug: no automatic page-crash recovery. Agent hangs after browser tab crashe
+    [browser] CDP instability on Windows. WebSocket drops silently. No reconnection. Agen
+    [procurement] 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes, phan
+    [browser] Skyvern on Windows ignores CDP_CONNECTION_URL and fails silently. No error 
+
+  A1: No alert mechanism (0pts)
+    Failure writes to a log file. Nobody reads the log. No notification channel exists or is c
+  A2: Partial failure undetected (0pts)
+    A batch of 1000 items processes. 47 fail silently. The report says '953 succeeded.' Nobody
+  A3: Wrong status reported (0pts)
+    Script returns exit code 0 but output is empty or wrong. The system reports success when i
+  A4: Delayed discovery (0pts)
+    Failure surfaces days or weeks later. A $200K cargo theft is discovered 72 hours after it 

@@ -1,0 +1,117 @@
+═══════════════════════════════════════════════════════════════════
+AI LIABILITY VALUE CHAIN — MARKET STRUCTURE ANALYSIS
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# THE MARKET IS FORMING (Real, Not Theoretical)
+
+## Carriers already in market
+
+| Company | Stage | Focus | Signal |
+|---------|-------|-------|--------|
+| Corgi | $160M B, $1.3B valuation | AI liability coverage modules | Mainstream growth capital pricing the category |
+| Armilla | $25M raised, Lloyd's-backed MGA | Standalone AI liability up to $25M | Policy exists, being sold |
+| Mount | YC P26 (2026) | AI agent insurance carrier | YC-backed, hiring |
+| Klaimee | YC | Risk scoring + certification + guarantee | New launch |
+| Munich Re aiSure | Since 2018 | Model-performance cover | Incumbent reinsurer |
+
+First policy written: ElevenLabs secured AI agent insurance (Feb 2026).
+
+## Regulatory forcing functions
+
+- ISO generative-AI exclusion endorsements effective Jan 2026 (CGL coverage)
+- NAIC model bulletin + EU AI Act push toward auditable evidence
+- Air Canada liable for chatbot hallucination (Canadian tribunal, 2024)
+
+═══════════════════════════════════════════════════════════════════
+
+# THE VALUE CHAIN (Mapped)
+
+```
+Layer 1: Agent Frameworks (OpenAI SDK, LangGraph, CrewAI...)
+  ↓ produces traces in proprietary formats
+Layer 2: Observability (LangSmith, Langfuse, Arize...)
+  ↓ captures traces for debugging, not underwriting
+Layer 3: ???   ← THE GAP — standardized trace evidence for risk
+  ↓
+Layer 4: Risk Scoring (Klaimee scoring, Mount assessment...)
+  ↓ prices the agent
+Layer 5: Carrier (Corgi, Armilla, Mount, Munich Re...)
+  ↓ issues policy
+Layer 6: Claims (requires verifiable evidence)
+  ↓ proves what happened
+Layer 7: Dispute Resolution
+```
+
+═══════════════════════════════════════════════════════════════════
+
+# THE CRITICAL FINDING
+
+The article explicitly identifies the gap:
+
+> "After a loss, the insurer needs evidence:
+> - Which tool did the agent call?
+> - What permissions did it have?
+> - Who approved the action?
+> - Which system did it affect?
+> - What changed?
+> - Can the record be trusted after the fact?"
+
+> "Without a verifiable record of what the agent called, with what
+> permissions, against which system, an insurer is guessing."
+
+> "The safer bet is not that every new carrier wins. The safer bet
+> is that the infrastructure around agent evidence becomes mandatory
+> either way."
+
+This is the gap. Every carrier (Klaimee, Mount, Armilla, Corgi) needs
+the same underlying data. None of them own the collection layer.
+
+═══════════════════════════════════════════════════════════════════
+
+# THE MONOPOLY QUESTION
+
+The analogy is NOT Stripe/Plaid (connectivity).
+The analogy IS FICO, Verisk, LexisNexis (risk intelligence infrastructure).
+
+## Monopoly conditions
+
+FICO works because:
+1. Every lender needs the same score
+2. Scoring requires standardized data
+3. FICO defines the standard
+4. Lenders cannot price without it
+
+For AI agent liability:
+1. Every carrier needs the same trace evidence
+2. Traces must be comparable across frameworks
+3. No standardized trace format exists today
+4. Carriers are currently guessing or doing manual analysis
+
+## Where the monopoly lives
+
+NOT in the carrier layer (Corgi, Mount, Armilla — all competing).
+NOT in the agent framework layer (LangGraph, OpenAI — all proprietary).
+NOT in the observability layer (LangSmith, Langfuse — debugging, not underwriting).
+
+The monopoly lives in LAYER 3: the standardized trace-evidence format
+that bridges agent execution → insurance underwriting.
+
+This is akin to FICO scoring: a standardized risk metric that every
+carrier relies on, sourced from independently verified execution data.
+
+═══════════════════════════════════════════════════════════════════
+
+# THE UNANSWERED QUESTION
+
+The user's critical question:
+
+> "What are Mount, Klaimee, Armilla doing manually today that they
+> would immediately pay someone else to automate?"
+
+Hypothesis: they have teams manually reviewing execution traces,
+reconstructing what happened after incidents, and trying to normalize
+different trace formats from different agent frameworks. If true,
+this is the infrastructure wedge.
+
+═══════════════════════════════════════════════════════════════════

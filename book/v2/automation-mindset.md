@@ -181,8 +181,8 @@ If the answer to any is "no," the automation is not production-ready.
 
 The production engineering investment should match the cost of failure:
 
-| Use Case | Failure Cost | Production Level Needed |
-|----------|-------------|------------------------|
+| Use Case | Failure Cost | Production Level |
+|----------|-------------|-----------------|
 | Personal price check | Low | Level 1-2 |
 | Client report | Medium | Level 3 |
 | Business pricing decisions | High | Level 4 |

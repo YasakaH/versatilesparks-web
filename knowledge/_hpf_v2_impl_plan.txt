@@ -1,0 +1,21 @@
+# Implementing HPF v2 refined architecture per ChatGPT debate
+
+## Phase 1: Restructure CORE docs
+- 10 Core docs + 4 Governance docs (down from 22+)
+- Kernel layer: DNA, Constitution, Architecture, Personality, Capability, Skill, Artifact, Memory, Evaluation, Security
+- Governance: Version Policy, Change Management, Quality Gates, Deprecation Policy
+
+## Phase 2: Fix routing
+- Deterministic rules first (if security->Security Architect)
+- Remove 40/30/20/10 scoring formula
+
+## Phase 3: Simplify complexity
+- Replace L0-L3 with invisible Escalation Detection
+- 3 modes: Direct (80%), Collaborative (15%), Orchestrated (5%)
+
+## Phase 4: Memory subsystem
+- Memory Manager (not a personality)
+- Capture -> Classify -> Retrieve -> Expire -> Audit
+
+## Phase 5: Schema compression
+- 12 required fields + optional extensions

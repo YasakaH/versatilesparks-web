@@ -1,0 +1,14 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → C → C1
+Depth: Level 3
+Leaf: C1 — Selector/locator drift (10pts)
+============================================================
+
+C1: Selector/locator drift (10pts [browser])
+  CSS class renamed. Still runs but targets nothing. 0 records extracted.
+  Top case: [browser] Websites rename CSS classes weekly. Selector-based scripts fail silently. S
+
+Full evidence:
+  [browser] Anti-detect bench: Websites rename CSS classes weekly. Selector-based scripts fail silently. Script

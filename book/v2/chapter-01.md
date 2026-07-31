@@ -39,7 +39,7 @@ Monday 02:00 — Scheduler started nightly report automation.
 02:01 — Chrome launched successfully.
 02:03 — Navigation started. Page loaded.
 02:08 — Extraction completed. Script exited. Exit code: 0.
-02:09 — Monitoring dashboard: [✓] SUCCESS
+02:09 — Monitoring dashboard: [Y] SUCCESS
 
 Wednesday 08:30 — Report missing. Operations team investigates.
 08:45 — Server process list shows 17 Chrome processes running.
@@ -251,10 +251,10 @@ if __name__ == "__main__":
 
 | Scenario | Fresh Launch | Reuse Profile |
 |----------|-------------|---------------|
-| One-off data extraction | [✓] | [✗] |
-| Daily scheduled job | [✗] | [✓] |
-| CI/CD test run | [✓] | [✗] |
-| Authenticated session | [✗] | [✓] |
+| One-off data extraction | [Y] | [X] |
+| Daily scheduled job | [X] | [Y] |
+| CI/CD test run | [Y] | [X] |
+| Authenticated session | [X] | [Y] |
 | Parallel workers | Each gets a fresh temp profile | Never share one profile |
 
 ### Failure Modes
@@ -349,13 +349,13 @@ A fresh Chrome launch has no cookies, no local storage, no saved logins. For aut
 
 | Component | Persists? | Production Relevance |
 |-----------|-----------|---------------------|
-| Cookies | [✓] | Sessions, auth tokens |
-| Local storage | [✓] | App state, preferences |
-| IndexedDB | [✓] | Client-side databases |
-| Cache | [✓] | Performance, but deterministic? No |
-| Service workers | [✓] | Can intercept network requests |
-| Extensions | [✓] | May affect page behavior |
-| Browser history | [✗] | Not useful for automation |
+| Cookies | [Y] | Sessions, auth tokens |
+| Local storage | [Y] | App state, preferences |
+| IndexedDB | [Y] | Client-side databases |
+| Cache | [Y] | Performance, but deterministic? No |
+| Service workers | [Y] | Can intercept network requests |
+| Extensions | [Y] | May affect page behavior |
+| Browser history | [X] | Not useful for automation |
 
 ### The Three Rules of Safe Profile Sharing
 
@@ -467,43 +467,43 @@ Startup arguments should live in one place — `common/config.py` — not duplic
 
 ## Common Mistakes
 
-### [✗] Not closing the browser
+### [X] Not closing the browser
 
 Chrome stays running after Python exits. A few test iterations and you have a dozen Chrome processes consuming memory.
 
 **Fix:** Always wrap the automation body in `try/finally`. Never call `launch_browser()` without a matching `close_browser()` on the exit path.
 
-### [✗] Confusing `user_data_dir` with a profile path
+### [X] Confusing `user_data_dir` with a profile path
 
 `user_data_dir` is the **parent directory** that contains profile folders (Default/, Profile 1/, etc.). Passing a profile path directly causes Chrome to create a nested Default/Default/ structure.
 
 **Fix:** Point `user_data_dir` to a fresh directory per worker. Chrome creates the Default/ profile inside it.
 
-### [✗] Assuming headless Chrome is identical to headed Chrome
+### [X] Assuming headless Chrome is identical to headed Chrome
 
 Page rendering, PDF output, extension behavior, and some JavaScript APIs differ between headless and headed modes. A bug that only appears on the server is often a headless rendering difference.
 
 **Fix:** Test critical paths in both modes. If a feature depends on visual rendering, run headed with Xvfb on Linux.
 
-### [✗] Sharing one profile across concurrent workers
+### [X] Sharing one profile across concurrent workers
 
 Two processes writing to the same profile directory will corrupt cookies, storage, and session state.
 
 **Fix:** Each worker gets its own profile directory. Use worker IDs in the path: `profiles/worker-1/`, `profiles/worker-2/`.
 
-### [✗] Hardcoding startup arguments in every script
+### [X] Hardcoding startup arguments in every script
 
 When Chrome updates and deprecates an argument, you must update every file.
 
 **Fix:** Keep all arguments in `common/config.py`. Scripts import configuration; they do not define it.
 
-### [✗] Launching with `--no-sandbox` without understanding the tradeoff
+### [X] Launching with `--no-sandbox` without understanding the tradeoff
 
 `--no-sandbox` disables Chrome's security sandbox. This is required in Docker but reduces process isolation between your automation and Chrome.
 
 **Fix:** Run Chrome as a non-root user in Docker. If you must use `--no-sandbox`, audit what else runs in the same container.
 
-### [✗] Ignoring the WebSocket disconnect
+### [X] Ignoring the WebSocket disconnect
 
 The CDP WebSocket can disconnect even when both Python and Chrome are alive. Network interruptions, proxy timeouts, or Chrome's background throttling can drop the connection.
 
@@ -572,11 +572,11 @@ The browser lifecycle is infrastructure, not setup. Launch, close, profile isola
 - Startup arguments should be centralized in config, never duplicated across scripts
 
 ### Common Mistakes
-- [✗] Not closing the browser — Chrome stays running after Python exits
-- [✗] Confusing `user_data_dir` with a profile path — creates nested Default/Default/
-- [✗] Sharing one profile across concurrent workers — corrupts both sessions
-- [✗] Hardcoding startup arguments in every script — update one file when Chrome changes
-- [✗] Assuming headless Chrome is identical to headed — rendering differences exist
+- [X] Not closing the browser — Chrome stays running after Python exits
+- [X] Confusing `user_data_dir` with a profile path — creates nested Default/Default/
+- [X] Sharing one profile across concurrent workers — corrupts both sessions
+- [X] Hardcoding startup arguments in every script — update one file when Chrome changes
+- [X] Assuming headless Chrome is identical to headed — rendering differences exist
 
 ### Senior Takeaways
 - The diagnostic question is never "why did it fail?" but "which lifecycle stage did we fail in?"

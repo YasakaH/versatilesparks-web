@@ -1,0 +1,599 @@
+capabilities:
+
+  - id: security_review
+    name: Security Review
+    description: Identify security vulnerabilities, threats, and risks in systems and code.
+    category: security
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: security-review
+      - skill: security-audit
+    inputs:
+      - name: target
+        type: string
+      - name: threat_model
+        type: string
+        optional: true
+      - name: compliance_standard
+        type: string
+        optional: true
+    outputs:
+      - name: vulnerabilities
+        type: string[]
+      - name: risk_scores
+        type: object
+      - name: mitigations
+        type: string[]
+    dependencies:
+      - repository_analysis
+    cost: medium
+    latency: medium
+    confidence: high
+    parallelizable: false
+    quality_score: 90
+    maintainer: cog-os
+
+---
+
+  - id: performance_analysis
+    name: Performance Analysis
+    description: Measure and analyze system performance, identify bottlenecks, recommend optimizations.
+    category: engineering
+    version: 1.1.0
+    status: active
+    providers:
+      - skill: latency-analysis
+      - skill: performance-review
+    inputs:
+      - name: system_description
+        type: string
+      - name: benchmarks
+        type: string
+        optional: true
+      - name: latency_goals
+        type: object
+        optional: true
+    outputs:
+      - name: bottlenecks
+        type: string[]
+      - name: recommendations
+        type: string[]
+      - name: expected_improvement
+        type: string
+    dependencies:
+      - repository_analysis
+    cost: medium
+    latency: medium
+    confidence: high
+    parallelizable: true
+    quality_score: 91
+    maintainer: cog-os
+
+---
+
+  - id: documentation_generation
+    name: Documentation Generation
+    description: Create clear, structured technical and non-technical documentation.
+    category: writing
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: technical-writing
+      - skill: documentation-generation
+    inputs:
+      - name: subject
+        type: string
+      - name: audience
+        type: string
+      - name: format
+        type: string
+        optional: true
+    outputs:
+      - name: document
+        type: string
+      - name: diagrams
+        type: string[]
+        optional: true
+    dependencies: []
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 88
+    maintainer: cog-os
+
+---
+
+  - id: research_synthesis
+    name: Research Synthesis
+    description: Gather, analyze, and synthesize information from multiple sources.
+    category: research
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: deep-research
+      - skill: research
+    inputs:
+      - name: question
+        type: string
+      - name: sources
+        type: string[]
+        optional: true
+      - name: depth
+        type: string
+        optional: true
+    outputs:
+      - name: synthesis
+        type: string
+      - name: sources
+        type: string[]
+      - name: confidence_levels
+        type: object
+    dependencies:
+      - fact_checking
+    cost: high
+    latency: high
+    confidence: medium
+    parallelizable: true
+    quality_score: 85
+    maintainer: cog-os
+
+---
+
+  - id: fact_checking
+    name: Fact Checking
+    description: Verify claims against primary sources and authoritative data.
+    category: research
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: fact-checker
+      - skill: source-tracker
+    inputs:
+      - name: claims
+        type: string[]
+      - name: sources
+        type: string[]
+        optional: true
+    outputs:
+      - name: verified_claims
+        type: object
+      - name: confidence
+        type: float
+      - name: unresolved
+        type: string[]
+    dependencies: []
+    cost: medium
+    latency: medium
+    confidence: high
+    parallelizable: true
+    quality_score: 92
+    maintainer: cog-os
+
+---
+
+  - id: repository_analysis
+    name: Repository Analysis
+    description: Analyze codebase structure, dependencies, and quality metrics.
+    category: engineering
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: repository-audit
+      - skill: codebase-inspection
+    inputs:
+      - name: repository_path
+        type: path
+      - name: depth
+        type: string
+        optional: true
+    outputs:
+      - name: structure
+        type: object
+      - name: dependency_graph
+        type: object
+      - name: quality_metrics
+        type: object
+    dependencies: []
+    cost: low
+    latency: medium
+    confidence: high
+    parallelizable: false
+    quality_score: 90
+    maintainer: cog-os
+
+---
+
+  - id: dependency_mapping
+    name: Dependency Mapping
+    description: Map and analyze dependencies between components, services, and systems.
+    category: architecture
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: dependency-mapping
+    inputs:
+      - name: system_description
+        type: string
+      - name: repositories
+        type: string[]
+        optional: true
+    outputs:
+      - name: dependency_graph
+        type: object
+      - name: cycles
+        type: string[]
+      - name: coupling_scores
+        type: object
+    dependencies:
+      - repository_analysis
+    cost: low
+    latency: medium
+    confidence: high
+    parallelizable: false
+    quality_score: 88
+    maintainer: cog-os
+
+---
+
+  - id: domain_modeling
+    name: Domain Modeling
+    description: Model business domains using DDD principles — bounded contexts, aggregates, ubiquitous language.
+    category: architecture
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: domain-modeling
+      - skill: ubiquitous-language
+    inputs:
+      - name: domain_description
+        type: string
+      - name: stakeholders
+        type: string[]
+        optional: true
+    outputs:
+      - name: bounded_contexts
+        type: object[]
+      - name: ubiquitous_language
+        type: object
+      - name: aggregate_roots
+        type: object[]
+    dependencies: []
+    cost: medium
+    latency: medium
+    confidence: high
+    parallelizable: false
+    quality_score: 90
+    maintainer: cog-os
+
+---
+
+  - id: threat_modeling
+    name: Threat Modeling
+    description: Identify potential security threats using STRIDE, attack trees, and other methodologies.
+    category: security
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: threat-modeler
+    inputs:
+      - name: system_architecture
+        type: string
+      - name: trust_boundaries
+        type: string[]
+        optional: true
+    outputs:
+      - name: threats
+        type: object[]
+      - name: risk_scores
+        type: object
+      - name: mitigations
+        type: string[]
+    dependencies:
+      - architecture_analysis
+    cost: medium
+    latency: high
+    confidence: high
+    parallelizable: false
+    quality_score: 94
+    maintainer: cog-os
+
+---
+
+  - id: prompt_engineering
+    name: Prompt Engineering
+    description: Design, test, and optimize prompts for LLM applications.
+    category: ai
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: prompt-engineering
+      - skill: prompt-review
+    inputs:
+      - name: task_description
+        type: string
+      - name: expected_output_format
+        type: string
+      - name: examples
+        type: string[]
+        optional: true
+    outputs:
+      - name: system_prompt
+        type: string
+      - name: user_prompt_template
+        type: string
+      - name: test_results
+        type: object
+    dependencies: []
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 93
+    maintainer: cog-os
+
+---
+
+  - id: mcp_development
+    name: MCP Development
+    description: Build and integrate Model Context Protocol servers and tools.
+    category: ai
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: mcp-builder
+    inputs:
+      - name: capability_description
+        type: string
+      - name: protocol_version
+        type: string
+        optional: true
+    outputs:
+      - name: mcp_server
+        type: object
+      - name: tool_definitions
+        type: object[]
+      - name: documentation
+        type: string
+    dependencies: []
+    cost: medium
+    latency: high
+    confidence: medium
+    parallelizable: false
+    quality_score: 85
+    maintainer: cog-os
+
+---
+
+  - id: agent_evaluation
+    name: Agent Evaluation
+    description: Evaluate agent systems for quality, safety, cost, and reliability.
+    category: ai
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: agent-evaluation
+      - skill: ai-evaluator
+    inputs:
+      - name: agent_description
+        type: string
+      - name: test_cases
+        type: object[]
+    outputs:
+      - name: quality_score
+        type: float
+      - name: failure_modes
+        type: string[]
+      - name: recommendations
+        type: string[]
+    dependencies:
+      - prompt_engineering
+    cost: medium
+    latency: medium
+    confidence: high
+    parallelizable: true
+    quality_score: 87
+    maintainer: cog-os
+
+---
+
+  - id: latency_analysis
+    name: Latency Analysis
+    description: Measure end-to-end latency, identify bottlenecks, recommend optimizations.
+    category: engineering
+    version: 1.1.0
+    status: active
+    providers:
+      - skill: latency-analysis
+      - skill: performance-first
+    inputs:
+      - name: system_endpoint
+        type: string
+      - name: traffic_pattern
+        type: string
+        optional: true
+    outputs:
+      - name: p50_p95_p99
+        type: object
+      - name: bottlenecks
+        type: string[]
+      - name: recommendations
+        type: string[]
+    dependencies:
+      - repository_analysis
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 93
+    maintainer: cog-os
+
+---
+
+  - id: browser_automation
+    name: Browser Automation
+    description: Control web browsers for navigation, data extraction, form filling, and web monitoring.
+    category: automation
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: playwright
+      - skill: browser-control
+    inputs:
+      - name: url
+        type: string
+      - name: actions
+        type: object[]
+      - name: selectors
+        type: object[]
+        optional: true
+    outputs:
+      - name: page_state
+        type: object
+      - name: extracted_data
+        type: object
+      - name: screenshots
+        type: string[]
+        optional: true
+    dependencies: []
+    cost: low
+    latency: medium
+    confidence: medium
+    parallelizable: false
+    quality_score: 85
+    maintainer: automation
+
+---
+
+  - id: desktop_automation
+    name: Desktop Automation
+    description: Control Windows applications, file system, processes, and OS-level operations.
+    category: automation
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: windows-control
+      - skill: powershell
+    inputs:
+      - name: operation
+        type: string
+      - name: target
+        type: string
+      - name: parameters
+        type: object
+        optional: true
+    outputs:
+      - name: result
+        type: object
+      - name: logs
+        type: string
+    dependencies: []
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 88
+    maintainer: automation
+
+---
+
+  - id: workflow_orchestration
+    name: Workflow Orchestration
+    description: Design and run multi-step automated workflows with triggers, conditions, and error handling.
+    category: automation
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: n8n-builder
+      - skill: workflow-automation
+    inputs:
+      - name: workflow_definition
+        type: object
+      - name: trigger
+        type: string
+        optional: true
+      - name: schedule
+        type: string
+        optional: true
+    outputs:
+      - name: workflow_id
+        type: string
+      - name: execution_result
+        type: object
+      - name: monitoring_url
+        type: string
+        optional: true
+    dependencies: []
+    cost: medium
+    latency: high
+    confidence: medium
+    parallelizable: false
+    quality_score: 82
+    maintainer: automation
+
+---
+
+  - id: monitoring_alerting
+    name: Monitoring and Alerting
+    description: Watch systems, detect failures, trigger alerts, and notify appropriate channels.
+    category: operations
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: monitoring
+      - skill: cronjob-management
+    inputs:
+      - name: target
+        type: string
+      - name: check_interval
+        type: string
+      - name: alert_channel
+        type: string
+        optional: true
+    outputs:
+      - name: status
+        type: string
+      - name: alerts
+        type: object[]
+      - name: metrics
+        type: object
+    dependencies: []
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 90
+    maintainer: operations
+
+---
+
+  - id: self_maintenance
+    name: Self Maintenance
+    description: Update, test, archive, and optimize Hermes' own skills, personas, and workflows.
+    category: meta
+    version: 1.0.0
+    status: active
+    providers:
+      - skill: skill-management
+      - skill: continuous-improvement
+    inputs:
+      - name: maintenance_type
+        type: string
+      - name: target
+        type: string
+        optional: true
+    outputs:
+      - name: changes_made
+        type: string[]
+      - name: status
+        type: string
+      - name: recommendations
+        type: string[]
+    dependencies: []
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: false
+    quality_score: 95
+    maintainer: cog-os

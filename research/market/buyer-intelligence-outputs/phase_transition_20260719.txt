@@ -1,0 +1,74 @@
+═══════════════════════════════════════════════════════════════════
+EXECUTION EVIDENCE — PHASE TRANSITION: Research → Customer Validation
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# VERDICT
+
+Research ceiling reached. Diminishing returns confirmed.
+Next phase: customer interviews. 15-20 structured conversations.
+
+# THE THREE FINDINGS THAT SURVIVE
+
+1. Market exists (regulatory pressure, capital flowing, exclusions appearing)
+2. Claims investigation is manual (30+ hours, fragmented evidence sources)
+3. No standard evidence packet exists (everyone reinventing independently)
+
+# THE SINGLE UNANSWERED QUESTION
+
+"Who will own the evidence format?"
+
+OpenAI / Anthropic — controls SDK
+LangSmith / Langfuse — already collects traces
+Cloud providers — owns audit logs
+Independent company — cross-framework neutrality (our thesis)
+Regulator — mandatory standard
+
+The answer determines platform vs. feature.
+
+# THE CORRECTED PRODUCT THESIS
+
+Not: Record → Replay → Expire
+But: **Expire** (TTL-bound risk freshness)
+
+Insurance isn't about history. It's about CURRENT RISK.
+Risk changes as agents drift. Static attestations are worthless.
+
+The TTL concept is more differentiated than recording itself.
+
+# THE MARKETING FRAMING
+
+Not: AI Replay, Execution Ledger, AI Notary, Trace Recorder
+But: **Independent AI Evidence Infrastructure**
+
+Because multiple parties need to trust the same evidence:
+  enterprise + insurer + auditor + regulator + court
+
+Multi-party trust is where independent infrastructure wins over
+vendor-specific tooling.
+
+# THE INTERVIEW PLAN
+
+15-20 conversations across:
+
+AI liability startups (Mount, Klaimee, Armilla)
+Traditional insurers exploring AI coverage
+Brokers placing AI policies
+Enterprise risk/compliance leaders deploying AI agents
+AI observability vendors (LangSmith, Langfuse)
+
+Objective (not to pitch):
+  "If a neutral, standardized execution-evidence service existed
+   tomorrow, which step in your workflow would it eliminate or
+   materially improve?"
+
+Hypothesis: every stakeholder points to the same bottleneck —
+underwriting data collection, claims investigation, audit evidence,
+compliance reporting, or renewal assessment.
+
+# THE RISK
+
+If every stakeholder gives a different answer → market not ready.
+If they all point to the same bottleneck → wedge found.
+
+═══════════════════════════════════════════════════════════════════

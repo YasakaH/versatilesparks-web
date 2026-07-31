@@ -1,0 +1,37 @@
+{
+  "qid": "E01",
+  "mode": "explain",
+  "question": "What is CDP?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 10
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "What is CDP?",
+        "mode": "explain",
+        "entities": [
+          "cdp"
+        ],
+        "retrieved": [
+          "cdp-concept",
+          "nodriver-concept",
+          "playwright-concept",
+          "health-check-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

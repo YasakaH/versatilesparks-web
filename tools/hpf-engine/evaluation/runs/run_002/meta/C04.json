@@ -1,0 +1,36 @@
+{
+  "qid": "C04",
+  "mode": "compare",
+  "question": "CSS selectors vs XPath",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 1
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "CSS selectors vs XPath",
+        "mode": "compare",
+        "entities": [
+          "selector",
+          "xpath",
+          "css selector"
+        ],
+        "retrieved": [
+          "selector-strategy-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

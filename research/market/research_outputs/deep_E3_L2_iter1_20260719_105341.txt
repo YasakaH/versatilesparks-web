@@ -1,0 +1,36 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: E3
+Date: 2026-07-19 10:53:41
+Iteration: 1 | Depth: Level 2
+Path: E3 → E3_tech_cause
+=================================================================
+
+CURRENT PROBLEM: E3
+  No replay capability
+  Failed action cannot be replayed. All progress lost on failure. No checkpoint, no roll-forward, no idempotency.
+  Score: 20pts
+  Industries: cross
+
+  Supporting evidence (2 cases):
+    [cross] RPA recovery time: Average RPA bot crash recovery: 30 minutes for 2 minutes of actual work. No
+    [cross] CI/CD deployment: Deployment fails at step 8/10. No roll-forward. Full rollback + redeploy: 4
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] E3_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [2] E3_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [3] E3_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [4] E3_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'E3_tech_cause' (score: 30)
+Path so far: E3 → E3_tech_cause

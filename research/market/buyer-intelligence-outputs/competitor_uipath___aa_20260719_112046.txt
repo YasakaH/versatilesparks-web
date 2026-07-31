@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — UiPath / AA
+Date: 2026-07-19 11:20:46
+=================================================================
+
+  What they do: RPA platforms
+  Their focus: Selling bot licenses, not verifying them
+  Threat to us: LOW — exposing bot failure hurts their model
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  RPA vendors sell licenses based on 'bots deployed.' They have zero incentive to expose bot failure rates. Real verification would show 45% of enterprises have weekly breakage — kills their narrative. Their logging shows 'steps executed,' not 'steps that had the intended effect.'

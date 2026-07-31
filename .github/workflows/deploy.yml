@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'website-next/**'
       - '.github/workflows/deploy.yml'

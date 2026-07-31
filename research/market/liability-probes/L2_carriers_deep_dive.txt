@@ -1,0 +1,61 @@
+[carriers] Level 2 — Klaimee + Armilla Deep Dive
+═══════════════════════════════════════════════════════════════════
+
+KLAIMEE — Three-Block Risk Scoring System
+───────────────────────────────────────────
+Source: YC Launch post (Ines Boutemadja, Julien Catonnet)
+
+Block 1: Public Data Scan
+  Scans publicly available data related to the agent.
+
+Block 2: Governance Assessment
+  30 questions concerning the agent's governance.
+
+Block 3: Behavioral Testing
+  100+ probes: prompt injection, jailbreak, decision drift, 
+  data leakage, biased outputs.
+  Tests WHEN and HOW it fails.
+
+Output: Risk score + insurance price + certification.
+Turnaround: Under 24 hours.
+Coverage limit: Up to $50,000 (per extruct.ai).
+Product: "first purpose-build E&O coverage for AI agents."
+
+ARMILA AI
+───────────────────────────
+Source: armilla.ai website
+
+Structure: Lloyd's Coverholder (operates in Lloyd's marketplace)
+Backers: Chaucer, Axis Capital, Convex, Greenlight Re, Swiss Re
+Products:
+  - Insured: Affirmative AI liability (covers errors, omissions, 
+    performance shortfalls)
+  - Guaranteed: Performance warranty (contractual KPI guarantee)
+Claims: "Applies to claims reported during policy period. Covers
+  financial losses including defense costs."
+Coverage limits: Up to $25M per occurrence (raised Jan 2025)
+
+Covered risks:
+  - AI hallucinations
+  - Deteriorating AI model performance
+  - Mechanical failures or deviations from expected behavior
+  - Breach of confidentiality, trade secrets, defamation
+  - Legal claims from underperforming AI systems
+
+Case study (MKIII): AI-powered loan decisioning. Armilla validated
+model performance + fairness + robustness. Wrapped in warranty
+triggering compensation if accuracy drops below verified thresholds.
+
+CORGI
+───────────────────────────
+Source: Forbes, Corgi press releases
+
+$160M Series B at $1.3B valuation (April 2026)
+$106M Series B1 at $2.6B valuation (weeks later — doubled!)
+Total raised: $268M+
+Lead investor: TCV
+Description: "AI-native, full-stack insurance carrier"
+18 months old at $2.6B valuation
+
+Key insight: Market is growing rapidly. Corgi doubled valuation 
+in weeks. AI insurance is being priced as a major category.

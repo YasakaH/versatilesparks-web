@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import { Terminal, ZoomIn, ZoomOut, Maximize } from "lucide-react";
+import type { Concept } from "../types/knowledge";
 
 interface Node {
   id: string;
@@ -16,7 +17,7 @@ interface KnowledgeGraphProps {
   activeConceptId: string | null;
   onSelectConcept: (id: string) => void;
   db: {
-    concepts: any[];
+    concepts: Concept[];
   };
 }
 

@@ -503,9 +503,9 @@ The difference between a script and a production system is visibility. A script 
 - Browser health telemetry (BROWSER-HEALTH) monitors connection state, memory, open pages
 
 ### Common Mistakes
-- [✗] Doing heavy work in CDP event handlers — blocks the event loop, causes timeouts
-- [✗] Monitoring "did the script finish" instead of "did the browser receive valid data"
-- [✗] Blocking resources without verifying the page still renders correctly
+- [X] Doing heavy work in CDP event handlers — blocks the event loop, causes timeouts
+- [X] Monitoring "did the script finish" instead of "did the browser receive valid data"
+- [X] Blocking resources without verifying the page still renders correctly
 
 ### Senior Takeaways
 - The shift is from "I tell the browser what to do" to "I observe what the browser is doing and respond"

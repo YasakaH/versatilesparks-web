@@ -338,43 +338,43 @@ async def handle_dialog(page, accept: bool = True):
 
 ## Common Mistakes
 
-### [✗] Using structural selectors (nth-child)
+### [X] Using structural selectors (nth-child)
 
 Structural selectors break when the DOM surrounding the target element changes — exactly what happens during frontend refactors.
 
 **Fix:** Use data attributes, IDs, or text-anchored selectors.
 
-### [✗] Clicking without verifying the result
+### [X] Clicking without verifying the result
 
 Automation clicks a button and assumes the action completed. The click landed on an invisible overlay, the button was disabled, or the JavaScript handler threw an exception.
 
 **Fix:** Always verify a downstream state change — a new element, a removed element, a URL change, or a success message.
 
-### [✗] Filling forms without triggering change events
+### [X] Filling forms without triggering change events
 
 Setting `el.value = "text"` via JavaScript does not trigger React's change detection. The field shows the text, but the application does not register it.
 
 **Fix:** Use `send_keys()` or dispatch the `input` and `change` events programmatically.
 
-### [✗] Assuming a visible element is interactable
+### [X] Assuming a visible element is interactable
 
 An element can be visible but covered by an overlay, disabled, or hidden behind a z-index issue. `wait_for()` only checks DOM presence and visibility.
 
 **Fix:** Scroll the element into view and verify it is not covered by another element.
 
-### [✗] Uploading files via the OS dialog
+### [X] Uploading files via the OS dialog
 
 Automation frameworks cannot control OS file dialogs. Attempting to do so produces a race condition between the browser and the OS.
 
 **Fix:** Always set the file input's value programmatically via CDP.
 
-### [✗] Hardcoding selectors without fallbacks
+### [X] Hardcoding selectors without fallbacks
 
 A single selector is a single point of failure. If it breaks, the entire recipe stops producing data before validation catches it.
 
 **Fix:** Implement a fallback chain: try `[data-id]`, then `[aria-label]`, then `.class-name`. Log which strategy succeeded.
 
-### [✗] Ignoring shadow DOM boundaries
+### [X] Ignoring shadow DOM boundaries
 
 Custom web components often encapsulate their internals in Shadow DOM. Standard selectors cannot reach inside a shadow root.
 
@@ -441,11 +441,11 @@ Selectors fail when they reference the wrong thing: visual position instead of d
 - Dialogs, alerts, and popups must be handled by type, not auto-accepted
 
 ### Common Mistakes
-- [✗] Using structural selectors (`nth-child`) — break on any layout change
-- [✗] Clicking without verifying the result — click lands on disabled or invisible element
-- [✗] Filling forms without triggering change events — React never registers the value
-- [✗] Assuming `wait_for()` means interactable — element visible but covered by modal
-- [✗] No fallback selector chain — single selector is single point of failure
+- [X] Using structural selectors (`nth-child`) — break on any layout change
+- [X] Clicking without verifying the result — click lands on disabled or invisible element
+- [X] Filling forms without triggering change events — React never registers the value
+- [X] Assuming `wait_for()` means interactable — element visible but covered by modal
+- [X] No fallback selector chain — single selector is single point of failure
 
 ### Senior Takeaways
 - The most reliable selector references what the element IS, not where it sits

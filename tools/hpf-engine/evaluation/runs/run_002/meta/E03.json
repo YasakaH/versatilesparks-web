@@ -1,0 +1,34 @@
+{
+  "qid": "E03",
+  "mode": "explain",
+  "question": "How does nodriver work?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "How does nodriver work?",
+        "mode": "explain",
+        "entities": [
+          "nodriver"
+        ],
+        "retrieved": [
+          "nodriver-concept"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 1
+      }
+    }
+  }
+}

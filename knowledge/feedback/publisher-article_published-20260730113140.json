@@ -1,0 +1,39 @@
+{
+  "id": "publisher-article_published-20260730113140",
+  "source": "publisher",
+  "domain": "publisher",
+  "domain_hierarchy": {
+    "primary": "publisher",
+    "medium": "publisher",
+    "channel": "article_published"
+  },
+  "signal_type": "article_published",
+  "payload": {
+    "article_slug": "5-mistakes-nodriver-beginners",
+    "platforms": [
+      "devto"
+    ],
+    "brief_id": "5-mistakes-nodriver-beginners",
+    "concepts": [
+      "nodriver",
+      "python",
+      "browser-automation",
+      "web-scraping",
+      "cdp"
+    ],
+    "action": "update",
+    "is_draft": false,
+    "result": "published",
+    "performance": {
+      "views": 0,
+      "reads": 0,
+      "book_clicks": 0,
+      "sales": 0
+    },
+    "questions": [],
+    "new_aliases": []
+  },
+  "received": "2026-07-30T11:31:40Z",
+  "processed": false,
+  "notes": null
+}

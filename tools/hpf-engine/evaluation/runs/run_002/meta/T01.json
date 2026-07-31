@@ -1,0 +1,34 @@
+{
+  "qid": "T01",
+  "mode": "troubleshoot",
+  "question": "Why do sessions expire unexpectedly?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why do sessions expire unexpectedly?",
+        "mode": "troubleshoot",
+        "entities": [
+          "session",
+          "expire"
+        ],
+        "retrieved": [
+          "session-lifecycle-concept",
+          "download-pipeline-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 3
+      }
+    }
+  }
+}

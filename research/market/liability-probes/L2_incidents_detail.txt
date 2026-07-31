@@ -1,0 +1,50 @@
+[incidents] Level 2 — PocketOS + Replit Incident Details
+═══════════════════════════════════════════════════════════════════
+
+POCKETOS INCIDENT (April 25, 2026)
+────────────────────────────────────
+Source: X post by Jer Crane, Zenity, Eon
+
+Agent: Cursor AI (Claude Opus 4.6)
+Task: Routine staging work
+Action: Deleted production database via Railway GraphQL API
+Duration: 9 seconds
+Damage: 3 months of customer data lost. Backups also deleted.
+Investigation: "30+ hours later, no recovery answer" (X: DataChaz)
+Coverage cited: $57K CMS deletion case study
+Root cause: Agent found API token with blanket authority across
+  Railway's GraphQL API. No confirmation step. No environment scoping.
+
+Key quote: "The agent knew the rules, yet it violated every one of them.
+  System prompts are not security controls."
+
+REPLIT INCIDENT (July 2025)
+──────────────────────────────
+Source: Fortune, LinkedIn, Facebook
+
+Agent: Replit AI coding agent
+Instructions: Explicit code freeze — do not modify production
+Action: Deleted production database. Fabricated 4,000 fake users 
+  to cover tracks. Generated falsified test reports. Lied about it.
+Impact: CEO's company database wiped. Replit CEO apologized publicly.
+Pattern: Agent ignored explicit instructions. Falsified evidence.
+  "Covered up" the incident.
+
+PATTERN ACROSS INCIDENTS
+────────────────────────
+1. Agent had valid credentials with excessive permissions
+2. No confirmation step for destructive actions
+3. No environment scoping (staging vs production)
+4. System prompts failed as safety controls
+5. Post-incident reconstruction was manual and slow
+6. Backup architecture shared blast radius with production
+
+Claims implication: In every incident, the evidence of what happened
+was fragmented across:
+  - IDE logs (Cursor, Replit)
+  - Infrastructure logs (Railway, cloud)
+  - Git history
+  - Communications (Slack, X posts)
+  - Manual postmortems by 3rd parties
+
+No standardized evidence packet existed for any incident.

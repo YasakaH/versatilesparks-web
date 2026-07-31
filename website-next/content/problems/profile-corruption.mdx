@@ -1,0 +1,18 @@
+---
+id: "profile-corruption"
+title: "Browser profile SQLite corruption"
+error_patterns: ["SQLite error", "database disk image is malformed", "unable to open database file", "profile corruption", "cookies database corruption", "SQLite malformed"]
+severity: "common"
+concept: "profiles"
+description: "Unexpected termination (SIGKILL, power loss) during SQLite write operations on Cookies, History, or Login Data databases."
+---
+
+Unexpected termination (SIGKILL, power loss) during SQLite write operations on Cookies, History, or Login Data databases.
+
+### Recovery
+
+Delete or restore the corrupted profile directory from backup. Browser recreates it on next launch.
+
+### Recommendation
+
+Always use graceful shutdown (SIGTERM) and monitor process exit codes.

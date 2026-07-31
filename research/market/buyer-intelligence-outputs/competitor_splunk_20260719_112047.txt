@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Splunk
+Date: 2026-07-19 11:20:47
+=================================================================
+
+  What they do: Log aggregation & SIEM
+  Their focus: Post-hoc log analysis, not real-time verification
+  Threat to us: LOW — reactive, not proactive
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  Splunk is a log search engine. It's reactive (look up what happened). Verification is proactive (confirm it happened correctly). Splunk's query model can't express 'did this action have the intended effect?'

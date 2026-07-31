@@ -1,0 +1,39 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: D2
+Date: 2026-07-19 10:53:39
+Iteration: 1 | Depth: Level 2
+Path: D2 → D2_tech_cause
+=================================================================
+
+CURRENT PROBLEM: D2
+  Records altered after fact
+  EHR records modified after adverse event. Audit trail controlled by same party that did the alteration. No external witness.
+  Score: 10pts
+  Industries: healthcare
+
+  Supporting evidence (1 cases):
+    [healthcare] Mayo lawsuit detail: AI system allegedly modified clinical data retroactively. No external audit
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] D2_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [2] D2_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [3] D2_data_altered: Records alterable after the fact (20pts [healthcare])
+       Audit trail controlled by same party that alters. AI system allegedly modified clinical data re
+       Evidence: 2 cases — top: [healthcare] AI system allegedly modified clinical data retroactively. No
+
+  [4] D2_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [5] D2_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'D2_tech_cause' (score: 30)
+Path so far: D2 → D2_tech_cause

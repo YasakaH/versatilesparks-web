@@ -1,0 +1,32 @@
+{
+  "qid": "T02",
+  "mode": "troubleshoot",
+  "question": "Why are selectors flaky?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 0
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why are selectors flaky?",
+        "mode": "troubleshoot",
+        "entities": [
+          "selector"
+        ],
+        "retrieved": [
+          "selector-strategy-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    }
+  }
+}

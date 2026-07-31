@@ -1,0 +1,237 @@
+---
+title: "5 Mistakes New nodriver Users Make (and How to Avoid Them)"
+description: "You migrated to nodriver for the low-level CDP control. But that flexibility comes with its own production gotchas — here are the five I see most often and how to fix each one."
+published: true
+date: 2026-07-29
+tags: [nodriver, python, webscraping, cdp]
+canonical_url: https://versatilesparks.qzz.io/blog/5-mistakes-nodriver-beginners
+cover_image:
+series:
+slug: 5-mistakes-nodriver-beginners
+---
+
+*This article is adapted from the Python Browser Automation Cookbook.*
+
+nodriver removes Selenium's abstraction layer. That gives you more control — but it also removes many of the safety rails you didn't know you were relying on.
+
+Your first nodriver script worked perfectly. The second one started failing. By the time you ran it against a real production site, you were seeing timeouts, profile locks, CAPTCHAs, and random crashes.
+
+The five mistakes below all stem from treating nodriver like Selenium instead of treating it like a CDP client. Here they are — and how to fix each one.
+
+---
+
+## 1. Forgetting CDP Stealth
+
+**The mistake:** You launch a browser, navigate to a protected page, and get blocked instantly. You assume nodriver is "detected" and switch back to undetected-chromedriver or Playwright stealth.
+
+**The reality:** You didn't hide the automation signals.
+
+```python
+# ❌ Bare launch — detectable immediately
+browser = await nodriver.start()
+page = await browser.get("https://example.com")
+```
+
+If the sites you automate inspect browser fingerprints, you'll often need to verify and, where appropriate, customise the browser environment before page scripts execute.
+
+```python
+# ✅ Inject stealth at document creation
+browser = await nodriver.start()
+page = await browser.get("about:blank")
+
+await page.send(cdp.Page.addScriptToEvaluateOnNewDocument(
+    source="""
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+    Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+    """
+))
+
+page = await browser.get("https://example.com")
+```
+
+**Why this matters:** Anti-bot scripts check for these signals at DOM creation. If you patch them *after* the page loads, it's already too late.
+
+---
+
+## 2. Starting a Fresh Session Every Time
+
+**The mistake:** You launch a new browser, navigate, scrape, close — and repeat. Every request looks like a first-time visitor.
+
+**The reality:** Sites flag rapid new-session patterns. A browser that loads 50 pages from a fresh profile in 3 minutes screams automation.
+
+```python
+# ❌ Brand new profile every run
+browser = await nodriver.start(user_data_dir=None)
+page = await browser.get("https://example.com/logout")
+```
+
+```python
+# ✅ Reuse a persistent Chrome profile
+browser = await nodriver.start(
+    user_data_dir="/path/to/persistent/profile"
+)
+page = await browser.get("https://example.com/login")
+```
+
+A persistent profile carries cookies, local storage, cached assets, and session tokens between runs. Your browser presents as a returning visitor — because it *is* one.
+
+I'll cover profile management and session restoration in more detail in a future article.
+
+---
+
+## 3. One Browser, One IP, No Rotation
+
+**The mistake:** You run a single browser instance from your home IP, scraping a site 1000 times.
+
+**The reality:** Rate limiting, IP bans, and CAPTCHAs are inevitable. Anti-bot services track request volume per IP and will block you after a threshold.
+
+```python
+# ❌ Single point of failure
+browser = await nodriver.start()
+page = await browser.get(...)  # Same IP every time
+```
+
+The fix is proxy rotation at the browser level, not at the HTTP request level:
+
+```python
+# ✅ Rotate at browser launch
+proxies = [
+    "http://user:pass@residential-proxy-1:8080",
+    "http://user:pass@residential-proxy-2:8080",
+    "http://user:pass@residential-proxy-3:8080",
+]
+
+for target_url in urls:
+    proxy = random.choice(proxies)
+    browser = await nodriver.start(
+        args=[f"--proxy-server={proxy}"]
+    )
+    page = await browser.get(target_url)
+    # ... process ...
+    await browser.stop()
+```
+
+10 good residential proxies > 100 datacenter proxies. Quality over quantity applies directly here.
+
+---
+
+## 4. Not Isolating Browser Profiles
+
+**The mistake:** Running multiple browser instances from the same user data directory.
+
+**The reality:** Chrome locks the profile directory. When two instances try to write to the same directory, you get corruption, crashes, or `SingletonLock` errors.
+
+```python
+# ❌ Both instances fight over the same profile
+browser1 = await nodriver.start(user_data_dir="./chrome-profile")
+browser2 = await nodriver.start(user_data_dir="./chrome-profile")
+```
+
+```python
+# ✅ Isolated profiles per instance
+browser1 = await nodriver.start(user_data_dir="./chrome-profile-job1")
+browser2 = await nodriver.start(user_data_dir="./chrome-profile-job2")
+```
+
+Each instance needs its own directory. A simple pattern is to generate profile paths from task IDs:
+
+```python
+profile_dir = f"./profiles/job-{task_id}"
+Path(profile_dir).mkdir(parents=True, exist_ok=True)
+browser = await nodriver.start(user_data_dir=profile_dir)
+```
+
+---
+
+## 5. No Retry or Recovery Logic
+
+**The mistake:** The script crashes on the first error — a network timeout, a CAPTCHA redirect, a missing element — and you restart manually.
+
+**The reality:** In production, failures are the norm, not the exception. Without retry logic, your scraper runs for 15 minutes then dies silently at 2 AM.
+
+```python
+# ❌ Fragile — any exception kills the entire run
+page = await browser.get("https://example.com")
+element = await page.find("div.content")
+text = await element.text  # What if element is None?
+```
+
+```python
+# ✅ Retry with exponential backoff
+import asyncio
+
+async def robust_get(browser, url, retries=3):
+    for attempt in range(retries):
+        try:
+            page = await browser.get(url)
+            return page
+        except Exception as e:
+            if attempt == retries - 1:
+                raise
+            wait = 2 ** attempt
+            print(f"Retry {attempt+1}/{retries} in {wait}s: {e}")
+            await asyncio.sleep(wait)
+```
+
+Add health checks to verify the browser is still responsive, and auto-recover by restarting dead instances. Retry strategies and health monitoring deserve their own deep dive — that's a topic for another article.
+
+Expect failures. Don't hope they won't happen.
+
+---
+
+## The Production Picture
+
+These five fixes turn a toy script into something that runs unattended for days. Here's how the workflow changes:
+
+```
+Toy Script                          Production Workflow
+───────────                         ────────────────────
+Launch Browser                      Launch Browser
+       │                                   │
+       ▼                                   ▼
+    Scrape                            Inject Stealth
+       │                                   │
+       ▼                                   ▼
+    Crash                            Persistent Profile
+                                           │
+                                           ▼
+                                     Retry With Backoff
+                                           │
+                                           ▼
+                                     Health Check
+                                           │
+                                           ▼
+                                     Proxy Rotation
+                                           │
+                                           ▼
+                                      Success
+```
+
+The difference is every step handles a real-world failure mode instead of assuming the happy path.
+
+| Mistake | Fix | Risk Reduced |
+|---|---|---|
+| No stealth patching | Inject CDP scripts | Fingerprint-based blocking |
+| Fresh session every run | Persistent user data dir | New-session rate limiting |
+| Single IP | Proxy rotation | IP-based throttling and bans |
+| Shared profiles | Isolated directories | Profile corruption and crashes |
+| No retry logic | Exponential backoff | Silent failures at scale |
+
+**If you're building automations that need to survive for days — not minutes — the cookbook goes much deeper.**
+
+It includes:
+
+* 30+ production recipes ready to run
+* Complete examples with retry, proxy, and stealth logic built in
+* Reusable utility modules for profile management and health checks
+* Docker-ready project templates
+* Explanations of *why* each pattern works — not just the code
+
+Every recipe is written for nodriver and tested in the same conditions this article describes.
+
+👉 [Python Browser Automation Cookbook](https://gum.co/python-browser-automation-cookbook?ref=5-mistakes-nodriver-beginners)
+
+---
+
+*Questions or corrections? Drop a comment below. I reply to every one.*

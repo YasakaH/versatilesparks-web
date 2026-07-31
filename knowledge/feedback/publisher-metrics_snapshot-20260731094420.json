@@ -1,0 +1,28 @@
+{
+  "id": "publisher-metrics_snapshot-20260731094420",
+  "source": "devto",
+  "domain": "publisher",
+  "domain_hierarchy": {
+    "primary": "publisher",
+    "medium": "devto",
+    "channel": "metrics_snapshot"
+  },
+  "signal_type": "metrics_snapshot",
+  "payload": {
+    "article_id": 4243839,
+    "article_slug": "why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+    "platform": "devto",
+    "url": "https://dev.to/fromyasaka/why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+    "canonical_url": "https://dev.to/fromyasaka/why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+    "performance": {
+      "views": 0,
+      "reactions": 0,
+      "comments": 0
+    },
+    "questions": [],
+    "new_aliases": []
+  },
+  "received": "2026-07-31T09:44:20Z",
+  "processed": false,
+  "notes": null
+}

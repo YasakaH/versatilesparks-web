@@ -1,0 +1,156 @@
+═══════════════════════════════════════════════════════════════════
+EXECUTION INTEGRITY — WEDGE VALIDATION TABLE
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# The central question
+
+"What is the first automated action where a company cannot afford to
+say: 'We don't know exactly what happened'?"
+
+# Wedge candidates evaluated
+
+## Candidate 1: Financial Automation Integrity
+
+Who writes the check?
+  CFO / VP of Finance / Head of Risk & Controls
+  Budget line: operational risk, internal controls, fraud prevention
+
+What incident causes urgency?
+  An automated refund or payment goes wrong. Money leaves the company.
+  Auditor asks: "Show me the evidence that this payment was authorized."
+  Answer: "We don't know" → immediate escalation.
+
+What are they paying today?
+  Manual audit ($200-500/hr per auditor), chargeback losses, fraud losses
+  Reconciliation teams (3-5 FTE at $80K+ each)
+  Insurance deductibles for payment errors
+
+What system do we sit beside?
+  Payment gateways (Stripe, Adyen), ERP (SAP, Oracle), billing systems
+  We verify AFTER the payment API call but BEFORE funds leave
+
+Can we deploy without replacing anything?
+  Yes. API wrapper layer. Instrument the payment call, not replace it.
+
+Can we prove ROI in 30 days?
+  Yes. Catch one unauthorized refund → save the full amount → immediate ROI.
+
+Trigger event:
+  "A payment was made and we can't prove who authorized it."
+  Frequency: daily in large organizations.
+
+## Candidate 2: Enterprise Automation Integrity
+
+Who writes the check?
+  CIO / Head of Automation / CISO
+  Budget: automation governance, internal controls
+
+What incident causes urgency?
+  An RPA bot or enterprise workflow modifies critical data without trace.
+  Compliance audit finds undocumented system changes.
+
+What are they paying today?
+  Compliance penalties, audit remediation, manual reconciliation
+  Failed SOC2 / SOX controls
+
+What system do we sit beside?
+  RPA platforms (UiPath, AA), iPaaS (Workato, MuleSoft), ERP (SAP, Oracle)
+  We capture execution evidence at the API/event level
+
+Can we deploy without replacing anything?
+  Yes. Event listener pattern. Instrument the automation platform output.
+
+Can we prove ROI in 30 days?
+  Harder. Value is risk-avoidance, not direct cost savings. Longer sales cycle.
+
+Trigger event:
+  "Our auditor couldn't verify who changed this record."
+  Frequency: quarterly (audit-driven).
+
+## Candidate 3: AI Agent Governance
+
+Who writes the check?
+  Head of AI / CTO / Chief AI Ethics Officer
+  Budget: AI governance, responsible AI
+
+What incident causes urgency?
+  An AI agent takes an unauthorized action (refunds $50K, deletes records).
+  Board or regulator demands: "What controls are in place?"
+
+What are they paying today?
+  AI governance consultants, manual review of agent actions
+  Insurance premiums for AI liability
+
+What system do we sit beside?
+  AI agent frameworks (LangGraph, CrewAI, AutoGen), LLM APIs
+  We wrap the tool execution layer
+
+Can we deploy without replacing anything?
+  Yes. Decorator / middleware pattern. Framework-agnostic.
+
+Can we prove ROI in 30 days?
+  Strong. Catch one bad agent action → immediate cost avoidance.
+
+Trigger event:
+  "Our AI agent did something we didn't authorize."
+  Frequency: growing weekly. Early market.
+
+## Candidate 4: Automation Change Protection (Execution Gate)
+
+Who writes the check?
+  CIO / Head of Automation
+  Budget: IT controls, change management
+
+What incident causes urgency?
+  An automated workflow changed behavior between runs.
+  "Yesterday it worked. Today it didn't. Nobody changed the code."
+
+What are they paying today?
+  Incident response, production outages, manual rollback
+  Fragile automation breaks weekly — 45% RPA failure rate
+
+What system do we sit beside?
+  Any automation (scripts, bots, AI agents, RPA, CI/CD pipelines)
+  We capture before/after state and detect change
+
+Can we deploy without replacing anything?
+  Yes. Instrumentation layer around any executable.
+
+Can we prove ROI in 30 days?
+  Yes. Detect one behavioral drift → prevent one outage → immediate savings.
+
+Trigger event:
+  "The automation ran successfully but produced the wrong result."
+  Frequency: weekly in any org with >10 automated workflows.
+
+# Ranking by startup probability
+
+Rank criteria: Pain × Timing × Accessibility × Founder Advantage
+
+1. Financial Automation Integrity
+   Pain: immediate financial loss
+   Timing: AI agents increasingly touch payment systems
+   Accessibility: API wrapper, measurable ROI, budget exists today
+   Founder advantage: strong (case database + four primitives)
+
+2. AI Agent Governance
+   Pain: growing, visible in headlines
+   Timing: perfect (AI agent adoption accelerating)
+   Accessibility: developer-led, can start open-source
+   Founder advantage: strong (built Agent Replay, understands space)
+   Risk: crowded market forming
+
+3. Enterprise Automation Integrity
+   Pain: real but diffuse
+   Timing: early (enterprise not yet feeling pain acutely)
+   Accessibility: long enterprise sales cycle
+   Founder advantage: moderate
+
+4. Automation Change Protection
+   Pain: real, large (45% RPA breakage rate)
+   Timing: steady
+   Accessibility: technical sale, less crowded
+   Founder advantage: moderate
+
+═══════════════════════════════════════════════════════════════════

@@ -642,10 +642,10 @@ That is the difference between debugging randomly and engineering systematically
 - The production goal is predictability, not stealth
 
 ### Common Mistakes
-- [✗] Comparing code instead of environment when behavior differs between machines
-- [✗] Ignoring environment drift — Chrome updates, OS changes, font differences accumulate
-- [✗] Assuming headless Chrome is identical to headed — rendering, fonts, GPU all differ
-- [✗] Sharing profiles across environments — Chrome version differences can corrupt profile state
+- [X] Comparing code instead of environment when behavior differs between machines
+- [X] Ignoring environment drift — Chrome updates, OS changes, font differences accumulate
+- [X] Assuming headless Chrome is identical to headed — rendering, fonts, GPU all differ
+- [X] Sharing profiles across environments — Chrome version differences can corrupt profile state
 
 ### Senior Takeaways
 - When behavior differs between machines, compare environments before changing code

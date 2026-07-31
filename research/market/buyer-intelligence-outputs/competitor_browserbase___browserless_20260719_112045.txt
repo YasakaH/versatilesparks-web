@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Browserbase / Browserless
+Date: 2026-07-19 11:20:45
+=================================================================
+
+  What they do: Headless browser infra
+  Their focus: Running browsers, not verifying actions
+  Threat to us: LOW — verification would expose infra issues
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  They sell browser infrastructure (running Chrome in the cloud). Adding verification would expose connection drops, crash rates, and CDP instability. Their customers would demand SLA credits. Better to keep the noise hidden.

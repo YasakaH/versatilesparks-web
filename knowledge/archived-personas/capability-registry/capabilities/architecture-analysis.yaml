@@ -1,0 +1,61 @@
+# Capability Definition v1.0.0
+
+id: architecture_analysis
+name: Architecture Analysis
+description: Analyze software systems for structure, scalability, maintainability, and risk.
+category: engineering
+version: 1.0.0
+status: active
+
+providers:
+  - skill: repository_mapper
+  - skill: dependency_analyzer
+  - skill: architecture_reviewer
+
+inputs:
+  - name: repository
+    type: path
+    description: Path to repository root
+  - name: requirements
+    type: string[]
+    description: System requirements
+  - name: constraints
+    type: string[]
+    description: Constraints (budget, timeline, technology)
+    optional: true
+
+outputs:
+  - name: architecture_report
+    type: report
+    description: Full architecture analysis
+  - name: risks
+    type: string[]
+    description: Identified risks with severity
+  - name: recommendations
+    type: string[]
+    description: Prioritized recommendations
+
+dependencies:
+  - code_analysis
+  - documentation_reader
+
+conflicts: []
+
+cost:
+  tokens: medium
+  estimated: 2500
+
+latency: 30
+
+confidence: 89
+
+parallelizable: true
+
+security_level: read_only
+
+quality_score: 94
+
+maintainer: cog-os
+
+created: 2026-07-12
+updated: 2026-07-12

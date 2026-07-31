@@ -9,11 +9,11 @@
 
 ---> **Quick Take**
 > If you're short on time:
-> - ✓ Never retry login failures — they are permanent.
-> - ✓ Capture screenshot + HTML before restarting Chrome.
-> - ✓ Validate session before every extraction.
-> - ✓ One profile per worker — always.
-> - ✓ Alert on 0 records, not just exit code 1.
+> - [Y] Never retry login failures — they are permanent.
+> - [Y] Capture screenshot + HTML before restarting Chrome.
+> - [Y] Validate session before every extraction.
+> - [Y] One profile per worker — always.
+> - [Y] Alert on 0 records, not just exit code 1.
 > 
 > Estimated reading: 14 minutes
 > 
@@ -115,7 +115,7 @@ browser = await launch_browser(
 )
 ```
 
-**Confidence:** ***** (Restart browser) | ***☆☆ (Delete profile)
+**Confidence:** ***** (Restart browser) | ***oo (Delete profile)
 
 ### Prevention
 
@@ -147,9 +147,9 @@ Fix: Set CHROME_PATH environment variable.
 
 
 **Related Reading**
-- Architecture Guide: [Decision 5 — Docker vs Bare Metal](#)
-- Pattern Catalog: [Supervisor](#), [Retry with Backoff](#)
-- War Stories: [Story 3 — Chrome Update Corrupted Profiles](#)
+- Architecture Guide: Decision 5 — Docker vs Bare Metal
+- Pattern Catalog: Supervisor, Retry with Backoff
+- War Stories: Story 3 — Chrome Update Corrupted Profiles
 
 
 
@@ -199,7 +199,7 @@ PROFILE_DIR = Path(f"./profiles/worker-{worker_id}")
 
 Post-run cleanup: remove lockfile in `finally` block.
 
-**Confidence:** ***** (Delete lockfile) | ****☆ (Recreate profile)
+**Confidence:** ***** (Delete lockfile) | ****o (Recreate profile)
 
 ### False Positive
 
@@ -215,9 +215,9 @@ Fix: Wait for the other worker to finish, or kill the stale Chrome.
 
 
 **Related Reading**
-- Architecture Guide: [Decision 7 — Profile per Worker](#)
-- Pattern Catalog: [Worker Pool](#)
-- Design Review: [Red Flags — Shared Profiles](#)
+- Architecture Guide: Decision 7 — Profile per Worker
+- Pattern Catalog: Worker Pool
+- Design Review: Red Flags — Shared Profiles
 
 
 
@@ -271,7 +271,7 @@ async def run_with_recovery(browser, url):
     # Continue extraction
 ```
 
-**Confidence:** ***** (Re-authenticate) | **☆☆☆ (Create new profile)
+**Confidence:** ***** (Re-authenticate) | **ooo (Create new profile)
 
 ### Prevention
 
@@ -299,9 +299,9 @@ async def run_with_recovery(browser, url):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 8 — Browser Profiles vs Stateless Sessions](#)
-- Pattern Catalog: [Idempotent Consumer](#), [Checkpoint/Resume](#)
-- War Stories: [Story 1 — Login That Failed Only on Mondays](#)
+- Architecture Guide: Decision 8 — Browser Profiles vs Stateless Sessions
+- Pattern Catalog: Idempotent Consumer, Checkpoint/Resume
+- War Stories: Story 1 — Login That Failed Only on Mondays
 
 
 
@@ -367,7 +367,7 @@ for sel in selectors:
         break
 ```
 
-**Confidence:** ***** (Update selector) | ***☆☆ (Add fallback chain)
+**Confidence:** ***** (Update selector) | ***oo (Add fallback chain)
 
 ### False Positive
 
@@ -383,9 +383,9 @@ Fix: Distinguish between "page has no data" and "selector couldn't find data."
 
 
 **Related Reading**
-- Pattern Catalog: [Retry with Backoff](#)
-- Design Review: [Pre-Flight — Is Automation Justified?](#)
-- War Stories: [Story 2 — Selector Broken by A/B Testing](#)
+- Pattern Catalog: Retry with Backoff
+- Design Review: Pre-Flight — Is Automation Justified?
+- War Stories: Story 2 — Selector Broken by A/B Testing
 
 
 
@@ -428,7 +428,7 @@ BLOCK_PATTERNS = [".com/metrics", "google-analytics", "fonts.googleapis"]
 page = await browser.get(url, timeout=15)
 ```
 
-**Confidence:** ***** (Block resources) | ***☆☆ (Increase timeout)
+**Confidence:** ***** (Block resources) | ***oo (Increase timeout)
 
 ### Prevention
 
@@ -456,9 +456,9 @@ page = await browser.get(url, timeout=15)
 
 
 **Related Reading**
-- Architecture Guide: [Decision 11 — Polling vs Event-Driven](#)
-- Pattern Catalog: [Event Observer](#)
-- War Stories: [Story 13 — The 1-Second Wait That Missed the Data](#)
+- Architecture Guide: Decision 11 — Polling vs Event-Driven
+- Pattern Catalog: Event Observer
+- War Stories: Story 13 — The 1-Second Wait That Missed the Data
 
 
 
@@ -502,7 +502,7 @@ for attempt in range(3):
 raise
 ```
 
-**Confidence:** ***** (Restart Chrome) | ****☆ (Restart from checkpoint)
+**Confidence:** ***** (Restart Chrome) | ****o (Restart from checkpoint)
 
 ### Prevention
 
@@ -522,9 +522,9 @@ raise
 
 
 **Related Reading**
-- Pattern Catalog: [Supervisor](#), [Circuit Breaker](#)
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
-- War Stories: [Story 3 — Chrome Update Corrupted Profiles](#)
+- Pattern Catalog: Supervisor, Circuit Breaker
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
+- War Stories: Story 3 — Chrome Update Corrupted Profiles
 
 
 
@@ -569,7 +569,7 @@ Compare with expected schema:
 # Received: {"product_id": "...", "price": "₹123.45"}
 ```
 
-**Confidence:** ***** (Update schema) | ***☆☆ (Relax validation rule)
+**Confidence:** ***** (Update schema) | ***oo (Relax validation rule)
 
 ### False Positive
 
@@ -585,9 +585,9 @@ Fix: Update selectors, then the validation schema will pass again.
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Screenshot vs HTML vs Structured Data](#)
-- Pattern Catalog: [Pipeline](#), [Dead Letter Queue](#)
-- War Stories: [Story 5 — Dashboard Reported Success While Storing Zero Rows](#)
+- Architecture Guide: Decision 13 — Screenshot vs HTML vs Structured Data
+- Pattern Catalog: Pipeline, Dead Letter Queue
+- War Stories: Story 5 — Dashboard Reported Success While Storing Zero Rows
 
 
 
@@ -628,7 +628,7 @@ wait = int(response.headers.get("Retry-After", 60))
 await asyncio.sleep(wait)
 ```
 
-**Confidence:** ***** (Add rate limiting) | ***☆☆ (Rotate IP)
+**Confidence:** ***** (Add rate limiting) | ***oo (Rotate IP)
 
 ### Prevention
 
@@ -656,9 +656,9 @@ await asyncio.sleep(wait)
 
 
 **Related Reading**
-- Architecture Guide: [Decision 9 — Browser vs API](#)
-- Pattern Catalog: [Retry with Backoff](#), [Circuit Breaker](#)
-- War Stories: [Story 4 — Retry Loop DDoSed a Supplier](#)
+- Architecture Guide: Decision 9 — Browser vs API
+- Pattern Catalog: Retry with Backoff, Circuit Breaker
+- War Stories: Story 4 — Retry Loop DDoSed a Supplier
 
 
 
@@ -699,7 +699,7 @@ services:
           memory: 4g
 ```
 
-**Confidence:** ***** (Increase memory limit) | ***☆☆ (Periodic Chrome restart)
+**Confidence:** ***** (Increase memory limit) | ***oo (Periodic Chrome restart)
 
 ### Prevention
 
@@ -719,9 +719,9 @@ services:
 
 
 **Related Reading**
-- Architecture Guide: [Part III — Cost Table](#)
-- Pattern Catalog: [Worker Pool](#)
-- War Stories: [Story 7 — Database Grew 50GB in One Weekend](#)
+- Architecture Guide: Part III — Cost Table
+- Pattern Catalog: Worker Pool
+- War Stories: Story 7 — Database Grew 50GB in One Weekend
 
 
 
@@ -743,7 +743,7 @@ MAX_QUARANTINE_AGE_DAYS = 30
 # Rotate: quarantine.2026-07-01.json
 ```
 
-**Confidence:** ***** (Add retention policy) | **☆☆☆ (Manual cleanup)
+**Confidence:** ***** (Add retention policy) | **ooo (Manual cleanup)
 
 ### Prevention
 
@@ -763,9 +763,9 @@ MAX_QUARANTINE_AGE_DAYS = 30
 
 
 **Related Reading**
-- Pattern Catalog: [Dead Letter Queue](#)
-- Design Review: [Post-Implementation Review — Weekly checks](#)
-- War Stories: [Story 7 — Database Grew 50GB in One Weekend](#)
+- Pattern Catalog: Dead Letter Queue
+- Design Review: Post-Implementation Review — Weekly checks
+- War Stories: Story 7 — Database Grew 50GB in One Weekend
 
 
 
@@ -810,7 +810,7 @@ logger.info(f"Validated: {len(valid)}")
 logger.info(f"Stored: {len(stored)}")
 ```
 
-**Confidence:** ***** (Add pipeline tracing) | **☆☆☆ (Restart job)
+**Confidence:** ***** (Add pipeline tracing) | **ooo (Restart job)
 
 ### False Positive
 
@@ -826,9 +826,9 @@ Fix: Check for a human-visible "no results" message on the page.
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Evidence Types](#)
-- Pattern Catalog: [Checkpoint/Resume](#), [Pipeline](#)
-- War Stories: [Story 5 — Dashboard Reporting Success While Storing Zero Rows](#)
+- Architecture Guide: Decision 13 — Evidence Types
+- Pattern Catalog: Checkpoint/Resume, Pipeline
+- War Stories: Story 5 — Dashboard Reporting Success While Storing Zero Rows
 
 
 
@@ -866,7 +866,7 @@ with FileLock("job.lock", timeout=0):
     run_automation()
 ```
 
-**Confidence:** ***** (Add filelock) | ****☆ (Database advisory lock)
+**Confidence:** ***** (Add filelock) | ****o (Database advisory lock)
 
 ### False Positive
 
@@ -881,9 +881,9 @@ Fix: Use separate lock files per job type.
 
 
 **Related Reading**
-- Architecture Guide: [Decision 4 — Cron vs Scheduler](#)
-- Pattern Catalog: [Queue](#), [Idempotent Consumer](#)
-- War Stories: [Story 19 — The Race Condition at Midnight](#)
+- Architecture Guide: Decision 4 — Cron vs Scheduler
+- Pattern Catalog: Queue, Idempotent Consumer
+- War Stories: Story 19 — The Race Condition at Midnight
 
 
 
@@ -914,15 +914,15 @@ Run with `headless=False` — does it work headed?
 
 Check CDP console log for errors.
 
-**Confidence:** ***** (Switch to headed + Xvfb) | ***☆☆ (Update user agent)
+**Confidence:** ***** (Switch to headed + Xvfb) | ***oo (Update user agent)
 
 ---
 
 
 **Related Reading**
-- Architecture Guide: [Decision 1 — Single vs Multiple Browsers](#)
-- Pattern Catalog: [Event Observer](#)
-- War Stories: [Story 13 — The 1-Second Wait That Missed the Data](#)
+- Architecture Guide: Decision 1 — Single vs Multiple Browsers
+- Pattern Catalog: Event Observer
+- War Stories: Story 13 — The 1-Second Wait That Missed the Data
 
 
 
@@ -952,7 +952,7 @@ if (datetime.now() - last_successful_login).days > 60:
     send_alert("Credentials may have expired")
 ```
 
-**Confidence:** ****☆ (Update .env) | **☆☆☆ (Secrets manager rotation)
+**Confidence:** ****o (Update .env) | **ooo (Secrets manager rotation)
 
 ### Prevention
 
@@ -996,9 +996,9 @@ if (datetime.now() - last_successful_login).days > 60:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 8 — Browser Profiles vs Stateless Sessions](#)
-- Design Review: [Security — Credential Rotation](#)
-- War Stories: [Story 6 — Account Lockout From 5 Login Retries](#)
+- Architecture Guide: Decision 8 — Browser Profiles vs Stateless Sessions
+- Design Review: Security — Credential Rotation
+- War Stories: Story 6 — Account Lockout From 5 Login Retries
 
 
 
@@ -1036,7 +1036,7 @@ shutil.rmtree(profile_dir, ignore_errors=True)
 os.makedirs(profile_dir)
 ```
 
-**Confidence:** ****☆ (Delete and recreate profile) | *☆☆☆☆ (Repair corrupted profile)
+**Confidence:** ****o (Delete and recreate profile) | *oooo (Repair corrupted profile)
 
 ### Prevention
 
@@ -1056,9 +1056,9 @@ os.makedirs(profile_dir)
 
 
 **Related Reading**
-- Architecture Guide: [Decision 7 — Profiles per Worker](#)
-- Pattern Catalog: [Checkpoint/Resume](#)
-- War Stories: [Story 3 — Chrome Update Corrupted Profiles](#)
+- Architecture Guide: Decision 7 — Profiles per Worker
+- Pattern Catalog: Checkpoint/Resume
+- War Stories: Story 3 — Chrome Update Corrupted Profiles
 
 
 

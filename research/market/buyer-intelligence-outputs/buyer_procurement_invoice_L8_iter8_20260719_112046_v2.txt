@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:46
+Path: procurement_invoice → L2 → L3 → L4 → L5 → L6 → L7 → L8
+Depth: Level 8
+=================================================================
+
+WEDGE: procurement_invoice — Procurement Invoice Verification
+  Verify that every invoice corresponds to a real, authorized transaction with a verified supplier.
+  Tagline: Don't pay a fake invoice twice.
+  Pain: $3B/year BEC fraud. 21,442 supplier fraud cases. $2.4M phantom supplier (4 years). 60-day detection lag.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  60 ██████░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  85 ████████░░
+  incumbent_weakness  :  95 █████████░
+  switching_cost      :  60 ██████░░░░
+  OVERALL             : 74
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (AP Director / Procurement VP / CFO)
+  budget: Budget: $500K-2M/yr for AP automation & fraud prevention
+  switching_cost: MEDIUM — Coupa/SAP lock-in, but verification layer sits beside ERP, doesn't replace it
+  buying_trigger: Fear-based trigger (regulatory/financial loss)
+  incumbent_weakness: Incumbents structurally profit from ambiguity
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: AP Director / Procurement VP / CFO
+  Budget: $500K-2M/yr for AP automation & fraud prevention
+  Current vendor: Coupa, SAP Ariba, manual AP teams, email-based verification
+  Current alternative: 3-way match (PO/receipt/invoice), manual callbacks, post-hoc forensic audit, insurance claims
+  Switching cost: MEDIUM — Coupa/SAP lock-in, but verification layer sits beside ERP, doesn't replace it
+  Buying trigger: BEC wire fraud hits the company → VP of Finance demands change → AP tool budget approved within 30 days
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  Coupa/SAP profit from being the system of record. A neutral verification layer reduces their lock-in. They want to own the truth, not verify it.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  Invoice verification API: submit invoice → verify supplier identity, check bank account against registry, score fraud risk, return confidence.
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 9:
+----------------------------------------
+  Product evolution: wedge → adjacent wedge → horizontal verification layer

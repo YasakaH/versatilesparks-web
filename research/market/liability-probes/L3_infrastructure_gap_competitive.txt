@@ -1,0 +1,57 @@
+[infrastructure-gap] Level 2+3 — Competitive Landscape + Missing Layer
+═══════════════════════════════════════════════════════════════════
+
+EXISTING PLAYERS (Evidence/Attestation Layer)
+─────────────────────────────────────────────
+
+1. ProofSnap (getproofsnap.com)
+   Product: "AI Flight Recorder"
+   Method: Blockchain timestamp (SHA-256 + OpenTimestamps + Bitcoin)
+   Focus: Chatbot outputs, individual AI responses
+   Target: EU AI Act compliance, chatbot liability defense
+   Limitation: Captures individual outputs, NOT full agent execution
+     chains (tool calls, decisions, state changes)
+
+2. TrueScreen (truescreen.io)
+   Product: "Data Authenticity Platform"
+   Method: QTSP digital seal + qualified timestamp (eIDAS Regulation)
+   Focus: Digital content certification with legal value
+   Target: European enterprises, regulatory compliance
+   Limitation: General data certification, not agent-specific
+
+3. SWEAR (security industry)
+   Product: Digital evidence authentication
+   Focus: Video/footage authenticity
+   Target: Physical security industry
+
+THE GAP THEY DON'T COVER
+─────────────────────────
+All existing players focus on OUTPUT attestation:
+  "Here is proof that this specific output existed at this time."
+
+None focus on EXECUTION provenance:
+  "Here is the complete trace of tool calls, decisions, state changes,
+   and evidence that led to this output."
+
+Our EPR format captures:
+  - Agent identity (who acted)
+  - Tool calls (what was done)
+  - State changes (what changed)
+  - Evidence artifacts (screenshots, API responses)
+  - Duration (how long)
+  - Errors (what failed)
+  - Sequence (order of operations)
+
+THE TTL/EXPIRY PRIMITIVE
+─────────────────────────
+Uniquely identified by Björn Roberg blog (Apr 2026). No shipping product
+has this. The insight: risk changes as agents drift. A static attestation
+is worthless after the environment changes. Need: "Record → Replay → Expire"
+with TTL-bound certification that re-verifies on drift.
+
+REGULATORY DEADLINES (Creates Urgency)
+──────────────────────────────────────
+June 30, 2026 — Colorado AI Act (already past)
+August 2, 2026 — EU AI Act enforcement starts (14 days away)
+December 2026 — EU Product Liability Directive (AI = strict liability)
+January 2026 — ISO exclusions effective (already in effect)

@@ -1,0 +1,10 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → B → B3
+Depth: Level 3
+Leaf: B3 — No cross-reference (0pts)
+============================================================
+
+B3: No cross-reference (0pts)
+  One system says done. No independent confirmation from other side.

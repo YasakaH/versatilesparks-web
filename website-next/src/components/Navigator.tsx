@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Filter, Code, ExternalLink, HelpCircle } from "lucide-react";
+import { Filter } from "lucide-react";
+import type { Concept, Recipe } from "../types/knowledge";
 
 interface NavigatorProps {
   db: {
-    recipes: any[];
-    concepts: any[];
+    recipes: Recipe[];
+    concepts: Concept[];
   };
   onSelectConcept: (id: string) => void;
 }
@@ -48,11 +49,10 @@ export default function Navigator({ db, onSelectConcept }: NavigatorProps) {
               <button
                 key={diff}
                 onClick={() => setSelectedDifficulty(diff)}
-                className={`text-xs px-2.5 py-1 rounded font-mono border transition-all ${
-                  selectedDifficulty === diff
+                className={`text-xs px-2.5 py-1 rounded font-mono border transition-all ${selectedDifficulty === diff
                     ? "bg-[#f5f2eb] border-[#f5f2eb] text-[#090909]"
                     : "bg-[#161616] border-[#242424] text-[#8a8a8a] hover:text-[#f2f2f2]"
-                }`}
+                  }`}
               >
                 {diff}
               </button>
@@ -83,11 +83,10 @@ export default function Navigator({ db, onSelectConcept }: NavigatorProps) {
               <button
                 key={env}
                 onClick={() => setSelectedEnvironment(env)}
-                className={`text-xs px-2.5 py-1 rounded font-mono border transition-all ${
-                  selectedEnvironment === env
+                className={`text-xs px-2.5 py-1 rounded font-mono border transition-all ${selectedEnvironment === env
                     ? "bg-[#f5f2eb] border-[#f5f2eb] text-[#090909]"
                     : "bg-[#161616] border-[#242424] text-[#8a8a8a] hover:text-[#f2f2f2]"
-                }`}
+                  }`}
               >
                 {env}
               </button>
@@ -104,7 +103,7 @@ export default function Navigator({ db, onSelectConcept }: NavigatorProps) {
           </div>
         ) : (
           filteredRecipes.map(recipe => (
-            <div 
+            <div
               key={recipe.id}
               className="bg-[#161616] border border-[#242424] rounded-md p-4 flex flex-col gap-2 hover:border-[#8a8a8a] transition-all"
             >
@@ -120,7 +119,7 @@ export default function Navigator({ db, onSelectConcept }: NavigatorProps) {
                 </span>
               </div>
               <p className="text-xs text-[#8a8a8a] line-clamp-2 mt-1">{recipe.body.split("\n\n")[0]}</p>
-              
+
               <div className="flex items-center justify-between border-t border-[#242424] pt-3 mt-1">
                 <div className="flex items-center gap-1.5">
                   {recipe.concepts.map((cid: string) => {

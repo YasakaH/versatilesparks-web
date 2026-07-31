@@ -1,0 +1,31 @@
+---
+id: "captcha-every-request"
+title: "CAPTCHA appears on every request"
+error_patterns: ["captcha", "recaptcha", "automated queries", "verify you are human", "i am not a robot"]
+severity: "common"
+concept: "anti-detection"
+description: "Bot detection services are flagging your browser as automated. Every request is challenged."
+---
+
+When every page load triggers a CAPTCHA, your browser fingerprint is being detected as non-human.
+
+### Root Cause
+
+Detection services check: `navigator.webdriver`, CDP presence, TLS handshake signatures, and behavioral timing.
+
+### The Fix
+
+Apply stealth patches before the browser creates its first connection:
+
+```python
+from nodriver import start
+
+browser = await start(
+    headless=True,
+    arguments=[
+        "--disable-blink-features=AutomationControlled",
+    ]
+)
+```
+
+If CAPTCHAs persist, rotate the full fingerprint (viewport, user-agent, WebGL vendor).

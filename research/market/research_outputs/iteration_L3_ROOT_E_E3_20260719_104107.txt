@@ -1,0 +1,15 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → E → E3
+Depth: Level 3
+Leaf: E3 — No replay capability (20pts)
+============================================================
+
+E3: No replay capability (20pts [cross])
+  Failed action cannot be replayed. All progress lost. No idempotency.
+  Top case: [cross] Bot fails on step 12/15. No checkpoint. Must restart from step 1. Average r
+
+Full evidence:
+  [cross] RPA industry: Bot fails on step 12/15. No checkpoint. Must restart from step 1. Average recove
+  [cross] CI/CD pipeline: Deployment fails at step 8/10. No roll-forward capability. Full rollback + resta

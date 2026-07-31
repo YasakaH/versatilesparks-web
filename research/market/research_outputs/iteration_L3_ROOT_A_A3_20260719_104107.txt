@@ -1,0 +1,14 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → A → A3
+Depth: Level 3
+Leaf: A3 — Wrong status reported (10pts)
+============================================================
+
+A3: Wrong status reported (10pts [browser])
+  Exit code = 0 but output is empty/wrong. False success signal.
+  Top case: [browser] Download completion callback never fires. Script thinks download is still i
+
+Full evidence:
+  [browser] Browser-Use #5132: Download completion callback never fires. Script thinks download is still in pro

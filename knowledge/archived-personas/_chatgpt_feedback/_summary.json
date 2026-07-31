@@ -1,0 +1,254 @@
+[
+  {
+    "index": 0,
+    "review_target": "CORE/THINKING_MODELS.md + CORE/DECISION_ENGINE.md",
+    "size": 12650,
+    "actionable_items": 28,
+    "file": "00_core_thinking_models_md___core_decision_.md"
+  },
+  {
+    "index": 1,
+    "review_target": "CORE/DECISION_ENGINE.md (continued) + CORE/REVIEW_FRAMEWORK.md",
+    "size": 15811,
+    "actionable_items": 46,
+    "file": "01_core_decision_engine_md__continued____co.md"
+  },
+  {
+    "index": 2,
+    "review_target": "CORE/CONSTITUTION.md + CORE/ARCHITECTURE_PRINCIPLES.md + CORE/ENGINEERING_PRINCIPLES.md",
+    "size": 17953,
+    "actionable_items": 41,
+    "file": "02_core_constitution_md___core_architecture.md"
+  },
+  {
+    "index": 3,
+    "review_target": "CORE/DECISION_FRAMEWORK.md + CORE/EXECUTION_WORKFLOW.md + CORE/QUALITY_STANDARDS.md",
+    "size": 22351,
+    "actionable_items": 34,
+    "file": "03_core_decision_framework_md___core_execut.md"
+  },
+  {
+    "index": 4,
+    "review_target": "CORE/THINKING_MODELS.md + CORE/DECISION_ENGINE.md",
+    "size": 11279,
+    "actionable_items": 29,
+    "file": "04_core_thinking_models_md___core_decision_.md"
+  },
+  {
+    "index": 5,
+    "review_target": "Decision Priority Weights + CORE/REVIEW_FRAMEWORK.md",
+    "size": 13032,
+    "actionable_items": 43,
+    "file": "05_decision_priority_weights___core_review_.md"
+  },
+  {
+    "index": 6,
+    "review_target": "CORE/PRIORITIZATION_FRAMEWORK.md + CORE/CONTINUOUS_IMPROVEMENT.md",
+    "size": 21950,
+    "actionable_items": 44,
+    "file": "06_core_prioritization_framework_md___core_.md"
+  },
+  {
+    "index": 7,
+    "review_target": "CORE/PERSONALITY_SCHEMA.md + CORE/BASE_PERSONALITY.md",
+    "size": 17155,
+    "actionable_items": 29,
+    "file": "07_core_personality_schema_md___core_base_p.md"
+  },
+  {
+    "index": 8,
+    "review_target": "CORE/BASE_PERSONALITY.md (remaining sections) + CORE/PERSONALITY_CREATION_GUIDE.md",
+    "size": 7971,
+    "actionable_items": 20,
+    "file": "08_core_base_personality_md__remaining_sect.md"
+  },
+  {
+    "index": 9,
+    "review_target": "CORE/SKILL_SELECTION_POLICY.md (ending section)",
+    "size": 13351,
+    "actionable_items": 36,
+    "file": "09_core_skill_selection_policy_md__ending_s.md"
+  },
+  {
+    "index": 10,
+    "review_target": "CORE/QUALITY_GATES.md + CORE/OUTPUT_STANDARD.md",
+    "size": 19139,
+    "actionable_items": 34,
+    "file": "10_core_quality_gates_md___core_output_stan.md"
+  },
+  {
+    "index": 11,
+    "review_target": "EVOLUTION_ENGINE.md + OBSERVABILITY.md + EVALUATION.md",
+    "size": 18906,
+    "actionable_items": 59,
+    "file": "11_evolution_engine_md___observability_md__.md"
+  },
+  {
+    "index": 12,
+    "review_target": "CONFLICT_RESOLUTION_POLICY.md + ORCHESTRATION_POLICY.md + ESCALATION_POLICY.md",
+    "size": 22251,
+    "actionable_items": 29,
+    "file": "12_conflict_resolution_policy_md___orchestr.md"
+  },
+  {
+    "index": 13,
+    "review_target": "governance layer (ESCALATION, AUTHORITY, AUDIT, CONTRIBUTION, DEPRECATION, PERSONALITY, SECURITY, SKILL policies)",
+    "size": 12925,
+    "actionable_items": 25,
+    "file": "13_governance_layer__escalation__authority_.md"
+  },
+  {
+    "index": 14,
+    "review_target": "Skill Policy + Version Policy",
+    "size": 16748,
+    "actionable_items": 36,
+    "file": "14_skill_policy___version_policy.md"
+  },
+  {
+    "index": 15,
+    "review_target": "Engineering Personas (Performance Engineer, Principal Engineer, Staff Engineer)",
+    "size": 11464,
+    "actionable_items": 26,
+    "file": "15_engineering_personas__performance_engine.md"
+  },
+  {
+    "index": 16,
+    "review_target": "Architecture / Systems Architect Persona",
+    "size": 14124,
+    "actionable_items": 38,
+    "file": "16_architecture___systems_architect_persona.md"
+  },
+  {
+    "index": 17,
+    "review_target": "AI / Agent Architect + AI Engineer Personas",
+    "size": 21651,
+    "actionable_items": 34,
+    "file": "17_ai___agent_architect___ai_engineer_perso.md"
+  },
+  {
+    "index": 18,
+    "review_target": "DevOps / Reliability / SRE Personas",
+    "size": 17177,
+    "actionable_items": 37,
+    "file": "18_devops___reliability___sre_personas.md"
+  },
+  {
+    "index": 19,
+    "review_target": "Security Architect + Threat Modeler Personas",
+    "size": 16591,
+    "actionable_items": 31,
+    "file": "19_security_architect___threat_modeler_pers.md"
+  },
+  {
+    "index": 20,
+    "review_target": "Data Engineer + Data Scientist Personas",
+    "size": 21173,
+    "actionable_items": 38,
+    "file": "20_data_engineer___data_scientist_personas.md"
+  },
+  {
+    "index": 21,
+    "review_target": "Research Personas (Academic Reviewer, Research Scientist, Skeptical Researcher)",
+    "size": 14874,
+    "actionable_items": 42,
+    "file": "21_research_personas__academic_reviewer__re.md"
+  },
+  {
+    "index": 22,
+    "review_target": "Instructional Designer Persona",
+    "size": 17161,
+    "actionable_items": 37,
+    "file": "22_instructional_designer_persona.md"
+  },
+  {
+    "index": 23,
+    "review_target": "Healthcare Analyst Persona",
+    "size": 16174,
+    "actionable_items": 33,
+    "file": "23_healthcare_analyst_persona.md"
+  },
+  {
+    "index": 24,
+    "review_target": "Product Manager Persona",
+    "size": 19976,
+    "actionable_items": 43,
+    "file": "24_product_manager_persona.md"
+  },
+  {
+    "index": 25,
+    "review_target": "Design Personas (UX Critic + UX Designer)",
+    "size": 13690,
+    "actionable_items": 26,
+    "file": "25_design_personas__ux_critic___ux_designer.md"
+  },
+  {
+    "index": 26,
+    "review_target": "Creative Director Persona",
+    "size": 22703,
+    "actionable_items": 40,
+    "file": "26_creative_director_persona.md"
+  },
+  {
+    "index": 27,
+    "review_target": "Business Domain Personas Chunk",
+    "size": 12273,
+    "actionable_items": 39,
+    "file": "27_business_domain_personas_chunk.md"
+  },
+  {
+    "index": 28,
+    "review_target": "Sales Engineer Persona (Completed Chunk)",
+    "size": 12674,
+    "actionable_items": 20,
+    "file": "28_sales_engineer_persona__completed_chunk_.md"
+  },
+  {
+    "index": 29,
+    "review_target": "Financial Analyst Persona",
+    "size": 12402,
+    "actionable_items": 26,
+    "file": "29_financial_analyst_persona.md"
+  },
+  {
+    "index": 30,
+    "review_target": "Legal Advisor Persona",
+    "size": 16504,
+    "actionable_items": 40,
+    "file": "30_legal_advisor_persona.md"
+  },
+  {
+    "index": 31,
+    "review_target": "Leadership Personas Chunk (CTO + Engineering Manager)",
+    "size": 15959,
+    "actionable_items": 25,
+    "file": "31_leadership_personas_chunk__cto___enginee.md"
+  },
+  {
+    "index": 32,
+    "review_target": "Marketing Strategist Persona",
+    "size": 17178,
+    "actionable_items": 39,
+    "file": "32_marketing_strategist_persona.md"
+  },
+  {
+    "index": 33,
+    "review_target": "Writing Personas (Copy Editor + Technical Writer)",
+    "size": 12691,
+    "actionable_items": 37,
+    "file": "33_writing_personas__copy_editor___technica.md"
+  },
+  {
+    "index": 34,
+    "review_target": "Project Manager Persona",
+    "size": 10081,
+    "actionable_items": 26,
+    "file": "34_project_manager_persona.md"
+  },
+  {
+    "index": 35,
+    "review_target": "Chief of Staff Persona (Meta-Personality)",
+    "size": 8461,
+    "actionable_items": 22,
+    "file": "35_chief_of_staff_persona__meta-personality.md"
+  }
+]

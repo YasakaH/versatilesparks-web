@@ -194,43 +194,43 @@ async def resilient_run(url: str):
 
 ## Common Mistakes
 
-### [✗] Attempting to bypass anti-bot systems through deception
+### [X] Attempting to bypass anti-bot systems through deception
 
 Adding random delays, rotating user agents, and using proxy lists does not make automation undetectable. It makes it unpredictably detectable.
 
 **Fix:** Design for detection as a known failure mode. Detect challenges and respond with evidence collection, not evasion.
 
-### [✗] Ignoring rate limits
+### [X] Ignoring rate limits
 
 Sending requests faster than the website's documented (or undocumented) rate limit triggers blocking. Retrying faster after a block makes it worse.
 
 **Fix:** Implement rate limiting in the automation. Calculate delay from the target's response headers if available.
 
-### [✗] Running automation during business hours
+### [X] Running automation during business hours
 
 A scraper that runs at 2 PM on a weekday looks like an attack. A scraper that runs at 3 AM looks like maintenance.
 
 **Fix:** Schedule non-urgent automation during off-peak hours.
 
-### [✗] Using the same IP across too many targets
+### [X] Using the same IP across too many targets
 
 A single IP address scraping 50 different competitor websites triggers cross-domain pattern detection.
 
 **Fix:** Isolate high-value targets on separate IPs or proxy routes.
 
-### [✗] Not randomizing request timing naturally
+### [X] Not randomizing request timing naturally
 
 Every request arriving at exactly 300-second intervals is a signal. So is every request arriving at a perfectly randomized 250-350 second interval.
 
 **Fix:** Add jitter that follows a natural distribution. A human does not wait exactly 5.0 seconds between clicks.
 
-### [✗] Over-blocking resources
+### [X] Over-blocking resources
 
 Blocking all images, fonts, and CSS makes the browser load faster but creates an abnormal request pattern. Some anti-bot systems flag browsers that do not load images.
 
 **Fix:** Block only the resources that significantly affect performance. Leave CSS and critical images.
 
-### [✗] Treating all challenges as equal
+### [X] Treating all challenges as equal
 
 A CAPTCHA requires human intervention. A rate-limit block requires a cooldown. A complete IP block requires infrastructure changes. Responding to each incorrectly wastes time and fails.
 
@@ -298,10 +298,10 @@ Anti-bot systems are a production reality that must be managed professionally, n
 - `navigator.webdriver` is the single most detectable signal; nodriver disables it by default
 
 ### Common Mistakes
-- [✗] Randomizing delays without understanding detection — inconsistent behavior is MORE detectable
-- [✗] Trying to bypass CAPTCHA programmatically — violates ToS, wastes engineering effort
-- [✗] Ignoring rate limits — IP gets permanently blocked
-- [✗] Over-blocking resources — creates abnormal browser fingerprint
+- [X] Randomizing delays without understanding detection — inconsistent behavior is MORE detectable
+- [X] Trying to bypass CAPTCHA programmatically — violates ToS, wastes engineering effort
+- [X] Ignoring rate limits — IP gets permanently blocked
+- [X] Over-blocking resources — creates abnormal browser fingerprint
 
 ### Senior Takeaways
 - If detection is at the account level (user flag), no amount of IP or browser configuration will help

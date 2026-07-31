@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:47
+Path: browser_automation → L2 → L3 → L4 → L5 → L6 → L7 → L8 → L9 → L10
+Depth: Level 10
+=================================================================
+
+WEDGE: browser_automation — Browser Automation Verification
+  Prove that each automated browser action actually happened, with evidence of the page state before and after.
+  Tagline: Your script says it worked. The page says otherwise.
+  Pain: Browser-Use #5067 (crash recovery), #5048 (CDP disconnect), #5132 (callback never fires). All tools have these gaps.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  60 ██████░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  70 ███████░░░
+  incumbent_weakness  :  40 ████░░░░░░
+  switching_cost      :  90 █████████░
+  OVERALL             : 66
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (Engineering Manager / Head of Automation / CTO (tool-adjacent))
+  budget: Budget: $500-5K/mo for browser automation infra (Playwright, Browserbase, Browserless)
+  switching_cost: Low switching cost — additive integration
+  buying_trigger: Technical trigger (outage)
+  incumbent_weakness: Incumbents could build this
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: Engineering Manager / Head of Automation / CTO (tool-adjacent)
+  Budget: $500-5K/mo for browser automation infra (Playwright, Browserbase, Browserless)
+  Current vendor: Playwright, Puppeteer, Selenium, Browserbase, Browserless, BrowserStack
+  Current alternative: Screenshots before/after each action (build your own), manual verification, retry loops, timeouts
+  Switching cost: LOW — developer tools have low lock-in. Switch to nodriver-based SDK with evidence layer as a package install.
+  Buying trigger: Automation script fails silently in production → data goes missing → CTO discovers 3 days later → mandates verification
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  Playwright/Puppeteer are open-source. Browserbase sells infra, not verification. None have incentives to add anti-detection + evidence + crash recovery.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  Python decorator: @verified — wraps any Playwright/nodriver action with before/after evidence capture, crash detection, auto-replay.
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 11:
+----------------------------------------
+  Moat: failure corpus + verification patterns + integrations into every automation surface

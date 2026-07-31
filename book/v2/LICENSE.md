@@ -10,15 +10,15 @@ The textual and illustrative content of this book is licensed for **personal use
 
 ### Source Code
 The source code examples accompanying this book may be:
-- [✓] Modified and adapted for your personal and commercial projects
-- [✓] Incorporated into larger codebases
-- [✓] Used as reference material
+- [Y] Modified and adapted for your personal and commercial projects
+- [Y] Incorporated into larger codebases
+- [Y] Used as reference material
 
 ### What You May NOT Do
-- [✗] Resell or redistribute the book PDF, EPUB, or any derivative format
-- [✗] Share access to the downloadable bundle with non-purchasers
-- [✗] Extract substantial portions of the text for use in other products
-- [✗] Create competing educational or reference products based on this content
+- [X] Resell or redistribute the book PDF, EPUB, or any derivative format
+- [X] Share access to the downloadable bundle with non-purchasers
+- [X] Extract substantial portions of the text for use in other products
+- [X] Create competing educational or reference products based on this content
 
 ### No Warranty
 This book is provided "as is" without warranty of any kind, express or implied. The author is not liable for any damages arising from the use of the techniques or code described herein.

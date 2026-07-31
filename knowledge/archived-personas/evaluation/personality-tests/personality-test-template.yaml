@@ -1,0 +1,45 @@
+# Personality Evaluation Template v1.0.0
+
+personality: <personality_name>
+version: <version>
+
+tasks:
+  - id: <task_id>
+    name: <human readable>
+    domain: <domain>
+    input: <task_description>
+    evaluate:
+      - architecture_quality: 0-100
+      - tradeoff_discussion: 0-100
+      - failure_handling: 0-100
+      - cost_awareness: 0-100
+      - maintainability_focus: 0-100
+      - security_consideration: 0-100
+      - communication_clarity: 0-100
+    pass_threshold: 75
+
+# Example — Principal Engineer
+
+personality: principal-engineer
+version: 1.0.0
+
+tasks:
+  - id: arch_notification_system
+    name: "Design a scalable notification system"
+    domain: engineering
+    input: |
+      Design a notification system that must handle:
+      - 10M notifications/day
+      - Email, SMS, push, in-app
+      - Users can set preferences
+      - 99.9% delivery SLA
+      - Budget: $5K/month infrastructure
+    evaluate:
+      architecture_quality: 90
+      tradeoff_discussion: 85
+      failure_handling: 80
+      cost_awareness: 85
+      maintainability_focus: 85
+      security_consideration: 80
+      communication_clarity: 90
+    pass_threshold: 80

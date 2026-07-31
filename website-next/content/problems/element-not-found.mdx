@@ -1,0 +1,36 @@
+---
+id: "element-not-found"
+title: "Element not found / timeout waiting for selector"
+error_patterns: ["element not found", "timeout", "no such element", "cannot locate", "element is not attached"]
+severity: "common"
+concept: "observability"
+description: "The target element does not exist in the DOM at the time of query, or the page hasn't finished rendering."
+---
+
+This is the most common browser automation error. The page state doesn't match your assumption.
+
+### Root Cause
+
+- Race condition: script runs before the DOM is ready
+- SPA lazy-loading: the element appears only after a network request
+- Frame nesting: the element is inside an iframe
+
+### The Fix
+
+Use explicit wait strategies:
+
+```python
+from nodriver import start
+import asyncio
+
+async def wait_for(selector: str, timeout: float = 10.0):
+    browser = await start()
+    page = await browser.get("https://example.com")
+    try:
+        elem = await page.wait_for(selector, timeout=timeout)
+        return elem
+    except asyncio.TimeoutError:
+        print(f"Element '{selector}' not found within {timeout}s")
+```
+
+For SPAs, wait for specific network conditions or DOM mutations rather than fixed delays.

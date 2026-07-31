@@ -1,0 +1,22 @@
+# Benchmark Template v1.0.0
+
+capability: <capability_id>
+version: <version>
+
+tasks:
+  - id: <unique_task_id>
+    name: <human readable name>
+    input:
+      # structured input matching capability inputs
+    expected_output:
+      # expected output structure
+    quality_gates:
+      # specific gates this task must pass
+    pass_threshold: 0.80  # minimum score to pass
+
+metrics:
+  - accuracy
+  - completeness
+  - latency_ms
+  - tokens_used
+  - confidence

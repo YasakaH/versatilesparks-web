@@ -1,0 +1,39 @@
+{
+  "qid": "DS03",
+  "mode": "design",
+  "question": "Design a retry mechanism for CDP operations",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Design a retry mechanism for CDP operations",
+        "mode": "design",
+        "entities": [
+          "cdp",
+          "retry"
+        ],
+        "retrieved": [
+          "retry-pattern",
+          "cdp-concept",
+          "nodriver-concept",
+          "playwright-concept",
+          "health-check-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "approaches",
+          "recommended",
+          "pitfalls",
+          "best_practices"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    }
+  }
+}

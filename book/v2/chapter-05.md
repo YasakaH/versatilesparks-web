@@ -259,43 +259,43 @@ profiles/
 
 ## Common Mistakes
 
-### [✗] Storing credentials in source code
+### [X] Storing credentials in source code
 
 A credential committed to git is permanently compromised. Even if you delete it later, it exists in the commit history.
 
 **Fix:** Use environment variables or a secrets manager. Never hardcode.
 
-### [✗] Not validating session state
+### [X] Not validating session state
 
 The automation loads a page, assumes the user is logged in, and tries to extract data. The page shows a login form. Every selector fails with "element not found."
 
 **Fix:** Check for a page element that only exists when authenticated (avatar, username, logout button). If it's missing, re-authenticate.
 
-### [✗] Logging in on every run
+### [X] Logging in on every run
 
 Each login is a risk of account lockout, CAPTCHA, or MFA challenge. Logging in 30 times per month increases failure probability.
 
 **Fix:** Persist sessions via cookies or profiles. Only re-authenticate when validation fails.
 
-### [✗] Sharing sessions across workers
+### [X] Sharing sessions across workers
 
 Two workers using the same profile will invalidate each other's sessions. The result is random "logged out" errors.
 
 **Fix:** Each worker has its own profile path.
 
-### [✗] Ignoring MFA during development
+### [X] Ignoring MFA during development
 
 Building the automation on a non-MFA account means the first production deployment hits MFA and stops.
 
 **Fix:** Design for MFA from day one — session persistence + manual checkpoint. Do not attempt to bypass MFA.
 
-### [✗] Not handling password rotation
+### [X] Not handling password rotation
 
 The website expires passwords every 90 days. The automation fails until someone remembers to update .env.
 
 **Fix:** Monitor login failure rates. A sudden increase in login failures may indicate a password change.
 
-### [✗] Assuming one login works for all pages
+### [X] Assuming one login works for all pages
 
 Some applications authenticate per-section. A login that works for the dashboard may not work for the admin panel.
 
@@ -363,10 +363,10 @@ Authentication is the most failure-prone subsystem in production automation beca
 - One profile per identity — never share profiles across accounts
 
 ### Common Mistakes
-- [✗] Storing credentials in source code — permanently compromised if committed to git
-- [✗] Not validating session state — extracting data from login page instead of dashboard
-- [✗] Logging in on every run — each login risks CAPTCHA, lockout, MFA challenge
-- [✗] Sharing sessions across workers — random auth failures that cannot be reproduced
+- [X] Storing credentials in source code — permanently compromised if committed to git
+- [X] Not validating session state — extracting data from login page instead of dashboard
+- [X] Logging in on every run — each login risks CAPTCHA, lockout, MFA challenge
+- [X] Sharing sessions across workers — random auth failures that cannot be reproduced
 
 ### Senior Takeaways
 - Authentication failures cascade through shared infrastructure — isolate IPs, profiles, credentials

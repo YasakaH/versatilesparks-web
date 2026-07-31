@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import db from "../../../db/knowledge-base.json";
+import type { Book } from "../../../types/knowledge";
 import BookPageClient from "../../../components/BookPageClient";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const book = db.books.find((b) => b.id === slug) as any;
+    const book = db.books.find((b) => b.id === slug) as Book | undefined;
     if (!book) return { title: "Book Not Found" };
 
     const url = `${SITE_URL}/books/${slug}`;
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
     const { slug } = await params;
-    const book = db.books.find((b) => b.id === slug) as any;
+    const book = db.books.find((b) => b.id === slug) as Book | undefined;
     if (!book) notFound();
 
     const recipes = db.recipes.filter((r) => r.book === slug);

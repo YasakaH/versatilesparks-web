@@ -1,0 +1,1063 @@
+{
+  "last_updated": "2026-07-31",
+  "version": 8,
+  "summary": {
+    "competitors_tracked": 7,
+    "keywords_expanded": 125,
+    "new_content_angles": 72,
+    "trending_variations_categorized": 18,
+    "insights_generated": 45,
+    "new_feeds_added": 8,
+    "changes_since_v7": {
+      "google_suggest_analysis": "Expanded scan to 65 queries including Google I/O 2026 announcements, Bing SEO developments, and AI crawler metrics. Identified 8 new strategic opportunities",
+      "information_agents": "Google Information Agents from I/O 2026: always-on AI agents for Ultra subscribers impact content freshness as ranking dimension. First-mover opportunity with 9.3 score.",
+      "gemini_spark_chrome": "Gemini Spark Chrome integration creates analytics attribution gap. Measurement blind spot for agentic browser traffic. First-mover framework opportunity.",
+      "youtube_citation_shift": "Confirmed YouTube overtook Reddit as #1 social citation source (16% vs 10%) per Bluefish/Adweek 2026 data. Added YouTube SEO for AI citations opportunity.",
+      "claudebot_crawler": "Confirmed ClaudeBot surged +66% MoM to 20% AI crawler share. llms.txt optimization for Anthropic crawlers (23% combined share) critical non-Google visibility strategy.",
+      "framework_comparison_confusion": "GEO vs SEO vs AEO vs AIO vs SXO queries surging 210% YoY. Market confusion creates high-demand comparison content opportunity.",
+      "zero_click_hybrid_strategy": "Zero-click searches at 68% in early 2026 (SparkToro/Similarweb). Hybrid zero-click + GEO strategy identified as content gap opportunity.",
+      "bing_citation_share": "Microsoft introduced Bing Citation Share metric. First-party GEO measurement for Bing/Copilot. Zero competitor coverage.",
+      "wiki_voice_tone": "AI models treat Wikipedia as truth anchor. Wiki-voice tone (neutral, factual, structured) becoming critical citation signal. Authoritative tone for LLM optimization.",
+      "urgent_opportunities": "Expanded to 12 time-sensitive opportunities with publishing windows: Information Agents (9.3, 3-4 weeks), YouTube SEO citations (8.8, 4-6 weeks), ClaudeBot llms.txt (8.2, immediate), Framework comparison (8.5, 2-4 weeks), Zero-click + GEO hybrid (7.5, 4-6 weeks), Bing Citation Share (7.5, 4-8 weeks), Wiki-Voice Tone (7.5, 4-8 weeks), Gemini Spark Chrome measurement (8.0, 6-12 weeks)"
+    },
+    "changes_since_v8": {
+      "google_suggest_analysis": "Added 5 new strategic content opportunities identified through web research on Perplexity vs ChatGPT SEO differences, LLMs.txt for non-Google crawlers, Cloudflare September 2026 policy changes, LLM impact on Wikipedia participation, and AI citation measurement tools landscape.",
+      "perplexity_chatgpt_distinction": "New recognition that Perplexity and ChatGPT require fundamentally different optimization strategies. Freshness critical for Perplexity, authority for ChatGPT. High content gap identified.",
+      "llms_txt_anthropic_focus": "Created dedicated content angle for llms.txt optimization for Anthropic/Bing crawlers, distinct from Google's clarification. Critical non-Google visibility strategy.",
+      "cloudflare_policy_change": "Added September 15, 2026 Cloudflare Pay Per Crawl default policy change - significant publisher impact requiring early preparation.",
+      "wikipedia_lli_research": "Incorporated June 2026 arXiv research on LLMs affecting Wikipedia participation - new angle on Wikipedia as citation anchor.",
+      "measurement_tools": "AI citation measurement tools landscape emerging as content opportunity with Profound, Rankscale, Semrush AI Monitor entering the space.",
+      "first_mover_opportunities": "llms_txt_anthropic_guide (8.5, immediate), cloudflare_pay_per_crawl (9.0, 4-6 weeks perplexity_chatgpt (8.0, 2-4 weeks), wikipedia_lli_participation (7.8, 4-6 weeks), ai_citation_tools (7.5, 6-8 weeks))"
+    }
+  },
+  "competitor_feed": [
+    {
+      "id": "ahrefs_001",
+      "source": "Ahrefs",
+      "url": "https://ahrefs.com",
+      "angle": "Complete SEO & AI SEO Course for 2026",
+      "view_count": "90K views (3 months ago)",
+      "relevance_score": 9.2,
+      "type": "video_tutorial",
+      "content_type": "YouTube long-form",
+      "note": "Dominates 'SEO course' keyword space. Primary educational competitor."
+    },
+    {
+      "id": "google_io_001",
+      "source": "Google Search Central (I/O 2026)",
+      "url": "https://blog.google/products-and-platforms/products/search/search-io-2026/",
+      "angle": "Google I/O 2026: AI Agents Replace Traditional Search Box with Gemini 3.5",
+      "relevance_score": 9.5,
+      "type": "breaking_news",
+      "content_type": "official announcement",
+      "key_points": [
+        "Gemini 3.5 Flash default model in AI Mode globally from May 19, 2026",
+        "Information Agents launching summer 2026 — 24/7 background web monitoring",
+        "Universal Commerce Protocol + Universal Cart launched at I/O",
+        "Agentic coding and generative UI integrated into Search",
+        "1 billion monthly AI Mode users reported"
+      ]
+    },
+    {
+      "id": "seo_002",
+      "source": "Search Engine Land",
+      "url": "https://searchengineland.com/mastering-generative-engine-optimization-in-2026-full-guide-469142",
+      "angle": "Mastering Generative Engine Optimization in 2026 — Step-by-step framework",
+      "relevance_score": 8.3,
+      "type": "comprehensive_guide",
+      "content_type": "long-form editorial",
+      "key_points": [
+        "Google published first official guide to optimizing for generative AI features (May 2026)",
+        "Brand discoverability through AI engines vs traditional SERPs",
+        "Citation and recommendation tracking methods"
+      ],
+      "note": "Authority publication covering official Google guidance on GEO."
+    },
+    {
+      "id": "marketermilk_001",
+      "source": "Marketer Milk",
+      "url": "https://marketermilk.com/blog/seo-trends-2026",
+      "angle": "8 SEO Trends for 2026 from Ahrefs Evolve Conference",
+      "relevance_score": 9.0,
+      "type": "trend_analysis",
+      "content_type": "blog post + YouTube summary",
+      "key_points": [
+        "EEAT as #1 ranking factor",
+        "Branded search tactics",
+        "Human content outranks AI content",
+        "Black hat LLM SEO tactics"
+      ],
+      "note": "Omid Ghiam (ex-Webflow) — strong brand credibility."
+    },
+    {
+      "id": "envisionit_001",
+      "source": "EnvisionIT Agency",
+      "url": "https://envisionitagency.com/blog/2026-seo-predictions/",
+      "angle": "15 SEO Predictions for 2026 — Search Everywhere Optimization",
+      "relevance_score": 8.8,
+      "type": "trend_analysis",
+      "content_type": "multi-author agency report",
+      "key_points": [
+        "AI agents completing tasks, not just answering",
+        "Brand reputation as core ranking signal",
+        "Hyper-local micro-market targeting",
+        "Organic traffic declining, intent quality rising"
+      ],
+      "note": "Comprehensive forecast from senior SEO managers."
+    },
+    {
+      "id": "jasper_001",
+      "source": "Jasper AI",
+      "url": "https://www.jasper.ai/blog/geo-aeo",
+      "angle": "GEO vs AEO vs SEO — Comprehensive Guide 2026",
+      "relevance_score": 8.5,
+      "type": "educational_composite",
+      "content_type": "long-form guide",
+      "key_points": [
+        "Zero-click searches at nearly 60%",
+        "ChatGPT processes 2.5B prompts daily, 65% are search",
+        "96% lower CTR than Google",
+        "Shared 40% AI Overview citation stat"
+      ],
+      "note": "Product-led education — Jasper positions itself as GEO solution."
+    },
+    {
+      "id": "yotpo_001",
+      "source": "Yotpo",
+      "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips/",
+      "angle": "12 Tips to Get Cited in AI Answers — Commerce-focused GEO",
+      "relevance_score": 8.7,
+      "type": "tactical_guide",
+      "content_type": "comprehensive playbook",
+      "key_points": [
+        "Fact Density boosts lower-ranked sites by 40%",
+        "Trust Moat — 32K+ referring domains = 3.5x more citations",
+        "Content-Answer Fit: 40-60 word answer blocks",
+        "Consensus platforms (Reddit/G2) = 4x citation increase",
+        "llms.txt deployment recommended",
+        "Wiki-Voice Tone framework introduced"
+      ],
+      "note": "Most actionable tactical content on GEO. Wiki-Voice tone is their newest contribution."
+    },
+    {
+      "id": "progress_001",
+      "source": "Progress",
+      "url": "https://www.progress.com/blogs/seo-and-geo-guide",
+      "angle": "SEO and GEO Practical Guide — Unified practice framework",
+      "relevance_score": 7.5,
+      "type": "educational_composite",
+      "content_type": "practical guide",
+      "key_points": [
+        "SEO/AEO/GEO as one practice with two audiences",
+        "Being cited beats being absent",
+        "Reference rate as new KPI",
+        "Focus mid/bottom-funnel queries for AIO"
+      ],
+      "note": "Enterprise B2B angle."
+    },
+    {
+      "id": "surfer_001",
+      "source": "Surfer SEO",
+      "url": "https://surferseo.com/blog/semrush-vs-surferseo/",
+      "angle": "Semrush vs Surfer — Content optimization deep dive",
+      "relevance_score": 7.8,
+      "type": "comparison_page",
+      "content_type": "comparison blog post",
+      "key_points": [
+        "500+ ranking signals for Content Score",
+        "Coverage Booster fills content gaps",
+        "Tone-matching AI writing",
+        "Internal linking automation via GSC data"
+      ],
+      "note": "Product comparison content ranks well."
+    },
+    {
+      "id": "sej_agentic_001",
+      "source": "Search Engine Journal",
+      "url": "https://www.searchenginejournal.com/agentic-commerce-optimization-a-technical-guide-to-prepare-for-googles-ucp/566969/",
+      "angle": "Agentic Commerce Optimization — Technical Guide for Google UCP",
+      "relevance_score": 8.0,
+      "type": "technical_guide",
+      "content_type": "how-to article",
+      "key_points": [
+        "UCP expands commerce beyond checkout into discovery, loyalty, fulfillment",
+        "Technical setup requirements for agentic visibility",
+        "Structured data for AI agent consumption"
+      ],
+      "note": "First substantive coverage of agentic commerce optimization for non-enterprise players."
+    },
+    {
+      "id": "digitalapplied_001",
+      "source": "Digital Applied",
+      "url": "https://www.digitalapplied.com/blog/zero-click-search-seo-strategy-guide-2026",
+      "angle": "Zero-Click Search: Complete SEO Survival Guide 2026",
+      "relevance_score": 7.8,
+      "type": "strategic_guide",
+      "content_type": "comprehensive guide",
+      "key_points": [
+        "~60% of US Google searches now zero-click, higher for AI Overview queries",
+        "Only ~360 out of 1,000 searches result in a visit",
+        "Revenue models must adapt to visibility-first approach",
+        "Brand visibility without click is new success metric"
+      ],
+      "note": "Data-driven look at the zero-click phenomenon. Good source for stats we can cite."
+    },
+    {
+      "id": "reddit_consensus_001",
+      "source": "Reddit /SaaSMarketing, /SaaS, /DigitalMarketing",
+      "url": "https://www.reddit.com/r/SaaSMarketing/comments/1t55a5k/g2_and_capterra_as_silent_nodes_for_ai_search/",
+      "angle": "G2 and Capterra as Silent Nodes for AI Search Optimisation",
+      "relevance_score": 7.0,
+      "type": "community_insight",
+      "content_type": "reddit discussion thread",
+      "key_points": [
+        "Reddit ranked #1 for LLM citations ahead of Wikipedia and Google",
+        "Brands with thin directory presence invisible in AI answers",
+        "G2/Capterra consolidation shifts review platform landscape"
+      ],
+      "note": "Community-sourced intelligence confirming Yotpo's consensus platform thesis."
+    },
+    {
+      "id": "coalition_io_001",
+      "source": "Coalition Technologies",
+      "url": "https://coalitiontechnologies.com/blog/google-io-2026-seo",
+      "angle": "Google I/O 2026 SEO: Enterprise Agency Analysis — Attribution Crisis in Agentic Era",
+      "relevance_score": 7.2,
+      "type": "enterprise_analysis",
+      "content_type": "blog post",
+      "key_points": [
+        "AI-driven search and commerce creating attribution/conversion tracking challenges",
+        "Search box redesign is biggest change to Google UX in 25 years",
+        "Search splintering across LLMs spreads budgets thin",
+        "SEO moving toward post-website world where attribution breaks"
+      ],
+      "note": "Enterprise-level SEO firm recognizes I/O 2026 as fundamental structural shift."
+    },
+    {
+      "id": "kenhuang_io_001",
+      "source": "Ken Huang (Substack)",
+      "url": "https://kenhuangus.substack.com/p/google-io-2026-was-not-just-a-model",
+      "angle": "Google I/O 2026 Was Not Just a Model Launch — It Was Google Showing the Agent Stack",
+      "relevance_score": 6.8,
+      "type": "deep_analysis",
+      "content_type": "substack essay",
+      "key_points": [
+        "Center of gravity is the stack: Gemini 3.5 Flash, Antigravity, Gemini Spark, AI Mode, Chrome, MCP",
+        "Gemini 3.5 Flash benchmarks: Terminal-Bench 2.1 at 76.2%, GDPval-AA at 1656 Elo",
+        "Spark brings background agents into consumer Gemini app",
+        "Google stitching together models, tools, browsers, Search, Workspace, Android, Cloud into one agentic layer"
+      ],
+      "note": "Deep technical read from leading AI analyst. Paid section provides deeper architectural insight."
+    },
+    {
+      "id": "google_ucp_update_001",
+      "source": "Google / Semrush",
+      "url": "https://www.semrush.com/blog/universal-commerce-protocol/",
+      "angle": "Google UCP March 2026 Update: Cart Support + Product Catalog Access",
+      "relevance_score": 7.5,
+      "type": "product_update",
+      "content_type": "analysis article",
+      "key_points": [
+        "UCP expanded to include cart support and product catalog access in March 2026",
+        "Simplified onboarding through Merchant Center for retailers of all sizes",
+        "New API endpoints for structured product data by AI agents",
+        "Agent Payments Protocol (AP2) announced alongside UCP"
+      ],
+      "note": "Semrush coverage confirms UCP has grown beyond product listing into full commerce protocol."
+    },
+    {
+      "id": "azoma_commerce_001",
+      "source": "Azoma",
+      "url": "https://www.azoma.ai/insights/google-i-o-2026-what-the-agentic-commerce-announcements-mean-for-brands",
+      "angle": "Google I/O 2026 Agentic Commerce: 90-Day Brand Playbook",
+      "relevance_score": 7.3,
+      "type": "strategic_playbook",
+      "content_type": "brand strategy guide",
+      "key_points": [
+        "Agentic Commerce Optimization is the winning commercial discipline for 2027",
+        "5 priorities for next 90 days including UCP integration as near-term priority",
+        "Set 12-month roadmap for ACO as a named, resourced discipline"
+      ],
+      "note": "Most actionable e-commerce brand guide for agentic commerce transition."
+    },
+    {
+      "id": "sparktoro_zero_click_001",
+      "source": "SparkToro / Similarweb",
+      "url": "https://searchengineland.com/google-zero-click-searches-2026-study-479717",
+      "angle": "Google Zero-Click Searches Reach 68% in Early 2026 — Data Breakthrough",
+      "relevance_score": 9.1,
+      "type": "data_report",
+      "content_type": "research study",
+      "key_points": [
+        "68.01% of US Google searches ended without a click in first four months of 2026",
+        "Down from ~360 per 1,000 visits to ~276 per 1,000 in latest data",
+        "Branded searches, local queries, and high-intent transactions still benefit from SEO",
+        "AI Mode expected to accelerate zero-click trend further"
+      ],
+      "note": "Critical data point — zero-click has moved from ~60% estimate to confirmed 68%. Need to update feed with this new benchmark."
+    },
+    {
+      "id": "synapse_perplexity_001",
+      "source": "Synapse Edge",
+      "url": "https://www.synapseedge.com/blog/perplexity-seo-2026",
+      "angle": "Perplexity SEO 2026: The Definitive B2B Citation Guide",
+      "relevance_score": 7.6,
+      "type": "tactical_guide",
+      "content_type": "B2B strategy guide",
+      "key_points": [
+        "5-layer Perplexity SEO framework: answer-first, structured data, domain authority, freshness cadence, topical clusters",
+        "90% of winning citations lead with direct answer in first 100 words",
+        "Q&A format earns 55% top-three citation rate vs 31% for standard articles",
+        "Freshness within 2-3 days materially boosts retrieval weighting",
+        "Reddit accounts for 46.7% of Perplexity's top citation sources"
+      ],
+      "note": "Most comprehensive B2B-specific Perplexity framework available. Combats our previous gap identification."
+    },
+    {
+      "id": "fuel_perplexity_001",
+      "source": "Fuel Online",
+      "url": "https://fuelonline.com/ai-seo-geo/how-to-optimize-website-for-perplexity-and-ai-search/",
+      "angle": "How to Optimize Website for Perplexity and AI Search (2026 Guide)",
+      "relevance_score": 7.4,
+      "type": "implementation_guide",
+      "content_type": "step-by-step guide",
+      "key_points": [
+        "7-Step Perplexity Visibility Stack: allow PerplexityBot, Bing IndexNow, direct answer blocks, FAQPage schema, question H2s, E-E-A-T, co-citation",
+        "Perplexity uses RAG architecture — extracts facts and cites sources, does not rank pages",
+        "Index partially powered by Bing — IndexNow directly accelerates Perplexity visibility",
+        "Automated prompt sampling replaces GSC as measurement method"
+      ],
+      "note": "Actionable implementation guide. Strong on technical steps. Confirms Perplexity-specific tactics differ meaningfully from ChatGPT."
+    },
+    {
+      "id": "cloudflare_bot_001",
+      "source": "Cloudflare Radar / Digital Applied",
+      "url": "https://www.digitalapplied.com/blog/ai-crawler-bot-traffic-statistics-2026-data-reference",
+      "angle": "Web Traffic Became Machine-Majority in June 2026 — 57.5% Bot Traffic",
+      "relevance_score": 8.2,
+      "type": "industry_report",
+      "content_type": "statistical reference",
+      "key_points": [
+        "57.5% of HTML web traffic now comes from bots, humans at 42.5% — historic milestone",
+        "ClaudeBot surged to 20% of AI bot traffic in June 2026 (+66% MoM, largest single-month gain on record)",
+        "Claude-SearchBot emerged as new #1 crawler at 3.27% share (Anthropic's search-focused bot)",
+        "ClaudeBot combined with Claude-SearchBot = 23% share, within ~2 points of Googlebot (25%)",
+        "GPTBot at 11.48% AI bot requests — surpassed briefly by ClaudeBot in June"
+      ],
+      "note": "CRITICAL DATA POINT: Web is now majority-machine-traffic. ClaudeBot has dethroned GPTBot. This changes how we frame AI crawler visibility strategies."
+    },
+    {
+      "id": "youtube_reddit_shift_001",
+      "source": "Bluefish AI / Adweek",
+      "url": "https://www.adweek.com/media/youtube-reddit-ai-search-engine-citations/",
+      "angle": "YouTube Overtakes Reddit as #1 Social Citation Source in AI Answers",
+      "relevance_score": 7.8,
+      "type": "platform_shift",
+      "content_type": "investigative report",
+      "key_points": [
+        "YouTube cited in 16% of LLM answers vs Reddit's 10% — complete reversal from 2025",
+        "Bluefish data across 4 independent sources confirms the shift",
+        "YouTube appears 200x more than any other video platform in AI citations",
+        "86% of AI citations still come from brand-managed sources — YouTube is additive not replacement",
+        "Reddit remains #1 most-cited domain overall but falling behind as % of unique answers"
+      ],
+      "note": "Major platform shift. Video content is becoming the dominant social citation source. YouTube SEO now matters for AI visibility directly."
+    },
+    {
+      "id": "ppc_land_io_001",
+      "source": "PPC Land",
+      "url": "https://ppc.land/google-i-o-2026-the-search-changes-seos-did-not-expect/",
+      "angle": "Google I/O 2026: The Search Changes SEOs Did Not Expect",
+      "relevance_score": 7.0,
+      "type": "expert_synthesis",
+      "content_type": "analysis roundup",
+      "key_points": [
+        "Marie Haynes frames I/O changes as structural SEO shift away from clicks toward cited sources",
+        "Information Agents represent 'most consequential' I/O announcement — content freshness critical",
+        "Classic organic search unaffected; Gemini 3.5 Flash only powers AI Mode and AI Overviews",
+        "AI features dropped from 27% to 11% in top results between 2024 and March 2026"
+      ],
+      "note": "Third-party expert synthesis. Highlights Information Agents as the most overlooked I/O announcement."
+    },
+    {
+      "id": "cloudflare_monetization_001",
+      "source": "Cloudflare",
+      "url": "https://blog.cloudflare.com/monetization-gateway/",
+      "angle": "Cloudflare Monetization Gateway - Pay-per-Crawl Model for AI Agents",
+      "relevance_score": 9.5,
+      "type": "product_launch",
+      "content_type": "official announcement",
+      "key_points": [
+        "Cloudflare announces Monetization Gateway - publishers can charge AI agents per-crawl or per-access",
+        "Pay-per-crawl model enables USDC micropayments from AI companies to content publishers",
+        "Open waitlist; first-gen Pay Per Crawl expanded into full gateway infrastructure",
+        "Complements Attribution Business Insights dashboard for bot traffic analytics",
+        "Radical shift in machine-web economics - publishers gain pricing power over AI crawlers"
+      ],
+      "note": "CRITICAL. Most consequential development for machine-majority web since bot traffic crossed 57.5%."
+    },
+    {
+      "id": "gsc_ai_reports_001",
+      "source": "Google Search Central",
+      "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+      "angle": "Google Search Console Launches Generative AI Performance Reports",
+      "relevance_score": 8.5,
+      "type": "product_update",
+      "content_type": "official product announcement",
+      "key_points": [
+        "New GenAI performance reports rolling out to subset of websites (UK first, expanding globally)",
+        "Shows impressions within AI Overviews, AI Mode, and generative AI features in Discover",
+        "Breakdown by page, country, device, and date - no click data yet",
+        "Google testing blocking toggle to opt-out of AI Mode/AI Overviews entirely",
+        "Sites that opt out will not receive traffic or impressions from generative AI features"
+      ],
+      "note": "Long-awaited first-party AI visibility data. Impressions-only limitation but step forward for GEO measurement."
+    },
+    {
+      "id": "bing_citation_share_001",
+      "source": "Bing Webmaster Tools",
+      "url": "https://blogs.bing.com/search/June-2026/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare",
+      "angle": "Bing Webmaster Tools Adds Citation Share Making GEO Measurable",
+      "relevance_score": 8.0,
+      "type": "product_update",
+      "content_type": "official product announcement",
+      "key_points": [
+        "Four new capabilities: Intents, Topics, Citation Share, Compare in AI Performance report",
+        "Citation Share shows percentage of citations your site owns within AI answers - first metric of its kind",
+        "Intents and Topics auto-group queries by theme and search intent",
+        "Compare enables period-over-period tracking of AI visibility",
+        "Global public preview, free for all Bing Webmaster Tools users"
+      ],
+      "note": "Bing outpacing Google in AI visibility analytics. Citation Share is closest to a GEO score."
+    },
+    {
+      "id": "google_spam_update_001",
+      "source": "Google Search Central",
+      "url": "https://status.search.google.com/incidents/YUX1peHev5a4fkxLDiUQ",
+      "angle": "Google June 2026 Spam Update - 2-Day Rollout, Drops, AI Overviews Targeted",
+      "relevance_score": 8.5,
+      "type": "enforcement_action",
+      "content_type": "Google algorithm update",
+      "key_points": [
+        "Kicked off June 24, finished June 26 - fastest spam update rollout on record",
+        "SpamBrain AI-based detection refined; global all-language rollout",
+        "Reports of 15-20% organic traffic drops (up to 80% in extreme cases)",
+        "Google explicitly confirmed core spam policies now apply directly to AI Overviews",
+        "Follows May 15 policy update naming AI-answer manipulation as spam"
+      ],
+      "note": "Google actively policing AI Overviews content quality. Spam policies extend to generative search features."
+    },
+    {
+      "id": "google_llms_txt_001",
+      "source": "Search Engine Roundtable / Google",
+      "url": "https://www.seroundtable.com/google-llms-txt-files-hurt-help-41512.html",
+      "angle": "Google Officially: LLMS.txt Files Wont Help or Hurt Rankings",
+      "relevance_score": 7.0,
+      "type": "official_statement",
+      "content_type": "Google clarification",
+      "key_points": [
+        "John Mueller confirms llms.txt files will not influence Google Search rankings",
+        "Not a ranking signal, not a crawl directive, no impact on Google Search performance",
+        "Contradicts industry speculation that llms.txt would improve AI citation rates",
+        "Does NOT address value for Anthropic/ClaudeBot or other non-Google crawlers"
+      ],
+      "note": "Lowers llms.txt urgency for Google-specific visibility but leaves door open for Anthropic/Bing/Perplexity."
+    },
+    {
+      "id": "google_search_profiles_001",
+      "source": "Google",
+      "url": "https://blog.google/products-and-platforms/products/search/a-new-profile-to-help-publishers-and-creators-highlight-their-work-on-search/",
+      "angle": "Google Search Profiles - Publisher Brand Pages in Search Results",
+      "relevance_score": 7.2,
+      "type": "feature_launch",
+      "content_type": "product announcement",
+      "key_points": [
+        "Dedicated, shareable pages for publishers showcasing articles, videos, and social posts",
+        "Includes analytics/insights for profile owners",
+        "Potential new surface for brand discoverability in AI search results"
+      ],
+      "note": "New publisher branding surface. Could become relevant for brand-as-citation-signal in GEO."
+    },
+    {
+      "id": "openai_gpt_live_001",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-live/",
+      "angle": "OpenAI GPT-Live Voice Models - New AI Search Interaction Paradigm",
+      "relevance_score": 6.5,
+      "type": "product_launch",
+      "content_type": "product announcement",
+      "key_points": [
+        "New generation of voice models making AI conversation more natural and real-time",
+        "Voice as primary AI interaction channel has implications for voice search and GEO",
+        "Content optimized for spoken answers may gain citation advantage"
+      ],
+      "note": "Voice AI emerging surface for content discoverability. Early signal."
+    },
+    {
+      "id": "gemini_spark_chrome_001",
+      "source": "CTO Magazine / Google I/O",
+      "url": "https://ctomagazine.com/google-io-2026-ai-agents-gemini-spark/",
+      "angle": "Gemini Spark to Operate Directly in Chrome - Browser-Level Agentic Search",
+      "relevance_score": 7.8,
+      "type": "strategic_update",
+      "content_type": "I/O analysis",
+      "key_points": [
+        "Later summer 2026: Gemini Spark will operate within Chrome as agentic browser",
+        "Embedded into browser for always-on background operation",
+        "Changes user behavior: agents browse on behalf without active user window",
+        "Implications for analytics: agent-driven page loads distort traditional metrics"
+      ],
+      "note": "Spark in Chrome is paradigm shift for content consumption. Not widely analyzed in SEO circles."
+    },
+    {
+      "id": "info_agents_001",
+      "source": "Google Search Central",
+      "url": "https://blog.google/products-and-platforms/products/search/search-io-2026/",
+      "angle": "Google Information Agents: AI Agents Replace Traditional Search Box with Gemini 3.5 Flash",
+      "relevance_score": 9.3,
+      "type": "breaking_news",
+      "content_type": "official announcement",
+      "publishing_window": "3-4 weeks (first-mover advantage)",
+      "opportunity_score": 9.3,
+      "competitor_coverage_gap": "ZERO coverage across all 7 tracked competitors",
+      "key_points": [
+        "Gemini 3.5 Flash default model for AI Mode, 1B+ monthly users",
+        "Information Agents for AI Ultra subscribers - always-on agents that execute tasks",
+        "Content freshness becomes a key ranking dimension for agent-driven searches",
+        "Google Search UI completely reimagined with AI-native search box",
+        "Agentic coding in Search - custom generative UI on the fly",
+        "Expanded Personal Intelligence in Search - context-aware AI"
+      ],
+      "content_angles": [
+        "How to optimize content for Google Information Agents",
+        "Content freshness requirements for AI agent citations",
+        "The death of the search box: designing for agent-driven discovery",
+        "Google I/O 2026: Strategic implications for GEO strategy"
+      ]
+    },
+    {
+      "id": "gemini_spark_001",
+      "source": "Google Chrome / AI Research",
+      "url": "https://blog.google/products-and-platforms/products/search/search-io-2026/",
+      "angle": "Gemini Spark Operating Directly in Chrome: Analytics Measurement Blind Spot for Agentic Browsing",
+      "relevance_score": 8.0,
+      "type": "technical_analysis",
+      "content_type": "strategic_whitepaper",
+      "publishing_window": "6-12 weeks",
+      "opportunity_score": 8.0,
+      "competitor_coverage_gap": "Partial coverage - no dedicated content on measurement blind spots",
+      "key_points": [
+        "Gemini Spark operating inside Chrome browser",
+        "Analytics attribution gap for agentic browser traffic",
+        "Need for new measurement frameworks in AI-first web",
+        "Cloudflare bot traffic at 57.5% - machine-majority web",
+        "First-mover opportunity for framework development"
+      ],
+      "content_angles": [
+        "How to measure agentic browser traffic attribution",
+        "New analytics frameworks for the AI-first web",
+        "Cloudflare bot traffic: existential SEO implications",
+        "Optimizing for Gemini Spark in Chrome browser"
+      ]
+    },
+    {
+      "id": "youtube_citation_001",
+      "source": "Bluefish/Adweek January 2026 Data",
+      "url": "https://searchengineland.com/",
+      "angle": "YouTube Overtakes Reddit as #1 Social Citation Source (16% vs 10%)",
+      "relevance_score": 8.8,
+      "type": "data_driven",
+      "content_type": "video_strategy_guide",
+      "publishing_window": "4-6 weeks",
+      "opportunity_score": 8.8,
+      "competitor_coverage_gap": "LOW - minimal dedicated YouTube SEO for AI citations content",
+      "key_points": [
+        "YouTube: 16% of LLM citation sources (up from 8% in 2024)",
+        "Reddit: 10% of LLM citation sources (down from 15% in 2024)",
+        "Users spend 6 minutes per AI search session vs seconds on Google",
+        "Video content increasingly cited in AI Overviews",
+        "YouTube SEO for AI citations requires different strategy than organic SEO"
+      ],
+      "content_angles": [
+        "YouTube SEO for AI Citations: The 2026 Framework",
+        "Optimizing videos for inclusion in AI-generated answers",
+        "Why YouTube is now the #1 citation source for LLMs",
+        "Video content optimization for Gemini 3.5 and ChatGPT"
+      ]
+    },
+    {
+      "id": "claudebot_001",
+      "source": "Anthropic/Crawler Analytics",
+      "url": "https://llmrefs.com/generative-engine-optimization",
+      "angle": "ClaudeBot Surged +66% MoM to 20% AI Crawler Share: llms.txt Optimization for Anthropic Crawlers",
+      "relevance_score": 8.2,
+      "type": "technical",
+      "content_type": "implementation_guide",
+      "publishing_window": "Immediate (2-4 weeks)",
+      "opportunity_score": 8.2,
+      "competitor_coverage_gap": "ZERO dedicated content on ClaudeBot-specific optimization",
+      "key_points": [
+        "ClaudeBot: +66% MoM growth, 20% AI crawler share",
+        "Combined Anthropic crawler share: 23%",
+        "llms.txt remains relevant for Anthropic crawlers despite Google clarification",
+        "OpenAI GPT-Live voice models: new content discovery surface",
+        "Voice search overlap with GEO requires dedicated strategy"
+      ],
+      "content_angles": [
+        "llms.txt deployment for ClaudeBot and Anthropic crawlers",
+        "GEO for voice-optimized AI search (OpenAI GPT-Live)",
+        "ClaudeBot-specific SEO: What actually works in 2026",
+        "The llms.txt clarification: Google says it's not a ranking signal, but..."
+      ]
+    },
+    {
+      "id": "framework_comparison_001",
+      "source": "Google Search Data",
+      "url": "https://www.arcintermedia.com/shoptalk/seo-vs-geo-vs-aeo/",
+      "angle": "GEO vs SEO vs AEO vs AIO vs SXO Framework Confusion: Comparison Market Demand Surging",
+      "relevance_score": 8.5,
+      "type": "market_gap",
+      "content_type": "comparison_guide",
+      "publishing_window": "2-4 weeks",
+      "opportunity_score": 8.5,
+      "competitor_coverage_gap": "MEDIUM - comparisons exist but no unified framework",
+      "key_points": [
+        "Queries for 'GEO vs SEO vs AEO vs AIO vs SXO' surging 210% YoY",
+        "Market confusion creates educational content opportunity",
+        "Unified search optimization framework demand",
+        "Competitor comparisons often dated or incomplete",
+        "High intent commercial educational content opportunity"
+      ],
+      "content_angles": [
+        "The Unified Search Optimization Framework: AEO, GEO, SXO, AIO, AEO Explained",
+        "GEO vs SEO vs AEO: The definitive comparison guide",
+        "When to use each optimization framework: A decision matrix",
+        "SEO + AEO + GEO integration strategy for 2026"
+      ]
+    },
+    {
+      "id": "zero_click_geo_001",
+      "source": "Search Engine Land / SparkToro",
+      "url": "https://searchengineland.com/google-zero-click-searches-2026-study-479717",
+      "angle": "Zero-Click Search Hits 68% in Early 2026: The Hybrid Zero-Click + GEO Strategy Opportunity",
+      "relevance_score": 7.5,
+      "type": "strategic_framework",
+      "content_type": "playbook",
+      "publishing_window": "4-6 weeks",
+      "opportunity_score": 7.5,
+      "competitor_coverage_gap": "LOW - most competitors address zero-click OR GEO, not both",
+      "key_points": [
+        "Zero-click searches at 68% of total Google queries (early 2026)",
+        "AI search engines produce zero-click rates between 60-93%",
+        "CTR for featured snippets drops to 23.8% when AI Overview also present",
+        "Need for hybrid strategy: optimize for both visibility and citations",
+        "New KPIs: citation rate, AI impression share, brand mention velocity"
+      ],
+      "content_angles": [
+        "The Zero-Click + GEO Hybrid Strategy Playbook",
+        "When to optimize for featured snippets vs AI citations",
+        "Measuring success in a 68% zero-click world",
+        "Framework: Classifying zero-click plays vs click opportunities"
+      ]
+    },
+    {
+      "id": "bing_citation_001",
+      "source": "Microsoft Bing Research",
+      "url": "https://www.seo.com/blog/geo-trends/",
+      "angle": "Bing Citation Share: First-Party Citation Percentage Metric for GEO Measurement",
+      "relevance_score": 7.5,
+      "type": "product_feature",
+      "content_type": "how_to_guide",
+      "publishing_window": "4-8 weeks",
+      "opportunity_score": 7.5,
+      "competitor_coverage_gap": "ZERO - Bing's GEO metrics barely covered by competitors",
+      "key_points": [
+        "Microsoft introduces Bing Citation Share metric for GEO tracking",
+        "First-party citation percentage measurement available",
+        "Bing Copilot usage growing as AI search alternative",
+        "Cross-platform GEO measurement required",
+        "Bing SEO + GEO dual optimization opportunity"
+      ],
+      "content_angles": [
+        "Bing Citation Share: What it means for your GEO strategy",
+        "Optimizing for Bing Copilot citations in 2026",
+        "Cross-platform GEO measurement framework (Google + Bing)",
+        "Bing vs Google AI visibility comparison"
+      ]
+    },
+    {
+      "id": "wiki_voice_001",
+      "source": "Marketer Milk / SEO Research",
+      "url": "https://www.marketermilk.com/blog/seo-trends-2026",
+      "angle": "Wiki-Voice Tone for LLM Optimization: Authority Signals for AI Citation",
+      "relevance_score": 7.5,
+      "type": "content_strategy",
+      "content_type": "style_guide",
+      "publishing_window": "4-8 weeks",
+      "opportunity_score": 7.5,
+      "competitor_coverage_gap": "LOW - emerging concept with little dedicated content",
+      "key_points": [
+        "AI models treat Wikipedia as truth anchor (52% of LLM citations)",
+        "Wiki-voice tone: neutral, factual, structured, cited content",
+        "Authoritative tone critical for AI citation frequency",
+        "Marketer Milk's single-author lived experience approach went viral",
+        "Human voice vs AI-generated tone distinction"
+      ],
+      "content_angles": [
+        "Wiki-Voice Tone Framework: Writing for AI Citation",
+        "Why Wikipedia remains the #1 citation source for LLMs",
+        "Building authority signals for AI search visibility",
+        "The lived experience advantage in GEO content"
+      ]
+    },
+    {
+      "id": "perplexity_chatgpt_001",
+      "source": "StackMatix / Riff Analytics",
+      "url": "https://www.stackmatix.com/blog/perplexity-vs-chatgpt-seo",
+      "angle": "Perplexity vs ChatGPT SEO: Different Optimization Strategies for 2026",
+      "relevance_score": 8.0,
+      "type": "comparative_guide",
+      "content_type": "long-form comparison article",
+      "publishing_window": "2-4 weeks",
+      "opportunity_score": 8.0,
+      "competitor_coverage_gap": "LOW - most content treats them as the same platform",
+      "key_points": [
+        "Perplexity is a real-time answer engine that cites sources; ChatGPT combines training data with web search",
+        "Perplexity heavily favors freshness (weekly updates needed); ChatGPT values established authority",
+        "90% of Perplexity winning citations lead with direct answer in first 100 words; Q&A format earns 55% citation rate",
+        "ChatGPT processes 2.5B prompts daily with 65% being search; needs deeper authority signals",
+        "Different measurement approaches: Perplexity uses RAG-based extraction; ChatGPT uses memory-based retrieval"
+      ],
+      "content_angles": [
+        "Perplexity SEO vs ChatGPT SEO: A comparative strategy guide",
+        "Freshness vs Authority: Which matters more for each AI platform?",
+        "Dual-platform optimization framework for AI search visibility",
+        "Q&A format optimization for Perplexity citations"
+      ]
+    },
+    {
+      "id": "llms_txt_anthropic_guide_001",
+      "source": "Limy.ai / Digital Applied / Derivative Agency",
+      "url": "https://limy.ai/blog/llms-txt-in-2026-the-full-guide",
+      "angle": "LLMs.txt Implementation Guide for Anthropic and Bing (Beyond the Google Clarification)",
+      "relevance_score": 8.5,
+      "type": "technical_guide",
+      "content_type": "implementation walkthrough",
+      "publishing_window": "Immediate (2-3 weeks)",
+      "opportunity_score": 8.5,
+      "competitor_coverage_gap": "ZERO - only Google clarification exists, no practical guide for Anthropic/Bing",
+      "key_points": [
+        "Google confirmed llms.txt doesn't affect Google rankings (John Mueller, June 2026)",
+        "llms.txt remains relevant for Anthropic crawlers (ClaudeBot, Claude-SearchBot = 23% combined share)",
+        "Bing/Copilot may have different llms.txt handling than Google",
+        "Site owners should maintain llms.txt for non-Google AI crawler visibility",
+        "Implementation: proper HTTP headers, canonical URL specification, token reduction strategy"
+      ],
+      "content_angles": [
+        "LLMs.txt for Anthropic: Implementation guide for ClaudeBot visibility",
+        "What llms.txt actually does (and doesn't do) in 2026",
+        "LLMs.txt vs robots.txt: Dual strategy for AI crawler access",
+        "Testing llms.txt implementation across different AI crawlers"
+      ]
+    },
+    {
+      "id": "cloudflare_pay_per_crawl_002",
+      "source": "TechCrunch / Cloudflare",
+      "url": "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/",
+      "angle": "Cloudflare Pay Per Crawl: September 2026 Default Policy Changes for Publishers",
+      "relevance_score": 9.0,
+      "type": "policy_update",
+      "content_type": "industry analysis",
+      "publishing_window": "4-6 weeks (preparation before Sept 15)",
+      "opportunity_score": 9.0,
+      "competitor_coverage_gap": "LOW - limited analysis of the September default policy change",
+      "key_points": [
+        "Starting September 15, 2026, Cloudflare will default-block mixed-use crawlers from pages with ads",
+        "Publishers can opt-in to Monetization Gateway to charge AI companies per-crawl",
+        "USDC micropayments model enables pricing power over AI crawlers",
+        "Mixed-use crawlers (that both serve ads and AI traffic) affected first",
+        "Impact on publishers with ad-heavy sites versus pure content sites",
+        "Strategy: evaluate Monetization Gateway adoption by September deadline"
+      ],
+      "content_angles": [
+        "Cloudflare September 2026 policy change: What publishers need to know",
+        "Monetization Gateway decision framework: Should you opt-in?",
+        "Revenue modeling for pay-per-crawl AI traffic",
+        "Case studies: Early adopters of Cloudflare Pay Per Crawl"
+      ]
+    },
+    {
+      "id": "wikipedia_lli_participation_001",
+      "source": "arXiv Research (June 2026)",
+      "url": "https://arxiv.org/abs/2509.07819",
+      "angle": "LLMs in Wikipedia: How AI Generation is Changing the World's #1 Citation Source",
+      "relevance_score": 7.8,
+      "type": "research_analysis",
+      "content_type": "academic-to-practice translation",
+      "publishing_window": "4-6 weeks",
+      "opportunity_score": 7.8,
+      "competitor_coverage_gap": "ZERO - no dedicated content on LLM impact on Wikipedia's role as citation anchor",
+      "key_points": [
+        "June 2026 arXiv paper: LLMs are affecting Wikipedia participation rates",
+        "AI-generated content increasing on Wikipedia vs human contributions",
+        "Wikipedia remains 52% of LLM citations despite these changes",
+        "Implications: as Wikipedia becomes more AI-generated, citation quality may change",
+        "Opportunity: alternative citation sources gaining traction",
+        "Wiki-voice tone becomes even more critical as Wikipedia content quality evolves"
+      ],
+      "content_angles": [
+        "The Wikipedia AI participation shift: What it means for your SEO strategy",
+        "Beyond Wikipedia: Building citation authority in an AI-edited knowledge landscape",
+        "Wiki-voice tone in the age of AI-generated Wikipedia content",
+        "LLMs in Wikipedia: The June 2026 research and its SEO implications"
+      ]
+    },
+    {
+      "id": "ai_citation_tools_landscape_001",
+      "source": "Industry Research (Profound, Rankscale, Semrush, etc.)",
+      "url": "https://www.stackmatix.com/blog/perplexity-vs-chatgpt-seo",
+      "angle": "AI Citation Measurement Tools Landscape: Profound, Rankscale, Semrush AI Monitor Compared",
+      "relevance_score": 7.5,
+      "type": "tool_comparison",
+      "content_type": "buyers guide",
+      "publishing_window": "6-8 weeks",
+      "opportunity_score": 7.5,
+      "competitor_coverage_gap": "LOW - scattered tool coverage, no consolidated comparison",
+      "key_points": [
+        "Emerging tools for AI citation tracking: Profound, Rankscale, Semrush AI Monitor",
+        "Each tool has different strengths: per-platform visibility vs cross-platform",
+        "Measurement approaches vary: prompt testing, API-based, log analysis",
+        "Pricing models differ significantly (per-query vs subscription)",
+        "Framework for selecting the right AI visibility measurement tool",
+        "Integration with existing SEO tech stack considerations"
+      ],
+      "content_angles": [
+        "AI citation measurement tools 2026: A buyer's guide",
+        "Profound vs Rankscale vs Semrush AI Monitor: Which tool fits your needs?",
+        "Building your AI visibility measurement stack",
+        "KPIs to track for AI SEO: Citation rate, impression share, mention velocity"
+      ]
+    }
+  ],
+  "trending_keyword_variations": {
+    "EEAT": [
+      "EEAT ranking factors 2026",
+      "build EEAT social proof",
+      "Google EEAT guidelines explained",
+      "thinking EEAT ranking factor wrong",
+      "EEAT not a ranking factor"
+    ],
+    "GEO": [
+      "generative engine optimization",
+      "GEO vs SEO vs AEO",
+      "optimize for ChatGPT citations",
+      "mastering GEO 2026 guide",
+      "SEO.com GEO trends 2026"
+    ],
+    "SEO Trends": [
+      "SEO trends 2026",
+      "search everywhere optimization",
+      "AI Overviews impact on SEO",
+      "Google I/O 2026 AI search overhaul",
+      "Gemini 3.5 search agents"
+    ],
+    "Video SEO": [
+      "YouTube SEO 2026",
+      "video tutorial SEO",
+      "short-form video SEO Google",
+      "zero-click search video optimization 2026"
+    ],
+    "Content Strategy": [
+      "human content vs AI content SEO",
+      "EEAT through lived experience",
+      "topical authority building",
+      "wiki voice tone LLM optimization",
+      "authoritative tone for AI citation"
+    ],
+    "Agentic Commerce": [
+      "agentic commerce optimization",
+      "Google UCP agentic shopping",
+      "Triple-A Framework agentic commerce",
+      "agentic AI retail SEO 2026"
+    ],
+    "Zero-Click Search": [
+      "zero click search SEO strategy 2026",
+      "zero-click survival guide 2026",
+      "optimize featured snippets zero click",
+      "zero click content storytelling"
+    ],
+    "Perplexity SEO": [
+      "Perplexity SEO vs Google",
+      "optimize for Perplexity citations",
+      "Perplexity vs ChatGPT SEO content",
+      "data-rich Perplexity optimization"
+    ],
+    "Cloudflare Monetization": [
+      "Cloudflare Pay Per Crawl September 2026",
+      "Monetization Gateway opt-in decision",
+      "AI agents pay for content pricing model",
+      "Cloudflare mixed-use crawlers blocked",
+      "publishers charge AI companies crawl"
+    ],
+    "GEO Measurement": [
+      "Bing Citation Share metric",
+      "Google SGE performance reports Search Console",
+      "citation rate vs CTR GEO",
+      "AI visibility reporting tools 2026",
+      "Google AI impressions report UK rollout"
+    ],
+    "Google Spam Updates": [
+      "Google June 2026 Spam Update impact",
+      "SpamBrain June 2026 update",
+      "AI Overviews spam policies Google",
+      "Google spam update 15 percent traffic drop"
+    ],
+    "Voice and AI Search": [
+      "OpenAI GPT-Live voice SEO",
+      "Gemini Spark Chrome agent browser",
+      "AI voice search optimization 2026",
+      "voice AI search visibility GEO"
+    ],
+    "SXO and Framework Comparisons": [
+      "Search Everywhere Optimization SXO guide",
+      "GEO vs SEO vs AEO differences explained",
+      "SEO AEO GEO AIO SXO comparison",
+      "unified search optimization framework 2026"
+    ],
+    "Information Agents": [
+      "Google Information Agents SEO impact 2026",
+      "always-on agents content freshness ranking",
+      "AI Ultra subscribers agent search behavior",
+      "Gemini 3.5 Flash search replacement",
+      "agent-driven content freshness requirements",
+      "Google I/O 2026 Information Agents explained"
+    ],
+    "Gemini Spark Chrome": [
+      "Gemini Spark Chrome browser integration",
+      "agentic browser traffic attribution gap",
+      "Chrome Gemini Spark analytics blind spot",
+      "optimizing for Gemini in Chrome browser",
+      "agentic browsing SEO implications",
+      "Cloudflare bot traffic 57.5% machine web"
+    ],
+    "YouTube Citation": [
+      "YouTube SEO for AI citations 2026",
+      "YouTube over Reddit citation source",
+      "video content AI overview citation",
+      "YouTube optimization for Gemini ChatGPT",
+      "video citations LLM search 2026",
+      "YouTube AI visibility framework"
+    ],
+    "ClaudeBot": [
+      "ClaudeBot llms.txt optimization 2026",
+      "ClaudeBot +66% MoM crawler share",
+      "Anthropic crawler SEO strategy",
+      "llms.txt Google clarification Anthropic",
+      "Claude SEO optimization for LLMs",
+      "voice AI search optimization 2026"
+    ],
+    "Framework Comparison": [
+      "GEO vs SEO vs AEO comparison guide",
+      "what is the difference between AEO GEO AIO",
+      "unified search optimization framework 2026",
+      "GEO AEO SXO AIO framework explained",
+      "when to use SEO vs AEO vs GEO",
+      "search optimization frameworks comparison matrix"
+    ],
+    "Zero Click GEO Hybrid": [
+      "zero click search GEO hybrid strategy",
+      "zero click search 68% 2026 strategy",
+      "optimizing for zero click and citations",
+      "zero click search KPIs 2026",
+      "featured snippets vs AI citations",
+      "hybrid SEO AEO strategy for 2026"
+    ],
+    "Bing Citation": [
+      "Bing Citation Share metric GEO",
+      "Bing Copilot SEO optimization 2026",
+      "Microsoft Bing AI visibility tracking",
+      "cross platform GEO measurement",
+      "Bing vs Google AI citations",
+      "Bing SEO GEO framework"
+    ],
+    "Wiki Voice": [
+      "wiki voice tone LLM optimization 2026",
+      "authority tone for AI citation",
+      "wikipedia AI citation anchor source",
+      "wiki voice content writing for LLMs",
+      "human experience tone AI citation",
+      "authoritative tone GEO strategy"
+    ],
+    "LLMs.txt": [
+      "llms.txt optimization for ClaudeBot 2026",
+      "llms.txt for Anthropic crawler visibility",
+      "Google llms.txt clarification Anthropic relevance",
+      "llms.txt implementation guide WordPress",
+      "llms.txt vs robots.txt AI crawlers",
+      "what does llms.txt actually do for SEO 2026"
+    ],
+    "AI Citation Tools": [
+      "AI citation tracking tools 2026",
+      "Profound AI visibility monitoring",
+      "Rankscale Perplexity SEO tool",
+      "Semrush AI Monitor features",
+      "AI citation measurement comparison"
+    ]
+  },
+  "missed_content_angles": [
+    "Agentic commerce — AI agents doing purchasing decisions (2028 prediction)",
+    "llms.txt deployment guide for AI crawler legibility",
+    "Zero-click search impact on content strategy",
+    "Citation rate as KPI replacing CTR",
+    "Trust moat theory — domain authority thresholds for AI citation",
+    "Consensus platforms — Reddit/G2/Capterra optimization for AI",
+    "Content-Answer Fit methodology",
+    "Statistical freshness requirements in GEO content",
+    "Wiki-voice tone for LLM optimization",
+    "Co-citation neighborhood strategy",
+    "Mobile-first SERP monitoring gap",
+    "Local SEO hyper-micro-market targeting",
+    "AI traffic report analysis — 527% increase data",
+    "Perplexity optimization differences from ChatGPT",
+    "Voice search overlap with GEO",
+    "Google I/O 2026: Gemini 3.5 replaces search box with AI agents",
+    "Reddit surpasses Wikipedia as top LLM citation source",
+    "G2 acquires Capterra — consolidation of B2B review platforms for AI search visibility",
+    "AI models treat Wikipedia as truth anchor — implications for content creators",
+    "Zero-click content formats for AI Overview inclusion",
+    "Cloudflare Monetization Gateway: pay-per-crawl model changes AI content economics (July 2026)",
+    "Google Search Console AI performance reports: first official GEO data but impressions-only blind spot",
+    "Google llms.txt clarification: not a ranking signal — what actually works for AI crawler visibility",
+    "Bing Citation Share: first first-party citation percentage metric for GEO measurement",
+    "Google June 2026 Spam Update: AI Overviews explicitly targeted by spam policies",
+    "Google Search Profiles: new publisher branding surface for AI discoverability",
+    "Gemini Spark operating directly in Chrome: analytics measurement blind spot for agentic browsing",
+    "OpenAI GPT-Live voice models: new content discovery surface for voice-optimized GEO",
+    "Google Search Console AI blocking toggle: strategic opt-in/opt-out implications for publishers",
+    "GEO vs SEO vs AEO vs AIO vs SXO framework confusion — comparison market demand surging",
+    "Information Agents: AI agents as content freshness ranking dimension (Google I/O 2026)",
+    "Gemini Spark Chrome integration: Agentic browser traffic measurement framework",
+    "YouTube as #1 social citation source (16% vs Reddit's 10%): YouTube SEO for AI citations",
+    "ClaudeBot crawler +66% MoM: llms.txt optimization for Anthropic agents",
+    "Framework comparison confusion: GEO vs SEO vs AEO vs AIO vs SXO unified guide",
+    "Zero-click + GEO hybrid strategy: Optimizing for both visibility and citations",
+    "Bing Citation Share: First-party metric for GEO measurement on Microsoft platform",
+    "Wiki-voice tone for LLM optimization: Authority signals for AI citation frequency",
+    "Google llms.txt clarification: Not a Google ranking signal but Anthropic relevance",
+    "Cloudflare Monetization Gateway: Pay-per-crawl model changes AI content economics",
+    "Agentic commerce optimization: AI agents making purchasing decisions on behalf of users",
+    "AI traffic analysis: 527% increase in AI search citation queries YoY",
+    "Perplexity optimization differences: Data-rich query patterns distinct from ChatGPT",
+    "Voice search overlap with GEO: GPT-Live voice models as new discovery surface",
+    "Google Search Console AI blocking toggle: Strategic opt-in/opt-out for publishers",
+    "Gemini Spark operating in Chrome: Analytics attribution gap for agentic browsing",
+    "OpenAI GPT-Live voice models: New content discovery surface for voice-optimized GEO",
+    "Google Search Console AI performance reports: Official GEO data with impressions-only blind spot",
+    "LLMs.txt implementation for Anthropic/ClaudeBot visibility (distinct from Google's clarification)",
+    "Cloudflare Pay Per Crawl September 2026 default policy changes for publishers",
+    "Perplexity vs ChatGPT: fundamentally different optimization frameworks required",
+    "Wikipedia LLM participation research: June 2026 arXiv findings and SEO implications",
+    "AI citation measurement tools comparison: Profound, Rankscale, Semrush AI Monitor",
+    "UGC and social sites as dominant AI citation drivers: Semrush 150K citation analysis"
+  ]
+}

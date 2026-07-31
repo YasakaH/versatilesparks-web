@@ -1,0 +1,14 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → A → A2
+Depth: Level 3
+Leaf: A2 — Partial failure undetected (10pts)
+============================================================
+
+A2: Partial failure undetected (10pts [procurement])
+  Batch of N items. M fail silently. Report shows success. Nobody checks the M failures.
+  Top case: [procurement] EDI 850 batch with 10,000 POs. 47 have invalid supplier codes. VAN delivers
+
+Full evidence:
+  [procurement] EDI industry: EDI 850 batch with 10,000 POs. 47 have invalid supplier codes. VAN delivers only

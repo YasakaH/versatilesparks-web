@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 // Required for `output: export` static builds.
 export const dynamic = "force-static";

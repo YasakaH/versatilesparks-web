@@ -1,0 +1,34 @@
+{
+  "id": "publisher-publish_failure-20260730110444",
+  "source": "publisher",
+  "domain": "publisher",
+  "domain_hierarchy": {
+    "primary": "publisher",
+    "medium": "publisher",
+    "channel": "publish_failure"
+  },
+  "signal_type": "publish_failure",
+  "payload": {
+    "article_slug": "5-mistakes-nodriver-beginners",
+    "platforms": [
+      "devto"
+    ],
+    "brief_id": "5-mistakes-nodriver-beginners",
+    "concepts": [
+      "nodriver",
+      "python",
+      "browser-automation",
+      "web-scraping",
+      "cdp"
+    ],
+    "action": "publish",
+    "is_draft": true,
+    "result": "failed",
+    "errors": {
+      "devto": "422 Client Error: Unprocessable Entity for url: https://dev.to/api/articles"
+    }
+  },
+  "received": "2026-07-30T11:04:44Z",
+  "processed": false,
+  "notes": null
+}

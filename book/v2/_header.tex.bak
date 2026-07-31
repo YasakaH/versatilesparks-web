@@ -1,0 +1,3 @@
+\usepackage[papersize={6in,9in}, left=0.75in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}

@@ -25,11 +25,11 @@ Before writing a single line of code, confirm that automation is the right solut
 
 ---> **Quick Take**
 > If you're short on time:
-> - ✓ Check for an API before writing any browser automation.
-> - ✓ One profile per worker is non-negotiable.
-> - ✓ No monitoring = no production readiness.
-> - ✓ Validate before storing, not after.
-> - ✓ Every failure needs a recovery strategy.
+> - [Y] Check for an API before writing any browser automation.
+> - [Y] One profile per worker is non-negotiable.
+> - [Y] No monitoring = no production readiness.
+> - [Y] Validate before storing, not after.
+> - [Y] Every failure needs a recovery strategy.
 > 
 > Estimated reading: 6 minutes
 > 
@@ -110,10 +110,10 @@ Before writing a single line of code, confirm that automation is the right solut
 
 | Result | Meaning | Action |
 |--------|---------|--------|
-| [✓] Pass | All critical checks pass | Proceed to implementation |
+| [Y] Pass | All critical checks pass | Proceed to implementation |
 | [!] Pass with conditions | Minor issues found | Document issues, proceed with plan to fix |
-| [✗] Fail | Critical issues found | Do not proceed. Fix issues before writing code. |
-| 🔄 Reroute | Automation not the right solution | Use API or no-code tool instead |
+| [X] Fail | Critical issues found | Do not proceed. Fix issues before writing code. |
+| [Cycle] Reroute | Automation not the right solution | Use API or no-code tool instead |
 
 ---
 

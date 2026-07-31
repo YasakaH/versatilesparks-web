@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import db from "../db/knowledge-base.json";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 // Required for `output: export` static builds.
 export const dynamic = "force-static";
@@ -35,5 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...bookEntries,
         ...conceptEntries,
         ...recipeEntries,
+        // Static legal / info pages (managed by scripts/generate_legal_pages.py)
+        { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
+        { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+        { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+        { url: `${SITE_URL}/errata`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+        { url: `${SITE_URL}/callback`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     ];
 }

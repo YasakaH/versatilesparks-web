@@ -1,0 +1,11 @@
+[carriers] Level 1 — Mount
+Query: Mount AI agent insurance underwriting process data requirements claims 2026
+Results:
+1. blog.palantir.com — Requirements for AI in Production in Insurance Underwriting
+2. ycombinator.com/companies/mount — Mount: The AI Agent Insurance Carrier
+3. snorkel.ai — Evaluating AI agents for insurance underwriting
+4. furtherai.com — AI for Underwriting: 2026 Guide
+5. tommasomariaricci.com — AI for Insurance Companies: 2026 Practical Guide
+
+Key signals: Mount is YC-backed. AI agents write code, handle data, move money.
+Snorkel.ai has a specialized benchmark for AI agents in insurance underwriting.

@@ -1,0 +1,21 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → E → E1
+Depth: Level 3
+Leaf: E1 — No crash detection (80pts)
+============================================================
+
+E1: No crash detection (80pts $3,000,000,000 [browser,cross,healthcare,procurement])
+  Agent hangs after crash. No watchdog. No heartbeat. No auto-restart.
+  Top case: [browser] Bug: no automatic page-crash recovery. Agent hangs after browser tab crashe
+
+Full evidence:
+  [browser] Browser-Use #5067: Bug: no automatic page-crash recovery. Agent hangs after browser tab crashes. No
+  [browser] Browser-Use #5067: Tab crashes. CDP connection drops. Agent has no heartbeat. Hangs forever. Manual
+  [procurement] Industry research: 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes, phantom i
+  [browser] Browser-Use #5048: CDP instability on Windows. WebSocket drops silently. No reconnection. Agent han
+  [browser] Browser-Use #5132: Download completion callback never fires. Script thinks download is still in pro
+  [cross] SEC 2024: Automated earnings report extracts 0 rows from database due to schema change. Re
+  [healthcare] Healthcare IT: EPIC auto-populates medication list from last visit. Patient's meds changed 6 mo
+  [procurement] BEC anatomy: CEO fraud: email looks legitimate, domain is spoofed, invoice looks real, bank a ($3,000,000,000)

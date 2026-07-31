@@ -324,43 +324,43 @@ timeout = config.getint("NAVIGATION_TIMEOUT", default=30)
 
 ## Common Mistakes
 
-### [✗] Retrying permanent failures
+### [X] Retrying permanent failures
 
 A selector that changed will never work on retry. Each retry wastes time, delays the alert, and consumes API quota.
 
 **Fix:** Classify failures before retrying. Use the taxonomy in Recipe 10.
 
-### [✗] Using `print()` for production logging
+### [X] Using `print()` for production logging
 
 `print()` has no timestamps, no log levels, no structured output. When something breaks at 3 AM, `print()` output is indistinguishable from noise.
 
 **Fix:** Use `common/logging.py` with level, timestamp, and structured context.
 
-### [✗] Hardcoding environment-specific values
+### [X] Hardcoding environment-specific values
 
 A URL hardcoded as `https://dev.portal.com` will fail when deployed to production. The developer who deploys must edit the code — which creates a diff, which creates merge risk.
 
 **Fix:** Use environment variables and `common/config.py`. URL belongs in `.env`, not in Python.
 
-### [✗] Not logging the page state on failure
+### [X] Not logging the page state on failure
 
 When an automation fails, the most valuable diagnostic is: what was on the page? Without a screenshot, HTML dump, and console log at failure time, debugging requires reproducing — which may not be possible.
 
 **Fix:** Capture screenshot, HTML, and console output in the exception handler.
 
-### [✗] Infinite retry loops
+### [X] Infinite retry loops
 
 `while True: try: ... except: pass` never stops retrying. A production failure triggers infinite retries, consuming resources and preventing alerting.
 
 **Fix:** Always cap retries at 3-5 attempts. Use `common/retry.py` which enforces this.
 
-### [✗] Configuring timeouts too tightly
+### [X] Configuring timeouts too tightly
 
 A 5-second navigation timeout may work on your laptop but fail on a slow VPS. The failure looks like a bug but is actually a configuration mismatch.
 
 **Fix:** Make timeout configurable per environment. Default generous, tighten in production.
 
-### [✗] Not adding correlation IDs to logs
+### [X] Not adding correlation IDs to logs
 
 Without a run ID, logs from different runs are indistinguishable. Correlating a failure with the specific automation run requires manual timestamp matching.
 
@@ -430,11 +430,11 @@ Reliability is not about preventing failures — it is about surviving them corr
 - Configuration belongs in environment variables, not in code
 
 ### Common Mistakes
-- [✗] Retrying permanent failures — wastes time, delays the alert
-- [✗] Using `print()` for production logging — no timestamps, no levels
-- [✗] Hardcoding environment-specific values — requires code changes to deploy
-- [✗] Infinite retry loops — `while True: try: except: pass` never stops
-- [✗] Not logging page state on failure — no evidence to diagnose
+- [X] Retrying permanent failures — wastes time, delays the alert
+- [X] Using `print()` for production logging — no timestamps, no levels
+- [X] Hardcoding environment-specific values — requires code changes to deploy
+- [X] Infinite retry loops — `while True: try: except: pass` never stops
+- [X] Not logging page state on failure — no evidence to diagnose
 
 ### Senior Takeaways
 - A retry that succeeds with bad data is worse than a retry that fails

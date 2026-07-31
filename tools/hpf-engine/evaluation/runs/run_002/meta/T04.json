@@ -1,0 +1,40 @@
+{
+  "qid": "T04",
+  "mode": "troubleshoot",
+  "question": "Why does the browser crash after multiple navigations?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why does the browser crash after multiple navigations?",
+        "mode": "troubleshoot",
+        "entities": [
+          "browser",
+          "crash",
+          "navigation",
+          "navigations",
+          "multiple navigations"
+        ],
+        "retrieved": [
+          "browser-profiles-concept",
+          "session-lifecycle-concept",
+          "health-check-pattern",
+          "playwright-concept",
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 13
+      }
+    }
+  }
+}

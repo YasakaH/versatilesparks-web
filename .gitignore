@@ -27,3 +27,6 @@ Products/
 # Local configuration
 .env
 .wrangler/
+
+# Reddit session files
+.reddit-*

@@ -1,0 +1,32 @@
+---
+id: "403-forbidden"
+title: "403 Forbidden on target site"
+error_patterns: ["403", "forbidden", "access denied", "blocked", "cloudflare 403"]
+severity: "common"
+concept: "anti-detection"
+description: "The server rejects the connection before any page content is delivered."
+---
+
+A 403 means the server identified your traffic as non-human at the TLS or HTTP layer.
+
+### Common Causes
+
+- Missing or invalid TLS fingerprint (JA3/JA3S)
+- Headers mismatch (missing `Accept-Language`, `Sec-*` headers)
+- Cloudflare WAF blocking datacenter IP ranges
+
+### Quick Debug
+
+```python
+import asyncio
+from nodriver import start
+
+async def check():
+    browser = await start()
+    page = await browser.get("https://example.com")
+    print(await page.content)
+
+asyncio.run(check())
+```
+
+If a simple GET works but the target doesn't, compare the TLS handshake and headers your browser sends against a real Chrome instance.

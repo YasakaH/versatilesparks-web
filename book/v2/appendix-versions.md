@@ -15,12 +15,12 @@ This book was verified against the following software versions:
 
 ## Supported Platforms
 
-- [✓] Linux (production)
-- [✓] macOS (development)
-- [✓] Windows (development via WSL2 recommended)
+- [Y] Linux (production)
+- [Y] macOS (development)
+- [Y] Windows (development via WSL2 recommended)
 
 ## Unsupported
 
-- [✗] Internet Explorer
-- [✗] Safari (limited CDP support)
-- [✗] Headless Chrome on 32-bit systems
+- [X] Internet Explorer
+- [X] Safari (limited CDP support)
+- [X] Headless Chrome on 32-bit systems

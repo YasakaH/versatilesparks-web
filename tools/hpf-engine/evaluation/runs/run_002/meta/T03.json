@@ -1,0 +1,34 @@
+{
+  "qid": "T03",
+  "mode": "troubleshoot",
+  "question": "Why does my scraper get blocked?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why does my scraper get blocked?",
+        "mode": "troubleshoot",
+        "entities": [
+          "scraper",
+          "blocked"
+        ],
+        "retrieved": [
+          "anti-detection-principle",
+          "blocking-rate-limiting-principle"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 3
+      }
+    }
+  }
+}

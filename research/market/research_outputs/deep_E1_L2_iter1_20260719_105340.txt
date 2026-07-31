@@ -1,0 +1,40 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: E1
+Date: 2026-07-19 10:53:40
+Iteration: 1 | Depth: Level 2
+Path: E1 → E1_identity_not_verified
+=================================================================
+
+CURRENT PROBLEM: E1
+  No crash detection
+  Agent/process hangs after crash. No watchdog, no heartbeat, no health check. Manual restart required. Hang persists indefinitely.
+  Score: 80pts
+  Industries: browser, cross, healthcare, procurement
+
+  Supporting evidence (8 cases):
+    [browser] Browser-Use #5067: Bug: no automatic page-crash recovery. Agent hangs after browser tab crash.
+    [procurement] Industry research: 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes, phan
+    [browser] Browser-Use #5048: CDP instability on Windows. WebSocket drops silently. No reconnection. Agen
+    [cross] Stripe incident: Silent API failure: webhook not delivered. No retry log. 15 minutes of fail
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] E1_identity_not_verified: Identity is not bound to real person (80pts $3,731,000,000 [logistics,procurement])
+       Credentials verified but identity not. 21,442 supplier fraud cases 2024. Fake suppliers, bank d
+       Evidence: 8 cases — top: [procurement] BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake invoi
+
+  [2] E1_no_recovery: No crash detection or recovery mechanism (30pts [browser,cross])
+       Process dies silently. Bug: no automatic page-crash recovery. Agent hangs after browser tab c
+       Evidence: 3 cases — top: [browser] Bug: no automatic page-crash recovery. Agent hangs after bro
+
+  [3] E1_no_alert: No notification channel configured (30pts [cross,procurement])
+       Evidence: Automated earnings report extracts 0 rows from database due to schema change. Re...
+       Evidence: 3 cases — top: [cross] Cron job sends report to dead email alias. 2 subscribers bot
+
+  [4] E1_format_drift: External interface changes without notice (10pts [cross])
+       Consumer not notified of format change. Automated earnings report extracts 0 rows from database
+       Evidence: 1 cases — top: [cross] Automated earnings report extracts 0 rows from database due 
+
+DECISION: Descending into 'E1_identity_not_verified' (score: 80)
+Path so far: E1 → E1_identity_not_verified

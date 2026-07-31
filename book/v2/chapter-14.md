@@ -469,10 +469,10 @@ After 60 recipes and 14 chapters, here are the principles that will outlast any 
 - The Manifesto summarizes 12 principles that outlast any tool or library
 
 ### Common Mistakes
-- [✗] Building for one use case without extensibility — every new client requires a rewrite
-- [✗] Choosing the wrong storage for the scale — SQLite with 10 concurrent workers produces locked errors
-- [✗] No architecture review — "why not Kubernetes?" should have an answer
-- [✗] No failure scenarios documented — operator has no runbook at 3 AM
+- [X] Building for one use case without extensibility — every new client requires a rewrite
+- [X] Choosing the wrong storage for the scale — SQLite with 10 concurrent workers produces locked errors
+- [X] No architecture review — "why not Kubernetes?" should have an answer
+- [X] No failure scenarios documented — operator has no runbook at 3 AM
 
 ### Senior Takeaways
 - The architecture review answers "why NOT" — every decision should be defensible against real alternatives

@@ -1,0 +1,176 @@
+{
+  "date": "2026-07-31",
+  "collected_at": "2026-07-31T10:14:07Z",
+  "sources": {
+    "devto": {
+      "articles": [
+        {
+          "article_id": 4271273,
+          "slug": "5-mistakes-new-nodriver-users-make-and-how-to-avoid-them-3dap",
+          "url": "https://dev.to/fromyasaka/5-mistakes-new-nodriver-users-make-and-how-to-avoid-them-3dap",
+          "canonical_url": "https://versatilesparks.com/blog/5-mistakes-nodriver-beginners",
+          "published_at": "2026-07-30T17:51:49.908Z",
+          "views": 0,
+          "reactions": 0,
+          "positive_reactions": 0,
+          "comments": 0,
+          "platform": "devto"
+        },
+        {
+          "article_id": 4243839,
+          "slug": "why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+          "url": "https://dev.to/fromyasaka/why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+          "canonical_url": "https://dev.to/fromyasaka/why-selenium-died-and-what-replaced-it-a-developers-guide-to-modern-browser-automation-i2g",
+          "published_at": "2026-07-27T10:21:26.543Z",
+          "views": 0,
+          "reactions": 0,
+          "positive_reactions": 0,
+          "comments": 0,
+          "platform": "devto"
+        }
+      ],
+      "account": {
+        "totals": {
+          "comments": {
+            "total": 0
+          },
+          "follows": {
+            "total": 0
+          },
+          "reactions": {
+            "total": 0,
+            "like": 0,
+            "readinglist": 0,
+            "unicorn": 0,
+            "exploding_head": 0,
+            "raised_hands": 0,
+            "fire": 0,
+            "unique_reactors": 0
+          },
+          "page_views": {
+            "total": 0,
+            "average_read_time_in_seconds": 0,
+            "total_read_time_in_seconds": 0
+          }
+        },
+        "historical": {
+          "2026-07-27": {
+            "comments": {
+              "total": 0
+            },
+            "follows": {
+              "total": 0
+            },
+            "reactions": {
+              "total": 0,
+              "like": 0,
+              "readinglist": 0,
+              "unicorn": 0,
+              "exploding_head": 0,
+              "raised_hands": 0,
+              "fire": 0,
+              "unique_reactors": 0
+            },
+            "page_views": {
+              "total": 0,
+              "average_read_time_in_seconds": 0,
+              "total_read_time_in_seconds": 0
+            }
+          },
+          "2026-07-28": {
+            "comments": {
+              "total": 0
+            },
+            "follows": {
+              "total": 0
+            },
+            "reactions": {
+              "total": 0,
+              "like": 0,
+              "readinglist": 0,
+              "unicorn": 0,
+              "exploding_head": 0,
+              "raised_hands": 0,
+              "fire": 0,
+              "unique_reactors": 0
+            },
+            "page_views": {
+              "total": 0,
+              "average_read_time_in_seconds": 0,
+              "total_read_time_in_seconds": 0
+            }
+          },
+          "2026-07-29": {
+            "comments": {
+              "total": 0
+            },
+            "follows": {
+              "total": 0
+            },
+            "reactions": {
+              "total": 0,
+              "like": 0,
+              "readinglist": 0,
+              "unicorn": 0,
+              "exploding_head": 0,
+              "raised_hands": 0,
+              "fire": 0,
+              "unique_reactors": 0
+            },
+            "page_views": {
+              "total": 0,
+              "average_read_time_in_seconds": 0,
+              "total_read_time_in_seconds": 0
+            }
+          },
+          "2026-07-30": {
+            "comments": {
+              "total": 0
+            },
+            "follows": {
+              "total": 0
+            },
+            "reactions": {
+              "total": 0,
+              "like": 0,
+              "readinglist": 0,
+              "unicorn": 0,
+              "exploding_head": 0,
+              "raised_hands": 0,
+              "fire": 0,
+              "unique_reactors": 0
+            },
+            "page_views": {
+              "total": 0,
+              "average_read_time_in_seconds": 0,
+              "total_read_time_in_seconds": 0
+            }
+          },
+          "2026-07-31": {
+            "comments": {
+              "total": 0
+            },
+            "follows": {
+              "total": 0
+            },
+            "reactions": {
+              "total": 0,
+              "like": 0,
+              "readinglist": 0,
+              "unicorn": 0,
+              "exploding_head": 0,
+              "raised_hands": 0,
+              "fire": 0,
+              "unique_reactors": 0
+            },
+            "page_views": {
+              "total": 0,
+              "average_read_time_in_seconds": 0,
+              "total_read_time_in_seconds": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

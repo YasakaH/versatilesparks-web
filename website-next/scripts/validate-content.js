@@ -1,31 +1,8 @@
-/**
- * validate-content.js
- *
- * Content-layer validation for the Browser Engineering Knowledge System.
- * Runs before compile-content.js during `npm run build` (via the `prebuild` hook)
- * and fails the build on structural content errors so bad content never ships.
- *
- * Validation rules:
- *  1. Required fields present (id, title, body) on every entity.
- *  2. No duplicate IDs within or across entity types.
- *  3. Every concept `requires` / `used_by` / `related` reference resolves to an existing concept.
- *  4. Every recipe `concepts` reference resolves; every recipe `book` resolves to an existing book.
- *  5. No recipe without at least one concept association.
- *  6. `requires` / `used_by` symmetry (warning, not fatal) — if A requires B, B's used_by should include A.
- *  7. Orphan concepts (no graph edges and no recipes) — warning.
- *
- * Exit codes: 0 = valid, 1 = fatal errors found.
- */
-
 const fs = require("fs");
 const path = require("path");
 
 const contentDir = path.join(__dirname, "../content");
 
-/* ------------------------------------------------------------------ *
- * Minimal frontmatter parser (mirrors compile-content.js so validation
- * does not depend on the compiler being correct).
- * ------------------------------------------------------------------ */
 function parseFrontmatter(fileContent) {
     const parts = fileContent.split("---");
     if (parts.length < 3) return { metadata: {}, body: fileContent };
@@ -79,9 +56,12 @@ function main() {
     const concepts = loadCategory("concepts");
     const recipes = loadCategory("recipes");
     const books = loadCategory("books");
+    const problems = loadCategory("problems");
 
     const conceptIds = new Set(concepts.map((c) => c.id));
     const bookIds = new Set(books.map((b) => b.id));
+    const recipeIds = new Set(recipes.map((r) => r.id));
+    const problemIds = new Set(problems.map((p) => p.id));
 
     /* 1 & 2. Required fields + duplicate IDs */
     const seenIds = new Set();
@@ -102,6 +82,16 @@ function main() {
     concepts.forEach((c) => assertId(c, "concept"));
     recipes.forEach((r) => assertId(r, "recipe"));
     books.forEach((b) => assertId(b, "book"));
+    problems.forEach((p) => assertId(p, "problem"));
+
+    /* Check for ID collisions across types */
+    const allIds = new Map();
+    [...concepts, ...recipes, ...books, ...problems].forEach((e) => {
+        if (allIds.has(e.id)) {
+            errors.push(`[cross-type] id "${e.id}" collides between ${allIds.get(e.id)} and ${e._file}`);
+        }
+        allIds.set(e.id, e._file);
+    });
 
     /* 3. Concept relationship integrity */
     concepts.forEach((c) => {
@@ -117,6 +107,10 @@ function main() {
             if (!conceptIds.has(rid))
                 errors.push(`[concept] ${c.id}: "related" references missing concept "${rid}"`);
         });
+        (c.next_steps || []).forEach((ns) => {
+            if (!conceptIds.has(ns))
+                errors.push(`[concept] ${c.id}: "next_steps" references missing concept "${ns}"`);
+        });
     });
 
     /* 4 & 5. Recipe integrity */
@@ -131,9 +125,27 @@ function main() {
         }
         if (!r.book || !bookIds.has(r.book))
             errors.push(`[recipe] ${r.id}: references missing book "${r.book}"`);
+
+        (r.prerequisites || []).forEach((prereq) => {
+            if (!recipeIds.has(prereq) && !conceptIds.has(prereq))
+                errors.push(`[recipe] ${r.id}: "prerequisites" references missing entity "${prereq}"`);
+        });
     });
 
-    /* 6. requires / used_by symmetry (warning only) */
+    /* 6. Problem integrity */
+    problems.forEach((p) => {
+        if (!p.concept || !conceptIds.has((p.concept || '').toLowerCase())) {
+            errors.push(`[problem] ${p.id}: "concept" references missing concept "${p.concept}"`);
+        }
+        if (!p.error_patterns || p.error_patterns.length === 0) {
+            errors.push(`[problem] ${p.id}: has no "error_patterns"`);
+        }
+        if (!p.description) {
+            errors.push(`[problem] ${p.id}: missing required field "description"`);
+        }
+    });
+
+    /* 7. requires / used_by symmetry (warning only) */
     concepts.forEach((a) => {
         (a.requires || []).forEach((bid) => {
             const b = concepts.find((c) => c.id === bid);
@@ -145,7 +157,7 @@ function main() {
         });
     });
 
-    /* 7. Orphan concepts (warning) */
+    /* 8. Orphan concepts (warning) */
     const recipeConceptRefs = new Set();
     recipes.forEach((r) => (r.concepts || []).forEach((cid) => recipeConceptRefs.add(cid)));
 
@@ -160,12 +172,12 @@ function main() {
 
     /* Report */
     if (warnings.length > 0) {
-        console.warn("\n  ⚠  Content warnings:");
+        console.warn("\n  \u26a0  Content warnings:");
         warnings.forEach((w) => console.warn("     " + w));
     }
 
     if (errors.length > 0) {
-        console.error("\n  ✖  Content validation failed:");
+        console.error("\n  \u2716  Content validation failed:");
         errors.forEach((e) => console.error("     " + e));
         console.error(
             `\n  ${errors.length} error(s), ${warnings.length} warning(s). Build aborted.\n`
@@ -174,7 +186,7 @@ function main() {
     }
 
     console.log(
-        `  ✓  Content valid: ${concepts.length} concepts, ${recipes.length} recipes, ${books.length} books${warnings.length ? ` (${warnings.length} warning(s))` : ""
+        `  \u2713  Content valid: ${concepts.length} concepts, ${recipes.length} recipes, ${books.length} books, ${problems.length} problems${warnings.length ? ` (${warnings.length} warning(s))` : ""
         }`
     );
 }

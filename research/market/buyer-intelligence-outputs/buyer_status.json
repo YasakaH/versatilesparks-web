@@ -1,0 +1,37 @@
+{
+  "healthcare_claims": {
+    "score": 67.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "procurement_invoice": {
+    "score": 74.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "logistics_handoff": {
+    "score": 71.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "browser_automation": {
+    "score": 66.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "rpa_workflow": {
+    "score": 72.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "ai_agent": {
+    "score": 73.0,
+    "files": 10,
+    "status": "completed"
+  },
+  "enterprise_it": {
+    "score": 67.0,
+    "files": 10,
+    "status": "completed"
+  }
+}

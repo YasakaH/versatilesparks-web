@@ -1,0 +1,16 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → D → D3
+Depth: Level 3
+Leaf: D3 — System programmed to lie (30pts)
+============================================================
+
+D3: System programmed to lie (30pts $135,000,000 [healthcare])
+  Software designed to generate false documentation. Billing system always codes highest.
+  Top case: [healthcare] Vohra Wound Physicians - EHR programmed to ALWAYS bill highest code. $45M s ($45,000,000)
+
+Full evidence:
+  [healthcare] DOJ 25-1104: Vohra Wound Physicians - EHR programmed to ALWAYS bill highest code. $45M settle ($45,000,000)
+  [healthcare] Vohra case: EHR programmed to auto-generate false billing codes. System created false docume ($45,000,000)
+  [healthcare] Vohra DOJ: Vohra EHR designed to always bill highest code. Auto-generated false documentati ($45,000,000)

@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Search, Command, BookOpen, Terminal, Code, Settings, Bookmark, ArrowRight } from "lucide-react";
+import { Search, BookOpen, Terminal, Code, Settings } from "lucide-react";
+import type { Concept, Recipe, Book, Problem } from "../types/knowledge";
 
 interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectAction: (actionId: string, param?: string) => void;
   db: {
-    concepts: any[];
-    recipes: any[];
-    books: any[];
+    concepts: Concept[];
+    recipes: Recipe[];
+    books: Book[];
+    problems: Problem[];
   };
 }
 
@@ -67,7 +69,15 @@ export default function CommandPalette({ isOpen, onClose, onSelectAction, db }: 
     icon: Code
   }));
 
-  const allItems = [...defaultActions, ...conceptActions, ...recipeActions];
+  const problemActions = (db.problems || []).map(p => ({
+    id: `problem-${p.id}`,
+    title: `Error: ${p.title}`,
+    subtitle: p.description,
+    category: "Errors",
+    icon: Terminal
+  }));
+
+  const allItems = [...defaultActions, ...conceptActions, ...recipeActions, ...problemActions];
 
   const filteredItems = allItems.filter(item => {
     const searchString = `${item.title} ${item.subtitle} ${item.category}`.toLowerCase();
@@ -96,7 +106,7 @@ export default function CommandPalette({ isOpen, onClose, onSelectAction, db }: 
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] px-4 bg-black/60 backdrop-blur-sm">
-      <div 
+      <div
         className="w-full max-w-2xl bg-[#111111] border border-[#242424] rounded-lg shadow-2xl overflow-hidden"
         onKeyDown={handleKeyDown}
       >
@@ -130,9 +140,8 @@ export default function CommandPalette({ isOpen, onClose, onSelectAction, db }: 
               return (
                 <div
                   key={item.id}
-                  className={`flex items-center justify-between px-3 py-3 rounded-md cursor-pointer transition-colors ${
-                    isSelected ? "bg-[#161616]" : ""
-                  }`}
+                  className={`flex items-center justify-between px-3 py-3 rounded-md cursor-pointer transition-colors ${isSelected ? "bg-[#161616]" : ""
+                    }`}
                   onClick={() => {
                     onSelectAction(item.id);
                     onClose();
@@ -148,9 +157,8 @@ export default function CommandPalette({ isOpen, onClose, onSelectAction, db }: 
                       <p className="text-xs text-[#8a8a8a] truncate mt-0.5">{item.subtitle}</p>
                     </div>
                   </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded border ${
-                    isSelected ? "bg-[#242424] border-[#8a8a8a] text-[#f2f2f2]" : "bg-transparent border-[#242424] text-[#8a8a8a]"
-                  }`}>
+                  <span className={`text-[10px] px-2 py-0.5 rounded border ${isSelected ? "bg-[#242424] border-[#8a8a8a] text-[#f2f2f2]" : "bg-transparent border-[#242424] text-[#8a8a8a]"
+                    }`}>
                     {item.category}
                   </span>
                 </div>

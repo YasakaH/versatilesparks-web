@@ -1,0 +1,24 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_094255
+Path: ROOT
+Depth: Level 1
+============================================================
+
+ROOT: Automation cannot be trusted (0pts)
+  Every automated action produces a trust gap between what the system records and what actually happened in reality.
+
+  D: Fabricates evidence (60pts $9,547,800,000 [healthcare,logistics,procurement])
+    System actively generates false records. The lie becomes the system of record and source o
+    Case: [procurement] BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake invoices, payme ($3,000,000,000)
+  A: Fails silently (40pts [browser,procurement])
+    Automation breaks but nobody is notified. Failure is detected days/weeks later or never at
+    Case: [browser] Bug: no automatic page-crash recovery. Agent hangs after browser tab c
+  E: Unrecoverable after crash (30pts [browser,procurement])
+    Failure means total data loss. No checkpoint, no replay, no recovery. Everything restarts 
+    Case: [browser] Bug: no automatic page-crash recovery. Agent hangs after browser tab c
+  C: Changes silently (10pts [procurement])
+    Automation behavior drifts over time without detection. Nobody notices until something bre
+    Case: [procurement] 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes,
+  B: Succeeds silently (0pts)
+    Runs correctly but produces no verifiable proof that it actually happened.

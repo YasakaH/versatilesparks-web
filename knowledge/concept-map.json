@@ -1,0 +1,29 @@
+{
+  "hpf_to_website": {
+    "anti-detection-strategy": "anti-detection",
+    "automation-detection-surface": "anti-detection",
+    "automation-protocol": "cdp",
+    "browser-fingerprint": "fingerprints",
+    "browser-profile": "profiles",
+    "browser-readiness-model": "scaling",
+    "browser-session-lifecycle": "sessions",
+    "browser-storage": "cookies",
+    "memory-pressure": "scaling",
+    "navigation-lifecycle": "authentication",
+    "retry-strategy": "recovery"
+  },
+  "website_to_hpf": {
+    "anti-detection": ["anti-detection-strategy", "automation-detection-surface"],
+    "authentication": ["navigation-lifecycle"],
+    "cdp": ["automation-protocol"],
+    "cookies": ["browser-storage"],
+    "fingerprints": ["browser-fingerprint"],
+    "network-interception": [],
+    "observability": [],
+    "profiles": ["browser-profile"],
+    "proxies": [],
+    "recovery": ["retry-strategy"],
+    "scaling": ["browser-readiness-model", "memory-pressure"],
+    "sessions": ["browser-session-lifecycle"]
+  }
+}

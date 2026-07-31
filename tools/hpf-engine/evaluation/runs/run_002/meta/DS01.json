@@ -1,0 +1,37 @@
+{
+  "qid": "DS01",
+  "mode": "design",
+  "question": "Design a resilient scraper",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Design a resilient scraper",
+        "mode": "design",
+        "entities": [
+          "scraper",
+          "resilient"
+        ],
+        "retrieved": [
+          "anti-detection-principle",
+          "blocking-rate-limiting-principle",
+          "selector-strategy-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "approaches",
+          "recommended",
+          "pitfalls",
+          "best_practices"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+# Plugin Manifest Template v1.0.0
+
+name: <plugin_name>
+version: <semver>
+author: <author_or_community>
+type: <intelligence|capability|personality|integration>
+description: <one_line_description>
+
+# What capabilities this plugin provides
+provides:
+  capabilities:
+    - capability_id_1
+    - capability_id_2
+
+# What capabilities this plugin depends on
+requires:
+  capabilities:
+    - capability_id_3
+
+# Security permissions
+permissions:
+  filesystem:
+    read: false
+    write: false
+  network:
+    external_apis: []
+    localhost: false
+  credentials:
+    required: false
+    keys: []
+  execution:
+    shell_access: false
+    code_execution: false
+
+# Plugin metadata
+security:
+  reviewed: false
+  review_level: automated  # automated | spot_check | full_review
+
+dependencies:
+  packages: []  # pip/npm packages
+  services: []   # external service names
+
+# Example plugin
+
+name: github_analyzer
+version: 1.0.0
+author: community
+type: capability
+description: Analyze GitHub repositories for structure, quality, and activity patterns
+
+provides:
+  capabilities:
+    - repository_analysis
+    - commit_analysis
+    - code_search
+    - contributor_analysis
+
+requires:
+  capabilities:
+    - authentication_handling
+    - api_rate_limiting
+
+permissions:
+  filesystem:
+    read: true
+    write: false
+  network:
+    external_apis:
+      - api.github.com
+    localhost: false
+  credentials:
+    required: true
+    keys:
+      - GITHUB_TOKEN
+  execution:
+    shell_access: false
+    code_execution: false
+
+security:
+  reviewed: false
+  review_level: automated

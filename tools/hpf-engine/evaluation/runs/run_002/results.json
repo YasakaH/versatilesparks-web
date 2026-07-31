@@ -1,0 +1,1184 @@
+[
+  {
+    "qid": "E01",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 534,
+    "time_seconds": 0.02,
+    "failure_reason": null,
+    "trace": {
+      "question": "What is CDP?",
+      "mode": "explain",
+      "entities": [
+        "cdp"
+      ],
+      "retrieved": [
+        "cdp-concept",
+        "nodriver-concept",
+        "playwright-concept",
+        "health-check-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E01",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 10
+    }
+  },
+  {
+    "qid": "E02",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 463,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "What is WebDriver?",
+      "mode": "explain",
+      "entities": [
+        "webdriver"
+      ],
+      "retrieved": [
+        "webdriver-concept",
+        "nodriver-concept",
+        "selenium-concept",
+        "anti-detection-principle"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E02",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 10
+    }
+  },
+  {
+    "qid": "E03",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 529,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "How does nodriver work?",
+      "mode": "explain",
+      "entities": [
+        "nodriver"
+      ],
+      "retrieved": [
+        "nodriver-concept"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E03",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 155,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 1
+    }
+  },
+  {
+    "qid": "E04",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 458,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "What is a browser session lifecycle?",
+      "mode": "explain",
+      "entities": [
+        "session",
+        "session lifecycle",
+        "browser"
+      ],
+      "retrieved": [
+        "session-lifecycle-concept",
+        "browser-profiles-concept",
+        "health-check-pattern",
+        "playwright-concept",
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E04",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "E05",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 540,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why do browser profiles matter?",
+      "mode": "explain",
+      "entities": [
+        "browser profile",
+        "browser profiles",
+        "browser"
+      ],
+      "retrieved": [
+        "browser-profiles-concept",
+        "session-lifecycle-concept",
+        "health-check-pattern",
+        "playwright-concept",
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E05",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 13
+    }
+  },
+  {
+    "qid": "E06",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 564,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "What is anti-detection in browser automation?",
+      "mode": "explain",
+      "entities": [
+        "anti-detection",
+        "browser",
+        "automation"
+      ],
+      "retrieved": [
+        "browser-profiles-concept",
+        "playwright-concept",
+        "selenium-concept",
+        "session-lifecycle-concept",
+        "anti-detection-principle"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E06",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "E07",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 534,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "How does the retry with backoff pattern work?",
+      "mode": "explain",
+      "entities": [
+        "retry",
+        "backoff"
+      ],
+      "retrieved": [
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E07",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 8
+    }
+  },
+  {
+    "qid": "E08",
+    "mode": "explain",
+    "provider": "hpf",
+    "answer_length": 501,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "What is incremental extraction?",
+      "mode": "explain",
+      "entities": [
+        "incremental extraction",
+        "extraction"
+      ],
+      "retrieved": [
+        "incremental-extraction-pattern",
+        "download-pipeline-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "E08",
+    "mode": "explain",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 10
+    }
+  },
+  {
+    "qid": "C01",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 1283,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "CDP vs WebDriver",
+      "mode": "compare",
+      "entities": [
+        "cdp",
+        "webdriver"
+      ],
+      "retrieved": [
+        "webdriver-concept",
+        "cdp-concept",
+        "nodriver-concept",
+        "playwright-concept",
+        "selenium-concept"
+      ],
+      "argument_keys": [
+        "criteria",
+        "scoring",
+        "tradeoffs",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "C01",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 654,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 7
+    }
+  },
+  {
+    "qid": "C02",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 1656,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Playwright vs nodriver",
+      "mode": "compare",
+      "entities": [
+        "nodriver",
+        "playwright"
+      ],
+      "retrieved": [
+        "nodriver-concept",
+        "playwright-concept"
+      ],
+      "argument_keys": [
+        "criteria",
+        "scoring",
+        "tradeoffs",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "C02",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 517,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 2
+    }
+  },
+  {
+    "qid": "C03",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 1533,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Selenium vs Playwright",
+      "mode": "compare",
+      "entities": [
+        "selenium",
+        "playwright"
+      ],
+      "retrieved": [
+        "playwright-concept",
+        "selenium-concept",
+        "webdriver-concept"
+      ],
+      "argument_keys": [
+        "criteria",
+        "scoring",
+        "tradeoffs",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "C03",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 849,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 3
+    }
+  },
+  {
+    "qid": "C04",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 388,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "CSS selectors vs XPath",
+      "mode": "compare",
+      "entities": [
+        "selector",
+        "xpath",
+        "css selector"
+      ],
+      "retrieved": [
+        "selector-strategy-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "C04",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 153,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 1
+    }
+  },
+  {
+    "qid": "C05",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 534,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Exponential backoff vs fixed backoff",
+      "mode": "compare",
+      "entities": [
+        "backoff"
+      ],
+      "retrieved": [
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "target",
+        "definition",
+        "core_mechanics",
+        "examples",
+        "limitations"
+      ]
+    }
+  },
+  {
+    "qid": "C05",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 488,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 2
+    }
+  },
+  {
+    "qid": "C06",
+    "mode": "compare",
+    "provider": "hpf",
+    "answer_length": 1519,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Browser profile vs fresh session",
+      "mode": "compare",
+      "entities": [
+        "browser profile",
+        "session",
+        "browser"
+      ],
+      "retrieved": [
+        "session-lifecycle-concept",
+        "browser-profiles-concept",
+        "health-check-pattern",
+        "playwright-concept",
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "criteria",
+        "scoring",
+        "tradeoffs",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "C06",
+    "mode": "compare",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 12
+    }
+  },
+  {
+    "qid": "D01",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 533,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I migrate from Selenium?",
+      "mode": "decide",
+      "entities": [
+        "selenium",
+        "migrate"
+      ],
+      "retrieved": [
+        "selenium-concept",
+        "webdriver-concept"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D01",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "D02",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 349,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I retry on HTTP 429?",
+      "mode": "decide",
+      "entities": [
+        "retry"
+      ],
+      "retrieved": [
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D02",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "D03",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 361,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I use data-testid selectors?",
+      "mode": "decide",
+      "entities": [
+        "selector",
+        "data-testid"
+      ],
+      "retrieved": [
+        "selector-strategy-pattern"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D03",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "D04",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 344,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I implement health checks?",
+      "mode": "decide",
+      "entities": [
+        "health check"
+      ],
+      "retrieved": [
+        "health-check-pattern"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D04",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "D05",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 480,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I use a fresh browser profile per session?",
+      "mode": "decide",
+      "entities": [
+        "browser profile",
+        "session",
+        "browser"
+      ],
+      "retrieved": [
+        "session-lifecycle-concept",
+        "browser-profiles-concept",
+        "health-check-pattern",
+        "playwright-concept",
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D05",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "D06",
+    "mode": "decide",
+    "provider": "hpf",
+    "answer_length": 578,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Should I use anti-detection techniques?",
+      "mode": "decide",
+      "entities": [
+        "anti-detection"
+      ],
+      "retrieved": [
+        "anti-detection-principle",
+        "blocking-rate-limiting-principle"
+      ],
+      "argument_keys": [
+        "claim",
+        "supporting",
+        "contradictory",
+        "risks",
+        "recommendation"
+      ]
+    }
+  },
+  {
+    "qid": "D06",
+    "mode": "decide",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "T01",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 747,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why do sessions expire unexpectedly?",
+      "mode": "troubleshoot",
+      "entities": [
+        "session",
+        "expire"
+      ],
+      "retrieved": [
+        "session-lifecycle-concept",
+        "download-pipeline-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T01",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 1051,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 3
+    }
+  },
+  {
+    "qid": "T02",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 445,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why are selectors flaky?",
+      "mode": "troubleshoot",
+      "entities": [
+        "selector"
+      ],
+      "retrieved": [
+        "selector-strategy-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T02",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 28,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 0
+    }
+  },
+  {
+    "qid": "T03",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 756,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why does my scraper get blocked?",
+      "mode": "troubleshoot",
+      "entities": [
+        "scraper",
+        "blocked"
+      ],
+      "retrieved": [
+        "anti-detection-principle",
+        "blocking-rate-limiting-principle"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T03",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 1132,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 3
+    }
+  },
+  {
+    "qid": "T04",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 1042,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why does the browser crash after multiple navigations?",
+      "mode": "troubleshoot",
+      "entities": [
+        "browser",
+        "crash",
+        "navigation",
+        "navigations",
+        "multiple navigations"
+      ],
+      "retrieved": [
+        "browser-profiles-concept",
+        "session-lifecycle-concept",
+        "health-check-pattern",
+        "playwright-concept",
+        "retry-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T04",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 13
+    }
+  },
+  {
+    "qid": "T05",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 1053,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why is data extraction missing content?",
+      "mode": "troubleshoot",
+      "entities": [
+        "data extraction",
+        "extraction",
+        "missing"
+      ],
+      "retrieved": [
+        "incremental-extraction-pattern",
+        "download-pipeline-pattern",
+        "blocking-rate-limiting-principle"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T05",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 11
+    }
+  },
+  {
+    "qid": "T06",
+    "mode": "troubleshoot",
+    "provider": "hpf",
+    "answer_length": 460,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Why does the health check keep failing?",
+      "mode": "troubleshoot",
+      "entities": [
+        "health check",
+        "failing"
+      ],
+      "retrieved": [
+        "health-check-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "likely_causes",
+        "external_factors"
+      ]
+    }
+  },
+  {
+    "qid": "T06",
+    "mode": "troubleshoot",
+    "provider": "rag",
+    "answer_length": 626,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 4
+    }
+  },
+  {
+    "qid": "DS01",
+    "mode": "design",
+    "provider": "hpf",
+    "answer_length": 849,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Design a resilient scraper",
+      "mode": "design",
+      "entities": [
+        "scraper",
+        "resilient"
+      ],
+      "retrieved": [
+        "anti-detection-principle",
+        "blocking-rate-limiting-principle",
+        "selector-strategy-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "approaches",
+        "recommended",
+        "pitfalls",
+        "best_practices"
+      ]
+    }
+  },
+  {
+    "qid": "DS01",
+    "mode": "design",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "DS02",
+    "mode": "design",
+    "provider": "hpf",
+    "answer_length": 403,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Build a production download pipeline",
+      "mode": "design",
+      "entities": [
+        "download pipeline",
+        "production"
+      ],
+      "retrieved": [
+        "download-pipeline-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "approaches",
+        "recommended",
+        "pitfalls",
+        "best_practices"
+      ]
+    }
+  },
+  {
+    "qid": "DS02",
+    "mode": "design",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "DS03",
+    "mode": "design",
+    "provider": "hpf",
+    "answer_length": 850,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Design a retry mechanism for CDP operations",
+      "mode": "design",
+      "entities": [
+        "cdp",
+        "retry"
+      ],
+      "retrieved": [
+        "retry-pattern",
+        "cdp-concept",
+        "nodriver-concept",
+        "playwright-concept",
+        "health-check-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "approaches",
+        "recommended",
+        "pitfalls",
+        "best_practices"
+      ]
+    }
+  },
+  {
+    "qid": "DS03",
+    "mode": "design",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  },
+  {
+    "qid": "DS04",
+    "mode": "design",
+    "provider": "hpf",
+    "answer_length": 862,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "question": "Design a session management system for browser automation",
+      "mode": "design",
+      "entities": [
+        "session",
+        "session management",
+        "browser",
+        "automation"
+      ],
+      "retrieved": [
+        "session-lifecycle-concept",
+        "browser-profiles-concept",
+        "playwright-concept",
+        "selenium-concept",
+        "health-check-pattern"
+      ],
+      "argument_keys": [
+        "problem",
+        "approaches",
+        "recommended",
+        "pitfalls",
+        "best_practices"
+      ]
+    }
+  },
+  {
+    "qid": "DS04",
+    "mode": "design",
+    "provider": "rag",
+    "answer_length": 863,
+    "time_seconds": 0.0,
+    "failure_reason": null,
+    "trace": {
+      "provider": "rag",
+      "objects_consulted": 14
+    }
+  }
+]

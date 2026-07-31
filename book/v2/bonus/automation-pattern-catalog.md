@@ -16,11 +16,11 @@ Problem → Forces → Architecture → Implementation → When to Use → When 
 
 ---> **Quick Take**
 > If you're short on time:
-> - ✓ Default to Polling (simplest). Switch only when measured.
-> - ✓ Always bound queue sizes — unbounded queues are memory leaks.
-> - ✓ Circuit breakers protect targets; retry budgets protect you.
-> - ✓ Design for idempotency before adding retry logic.
-> - ✓ Caps on restarts prevent supervisors from masking permanent failures.
+> - [Y] Default to Polling (simplest). Switch only when measured.
+> - [Y] Always bound queue sizes — unbounded queues are memory leaks.
+> - [Y] Circuit breakers protect targets; retry budgets protect you.
+> - [Y] Design for idempotency before adding retry logic.
+> - [Y] Caps on restarts prevent supervisors from masking permanent failures.
 > 
 > Estimated reading: 16 minutes
 > 
@@ -90,9 +90,9 @@ async def poll(url: str, interval: int = 3600):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 11 — Polling vs Event-Driven](#)
-- Failure Playbook: [Pattern 5 — Page Loads Forever](#)
-- Design Review: [Pre-Flight — Is Automation Justified?](#)
+- Architecture Guide: Decision 11 — Polling vs Event-Driven
+- Failure Playbook: Pattern 5 — Page Loads Forever
+- Design Review: Pre-Flight — Is Automation Justified?
 
 
 ### Production Rule
@@ -167,9 +167,9 @@ async def worker():
 
 
 **Related Reading**
-- Architecture Guide: [Decision 12 — Queue vs Direct Execution](#)
-- Failure Playbook: [Pattern 12 — Job Overlap](#)
-- War Stories: [Story 11 — The Migration That Forgot the Profiles](#)
+- Architecture Guide: Decision 12 — Queue vs Direct Execution
+- Failure Playbook: Pattern 12 — Job Overlap
+- War Stories: Story 11 — The Migration That Forgot the Profiles
 
 
 ### Production Rule
@@ -238,9 +238,9 @@ async def process_all(jobs):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 1 — Single vs Multiple Browsers](#), [Decision 7 — Profiles per Worker](#)
-- Failure Playbook: [Pattern 2 — Profile Locked](#)
-- War Stories: [Story 14 — The Profile That Belonged to Two Clients](#)
+- Architecture Guide: Decision 1 — Single vs Multiple Browsers, Decision 7 — Profiles per Worker
+- Failure Playbook: Pattern 2 — Profile Locked
+- War Stories: Story 14 — The Profile That Belonged to Two Clients
 
 
 ### Production Rule
@@ -309,9 +309,9 @@ async def consume(queue):
 
 
 **Related Reading**
-- Architecture Guide: [Architecture B — Multi-Supplier Pipeline](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- Design Review: [Red Flags — Stop and Fix Before Proceeding](#)
+- Architecture Guide: Architecture B — Multi-Supplier Pipeline
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- Design Review: Red Flags — Stop and Fix Before Proceeding
 
 
 ### Production Rule
@@ -397,9 +397,9 @@ class CircuitBreaker:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- War Stories: [Story 4 — The Retry Loop That DDoSed a Supplier](#)
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- War Stories: Story 4 — The Retry Loop That DDoSed a Supplier
 
 
 ### Production Rule
@@ -475,9 +475,9 @@ async def retry_with_backoff(fn, max_attempts=3, base_delay=2):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
-- Failure Playbook: [Pattern 1 — Chrome Won't Start](#)
-- War Stories: [Story 4 — The Retry Loop That DDoSed a Supplier](#)
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
+- Failure Playbook: Pattern 1 — Chrome Won't Start
+- War Stories: Story 4 — The Retry Loop That DDoSed a Supplier
 
 
 ### Production Rule
@@ -548,9 +548,9 @@ def load_checkpoint(file="checkpoint.json") -> str:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 7 — Profiles per Worker vs Shared](#)
-- Failure Playbook: [Pattern 15 — Profile Corruption](#)
-- Design Review: [Red Flags — Shared Profiles](#)
+- Architecture Guide: Decision 7 — Profiles per Worker vs Shared
+- Failure Playbook: Pattern 15 — Profile Corruption
+- Design Review: Red Flags — Shared Profiles
 
 
 ### Production Rule
@@ -621,9 +621,9 @@ class IdempotentProcessor:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 8 — Browser Profiles vs Stateless Sessions](#)
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- War Stories: [Story 1 — The Login That Failed Only on Mondays](#)
+- Architecture Guide: Decision 8 — Browser Profiles vs Stateless Sessions
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- War Stories: Story 1 — The Login That Failed Only on Mondays
 
 
 ### Production Rule
@@ -700,9 +700,9 @@ async def extract_all(sources: list) -> dict:
 
 
 **Related Reading**
-- Architecture Guide: [Architecture B — Multi-Supplier Pipeline](#)
-- Failure Playbook: [Pattern 12 — Job Overlap](#)
-- War Stories: [Story 12 — The Endless Loop That Cost $5,000](#)
+- Architecture Guide: Architecture B — Multi-Supplier Pipeline
+- Failure Playbook: Pattern 12 — Job Overlap
+- War Stories: Story 12 — The Endless Loop That Cost $5,000
 
 
 ### Production Rule
@@ -793,9 +793,9 @@ class Supervisor:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
-- Failure Playbook: [Pattern 6 — CDP Connection Lost](#)
-- War Stories: [Story 3 — The Chrome Update That Corrupted Profiles](#)
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
+- Failure Playbook: Pattern 6 — CDP Connection Lost
+- War Stories: Story 3 — The Chrome Update That Corrupted Profiles
 
 
 ### Production Rule
@@ -866,9 +866,9 @@ async def run_saga():
 
 
 **Related Reading**
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- War Stories: [Story 6 — The Account Lockout From 5 Login Retries](#)
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- War Stories: Story 6 — The Account Lockout From 5 Login Retries
 
 
 ### Production Rule
@@ -936,9 +936,9 @@ async def monitor_network(page):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 9 — Browser Automation vs API](#), [Architecture B](#)
-- Failure Playbook: [Pattern 8 — Rate Limited](#)
-- War Stories: [Story 8 — The CAPTCHA That Wasn't](#)
+- Architecture Guide: Decision 9 — Browser Automation vs API, Architecture B
+- Failure Playbook: Pattern 8 — Rate Limited
+- War Stories: Story 8 — The CAPTCHA That Wasn't
 
 
 ### Production Rule
@@ -1006,8 +1006,8 @@ class Pipeline:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 2 — Tabs vs Processes](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#), [Pattern 6 — CDP Connection Lost](#)
+- Architecture Guide: Decision 2 — Tabs vs Processes
+- Failure Playbook: Pattern 11 — 0 Records Extracted, Pattern 6 — CDP Connection Lost
 
 
 ### Production Rule
@@ -1073,9 +1073,9 @@ async def process_with_dlq(queue, dlq):
 
 
 **Related Reading**
-- Architecture Guide: [Architecture C — Client Reporting Platform](#)
-- Failure Playbook: [Pattern 10 — Quarantine Growth](#)
-- Design Review: [Post-Implementation Review](#)
+- Architecture Guide: Architecture C — Client Reporting Platform
+- Failure Playbook: Pattern 10 — Quarantine Growth
+- Design Review: Post-Implementation Review
 
 
 ### Production Rule
@@ -1133,9 +1133,9 @@ For each item in items:
 
 
 **Related Reading**
-- Architecture Guide: [Architecture D — Full Operations Platform](#)
-- Failure Playbook: [Recovery Decision Tree](#)
-- War Stories: [Story 20 — The 18-Month Silent Failure](#)
+- Architecture Guide: Architecture D — Full Operations Platform
+- Failure Playbook: Recovery Decision Tree
+- War Stories: Story 20 — The 18-Month Silent Failure
 
 
 ### Production Rule

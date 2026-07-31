@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:46
+Path: healthcare_claims
+Depth: Level 1
+=================================================================
+
+WEDGE: healthcare_claims — Healthcare Claims Verification
+  Verify that every Medicare/insurance claim is backed by verifiable clinical evidence — not just EHR documentation.
+  Tagline: Prove the care before you bill.
+  Pain: $5.1B/year in improper Medicare payments. $6.5B DOJ fraud takedown. 34% medication error rate.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  50 █████░░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  85 ████████░░
+  incumbent_weakness  :  40 ████░░░░░░
+  switching_cost      :  90 █████████░
+  OVERALL             : 67
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (Hospital CFO / Compliance Officer / Revenue Cycle VP)
+  budget: Budget: $2-12M/yr for compliance & audit IT (part of $50M+ hospital IT spend)
+  switching_cost: Low switching cost — additive integration
+  buying_trigger: Fear-based trigger (regulatory/financial loss)
+  incumbent_weakness: Incumbents could build this
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: Hospital CFO / Compliance Officer / Revenue Cycle VP
+  Budget: $2-12M/yr for compliance & audit IT (part of $50M+ hospital IT spend)
+  Current vendor: Epic (EHR), manual audit teams, DOJ data fusion center (government built own!)
+  Current alternative: Manual chart audits (20% of claims sampled), reactive DOJ enforcement, post-hoc analytics
+  Switching cost: HIGH — Epic lock-in, HIPAA compliance, clinician workflow disruption
+  Buying trigger: DOJ data mining finds pattern → ZPIC audit → repayment demand → scramble for evidence
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  Epic profits from ambiguity. Hospitals avoid evidence that creates liability. DOJ builds its OWN tools because vendors won't.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  Post-claim verification API: submit claim ID → get back evidence score (was this claim supported by verifiable clinical actions?)
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 2:
+----------------------------------------
+  Interview target: Hospital CFO / Compliance Officer / Revenue Cycle VP at companies with $500M+ revenue in regulated industries

@@ -1,0 +1,39 @@
+{
+  "qid": "C06",
+  "mode": "compare",
+  "question": "Browser profile vs fresh session",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Browser profile vs fresh session",
+        "mode": "compare",
+        "entities": [
+          "browser profile",
+          "session",
+          "browser"
+        ],
+        "retrieved": [
+          "session-lifecycle-concept",
+          "browser-profiles-concept",
+          "health-check-pattern",
+          "playwright-concept",
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "criteria",
+          "scoring",
+          "tradeoffs",
+          "recommendation"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 12
+      }
+    }
+  }
+}

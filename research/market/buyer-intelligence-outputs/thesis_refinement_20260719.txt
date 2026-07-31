@@ -1,0 +1,128 @@
+═══════════════════════════════════════════════════════════════════
+EXECUTION PROOF — THESIS REFINEMENT (User Feedback Round 2)
+Date: 2026-07-19
+Source: User's investor-style assessment of Phase 2 thesis pivot
+═══════════════════════════════════════════════════════════════════
+
+# DECISIONS
+
+## 1. PRODUCT WEDGE SHARPENED
+Old: "Execution Proof — every AI tool call → Verified"
+New: "AI Agent Debugger — understand why your agent did something stupid"
+
+Insight: Developers don't install compliance tools. They install debuggers.
+The wedge is developer pain (debugging), not enterprise pain (compliance).
+Compliance becomes the expansion, not the entry.
+
+## 2. MVP REDEFINED
+Old: "Build a verification platform"
+New: "Build a tiny open-source execution-proof recorder, release it, and see 
+      whether AI agent developers install it without being asked"
+
+MVP: `pip install execution-proof`
+  @verify decorator that wraps any function
+  Produces execution-proof.json with: input, output, tool calls, timestamps, artifacts
+  Open-source. Free. No dashboards. No cloud.
+
+## 3. COMPETITIVE LANDSCAPE UPDATED
+Real threat is NOT OpenAI/Anthropic/incumbents.
+Real threat IS: Langfuse, LangSmith, Arize, Braintrust
+
+Their evolution: Observe agent → Evaluate agent → Verify agent
+Differentiation cannot be "we show logs" (they already do).
+Differentiation MUST be: "We produce evidence that an external party can trust."
+
+## 4. MOAT REDEFINED
+Old: "More verified actions → better baselines → smarter detection"
+New: "A standard for AI action receipts"
+
+The moat is not data volume. The moat is FORMAT ADOPTION.
+Think: JWT for identity. OpenTelemetry for telemetry. Git for version control.
+The dream: Execution Proof Receipt (EPR) becomes the standard format
+that EVERY AI system emits.
+
+## 5. BUYING PERSONA IDENTIFIED
+Not CTOs. Not compliance officers (yet).
+Persona 1: AI engineering leads building agents in production
+  Questions: How many agents? What happens on failure? How do you debug?
+  Would a replay/debugging system save time?
+
+Persona 2: Security/compliance teams
+  Questions: Are agents allowed autonomous actions? What evidence required?
+  Who owns agent accountability?
+
+Persona 3: RPA teams (expansion wedge)
+  Questions: How do you prove a bot completed a task? How do auditors verify?
+
+═══════════════════════════════════════════════════════════════════
+
+# REVISED COMPANY THESIS (Post-Refinement)
+
+"AI agents will become digital employees. Organizations will need the 
+equivalent of transaction receipts, audit trails, and security logs for 
+every autonomous action. Execution Proof creates a standard evidence 
+layer that allows developers and enterprises to understand, debug, 
+authorize, and prove what AI agents did."
+
+## Phase 0: Open-source SDK
+  Package: pip install execution-proof
+  Usage: @verify decorator on any function/tool call
+  Output: execution-proof.json (input, output, tool calls, timestamps, artifacts)
+  Distribution: GitHub, PyPI, developer word-of-mouth
+  Goal: Do developers install it without being asked?
+
+## Phase 1: Agent Framework Integrations
+  OpenAI Agents SDK, LangGraph, CrewAI, AutoGen, Browser-use
+  Target: AI agent developers actively building in production
+
+## Phase 2: Replay + Evaluation + Policy
+  Replay failed agent runs
+  Evaluate decisions against policies
+  Require human approval for high-risk actions
+
+## Phase 3: Enterprise
+  Audit vault, compliance reports, governance dashboards
+  Regulatory-grade evidence storage
+
+═══════════════════════════════════════════════════════════════════
+
+# USER'S FINAL VERDICT
+
+Before pivot: "Interesting research, unclear company."
+After pivot: "Potential infrastructure company, but needs a developer wedge."
+
+Scores:
+  Problem importance:  9/10
+  Timing:             10/10
+  Founder fit:         9/10
+  Market size:        10/10
+  Competition:         7/10
+  MVP clarity:         7/10
+  Distribution:        6/10
+  Venture potential:   8/10
+
+"The next mistake would be spending 3 months building.
+The next correct move is: Build a tiny open-source execution-proof recorder, 
+release it, and see whether AI agent developers install it without being asked.
+If nobody cares, the thesis is wrong.
+If developers start using it, you may have found the foundation layer."
+
+═══════════════════════════════════════════════════════════════════
+
+# RESEARCH EVOLUTION TIMELINE
+
+Phase 1 (Problem Decomposition):
+  240 files | 12 branches | 20 levels deep
+  Output: 4 primitives (Identity, Intent, Evidence, Time)
+  Outcome: "Interesting research, unclear company"
+
+Phase 2 (Buyer Intelligence):
+  140 files | 7 wedges | 10 competitors mapped
+  Output: Corrected ranking (AI Agents #1), renamed to "Execution Proof"
+  Outcome: "Potential infrastructure company, needs developer wedge"
+
+Phase 3 (Current):
+  Thesis refined to "AI Agent Debugger"
+  MVP: pip install execution-proof (open-source @verify decorator)
+  Next: Build + release + measure adoption
+  Outcome: Founders will know within 30 days if thesis is real

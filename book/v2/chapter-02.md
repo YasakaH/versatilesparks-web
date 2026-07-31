@@ -278,43 +278,43 @@ After navigating, the browser holds state: cookies, local storage, session stora
 
 ## Common Mistakes
 
-### [✗] Using time.sleep() for page readiness
+### [X] Using time.sleep() for page readiness
 
 A hardcoded wait is a promise that the page will be ready in exactly N seconds. This promise is always broken eventually.
 
 **Fix:** Replace every `time.sleep()` with `page.wait_for(selector)` or a polling loop.
 
-### [✗] Assuming the load event means the page is ready
+### [X] Assuming the load event means the page is ready
 
 Single-page applications load a shell HTML, then populate it with API data. The load event fires before the data arrives.
 
 **Fix:** Wait for a data-bearing element, not the document ready state.
 
-### [✗] Building selectors that depend on page structure
+### [X] Building selectors that depend on page structure
 
 Selectors like `div:nth-child(3) > table > tr:nth-child(2)` break when the page adds a new section or changes the table layout.
 
 **Fix:** Use data attributes (`[data-product-id]`), stable IDs, or text content patterns.
 
-### [✗] Taking screenshots as proof of correctness
+### [X] Taking screenshots as proof of correctness
 
-A screenshot shows the page rendered. It does not show whether `₹0` was stored instead of `₹89,999`.
+A screenshot shows the page rendered. It does not show whether `Rs.0` was stored instead of `Rs.89,999`.
 
 **Fix:** Validate extracted data against expected ranges and types. Screenshots are for debugging, not validation.
 
-### [✗] Blocking the event loop during navigation
+### [X] Blocking the event loop during navigation
 
 Every `await page.get()` and `await page.evaluate()` blocks your asyncio event loop for the round-trip. If you have concurrent tabs, they wait.
 
 **Fix:** Use `asyncio.gather()` for truly independent page interactions.
 
-### [✗] Forgetting to handle the back/forward cache
+### [X] Forgetting to handle the back/forward cache
 
 Modern Chrome caches pages in the back/forward cache (bfcache). A page restored from bfcache does not fire a new load event — it fires a `pageshow` event instead.
 
 **Fix:** Listen for `pageshow` if back/forward navigation is part of your flow.
 
-### [✗] Using the wrong version of wait_for
+### [X] Using the wrong version of wait_for
 
 `page.wait_for(5)` waits 5 seconds regardless of whether the condition is met. `page.wait_for(selector, timeout=5)` waits up to 5 seconds but returns as soon as the element appears.
 
@@ -383,10 +383,10 @@ Navigation and interaction failures are timing failures until proven otherwise. 
 - JavaScript execution via `evaluate()` is an escape hatch with maintenance cost
 
 ### Common Mistakes
-- [✗] Using `time.sleep()` for page readiness — fails when network conditions change
-- [✗] Assuming the load event means the page is ready — SPA data loads after
-- [✗] Using structural selectors that depend on element position — break on layout changes
-- [✗] Taking screenshots as proof of correctness — show the page, not the data
+- [X] Using `time.sleep()` for page readiness — fails when network conditions change
+- [X] Assuming the load event means the page is ready — SPA data loads after
+- [X] Using structural selectors that depend on element position — break on layout changes
+- [X] Taking screenshots as proof of correctness — show the page, not the data
 
 ### Senior Takeaways
 - A page that loads but shows no data is a navigation failure, not an extraction failure

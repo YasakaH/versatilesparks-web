@@ -1,0 +1,50 @@
+# Computer Automation Capabilities
+
+## browser-control
+description: "Navigate, click, type, extract, and validate web browser interactions"
+tools:
+  - playwright
+  - selenium
+  - puppeteer
+priority: 3  # Browser automation
+
+## desktop-control
+description: "Automate Windows desktop applications and OS operations"
+tools:
+  - powershell
+  - python-scripting
+  - pywin32
+priority: 4  # Desktop automation
+
+## visual-navigation
+description: "Computer use via vision-based interaction (screenshots + mouse/keyboard)"
+tools:
+  - screenshot-analysis
+  - mouse-control
+  - keyboard-control
+priority: 5  # Last resort
+
+## file-management
+description: "Automated file system operations (copy, move, archive, cleanup)"
+tools:
+  - powershell
+  - python-shutil
+  - robocopy
+priority: 2  # CLI/Script
+
+## task-execution
+description: "Execute scripts, commands, and scheduled tasks"
+tools:
+  - powershell
+  - cmd
+  - python-subprocess
+  - task-scheduler
+priority: 2  # CLI/Script
+
+## email-automation
+description: "Automate email operations (send, read, filter, archive)"
+tools:
+  - himalaya
+  - smtplib
+  - imaplib
+priority: 1  # API first

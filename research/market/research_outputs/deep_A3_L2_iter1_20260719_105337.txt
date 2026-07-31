@@ -1,0 +1,35 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: A3
+Date: 2026-07-19 10:53:37
+Iteration: 1 | Depth: Level 2
+Path: A3 → A3_tech_cause
+=================================================================
+
+CURRENT PROBLEM: A3
+  Wrong status reported
+  Script returns exit code 0 but output is empty or contains errors. System reports success when it failed.
+  Score: 10pts
+  Industries: browser
+
+  Supporting evidence (1 cases):
+    [browser] Browser-Use #5132: Download callback never fires. Script hangs forever. Event-driven completio
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] A3_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [2] A3_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [3] A3_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [4] A3_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'A3_tech_cause' (score: 30)
+Path so far: A3 → A3_tech_cause

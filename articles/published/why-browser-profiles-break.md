@@ -1,0 +1,291 @@
+---
+title: "Why Your nodriver Browser Profiles Break (and How to Fix Them)"
+description: "Your automation worked yesterday. Today it hangs on launch or asks for login again. The code didn't change — the profile did. Here's why profiles break and how to build reliable sessions."
+published: true
+date: 2026-07-31
+tags: [nodriver, python, profiles, cdp]
+canonical_url: https://versatilesparks.qzz.io/blog/why-browser-profiles-break
+cover_image:
+series:
+slug: why-browser-profiles-break
+---
+
+*This article is adapted from the Python Browser Automation Cookbook.*
+
+Your automation worked yesterday.
+
+Today it opens Chrome and hangs forever. Or worse — it starts fine, runs for an hour, then quietly asks for login again mid-job. You didn't change the code. You didn't change the site. The browser profile did.
+
+Profiles are where the browser keeps everything that makes it *your* browser: cookies, storage, preferences, session state. nodriver makes this easier to control because you work directly with the browser profile through CDP — but that also means you own the lifecycle decisions. And profiles are the most underestimated failure point in browser automation. Not because they're complex — because they sit silently between your code and the site, and only make themselves known when they break.
+
+Here are the five profile failures I see most often, and how to build sessions that survive them.
+
+---
+
+## What a Browser Profile Actually Contains
+
+A profile is a directory, and the browser treats it as a living database:
+
+```
+chrome-profile/
+├── Cookies          # SQLite — session + persistent cookies
+├── Local Storage    # leveldb — site data that survives restarts
+├── IndexedDB        # structured site storage
+├── Login Data       # saved credentials (SQLite)
+├── Preferences      # JSON — settings, flags, default behaviors
+├── Cache/           # cached responses and assets
+├── Extensions/      # installed extensions
+└── Session/         # tabs, history, restore state
+```
+
+When you launch with `user_data_dir=...`, Chrome opens these files, reads your state, and locks the directory. That single fact — the directory is a *locked, shared resource* — is the root of most profile failures.
+
+---
+
+## Mistake #1 — Treating Profiles as Folders
+
+**The mistake:** You point two instances at the same profile directory and expect them to share it politely.
+
+**The reality:** Chrome uses a filesystem lock to guarantee exclusive access. The second instance doesn't queue — it fails:
+
+```
+error: User data directory is already in use
+       Specify a unique user data directory or relaunch Chrome
+       with a custom user data directory
+```
+
+```python
+# ❌ Both instances fight over the same directory
+browser1 = await nodriver.start(user_data_dir="./chrome-profile")
+browser2 = await nodriver.start(user_data_dir="./chrome-profile")
+```
+
+```python
+# ✅ One directory per instance
+browser1 = await nodriver.start(user_data_dir="./chrome-profile-job-1")
+browser2 = await nodriver.start(user_data_dir="./chrome-profile-job-2")
+```
+
+The lock is a small file named `SingletonLock` inside the profile directory. It holds the PID of the running browser. You can check it from your own code before launching:
+
+```python
+from pathlib import Path
+import os
+
+def profile_is_locked(profile_dir: Path) -> bool:
+    lock = profile_dir / "SingletonLock"
+    if not lock.exists():
+        return False
+    try:
+        pid = int(lock.read_text().strip())
+        os.kill(pid, 0)          # signal 0 = "does the process exist?"
+    except (ValueError, ProcessLookupError):
+        return False             # stale lock from a dead process
+    return True
+
+if profile_is_locked(Path("./profiles/job-7")):
+    raise SystemExit("profile is locked by another instance")
+```
+
+A stale `SingletonLock` — from a crash, a leftover process, or a container that didn't shut down — will block your launch even though no browser is running. Checking and cleaning stale locks is cheap insurance.
+
+---
+
+## Mistake #2 — Sharing One Profile Across Jobs
+
+**The mistake:** Every job in your queue launches with the same `user_data_dir`, so the profile becomes the bottleneck *and* the crash point.
+
+**The reality:** When jobs run sequentially this mostly works — until one job crashes mid-run and leaves the profile locked or corrupted. Then every subsequent job inherits the damage.
+
+```
+Bad:                            Good:
+Job A ─┐                        Job A → profile-a
+       ├── chrome-profile       Job B → profile-b
+Job B ─┘                        Job C → profile-c
+```
+
+```python
+# ❌ A single shared profile
+profile = "./profiles/shared"
+for task in queue:
+    browser = await nodriver.start(user_data_dir=profile)
+```
+
+```python
+# ✅ Profile path derived from the task — unique per job
+profile_dir = Path(f"./profiles/task-{task.id}")
+profile_dir.mkdir(parents=True, exist_ok=True)
+browser = await nodriver.start(user_data_dir=str(profile_dir))
+```
+
+One profile per job isolates failures. A corrupted profile breaks one task, not the whole queue. This is also what makes horizontal scaling possible later: workers don't contend over shared state they don't actually need to share.
+
+---
+
+## Mistake #3 — No Profile Lifecycle Management
+
+**The mistake:** You create profiles implicitly (the browser makes one when you pass a new `user_data_dir`) and never think about them again — until the disk fills up with thousands of stale directories.
+
+**The reality:** A profile goes through stages, and each stage needs a decision:
+
+```
+create → initialize → authenticate → validate → reuse → retire
+```
+
+```python
+import shutil
+from pathlib import Path
+
+PROFILES = Path("./profiles")
+
+def create_profile(task_id: str) -> Path:
+    profile = PROFILES / task_id
+    if profile.exists():
+        shutil.rmtree(profile)     # clean slate for a new run
+    profile.mkdir(parents=True)
+    return profile
+```
+
+The stages that matter most:
+
+- **Authenticate** — do it once, explicitly, and treat it as a separate step from scraping.
+- **Validate** — verify the session is actually good *before* starting the real work. A cheap check: load a logged-in-only page and confirm you're not redirected to a login.
+
+```python
+async def session_is_valid(browser, check_url: str) -> bool:
+    page = await browser.get(check_url)
+    return page.url != LOGIN_URL      # redirected → session is dead
+```
+
+- **Retire** — when a job finishes, decide the profile's fate: keep it (reuse later), or delete it (ephemeral). The default for automation should usually be ephemeral; persistence is a deliberate choice, not a default.
+
+---
+
+## Mistake #4 — Assuming Persistent = Permanent
+
+**The mistake:** You set up a persistent profile, logged in once, and assumed the session would last forever.
+
+**The reality:** Sessions die on schedules you don't control:
+
+- **Cookies expire.** Session cookies die when the browser closes; persistent cookies carry a `Max-Age`, often days or weeks.
+- **Tokens rotate.** OAuth refresh tokens are rotated on use, and sites increasingly invalidate tokens on suspicious activity — like a new IP or a new user agent.
+- **Sites invalidate sessions.** A password change, a security flag, or too many concurrent logins can kill every existing session instantly.
+
+The failure mode is insidious: your persistent profile looks healthy, but the session inside it is dead. The script "works" for login checks and cache hits, then fails the moment it needs an authenticated request.
+
+```python
+# ❌ Trusting the profile, never verifying the session
+browser = await nodriver.start(user_data_dir="./profiles/task-42")
+page = await browser.get("https://app.example.com/dashboard")
+data = await page.find("div.user-data")      # redirected to login, data is None
+```
+
+```python
+# ✅ Validate the session before committing to the job
+if not await session_is_valid(browser, CHECK_URL):
+    raise RuntimeError("session expired — re-authenticate before scraping")
+```
+
+Persistent means "survives restarts." It does not mean "survives forever." Treat re-authentication as a normal event in the lifecycle, not a surprise.
+
+---
+
+## Mistake #5 — No Recovery Strategy
+
+**The mistake:** When the profile dies, you fix it by hand: kill the browser, delete the directory, log in again, re-run.
+
+**The reality:** At 2 AM, unattended, there is no hand. The system needs to recover itself.
+
+Corruption happens when the browser is terminated abruptly — `kill -9`, power loss, a crashed container — during a SQLite write to `Cookies`, `History`, or `Login Data`. One common cause, and the signature errors look like:
+
+```
+sqlite3.DatabaseError: database disk image is malformed
+unable to open database file
+SQLite error: database or disk is full
+```
+
+A recovery path:
+
+```
+profile unhealthy
+       ↓
+detect
+       ↓
+backup state
+       ↓
+recreate
+       ↓
+re-authenticate
+```
+
+```python
+import asyncio
+
+async def recover_profile(browser, profile_dir: Path):
+    await browser.stop()                       # graceful shutdown
+    backup = profile_dir.with_name(profile_dir.name + ".corrupt")
+    shutil.move(str(profile_dir), str(backup)) # keep evidence, don't delete
+    profile_dir.mkdir(parents=True)
+    browser = await nodriver.start(user_data_dir=str(profile_dir))
+    await authenticate(browser)                # re-login
+    return browser
+```
+
+The browser will recreate a fresh profile on the next launch — but a brand-new profile is anonymous. That's why recovery ends with re-authentication, not relaunch.
+
+Graceful shutdown matters more than you'd think. `await browser.stop()` gives Chrome a chance to close its SQLite databases cleanly. A `SIGTERM`-handling wrapper around your worker means the difference between a healthy profile and a corrupted one.
+
+---
+
+## The Production Picture
+
+Here's how the workflow changes once profiles are handled deliberately:
+
+```
+Toy Script                          Production Workflow
+────────────                        ────────────────────
+Launch Browser                      Check Profile Lock
+        │                                   │
+        ▼                                   ▼
+     Scrape                          Unique Profile Per Job
+        │                                   │
+        ▼                                   ▼
+     Crash                            Validate Session
+                                            │
+                                            ▼
+                                      Graceful Shutdown
+                                            │
+                                            ▼
+                                      Detect + Recover
+                                            │
+                                            ▼
+                                        Retire
+```
+
+| Failure | Symptom | Fix |
+|---|---|---|
+| Concurrent access | `profile is already in use`, `SingletonLock` | Unique `user_data_dir` per instance |
+| Shared profiles | One crash poisons the whole queue | Profile per task, isolation |
+| No lifecycle | Disk full of stale profiles, unpredictable state | create → validate → retire |
+| Persistent ≠ permanent | Dead sessions, silent failures | Validate session before work |
+| Corruption | `database disk image is malformed` | Detect, backup, recreate, re-authenticate |
+
+Profiles aren't mysterious. They're directories with lock files and SQLite databases — and every failure mode above follows directly from treating them as either disposable or indestructible. The correct model is a managed resource with a lifecycle, a health check, and a recovery path.
+
+**If you're building automations that need to survive for days — not minutes — the Python Browser Automation Cookbook goes deeper into these production patterns.**
+
+It includes:
+
+* 30+ production recipes ready to run
+* Complete profile and session management recipes with re-authentication logic
+* Reusable utility modules for lock checks, health monitoring, and recovery
+* Docker-ready project templates
+* Explanations of *why* each pattern works — not just the code
+
+Every recipe is written for nodriver and tested in the same conditions this article describes.
+
+👉 [Python Browser Automation Cookbook](https://gum.co/python-browser-automation-cookbook?ref=why-browser-profiles-break)
+
+---
+
+*Questions or corrections? Drop a comment below. I reply to every one.*

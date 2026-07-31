@@ -1,0 +1,1 @@
+{"action":"next","messages":[{"id":"msg1","role":"user","content":{"content_type":"text","parts":["HPF v2 verification test. If received, reply OK."]}}],"conversation_id":null,"parent_message_id":null,"model":"text-davinci-002-render-sha","timezone_offset_min":-480,"suggestions":[],"history_and_training_disabled":true}

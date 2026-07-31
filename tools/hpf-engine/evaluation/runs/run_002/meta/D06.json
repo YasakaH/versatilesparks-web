@@ -1,0 +1,35 @@
+{
+  "qid": "D06",
+  "mode": "decide",
+  "question": "Should I use anti-detection techniques?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I use anti-detection techniques?",
+        "mode": "decide",
+        "entities": [
+          "anti-detection"
+        ],
+        "retrieved": [
+          "anti-detection-principle",
+          "blocking-rate-limiting-principle"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    }
+  }
+}

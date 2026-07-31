@@ -1,0 +1,35 @@
+{
+  "qid": "DS02",
+  "mode": "design",
+  "question": "Build a production download pipeline",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Build a production download pipeline",
+        "mode": "design",
+        "entities": [
+          "download pipeline",
+          "production"
+        ],
+        "retrieved": [
+          "download-pipeline-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "approaches",
+          "recommended",
+          "pitfalls",
+          "best_practices"
+        ]
+      }
+    }
+  }
+}

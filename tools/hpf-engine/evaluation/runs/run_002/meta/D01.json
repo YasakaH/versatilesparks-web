@@ -1,0 +1,36 @@
+{
+  "qid": "D01",
+  "mode": "decide",
+  "question": "Should I migrate from Selenium?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I migrate from Selenium?",
+        "mode": "decide",
+        "entities": [
+          "selenium",
+          "migrate"
+        ],
+        "retrieved": [
+          "selenium-concept",
+          "webdriver-concept"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

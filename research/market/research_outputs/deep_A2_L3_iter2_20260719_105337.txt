@@ -1,0 +1,39 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: A2
+Date: 2026-07-19 10:53:37
+Iteration: 2 | Depth: Level 3
+Path: A2 → A2_no_alert → A2_no_alert_delayed_detection
+=================================================================
+
+CURRENT PROBLEM: A2_no_alert
+  No notification channel configured
+  Evidence: EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN delivers 9,953. Buyer ...
+  Score: 30pts
+  Industries: cross, procurement
+
+  Supporting evidence (3 cases):
+    [cross] EDB #1064: Cron job sends report to dead email alias. 2 subscribers both left company.
+    [procurement] EDI industry: EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN delivers 9,953. B
+    [cross] SEC filing 2024: Automated earnings report extracts 0 rows from database due to schema chang
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] A2_no_alert_delayed_detection: Detection delay exceeds recovery window (70pts $16,200,200,000 [cross,healthcare,logistics,procurement])
+       By the time it's found, it's too late. Cron job sends report to dead email alias. 2 subscribers
+       Evidence: 7 cases — top: [healthcare] $5.1B improper Medicare payments annually. $1.8B not medical
+
+  [2] A2_no_alert_no_alert: No notification channel configured (30pts [cross,procurement])
+       Evidence: Cron job sends report to dead email alias. 2 subscribers both left company. Fail...
+       Evidence: 3 cases — top: [cross] Cron job sends report to dead email alias. 2 subscribers bot
+
+  [3] A2_no_alert_partial_failure: Subset failures invisible in aggregate success (10pts [procurement])
+       Success rate masks individual failures. EDI 850 batch: 10,000 POs. 47 invalid supplier codes. V
+       Evidence: 1 cases — top: [procurement] EDI 850 batch: 10,000 POs. 47 invalid supplier codes. VAN de
+
+  [4] A2_no_alert_format_drift: External interface changes without notice (10pts [cross])
+       Consumer not notified of format change. Automated earnings report extracts 0 rows from database
+       Evidence: 1 cases — top: [cross] Automated earnings report extracts 0 rows from database due 
+
+DECISION: Descending into 'A2_no_alert_delayed_detection' (score: 70)
+Path so far: A2 → A2_no_alert → A2_no_alert_delayed_detection

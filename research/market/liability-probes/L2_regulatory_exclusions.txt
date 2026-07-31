@@ -1,0 +1,48 @@
+[regulatory] Level 1+2 — ISO Exclusions + EU AI Act Timeline
+═══════════════════════════════════════════════════════════════════
+
+ISO EXCLUSIONS — Effective January 2026
+────────────────────────────────────────
+Source: PHL Firm, AJG, Policyholder Pulse
+
+Two new endorsements:
+  CG 40 47 01 26 — Broad exclusion: bodily injury, property damage, 
+    personal/advertising injury from generative AI outputs.
+  CG 40 48 01 26 — Narrower: excludes only Coverage B (personal/
+    advertising injury).
+
+Impact:
+  - ISO forms underpin ~82% of US P&C policies
+  - Rapid adoption expected at renewals
+  - Ends "silent coverage" era for AI risks
+  - Creates coverage gaps for:
+    → Defamatory AI content
+    → IP infringement from AI-generated material
+    → Physical damages from AI-driven errors
+    → Bias, hallucinations, copyright claims
+
+Response needed:
+  - Tech E&O policies
+  - Cyber liability insurance
+  - Standalone AI products (Armilla, Klaimee, Mount, Corgi)
+
+KLAIMEE CONFIRMS (from YC launch):
+  "Major insurers like Berkshire, Chubb, and Travelers are winning 
+  state approval to exclude AI liability from standard commercial 
+  policies."
+  "Every Fortune 500 procurement team is now asking the AI insurance 
+  question."
+
+EU AI ACT — Enforces August 2026
+────────────────────────────────
+High-risk AI systems required to:
+  - Maintain audit trails
+  - Document training data
+  - Enable human oversight
+  - Provide transparency
+
+CORGI SIGNAL
+────────────────────────────────
+$160M B at $1.3B → $106M B1 at $2.6B valuation (weeks later)
+18 months old. $268M total raised. 
+Market is pricing AI insurance as a major new category.

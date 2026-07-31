@@ -275,43 +275,43 @@ services:
 
 ## Common Mistakes
 
-### [✗] Modifying common/ modules per project
+### [X] Modifying common/ modules per project
 
 Every change to `common/` creates a fork that must be maintained separately. When the cookbook updates, you cannot pull the new version without conflict.
 
 **Fix:** Add project-specific logic in separate files that import from `common/`. Never edit `common/`.
 
-### [✗] Copying the entire cookbook into each project
+### [X] Copying the entire cookbook into each project
 
 The cookbook contains 60 recipes, tutorials, and examples. Your project only needs `common/`, `.env.example`, and `docker/`.
 
 **Fix:** Copy only the files your project needs. Delete the rest.
 
-### [✗] Not version-pinning dependencies in requirements.txt
+### [X] Not version-pinning dependencies in requirements.txt
 
 A `requirements.txt` without version pins will install different versions on different machines. A dependency update that breaks your automation becomes an untracked regression.
 
 **Fix:** Use `pip freeze` after testing to pin all dependency versions.
 
-### [✗] Hardcoding environment-specific values
+### [X] Hardcoding environment-specific values
 
 When a project is copied to a new client, URLs, credentials, and schedules must change. Hardcoded values require editing the code.
 
 **Fix:** Every environment-specific value goes in `.env`. The code reads from `config.get()`.
 
-### [✗] Not creating a per-run artifact directory
+### [X] Not creating a per-run artifact directory
 
 Without per-run directories, logs and screenshots from different runs overwrite each other. Debugging yesterday's failure requires yesterday's artifacts.
 
 **Fix:** The Starter Kit creates `runs/YYYY-MM-DD/` per execution.
 
-### [✗] Writing automation logic directly in the recipe file
+### [X] Writing automation logic directly in the recipe file
 
 A recipe file that contains extraction logic, validation, storage, and alerting is hard to test, hard to debug, and hard to reuse.
 
 **Fix:** Separate concerns: recipe orchestrates, extraction functions extract, validation functions validate.
 
-### [✗] Forgetting .env.example
+### [X] Forgetting .env.example
 
 Every team member or client who sets up the project needs to know which environment variables are required. `.env.example` documents this without exposing real values.
 
@@ -380,10 +380,10 @@ The Production Starter Kit is the bridge between learning browser automation pat
 - The dependency graph shows that critical modules (config, logging) have zero dependencies
 
 ### Common Mistakes
-- [✗] Modifying `common/` modules per project — creates forks that cannot pull updates
-- [✗] Copying the entire cookbook into each project — includes 60 recipes you don't need
-- [✗] Not version-pinning dependencies — different versions on different machines
-- [✗] Not creating per-run artifact directories — logs overwrite each other
+- [X] Modifying `common/` modules per project — creates forks that cannot pull updates
+- [X] Copying the entire cookbook into each project — includes 60 recipes you don't need
+- [X] Not version-pinning dependencies — different versions on different machines
+- [X] Not creating per-run artifact directories — logs overwrite each other
 
 ### Senior Takeaways
 - A common library is not overhead — it is leverage. Every pattern extracted reduces future project cost

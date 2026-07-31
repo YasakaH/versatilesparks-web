@@ -1,0 +1,36 @@
+{
+  "id": "publisher-article_published-20260730111242",
+  "source": "publisher",
+  "domain": "publisher",
+  "domain_hierarchy": {
+    "primary": "publisher",
+    "medium": "publisher",
+    "channel": "article_published"
+  },
+  "signal_type": "article_published",
+  "payload": {
+    "article_slug": "5-mistakes-nodriver-beginners",
+    "platforms": [
+      "devto"
+    ],
+    "brief_id": "5-mistakes-nodriver-beginners",
+    "concepts": [
+      "anti-detection",
+      "profiles"
+    ],
+    "action": "publish",
+    "is_draft": true,
+    "result": "draft",
+    "devto_article_id": 4271273,
+    "devto_url": "https://dev.to/fromyasaka/5-mistakes-new-nodriver-users-make-and-how-to-avoid-them-1lkm-temp-slug-7024804",
+    "performance": {
+      "views": 0,
+      "reads": 0,
+      "book_clicks": 0,
+      "sales": 0
+    }
+  },
+  "received": "2026-07-30T11:12:42Z",
+  "processed": false,
+  "notes": null
+}

@@ -1,0 +1,40 @@
+{
+  "qid": "E05",
+  "mode": "explain",
+  "question": "Why do browser profiles matter?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 13
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why do browser profiles matter?",
+        "mode": "explain",
+        "entities": [
+          "browser profile",
+          "browser profiles",
+          "browser"
+        ],
+        "retrieved": [
+          "browser-profiles-concept",
+          "session-lifecycle-concept",
+          "health-check-pattern",
+          "playwright-concept",
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

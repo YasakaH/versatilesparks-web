@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:48
+Path: ai_agent → L2 → L3 → L4 → L5 → L6 → L7 → L8 → L9 → L10
+Depth: Level 10
+=================================================================
+
+WEDGE: ai_agent — AI Agent Execution Verification
+  Prove what an AI agent actually did, how it reached its conclusion, and whether each action was intended.
+  Tagline: Your AI agent 'solved the problem.' Did it, though?
+  Pain: Prompt injection winning. Agent hallucination. No verifiable chain of thought. Benchmarks are 'theater.' 0 evidence of real-world actions.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  50 █████░░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  70 ███████░░░
+  incumbent_weakness  :  85 ████████░░
+  switching_cost      :  90 █████████░
+  OVERALL             : 73
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (Head of AI / CTO / Compliance Officer (enterprise deploying AI agents))
+  budget: Budget: $200K-2M/yr for AI agent infra + monitoring + human-in-the-loop oversight
+  switching_cost: Low switching cost — additive integration
+  buying_trigger: Technical trigger (outage)
+  incumbent_weakness: Incumbents can't verify without hurting their model
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: Head of AI / CTO / Compliance Officer (enterprise deploying AI agents)
+  Budget: $200K-2M/yr for AI agent infra + monitoring + human-in-the-loop oversight
+  Current vendor: LangChain, AutoGPT, CrewAI, browser-use, OpenAI Agents SDK, Anthropic Claude
+  Current alternative: Manual review of agent actions, prompt engineering, human-in-the-loop gating, custom logging (all unreliable)
+  Switching cost: LOW — agent frameworks are early, no dominant player, no lock-in yet
+  Buying trigger: AI agent makes unauthorized purchase, deletes production data, or violates compliance → executive order: 'every agent action must be verifiable'
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  OpenAI/Anthropic sell model usage, not execution verification. LangChain sells orchestration. None want to expose agent failure rates.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  Agent action recorder: decorator/wrapper for any LLM tool call — captures prompt, response, tool output, state before/after, confidence score, human-readable audit trail.
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 11:
+----------------------------------------
+  Moat: failure corpus + verification patterns + integrations into every automation surface

@@ -1,0 +1,35 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: C1
+Date: 2026-07-19 10:53:42
+Iteration: 1 | Depth: Level 2
+Path: C1 → C1_tech_cause
+=================================================================
+
+CURRENT PROBLEM: C1
+  Selector/locator drift
+  CSS class or XPath renamed. Script still runs but targets nothing. Returns success with 0 records. No content validation.
+  Score: 10pts
+  Industries: browser
+
+  Supporting evidence (1 cases):
+    [browser] Anti-detect selector: Websites rename CSS classes weekly. Selector-based scripts fail silently. R
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] C1_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [2] C1_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [3] C1_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [4] C1_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'C1_tech_cause' (score: 30)
+Path so far: C1 → C1_tech_cause

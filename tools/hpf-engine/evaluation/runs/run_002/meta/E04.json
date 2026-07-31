@@ -1,0 +1,40 @@
+{
+  "qid": "E04",
+  "mode": "explain",
+  "question": "What is a browser session lifecycle?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "What is a browser session lifecycle?",
+        "mode": "explain",
+        "entities": [
+          "session",
+          "session lifecycle",
+          "browser"
+        ],
+        "retrieved": [
+          "session-lifecycle-concept",
+          "browser-profiles-concept",
+          "health-check-pattern",
+          "playwright-concept",
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    }
+  }
+}

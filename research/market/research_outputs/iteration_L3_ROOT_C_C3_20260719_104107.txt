@@ -1,0 +1,14 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → C → C3
+Depth: Level 3
+Leaf: C3 — Dependency drift (10pts)
+============================================================
+
+C3: Dependency drift (10pts [cross])
+  Library/browser/OS update changes behavior. No regression test.
+  Top case: [cross] Feed submission: 100,000 inventory updates. 3,200 fail validation. API retu
+
+Full evidence:
+  [cross] Amazon SP-API: Feed submission: 100,000 inventory updates. 3,200 fail validation. API returns s

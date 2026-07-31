@@ -18,11 +18,11 @@ This guide is organized as a reference. When designing a new automation system o
 
 ---> **Quick Take**
 > If you're short on time:
-> - ✓ Use one profile per worker. Never share.
-> - ✓ Start with SQLite. Migrate to PostgreSQL only when needed.
-> - ✓ Classify failures before choosing retry strategy.
-> - ✓ Monitor data volume, not just exit codes.
-> - ✓ Docker > bare metal for any deployed automation.
+> - [Y] Use one profile per worker. Never share.
+> - [Y] Start with SQLite. Migrate to PostgreSQL only when needed.
+> - [Y] Classify failures before choosing retry strategy.
+> - [Y] Monitor data volume, not just exit codes.
+> - [Y] Docker > bare metal for any deployed automation.
 > 
 > Estimated reading: 12 minutes
 > 
@@ -576,9 +576,9 @@ Cron → Worker (nodriver) → Validation → SQLite → Slack Alert
 **Evolution Trigger:** When you add a second website. Two cron jobs running independently quickly become unmanageable.
 
 **Architecture Killers:**
-- [✗] Needs sub-second latency (polling interval is minutes)
-- ❕ More than 3 websites (each needs its own job)
-- ❕ SLA > 99.9% (no redundancy, no failover)
+- [X] Needs sub-second latency (polling interval is minutes)
+- [!] More than 3 websites (each needs its own job)
+- [!] SLA > 99.9% (no redundancy, no failover)
 
 **Example:** A single competitor price tracker, checked every 6 hours.
 
@@ -607,9 +607,9 @@ Scheduler → Queue → Worker Pool (3 max) → Validation → PostgreSQL → Ex
 **Evolution Trigger:** When worker count hits the VPS memory limit. Time to scale horizontally or upgrade the server.
 
 **Architecture Killers:**
-- [✗] Single VPS under 4GB RAM (Chrome needs memory)
-- ❕ Synchronous processing required (queue adds async complexity)
-- ❕ Suppliers with sub-second SLA needs
+- [X] Single VPS under 4GB RAM (Chrome needs memory)
+- [!] Synchronous processing required (queue adds async complexity)
+- [!] Suppliers with sub-second SLA needs
 
 **Example:** 25 suppliers, each with different portals and login methods.
 

@@ -1,0 +1,18 @@
+{
+  "total_chunks": 1,
+  "total_chars": 573349,
+  "personas": {
+    "chunk_0": {
+      "chunk_index": 0,
+      "size": 573347,
+      "summary": "============================================================\n[ASSISTANT]\n============================================================\nReview: CORE/THINKING_MODELS.md + CORE/DECISION_ENGINE.md\n\nOverall assessment: Strong conceptual foundation. These two files provide Hermes with the missing \"cognitiv...",
+      "key_points": [
+        "Overall assessment: Strong conceptual foundation. These two files provide Hermes with the missing \"cognitive layer\" — not just rules, but reusable reasoning patterns and a decision mechanism.",
+        "The biggest issue: the models are currently a library, not an executable reasoning system.",
+        "how to measure whether a model improved the outcome",
+        "Issue 1 — Models need metadata",
+        "Recommend:"
+      ]
+    }
+  }
+}

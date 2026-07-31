@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import db from "../../../db/knowledge-base.json";
 import ConceptPageClient from "../../../components/ConceptPageClient";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 interface PageProps {
     params: Promise<{ slug: string }>;

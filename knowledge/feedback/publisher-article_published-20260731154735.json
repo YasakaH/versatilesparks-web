@@ -1,0 +1,37 @@
+{
+  "id": "publisher-article_published-20260731154735",
+  "source": "publisher",
+  "domain": "publisher",
+  "domain_hierarchy": {
+    "primary": "publisher",
+    "medium": "publisher",
+    "channel": "article_published"
+  },
+  "signal_type": "article_published",
+  "payload": {
+    "article_slug": "why-browser-profiles-break",
+    "platforms": [
+      "devto"
+    ],
+    "brief_id": "why-browser-profiles-break",
+    "concepts": [
+      "profiles",
+      "sessions",
+      "scaling"
+    ],
+    "action": "publish",
+    "is_draft": true,
+    "result": "draft",
+    "performance": {
+      "views": 0,
+      "reads": 0,
+      "book_clicks": 0,
+      "sales": 0
+    },
+    "questions": [],
+    "new_aliases": []
+  },
+  "received": "2026-07-31T15:47:35Z",
+  "processed": false,
+  "notes": null
+}

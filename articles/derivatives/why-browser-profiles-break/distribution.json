@@ -1,0 +1,25 @@
+{
+  "article": "why-browser-profiles-break",
+  "canonical": "https://versatilesparks.qzz.io/blog/why-browser-profiles-break",
+  "published": {
+    "devto": "2026-07-31",
+    "website": "2026-07-31"
+  },
+  "derivatives": {
+    "x_post": { "status": "ready", "published": false },
+    "x_thread": { "status": "ready", "published": false },
+    "linkedin": { "status": "blocked", "published": false, "note": "account banned" },
+    "reddit": { "status": "ready", "published": false },
+    "quora": { "status": "ready", "published": false, "note": "links not allowed - self-contained answer" },
+    "youtube_script": { "status": "deferred", "published": false, "note": "channel not created" },
+    "github_readme": { "status": "published", "published": true, "date": "2026-07-31", "url": "https://github.com/YasakaH/nodriver-production-patterns" },
+    "github_pattern": { "status": "published", "published": true, "date": "2026-07-31", "url": "https://github.com/YasakaH/nodriver-production-patterns/blob/main/patterns/browser-profile-management.md" },
+    "github_gists": { "status": "published", "published": true, "date": "2026-07-31", "urls": ["https://gist.github.com/YasakaH/fafb63f18728933ae7dabfad2076fd5d", "https://gist.github.com/YasakaH/2554c0743fab99791c0c56006d6fc54a", "https://gist.github.com/YasakaH/4c5b8e2fe9bda13e36df372fe51aec0a"] },
+    "pinterest_pins": { "status": "ready", "published": false },
+    "infographic_spec": { "status": "ready", "published": false, "note": "visual not created yet" }
+  },
+  "conversion": {
+    "gumroad_clicks": 0,
+    "sales": 0
+  }
+}

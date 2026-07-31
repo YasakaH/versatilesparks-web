@@ -1,0 +1,45 @@
+# Scoring Formula v1.0.0
+
+# Capability Score = Σ(weight_i × score_i)
+#
+# Where weights are defined below and scores are normalized [0, 1]
+
+weights:
+  quality: 0.40
+  reliability: 0.25
+  speed: 0.15
+  cost: 0.10
+  recency: 0.10
+
+# Normalization rules per dimension
+
+quality:
+  source: benchmark_results.average_quality
+  max: 100
+  normalization: direct_divide_100
+
+reliability:
+  source: execution_history.success_rate
+  max: 1.0
+  normalization: direct
+
+speed:
+  source: benchmark_results.average_latency_ms
+  max: 60000
+  normalization: inverse_linear
+  # score = max(0, 1 - (actual / max))
+
+cost:
+  source: benchmark_results.average_tokens
+  max: 10000
+  normalization: inverse_linear
+  # score = max(0, 1 - (actual / max))
+
+recency:
+  source: seconds_since_last_successful_execution
+  max: 604800  # 7 days
+  normalization: inverse_linear
+  # score = max(0, 1 - (actual / max))
+
+# Minimum threshold: capabilities scoring below this are not offered
+minimum_score: 0.30

@@ -1,0 +1,35 @@
+capabilities:
+
+  - id: code_review
+    name: Code Review
+    description: Review code for correctness, maintainability, security, and performance.
+    category: engineering
+    version: 1.2.0
+    status: active
+    providers:
+      - skill: code-review
+      - skill: requesting-code-review
+    inputs:
+      - name: repository
+        type: path
+      - name: diff
+        type: string
+        optional: true
+      - name: review_focus
+        type: string[]
+        optional: true
+    outputs:
+      - name: issues
+        type: string[]
+      - name: recommendations
+        type: string[]
+      - name: quality_score
+        type: integer
+    dependencies:
+      - repository_analysis
+    cost: low
+    latency: low
+    confidence: high
+    parallelizable: true
+    quality_score: 92
+    maintainer: cog-os

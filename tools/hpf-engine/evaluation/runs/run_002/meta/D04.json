@@ -1,0 +1,34 @@
+{
+  "qid": "D04",
+  "mode": "decide",
+  "question": "Should I implement health checks?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I implement health checks?",
+        "mode": "decide",
+        "entities": [
+          "health check"
+        ],
+        "retrieved": [
+          "health-check-pattern"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

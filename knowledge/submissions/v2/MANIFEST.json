@@ -1,0 +1,57 @@
+[
+  {
+    "name": "01-CORE-Overview",
+    "desc": "CORE Framework overview + Constitution + Architecture/Engineering Principles",
+    "files": 6
+  },
+  {
+    "name": "02-CORE-Behavior",
+    "desc": "CORE behavior docs - thinking models, decision engine, review framework",
+    "files": 5
+  },
+  {
+    "name": "03-CORE-Schema",
+    "desc": "Personality schema, base personality, creation guide",
+    "files": 3
+  },
+  {
+    "name": "04-CORE-Capabilities",
+    "desc": "Capability registry, skill architecture, quality gates",
+    "files": 5
+  },
+  {
+    "name": "05-CORE-System",
+    "desc": "System docs - evolution, observability, evaluation, conflict resolution",
+    "files": 6
+  },
+  {
+    "name": "06-Governance",
+    "desc": "Governance framework docs",
+    "files": 9
+  },
+  {
+    "name": "07-Personas-Engineering",
+    "desc": "Persona files from engineering, architecture, ai, devops, security",
+    "files": 11
+  },
+  {
+    "name": "08-Personas-Data-Research",
+    "desc": "Persona files from data, research, education, healthcare",
+    "files": 7
+  },
+  {
+    "name": "09-Personas-Product-Design",
+    "desc": "Persona files from product, design, creative",
+    "files": 4
+  },
+  {
+    "name": "10-Personas-Business-Finance",
+    "desc": "Persona files from business, finance, legal, leadership",
+    "files": 7
+  },
+  {
+    "name": "11-Personas-Marketing-Writing",
+    "desc": "Persona files from marketing, writing, operations, chief-of-staff",
+    "files": 5
+  }
+]

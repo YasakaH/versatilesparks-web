@@ -1,0 +1,43 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: D3
+Date: 2026-07-19 10:53:40
+Iteration: 9 | Depth: Level 10
+Path: D3 → D3_programmed_fraud → D3_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud
+=================================================================
+
+CURRENT PROBLEM: D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud
+  Software designed to generate false records
+  System architecture enables fraud. Vohra Wound Physicians: EHR programmed to ALWAYS bill highest code. $4
+  Score: 50pts
+  Financial evidence: $4,135,000,000
+  Industries: healthcare
+
+  Supporting evidence (5 cases):
+    [healthcare] DOJ 25-1104: Vohra Wound Physicians: EHR programmed to ALWAYS bill highest code. $45M se ($45,000,000)
+    [healthcare] Vohra DOJ detail: EHR programmed to auto-generate false billing documentation. Software was F ($45,000,000)
+    [healthcare] Vohra DOJ fraud mechanism: EHR designed to always select highest reimbursement code. Auto-generated fa ($45,000,000)
+    [healthcare] Allograft scheme detail: Company programmed ordering system to auto-suggest allografts for hospice p ($4,000,000,000)
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud: Software designed to generate false records (50pts $4,135,000,000 [healthcare])
+       System architecture enables fraud. Vohra Wound Physicians: EHR programmed to ALWAYS bill highes
+       Evidence: 5 cases — top: [healthcare] Vohra Wound Physicians: EHR programmed to ALWAYS bill highes
+
+  [2] D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [3] D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [4] D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [5] D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud' (score: 50)
+Path so far: D3 → D3_programmed_fraud → D3_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud → D3_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud_programmed_fraud

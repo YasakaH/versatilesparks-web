@@ -1,0 +1,36 @@
+{
+  "qid": "T05",
+  "mode": "troubleshoot",
+  "question": "Why is data extraction missing content?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 11
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why is data extraction missing content?",
+        "mode": "troubleshoot",
+        "entities": [
+          "data extraction",
+          "extraction",
+          "missing"
+        ],
+        "retrieved": [
+          "incremental-extraction-pattern",
+          "download-pipeline-pattern",
+          "blocking-rate-limiting-principle"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+=================================================================
+VERIFIABLE EXECUTION — BUYER INTELLIGENCE ITERATION
+Date: 2026-07-19 11:20:48
+Path: rpa_workflow → L2 → L3 → L4 → L5 → L6 → L7 → L8
+Depth: Level 8
+=================================================================
+
+WEDGE: rpa_workflow — RPA Execution Verification
+  Prove that every RPA bot step executed correctly with evidence of each screen state and data transformation.
+  Tagline: Your bot ran. Did it actually DO anything?
+  Pain: 45% of enterprises report WEEKLY RPA bot breakage. 40% of incidents are state-reset failures. Avg recovery: 4 hours.
+
+SCORES (0-100):
+----------------------------------------
+  budget              :  60 ██████░░░░
+  buyer_clarity       :  70 ███████░░░
+  buying_trigger      :  85 ████████░░
+  incumbent_weakness  :  85 ████████░░
+  switching_cost      :  60 ██████░░░░
+  OVERALL             : 72
+
+RATIONALES:
+  buyer_clarity: Multiple possible buyers (Head of Automation / Center of Excellence Director / CIO)
+  budget: Budget: $500K-5M/yr for RPA licenses + bot maintenance + human oversight
+  switching_cost: MEDIUM — RPA platform lock-in is real, but verification layer is additive (SDK/integration), not a replacement
+  buying_trigger: Fear-based trigger (regulatory/financial loss)
+  incumbent_weakness: Incumbents can't verify without hurting their model
+
+BUYER PROFILE:
+----------------------------------------
+  Target buyer: Head of Automation / Center of Excellence Director / CIO
+  Budget: $500K-5M/yr for RPA licenses + bot maintenance + human oversight
+  Current vendor: UiPath, Automation Anywhere, Blue Prism, Microsoft Power Automate
+  Current alternative: Manual bot monitoring, screen recording replay, UiPath's built-in logging (shows 'steps' but not evidence), chaos when bot breaks
+  Switching cost: MEDIUM — RPA platform lock-in is real, but verification layer is additive (SDK/integration), not a replacement
+  Buying trigger: Regulatory audit finds RPA bot processed 10K transactions with zero verifiable audit trail → compliance officer demands evidence layer
+
+WHY INCUMBENTS WON'T BUILD THIS:
+----------------------------------------
+  UiPath sells licenses. Adding real verification would expose how often bots fail. Their business model depends on hiding bot fragility behind 'success' metrics.
+
+SMALLEST PRODUCT:
+----------------------------------------
+  RPA audit plugin: sits beside UiPath/AA, captures screen state + data hash before/after each action, produces compliance-ready evidence report.
+
+NEXT LEVEL QUESTIONS:
+----------------------------------------
+  Q1: What is the exact annual budget line item for this problem?
+  Q2: What is the procurement process — who signs the PO?
+  Q3: How long from trigger to purchase decision?
+  Q4: What is the referenceable customer profile?
+  Q5: What is the competitive alternative the buyer explicitly chooses today?
+
+BUYER DEPTH — Iteration 9:
+----------------------------------------
+  Product evolution: wedge → adjacent wedge → horizontal verification layer

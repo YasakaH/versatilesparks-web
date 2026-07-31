@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Project44 / FourKites
+Date: 2026-07-19 11:20:45
+=================================================================
+
+  What they do: Supply chain visibility
+  Their focus: Aggregating carrier data
+  Threat to us: LOW — can't verify without alienating data sources
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  They aggregate data from carriers. Carriers provide the data. If they added verification that exposed carrier failures, carriers would stop sharing data. Their entire business depends on carriers' willingness to participate. They can't verify without destroying their supply.

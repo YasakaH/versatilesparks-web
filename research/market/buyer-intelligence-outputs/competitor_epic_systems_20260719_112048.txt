@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Epic Systems
+Date: 2026-07-19 11:20:48
+=================================================================
+
+  What they do: EHR market leader (85% hospitals)
+  Their focus: Being the system of record
+  Threat to us: LOW — actively blocks interoperability
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  Epic IS the problem. Their business model depends on being the sole source of truth for hospital data. A neutral verification layer would allow patients, insurers, and regulators to verify clinical data without going through Epic. They will actively block this — as shown by their lawsuits against interoperability vendors.

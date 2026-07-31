@@ -1,0 +1,1802 @@
+[
+  {
+    "qid": "C01",
+    "mode": "compare",
+    "question": "CDP vs WebDriver",
+    "hpf_total": 27.2,
+    "rag_total": 70.2,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 7,
+              "clarity": 7,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 5,
+              "completeness": 4,
+              "reasoning_quality": 3,
+              "actionability": 2,
+              "clarity": 5,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides accurate, actionable, and well-structured technical details with minimal hallucination, while Answer B is repetitive, lacks depth, and contains hallucinated or placeholder text."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 2,
+              "completeness": 1,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more accurate and relevant information about CDP and WebDriver, while Answer B is overly simplistic and inaccurate."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "C02",
+    "mode": "compare",
+    "question": "Playwright vs nodriver",
+    "hpf_total": 36.8,
+    "rag_total": 84.2,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 5,
+              "completeness": 6,
+              "reasoning_quality": 4,
+              "actionability": 3,
+              "clarity": 4,
+              "hallucination_penalty": 3
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides accurate, detailed, and well-structured information with no hallucinations, while Answer B is repetitive, lacks depth, and contains placeholders ('varies')."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 6,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 2,
+              "completeness": 4,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 6,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a clear and accurate comparison of Nodriver and Playwright, while Answer B fails to provide meaningful information."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "C03",
+    "mode": "compare",
+    "question": "Selenium vs Playwright",
+    "hpf_total": 18.8,
+    "rag_total": 78.0,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 1,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides accurate, detailed, and well-structured information with no hallucinations, while Answer B is repetitive, incomplete, and lacks meaningful content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 2,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a clear and accurate comparison of Selenium and Playwright, covering key features and technical details, while Answer B fails to provide any meaningful comparison."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "C04",
+    "mode": "compare",
+    "question": "CSS selectors vs XPath",
+    "hpf_total": 86.2,
+    "rag_total": 64.2,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 7,
+              "completeness": 5,
+              "reasoning_quality": 6,
+              "actionability": 8,
+              "clarity": 7,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a more structured, detailed, and actionable comparison with clear examples and no hallucinations, making it superior overall."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 4,
+              "reasoning_quality": 6,
+              "actionability": 3,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more comprehensive information and better supports its claims with examples and limitations, making it a more actionable and reliable resource."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "C05",
+    "mode": "compare",
+    "question": "Exponential backoff vs fixed backoff",
+    "hpf_total": 76.8,
+    "rag_total": 69.8,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 7,
+              "clarity": 7,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 7,
+              "completeness": 5,
+              "reasoning_quality": 6,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides broader context on avoiding detection and more practical details, while Answer B lacks limitations and is overly repetitive."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and comprehensive information about exponential backoff and its implementation, making it a more reliable choice for browser automation."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "C06",
+    "mode": "compare",
+    "question": "Browser profile vs fresh session",
+    "hpf_total": 45.0,
+    "rag_total": 86.5,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 4,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 5,
+              "hallucination_penalty": 2
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides accurate, detailed, and actionable insights with no hallucinations, while Answer A is incomplete, repetitive, and lacks depth."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 4,
+              "actionability": 2,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and actionable information on browser fingerprinting and detection techniques, making it a more effective choice for browser automation."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D01",
+    "mode": "decide",
+    "question": "Should I migrate from Selenium?",
+    "hpf_total": 64.2,
+    "rag_total": 73.8,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 7,
+              "reasoning_quality": 7,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 6,
+              "completeness": 4,
+              "reasoning_quality": 5,
+              "actionability": 3,
+              "clarity": 5,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more actionable, technically accurate, and complete guidance while avoiding hallucinations, whereas Answer B is vague, incomplete, and contains placeholders."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 9,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and comprehensive information about Selenium, making it a better choice for deciding whether to migrate."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D02",
+    "mode": "decide",
+    "question": "Should I retry on HTTP 429?",
+    "hpf_total": 31.0,
+    "rag_total": 62.5,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 5,
+              "completeness": 7,
+              "reasoning_quality": 6,
+              "actionability": 4,
+              "clarity": 6,
+              "hallucination_penalty": 3
+            },
+            "B": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 4,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides detailed, relevant context and actionable advice, while Answer B is vague and lacks substance despite correct technical correctness."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 4,
+              "completeness": 2,
+              "reasoning_quality": 3,
+              "actionability": 2,
+              "clarity": 6,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more accurate and relevant information about HTTP 429 and browser automation, making it a more reliable choice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D03",
+    "mode": "decide",
+    "question": "Should I use data-testid selectors?",
+    "hpf_total": 47.8,
+    "rag_total": 88.5,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 4,
+              "hallucination_penalty": 2
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides detailed, accurate, and actionable guidance on browser automation challenges, while Answer A is vague, unspecific, and lacks meaningful content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 8,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more comprehensive and accurate information on browser automation detection and mitigation techniques, making it a more actionable and reliable choice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D04",
+    "mode": "decide",
+    "question": "Should I implement health checks?",
+    "hpf_total": 24.8,
+    "rag_total": 54.5,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 5,
+              "completeness": 3,
+              "reasoning_quality": 4,
+              "actionability": 2,
+              "clarity": 4,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 2,
+              "completeness": 1,
+              "reasoning_quality": 1,
+              "actionability": 1,
+              "clarity": 3,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides relevant technical context and actionable details, while Answer B is vague, unsupported, and largely irrelevant to the question."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 4,
+              "completeness": 3,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 6,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more accurate and relevant information about browser automation detection and health checks, making it a more reliable choice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D05",
+    "mode": "decide",
+    "question": "Should I use a fresh browser profile per session?",
+    "hpf_total": 49.2,
+    "rag_total": 76.2,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 4,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides detailed, accurate, and actionable guidance with no hallucinations, while Answer A is vague and lacks practical value."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 8,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 6,
+              "completeness": 8,
+              "reasoning_quality": 6,
+              "actionability": 8,
+              "clarity": 6,
+              "hallucination_penalty": 4
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a more accurate and relevant analysis of the question, focusing on the specific stages of a browser session and the implications of using a fresh profile per session."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "D06",
+    "mode": "decide",
+    "question": "Should I use anti-detection techniques?",
+    "hpf_total": 64.0,
+    "rag_total": 88.0,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 7,
+              "completeness": 5,
+              "reasoning_quality": 6,
+              "actionability": 4,
+              "clarity": 6,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a more comprehensive, technically accurate, and actionable breakdown of anti-detection techniques and risks with no hallucinations."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more comprehensive and accurate information on avoiding bot detection and rate limiting, making it a more reliable choice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "DS01",
+    "mode": "design",
+    "question": "Design a resilient scraper",
+    "hpf_total": 76.8,
+    "rag_total": 75.8,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 7,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 7,
+              "completeness": 6,
+              "reasoning_quality": 6,
+              "actionability": 8,
+              "clarity": 7,
+              "hallucination_penalty": 3
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more detailed and technically accurate explanations with fewer hallucinations, despite Answer B being slightly more structured."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a more comprehensive and well-structured approach to designing a resilient scraper, covering multiple aspects and offering actionable advice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "DS02",
+    "mode": "design",
+    "question": "Build a production download pipeline",
+    "hpf_total": 65.8,
+    "rag_total": 75.2,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 7,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 5,
+              "completeness": 3,
+              "reasoning_quality": 4,
+              "actionability": 2,
+              "clarity": 6,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides detailed, technically accurate, and actionable insights while avoiding hallucinations, whereas Answer B is incomplete and lacks depth."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and actionable approach to building a production download pipeline, with a strong focus on technical correctness and best practices."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "DS03",
+    "mode": "design",
+    "question": "Design a retry mechanism for CDP operations",
+    "hpf_total": 63.5,
+    "rag_total": 24.8,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 7,
+              "completeness": 5,
+              "reasoning_quality": 6,
+              "actionability": 4,
+              "clarity": 6,
+              "hallucination_penalty": 3
+            },
+            "B": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 4,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A directly addresses the retry mechanism design for CDP operations with relevant technical details, while Answer B is off-topic and discusses unrelated browser fingerprinting and detection evasion."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 2,
+              "completeness": 4,
+              "reasoning_quality": 1,
+              "actionability": 2,
+              "clarity": 6,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a clear and well-structured design for a retry mechanism, addressing the problem with a specific approach and best practices, while avoiding hallucination."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "DS04",
+    "mode": "design",
+    "question": "Design a session management system for browser automation",
+    "hpf_total": 70.8,
+    "rag_total": 70.0,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 7,
+              "reasoning_quality": 7,
+              "actionability": 6,
+              "clarity": 7,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 6,
+              "completeness": 5,
+              "reasoning_quality": 5,
+              "actionability": 4,
+              "clarity": 6,
+              "hallucination_penalty": 3
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more detailed and actionable technical guidance with fewer gaps or hallucinations compared to Answer B."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a more comprehensive and accurate design for a session management system, covering the browser session lifecycle and common pitfalls, making it more actionable and clear."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E01",
+    "mode": "explain",
+    "question": "What is CDP?",
+    "hpf_total": 88.2,
+    "rag_total": 28.8,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            },
+            "B": {
+              "technical_correctness": 10,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 8,
+              "clarity": 10,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B directly and accurately defines CDP with clear technical details, while Answer A is irrelevant to the question and contains fabricated content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 5,
+              "completeness": 2,
+              "reasoning_quality": 4,
+              "actionability": 0,
+              "clarity": 6,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides accurate and detailed information about CDP, making it the clear winner."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E02",
+    "mode": "explain",
+    "question": "What is WebDriver?",
+    "hpf_total": 90.8,
+    "rag_total": 44.2,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            },
+            "B": {
+              "technical_correctness": 10,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 8,
+              "clarity": 10,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B is technically accurate, comprehensive, and directly answers the question about WebDriver, while Answer A is off-topic and hallucinates unrelated content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and accurate definition of WebDriver, its core mechanics, and limitations, making it a more comprehensive and actionable explanation."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E03",
+    "mode": "explain",
+    "question": "How does nodriver work?",
+    "hpf_total": 76.8,
+    "rag_total": 41.5,
+    "consensus_winner": "A",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 5,
+              "clarity": 7,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 7,
+              "completeness": 3,
+              "reasoning_quality": 5,
+              "actionability": 3,
+              "clarity": 6,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more detailed explanations and examples, making it more complete and actionable despite minor redundancy."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 10,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 6,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 5,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 1,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides more detailed information and examples, making it more comprehensive and actionable."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E04",
+    "mode": "explain",
+    "question": "What is a browser session lifecycle?",
+    "hpf_total": 65.0,
+    "rag_total": 54.8,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 7,
+              "completeness": 6,
+              "reasoning_quality": 5,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 4,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A directly addresses the browser session lifecycle with accurate, structured, and relevant details, while Answer B is off-topic and irrelevant to the question."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and actionable information about browser session lifecycle and detection techniques, making it a more effective solution for browser automation."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E05",
+    "mode": "explain",
+    "question": "Why do browser profiles matter?",
+    "hpf_total": 78.0,
+    "rag_total": 74.8,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 7,
+              "clarity": 7,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 7,
+              "completeness": 6,
+              "reasoning_quality": 6,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides deeper technical context and reasoning about bot detection while maintaining accuracy, whereas Answer B is more basic and lacks critical details about detection mechanisms."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and comprehensive explanation of browser profiles, including their definition, core mechanics, examples, and limitations, making it a more informative and actionable response."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E06",
+    "mode": "explain",
+    "question": "What is anti-detection in browser automation?",
+    "hpf_total": 72.5,
+    "rag_total": 81.0,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 8,
+              "clarity": 7,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 6,
+              "completeness": 5,
+              "reasoning_quality": 5,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a more comprehensive and technically accurate explanation of anti-detection in browser automation, covering detection methods, countermeasures, and practical techniques."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 7,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and comprehensive information on anti-detection in browser automation, with clear explanations and actionable advice."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E07",
+    "mode": "explain",
+    "question": "How does the retry with backoff pattern work?",
+    "hpf_total": 89.2,
+    "rag_total": 26.0,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 2,
+              "completeness": 1,
+              "reasoning_quality": 1,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 0
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 10,
+              "clarity": 10,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B directly addresses the retry with backoff pattern with accurate, detailed, and actionable information, while Answer A is irrelevant and contains fabricated content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 5,
+              "completeness": 2,
+              "reasoning_quality": 4,
+              "actionability": 1,
+              "clarity": 6,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and accurate explanation of the retry with backoff pattern, including its core mechanics, examples, and limitations, making it a more comprehensive and actionable resource."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "E08",
+    "mode": "explain",
+    "question": "What is incremental extraction?",
+    "hpf_total": 87.5,
+    "rag_total": 51.0,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 4,
+              "completeness": 3,
+              "reasoning_quality": 3,
+              "actionability": 2,
+              "clarity": 3,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B directly and accurately explains incremental extraction with clear mechanics, examples, and limitations, while Answer A is off-topic and hallucinates unrelated content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and accurate definition of incremental extraction, along with actionable steps and examples, making it a more comprehensive and effective solution."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T01",
+    "mode": "troubleshoot",
+    "question": "Why do sessions expire unexpectedly?",
+    "hpf_total": 53.0,
+    "rag_total": 86.8,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 4,
+              "completeness": 3,
+              "reasoning_quality": 2,
+              "actionability": 2,
+              "clarity": 3,
+              "hallucination_penalty": 2
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides accurate, detailed, and actionable troubleshooting guidance with no hallucinations, while Answer A is incomplete and lacks concrete steps."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a more comprehensive and accurate explanation of the causes of session expiration, including technical details about blocking detection and rate limiting, and a clear description of the production download pipeline and page data extraction process."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T02",
+    "mode": "troubleshoot",
+    "question": "Why are selectors flaky?",
+    "hpf_total": 76.8,
+    "rag_total": 2.5,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 0,
+              "completeness": 0,
+              "reasoning_quality": 0,
+              "actionability": 0,
+              "clarity": 0,
+              "hallucination_penalty": 0
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 7,
+              "reasoning_quality": 7,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides detailed, relevant troubleshooting steps with minimal hallucination, while Answer A offers no useful information."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 0,
+              "completeness": 0,
+              "reasoning_quality": 0,
+              "actionability": 0,
+              "clarity": 0,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 9,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 0
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and actionable explanation for flaky selectors, including likely causes and diagnostic steps, while Answer A is unhelpful."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T03",
+    "mode": "troubleshoot",
+    "question": "Why does my scraper get blocked?",
+    "hpf_total": 61.8,
+    "rag_total": 87.8,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 6,
+              "completeness": 5,
+              "reasoning_quality": 4,
+              "actionability": 3,
+              "clarity": 5,
+              "hallucination_penalty": 3
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 8,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides detailed, accurate, and actionable troubleshooting steps with no hallucinations, while Answer A is vague and lacks concrete guidance."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and comprehensive information about why scrapers get blocked, including specific behavioral signals and technical details."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T04",
+    "mode": "troubleshoot",
+    "question": "Why does the browser crash after multiple navigations?",
+    "hpf_total": 53.0,
+    "rag_total": 39.0,
+    "consensus_winner": "DISAGREEMENT",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 3,
+              "completeness": 2,
+              "reasoning_quality": 2,
+              "actionability": 1,
+              "clarity": 2,
+              "hallucination_penalty": 2
+            },
+            "B": {
+              "technical_correctness": 5,
+              "completeness": 1,
+              "reasoning_quality": 3,
+              "actionability": 1,
+              "clarity": 4,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B is technically correct, hallucination-free, and well-structured, while Answer A is incomplete, unclear, and contains hallucinated or nonsensical content."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 7,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 6,
+              "completeness": 4,
+              "reasoning_quality": 2,
+              "actionability": 3,
+              "clarity": 8,
+              "hallucination_penalty": 2
+            }
+          },
+          "winner": "A",
+          "rationale": "Answer A provides a more comprehensive and accurate analysis of the browser crash issue, covering multiple potential causes and offering actionable steps for diagnosis and resolution."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T05",
+    "mode": "troubleshoot",
+    "question": "Why is data extraction missing content?",
+    "hpf_total": 83.8,
+    "rag_total": 63.0,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 7,
+              "completeness": 6,
+              "reasoning_quality": 5,
+              "actionability": 4,
+              "clarity": 6,
+              "hallucination_penalty": 3
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 7,
+              "reasoning_quality": 7,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 4
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B is more structured, actionable, and less prone to hallucination, despite Answer A providing broader context."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 4,
+              "clarity": 8,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 9,
+              "reasoning_quality": 9,
+              "actionability": 9,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides a clear and actionable troubleshooting guide with accurate technical information and relevant evidence, making it a more effective solution for the given problem."
+        }
+      }
+    ]
+  },
+  {
+    "qid": "T06",
+    "mode": "troubleshoot",
+    "question": "Why does the health check keep failing?",
+    "hpf_total": 65.5,
+    "rag_total": 79.8,
+    "consensus_winner": "B",
+    "judges": [
+      {
+        "judge": "mistral",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 6,
+              "completeness": 5,
+              "reasoning_quality": 5,
+              "actionability": 4,
+              "clarity": 7,
+              "hallucination_penalty": 4
+            },
+            "B": {
+              "technical_correctness": 8,
+              "completeness": 7,
+              "reasoning_quality": 7,
+              "actionability": 6,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate, detailed, and actionable technical explanations with no hallucinations, while Answer A is vague and lacks depth."
+        }
+      },
+      {
+        "judge": "llama",
+        "parsed": {
+          "scores": {
+            "A": {
+              "technical_correctness": 8,
+              "completeness": 6,
+              "reasoning_quality": 7,
+              "actionability": 8,
+              "clarity": 9,
+              "hallucination_penalty": 5
+            },
+            "B": {
+              "technical_correctness": 9,
+              "completeness": 8,
+              "reasoning_quality": 8,
+              "actionability": 9,
+              "clarity": 8,
+              "hallucination_penalty": 5
+            }
+          },
+          "winner": "B",
+          "rationale": "Answer B provides more accurate and detailed information about the health check failure, including the role of Nodriver and Selenium, making it a more actionable and complete solution."
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: D1
+Date: 2026-07-19 10:53:38
+Iteration: 1 | Depth: Level 2
+Path: D1 → D1_identity_not_verified
+=================================================================
+
+CURRENT PROBLEM: D1
+  Documents forged
+  Proof of delivery signed by unauthorized person. Fake credentials presented. Chameleon carriers. Identity never bound to real person.
+  Score: 40pts
+  Financial evidence: $725,400,000
+  Industries: logistics, procurement
+
+  Supporting evidence (4 cases):
+    [logistics] FBI IC3 2025: Cargo theft $725M in 2025. 27% increase YoY. Double brokering. Chameleon ca ($725,000,000)
+    [logistics] 60 Minutes / FMCSA: Chameleon carriers: trucking cos reincarnate after fraud. FMCSA identity co
+    [procurement] Industry research: 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes, phan
+    [procurement] Procurement fraud case: Fake supplier with stolen EIN/DUNS. Bank 'verified' by micro-deposit. $400K ($400,000)
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] D1_identity_not_verified: Identity is not bound to real person (80pts $3,731,000,000 [logistics,procurement])
+       Credentials verified but identity not. Cargo theft $725M in 2025. 27% increase YoY. Double brok
+       Evidence: 8 cases — top: [procurement] BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake invoi
+
+  [2] D1_tech_cause: Technical root cause (30pts $5,190,000,000 [healthcare])
+       What technical mechanism enables this failure?
+       Evidence: 3 cases — top: [healthcare] $5.1B improper payments. Average detection: 18 months. By th
+
+  [3] D1_org_cause: Organizational root cause (30pts [browser])
+       What organizational or process failure allows this to persist?
+       Evidence: 3 cases — top: [browser] Chromium doesn't save login info. Session management unsolve
+
+  [4] D1_economic_barrier: Economic barrier to fix (0pts)
+       Why doesn't fixing this problem pay for itself?
+
+  [5] D1_incentive_mismatch: Incentive misalignment (0pts)
+       Who benefits from the current broken state?
+
+DECISION: Descending into 'D1_identity_not_verified' (score: 80)
+Path so far: D1 → D1_identity_not_verified

@@ -1,0 +1,55 @@
+# Skill Evaluation Template v1.0.0
+
+skill: <skill_name>
+version: <version>
+
+tests:
+  - id: <test_id>
+    name: <human readable description>
+    category: <security|performance|correctness|edge_case>
+    input:
+      # structured input matching the skill's input schema
+    expected:
+      # expected outputs or behaviors
+    scoring:
+      accuracy: 0-100
+      completeness: 0-100
+      latency_tolerance_ms: <max_ms>
+    pass_threshold: 0.80
+
+# Example
+
+skill: code_review
+version: 1.0.0
+
+tests:
+  - id: security_detection
+    name: "Detect SQL injection vulnerability"
+    category: security
+    input:
+      repository: "test-fixtures/sql-injection-app"
+      review_focus: ["security"]
+    expected:
+      - identify_sql_injection_in_user_query
+      - suggest_parameterized_queries
+      - flag_missing_input_sanitization
+    scoring:
+      accuracy: 90
+      completeness: 85
+      latency_tolerance_ms: 30000
+    pass_threshold: 80
+
+  - id: performance_detection
+    name: "Detect N+1 query pattern"
+    category: performance
+    input:
+      repository: "test-fixtures/n-plus-one-app"
+      review_focus: ["performance"]
+    expected:
+      - identify_n_plus_one_in_user_controller
+      - suggest_eager_loading
+    scoring:
+      accuracy: 85
+      completeness: 80
+      latency_tolerance_ms: 30000
+    pass_threshold: 75

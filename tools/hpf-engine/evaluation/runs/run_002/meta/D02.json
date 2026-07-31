@@ -1,0 +1,34 @@
+{
+  "qid": "D02",
+  "mode": "decide",
+  "question": "Should I retry on HTTP 429?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Should I retry on HTTP 429?",
+        "mode": "decide",
+        "entities": [
+          "retry"
+        ],
+        "retrieved": [
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "claim",
+          "supporting",
+          "contradictory",
+          "risks",
+          "recommendation"
+        ]
+      }
+    }
+  }
+}

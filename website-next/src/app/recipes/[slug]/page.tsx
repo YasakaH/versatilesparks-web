@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import db from "../../../db/knowledge-base.json";
+import type { Recipe } from "../../../types/knowledge";
 import RecipePageClient from "../../../components/RecipePageClient";
 
-const SITE_URL = "https://versatilesparks.com";
+const SITE_URL = "https://versatilesparks.qzz.io";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const recipe = db.recipes.find((r) => r.slug === slug) as any;
+    const recipe = db.recipes.find((r) => r.slug === slug) as Recipe | undefined;
     if (!recipe) return { title: "Recipe Not Found" };
 
     const url = `${SITE_URL}/recipes/${slug}`;
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
     const { slug } = await params;
-    const recipe = db.recipes.find((r) => r.slug === slug) as any;
+    const recipe = db.recipes.find((r) => r.slug === slug) as Recipe | undefined;
     if (!recipe) notFound();
 
     const book = db.books.find((b) => b.id === recipe.book);

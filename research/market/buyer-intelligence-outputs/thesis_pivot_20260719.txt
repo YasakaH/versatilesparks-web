@@ -1,0 +1,99 @@
+═══════════════════════════════════════════════════════════════════
+VERIFIABLE EXECUTION — THESIS PIVOT (User Feedback Incorporated)
+Date: 2026-07-19
+Source: User's critical assessment of Phase 2 buyer intelligence
+═══════════════════════════════════════════════════════════════════
+
+# DECISIONS
+
+## 1. NAME CHANGE
+Old: Automation Reliability / Verifiable Execution
+New: Execution Proof
+
+Rationale: "Proof" is concrete and customer-facing. "Verifiable Execution" is 
+a category name that customers don't look for. "Execution Proof" says what 
+you deliver.
+
+## 2. WEDGE RE-RANKING
+Old ranking (buyer_intel.py engine):
+1. Procurement Invoice Verification (74)
+2. AI Agent Verification (73)
+3. RPA Verification (72)
+...
+
+New ranking (user's VC-informed judgment):
+1. AI Agent Verification
+2. Enterprise IT Automation
+3. Browser Automation
+4. RPA
+5. Procurement
+6. Logistics
+7. Healthcare
+
+Key insight: Rank by PROBABILITY OF STARTUP SUCCESS, not severity of pain.
+Healthcare pain is largest — healthcare sales cycles are also largest.
+Browser devs install libraries in 5 minutes. Hospitals don't.
+
+## 3. PRODUCT SCOPE
+Old: Verify everything (browsers, APIs, AI agents, RPA, procurement, healthcare, logistics)
+New: Verify ONE thing first: Every AI tool call → Verified.
+
+MVP Definition:
+  "Every AI tool call → Verified."
+  Nothing else. That's the product.
+
+## 4. COMPETITIVE NARRATIVE
+Old: "Incumbents won't build this because they profit from ambiguity."
+Problem: This is a weak argument. Datadog monetizes failure visibility. 
+PagerDuty grew on outages. GitHub Actions shows failures. AWS shows alarms.
+Companies absolutely monetize failure visibility.
+
+New: Need product-specific, capability-based arguments, not just incentive-based.
+The real question isn't "Why won't they build it?" — it's "What stops them 
+from acquiring you?"
+
+═══════════════════════════════════════════════════════════════════
+
+# REVISED COMPANY THESIS
+
+## One-sentence
+Every automated action produces proof.
+
+## Year 1: Execution Proof SDK for AI Agents
+  • Wrap every LLM tool call with before/after evidence capture
+  • Produce: identity, intent, evidence, timestamp, confidence score
+  • Output: machine-readable "proof receipt"
+  • Distribution: pip install execution-proof
+  • Buyer: Head of AI / CTO (developer-led adoption)
+  • Trigger: Agent makes unauthorized action OR compliance mandates audit trail
+
+## Year 2: Execution Proof Platform
+  • Expand to browser automation, RPA, APIs
+  • Add: replay engine, policy enforcement, anomaly detection
+  • Network effect: more verified actions → better baselines → smarter detection
+
+## Year 3: Execution Proof Cloud
+  • Compliance reports, governance dashboards, insurance integration
+  • Regulatory-grade evidence vault
+  • Adjacent markets: healthcare, logistics, procurement (via partnerships)
+
+═══════════════════════════════════════════════════════════════════
+
+# USER'S FINAL RECOMMENDATION
+
+"I would run 10-15 customer interviews with one wedge only.
+If I had to choose today, I'd pick AI Agent Execution Verification.
+Why?
+- Fastest-moving market
+- Lowest switching costs
+- Strong developer-led adoption
+- Fits your technical strengths
+- Can expand horizontally later
+- Enterprises are already worrying about governance"
+
+═══════════════════════════════════════════════════════════════════
+
+# NEXT ACTION REQUIRED
+
+Phase 3: Customer interview prep for AI Agent Execution Proof.
+Generate interview scripts, target personas, qualification criteria.

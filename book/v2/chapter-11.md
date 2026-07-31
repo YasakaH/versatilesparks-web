@@ -141,9 +141,9 @@ Not all interactions are equally complex. These build on each other:
 ```text
            [DEV] Canvas / WebGL
           [SEN] Virtualized Lists
-         🟡 Shadow DOM
+         [MD] Shadow DOM
         [OK] iframes
-       🔵 Drag and Drop
+       [INT] Drag and Drop
       [DEV] Keyboard Shortcuts
      [CRIT] Clicks and Forms (foundation)
 ```
@@ -493,10 +493,10 @@ That mindset is what separates fragile scripts from reliable automation systems.
 - Virtualized lists are data streams, not HTML element collections
 
 ### Common Mistakes
-- [✗] Using DOM selectors on React components — the element exists but React owns the event handling
-- [✗] Not detecting iframe boundaries — "element not found" when it lives in another document
-- [✗] Assuming Shadow DOM is traversable — standard selectors cannot pierce shadow roots
-- [✗] Ignoring virtualized lists — extracting 30 elements instead of 10,000
+- [X] Using DOM selectors on React components — the element exists but React owns the event handling
+- [X] Not detecting iframe boundaries — "element not found" when it lives in another document
+- [X] Assuming Shadow DOM is traversable — standard selectors cannot pierce shadow roots
+- [X] Ignoring virtualized lists — extracting 30 elements instead of 10,000
 
 ### Senior Takeaways
 - The decision tree answers "where." Interaction ownership answers "who." You need both.

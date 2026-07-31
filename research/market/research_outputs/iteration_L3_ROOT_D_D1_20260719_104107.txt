@@ -1,0 +1,21 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → D → D1
+Depth: Level 3
+Leaf: D1 — Documents forged (80pts)
+============================================================
+
+D1: Documents forged (80pts $731,000,000 [logistics,procurement])
+  POD signed by unauthorized person. Fake credentials. Chameleon carriers. Identity never verified.
+  Top case: [logistics] $2.8M fraudulent pickup Indiana. Fake credentials presented. Load stolen. B ($2,800,000)
+
+Full evidence:
+  [logistics] DOT 2025: $2.8M fraudulent pickup Indiana. Fake credentials presented. Load stolen. BOL si ($2,800,000)
+  [logistics] FBI IC3 2025: Cargo theft $725M in 2025. 27% increase from 2024. Double brokering. Chameleon c ($725,000,000)
+  [logistics] 60 Minutes/FMCSA: Chameleon carriers: trucking cos reincarnate after fraud. FMCSA identity control
+  [procurement] Industry research: 21,442 supplier fraud cases 2024. Fake suppliers, bank detail changes, phantom i
+  [logistics] 60 Minutes: Chameleon carriers: same person, 12 different MC numbers, 3 different names. Pap
+  [logistics] FBI 2025: Fake credentials: driver presented fake MC authority, fake insurance, fake DOT n ($2,800,000)
+  [procurement] Procurement fraud: Fake supplier created with stolen EIN and DUNS. Bank account verified by micro-d ($400,000)
+  [logistics] Phantom trucking: Chameleon carrier: FMCSA database shows active MC number, valid insurance, accep

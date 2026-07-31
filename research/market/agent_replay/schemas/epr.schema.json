@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-replay.dev/schemas/epr-0.1.0.json",
+  "title": "Execution Proof Receipt (EPR)",
+  "description": "Standard format for recording AI agent actions with verifiable evidence.",
+  "type": "object",
+  "properties": {
+    "epr_version": { "type": "string", "description": "EPR specification version" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "run": {
+      "type": "object",
+      "properties": {
+        "run_id": { "type": "string" },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "model": { "type": "string" },
+            "version": { "type": "string" }
+          }
+        },
+        "goal": { "type": "string" },
+        "started_at": { "type": "string" },
+        "completed_at": { "type": "string" },
+        "status": { "type": "string", "enum": ["running", "completed", "failed"] },
+        "event_count": { "type": "integer" },
+        "summary": { "type": "string" },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "run_id": { "type": "string" },
+              "timestamp": { "type": "string" },
+              "sequence": { "type": "integer" },
+              "event_type": { "type": "string", "enum": ["tool_call", "llm_generation", "decision", "error", "state_change", "unknown"] },
+              "name": { "type": "string" },
+              "input": {},
+              "output": {},
+              "state_before": { "type": "object" },
+              "state_after": { "type": "object" },
+              "error": { "type": "string" },
+              "duration_ms": { "type": "number" },
+              "artifacts": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["event_type", "name"]
+          }
+        }
+      },
+      "required": ["run_id", "events"]
+    }
+  },
+  "required": ["epr_version", "run"]
+}

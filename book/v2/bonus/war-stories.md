@@ -22,10 +22,10 @@ Lesson          → The engineering principle to remember
 
 ---> **Quick Take**
 > If you're short on time:
-> - ✓ Read Story 4 (retry loops DDoS suppliers) and Story 5 (exit code 0 != success).
-> - ✓ Read Story 10 (alert storms) and Story 20 (18-month silent failure).
-> - ✓ Every story ends with a lesson — scan the Lessons first.
-> - ✓ Warning: reading these will make you paranoid. That is the point.
+> - [Y] Read Story 4 (retry loops DDoS suppliers) and Story 5 (exit code 0 != success).
+> - [Y] Read Story 10 (alert storms) and Story 20 (18-month silent failure).
+> - [Y] Every story ends with a lesson — scan the Lessons first.
+> - [Y] Warning: reading these will make you paranoid. That is the point.
 > 
 > Estimated reading: 20 minutes (or 5 minutes scanning lessons)
 > 
@@ -70,9 +70,9 @@ async def ensure_session(page):
 
 
 **Related Reading**
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- Architecture Guide: [Decision 8 — Profiles vs Sessions](#)
-- Pattern Catalog: [Idempotent Consumer](#)
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- Architecture Guide: Decision 8 — Profiles vs Sessions
+- Pattern Catalog: Idempotent Consumer
 
 
 
@@ -115,9 +115,9 @@ Data attributes are typically not changed by A/B tests because the JavaScript th
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -165,9 +165,9 @@ async def check_profile(profile_dir):
 
 
 **Related Reading**
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- Architecture Guide: [Decision 8 — Profiles vs Sessions](#)
-- Pattern Catalog: [Idempotent Consumer](#)
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- Architecture Guide: Decision 8 — Profiles vs Sessions
+- Pattern Catalog: Idempotent Consumer
 
 
 
@@ -209,9 +209,9 @@ Maximum 3 retries. First retry after 2 seconds. Second after 4 seconds. Third af
 
 
 **Related Reading**
-- Pattern Catalog: [Retry with Backoff](#), [Circuit Breaker](#)
-- Failure Playbook: [Pattern 8 — Rate Limited](#)
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
+- Pattern Catalog: Retry with Backoff, Circuit Breaker
+- Failure Playbook: Pattern 8 — Rate Limited
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
 
 
 
@@ -231,9 +231,9 @@ A nightly report automation extracted 47 rows of KPI data from a SaaS dashboard,
 
 ### What Happened
 
-The dashboard's API changed. Instead of returning JSON data, it returned a login page. The extractor parsed the login page HTML and found zero data rows. The script completed without errors. The storage layer wrote zero rows. The Slack notification said "[✓] Report delivered — 0 records."
+The dashboard's API changed. Instead of returning JSON data, it returned a login page. The extractor parsed the login page HTML and found zero data rows. The script completed without errors. The storage layer wrote zero rows. The Slack notification said "[Y] Report delivered — 0 records."
 
-Nobody noticed "0 records" because the notification said "[✓]" and the exit code was 0. The monitoring dashboard showed green. The team went home.
+Nobody noticed "0 records" because the notification said "[Y]" and the exit code was 0. The monitoring dashboard showed green. The team went home.
 
 Three days later, someone opened the report and saw it was empty.
 
@@ -257,9 +257,9 @@ Add data volume monitoring: compare today's record count to the 7-day moving ave
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Evidence Types](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- Pattern Catalog: [Pipeline](#)
+- Architecture Guide: Decision 13 — Evidence Types
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- Pattern Catalog: Pipeline
 
 
 
@@ -302,9 +302,9 @@ FAILURE_CLASSIFICATION = {
 
 
 **Related Reading**
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- Architecture Guide: [Decision 8 — Profiles vs Sessions](#)
-- Pattern Catalog: [Idempotent Consumer](#)
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- Architecture Guide: Decision 8 — Profiles vs Sessions
+- Pattern Catalog: Idempotent Consumer
 
 
 
@@ -347,9 +347,9 @@ if db_size > MAX_DB_SIZE_MB:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Evidence Types](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- Pattern Catalog: [Pipeline](#)
+- Architecture Guide: Decision 13 — Evidence Types
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- Pattern Catalog: Pipeline
 
 
 
@@ -389,9 +389,9 @@ Add a test: manually extract the same search with a known-good browser. Compare 
 
 
 **Related Reading**
-- Pattern Catalog: [Retry with Backoff](#), [Circuit Breaker](#)
-- Failure Playbook: [Pattern 8 — Rate Limited](#)
-- Architecture Guide: [Decision 6 — Retry vs Recover vs Restart](#)
+- Pattern Catalog: Retry with Backoff, Circuit Breaker
+- Failure Playbook: Pattern 8 — Rate Limited
+- Architecture Guide: Decision 6 — Retry vs Recover vs Restart
 
 
 
@@ -436,9 +436,9 @@ utc_update_time = update_time.astimezone(pytz.UTC)
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -487,9 +487,9 @@ async def send_alert(message):
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Evidence Types](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- Pattern Catalog: [Pipeline](#)
+- Architecture Guide: Decision 13 — Evidence Types
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- Pattern Catalog: Pipeline
 
 
 
@@ -537,9 +537,9 @@ migration:
 
 
 **Related Reading**
-- Architecture Guide: [Decision 13 — Evidence Types](#)
-- Failure Playbook: [Pattern 11 — 0 Records Extracted](#)
-- Pattern Catalog: [Pipeline](#)
+- Architecture Guide: Decision 13 — Evidence Types
+- Failure Playbook: Pattern 11 — 0 Records Extracted
+- Pattern Catalog: Pipeline
 
 
 
@@ -588,9 +588,9 @@ while page < max_pages:
 
 
 **Related Reading**
-- Pattern Catalog: [Checkpoint/Resume](#), [Saga](#)
-- Failure Playbook: [Pattern 12 — Job Overlap](#)
-- Architecture Guide: [Decision 4 — Cron vs Scheduler](#)
+- Pattern Catalog: Checkpoint/Resume, Saga
+- Failure Playbook: Pattern 12 — Job Overlap
+- Architecture Guide: Decision 4 — Cron vs Scheduler
 
 
 
@@ -632,9 +632,9 @@ await page.wait_for(".report-footer", timeout=15)
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -678,9 +678,9 @@ assert expected_profile in actual_profile, \
 
 
 **Related Reading**
-- Failure Playbook: [Pattern 3 — Session Expired Mid-Run](#)
-- Architecture Guide: [Decision 8 — Profiles vs Sessions](#)
-- Pattern Catalog: [Idempotent Consumer](#)
+- Failure Playbook: Pattern 3 — Session Expired Mid-Run
+- Architecture Guide: Decision 8 — Profiles vs Sessions
+- Pattern Catalog: Idempotent Consumer
 
 
 
@@ -725,9 +725,9 @@ The PagerDuty alert is independent of the monitoring dashboard. It does not requ
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -772,9 +772,9 @@ def test_price_parsing():
 
 
 **Related Reading**
-- Pattern Catalog: [Checkpoint/Resume](#), [Saga](#)
-- Failure Playbook: [Pattern 12 — Job Overlap](#)
-- Architecture Guide: [Decision 4 — Cron vs Scheduler](#)
+- Pattern Catalog: Checkpoint/Resume, Saga
+- Failure Playbook: Pattern 12 — Job Overlap
+- Architecture Guide: Decision 4 — Cron vs Scheduler
 
 
 
@@ -822,9 +822,9 @@ When an unexpected auth method is detected: capture screenshot, alert human, pau
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -867,9 +867,9 @@ handler = logging.handlers.RotatingFileHandler(
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 
@@ -913,9 +913,9 @@ generate_report()
 
 
 **Related Reading**
-- Pattern Catalog: [Checkpoint/Resume](#), [Saga](#)
-- Failure Playbook: [Pattern 12 — Job Overlap](#)
-- Architecture Guide: [Decision 4 — Cron vs Scheduler](#)
+- Pattern Catalog: Checkpoint/Resume, Saga
+- Failure Playbook: Pattern 12 — Job Overlap
+- Architecture Guide: Decision 4 — Cron vs Scheduler
 
 
 
@@ -937,7 +937,7 @@ A price monitoring automation ran for 18 months without incident. The client was
 
 On day 545, the marketplace that the automation scraped changed their entire frontend architecture. Every selector broke. The automation extracted zero products. But the validation layer had never been tested with zero results — it accepted an empty list as valid.
 
-The automation reported "[✓] Success — 0 records extracted." Monitoring showed green. The client's pricing team saw no competitor price changes for 3 weeks. They assumed competitors had not changed prices. They did not adjust their own pricing.
+The automation reported "[Y] Success — 0 records extracted." Monitoring showed green. The client's pricing team saw no competitor price changes for 3 weeks. They assumed competitors had not changed prices. They did not adjust their own pricing.
 
 The client lost an estimated ₹5 lakh in margin over 3 weeks because they were underselling competitors whose prices had dropped.
 
@@ -961,9 +961,9 @@ if today_records < avg_records * 0.5:
 
 
 **Related Reading**
-- Failure Playbook: [Recovery Decision Tree](#)
-- Architecture Guide: [Part V — Architecture Evolution](#)
-- Pattern Catalog: [Supervisor](#)
+- Failure Playbook: Recovery Decision Tree
+- Architecture Guide: Part V — Architecture Evolution
+- Pattern Catalog: Supervisor
 
 
 

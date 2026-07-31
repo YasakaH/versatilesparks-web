@@ -483,15 +483,15 @@ Before deployment, verify each component:
 
 After learning the right patterns, here are the mistakes most beginners make:
 
-### [✗] Running Chrome as root
+### [X] Running Chrome as root
 
 Chrome security sandbox requires a non-root user inside the container. Use `USER appuser` in your Dockerfile.
 
-### [✗] Sharing one profile across workers
+### [X] Sharing one profile across workers
 
 Multiple workers writing to the same profile directory causes corruption. Each worker needs `profiles/worker-1/`, `profiles/worker-2/`, etc.
 
-### [✗] Infinite retries
+### [X] Infinite retries
 
 ```python
 while True:
@@ -503,19 +503,19 @@ while True:
 
 This masks real failures and prevents alerting. Always cap retries (3-5 max), then escalate.
 
-### [✗] Hardcoded passwords
+### [X] Hardcoded passwords
 
 Passwords committed to git are permanently compromised. Use `.env` files and environment variables.
 
-### [✗] Assuming exit code == success
+### [X] Assuming exit code == success
 
 A script that exits with code 0 may have produced empty, incorrect, or corrupted data. Always validate output before reporting success.
 
-### [✗] No health check
+### [X] No health check
 
 Without health checks, a crashed browser stays crashed until the next scheduled run — or until a human notices.
 
-### [✗] No validation
+### [X] No validation
 
 Without validation, bad data enters your database silently. A scraper that stores wrong data is worse than one that fails.
 
@@ -594,11 +594,11 @@ A script performs work. A production automation system performs work **reliably,
 - Secrets and configuration belong in `.env`, never in code or Dockerfile
 
 ### Common Mistakes
-- [✗] Deploying directly from laptop — environment drift is guaranteed
-- [✗] No job lock — overlapping workers corrupt each other's data
-- [✗] Assuming exit code 0 means success — the script can succeed while producing empty data
-- [✗] No health checks — crashed browser stays crashed until next scheduled run
-- [✗] Hardcoded passwords in Dockerfile — anyone with image access can extract them
+- [X] Deploying directly from laptop — environment drift is guaranteed
+- [X] No job lock — overlapping workers corrupt each other's data
+- [X] Assuming exit code 0 means success — the script can succeed while producing empty data
+- [X] No health checks — crashed browser stays crashed until next scheduled run
+- [X] Hardcoded passwords in Dockerfile — anyone with image access can extract them
 
 ### Senior Takeaways
 - The Production Deployment Ladder shows how to evolve from Laptop to Platform

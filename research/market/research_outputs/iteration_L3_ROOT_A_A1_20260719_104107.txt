@@ -1,0 +1,14 @@
+============================================================
+AUTOMATION RELIABILITY — PROBLEM DECOMPOSITION
+Iteration: 20260719_104107
+Path: ROOT → A → A1
+Depth: Level 3
+Leaf: A1 — No alert mechanism (10pts)
+============================================================
+
+A1: No alert mechanism (10pts [cross])
+  Failure writes to log. Nobody reads log. No notification channel configured.
+  Top case: [cross] Automated earnings report extracts 0 rows from database due to schema chang
+
+Full evidence:
+  [cross] SEC 2024: Automated earnings report extracts 0 rows from database due to schema change. Re

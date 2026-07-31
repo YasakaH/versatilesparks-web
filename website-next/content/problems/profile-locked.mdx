@@ -1,0 +1,35 @@
+---
+id: "profile-locked"
+title: "Chrome profile is already in use"
+error_patterns: ["profile is already in use", "SingletonLock", "cannot create profile", "profile locked", "user data directory is already in use"]
+severity: "common"
+concept: "profiles"
+description: "Chrome throws this when two instances try to access the same user_data_dir simultaneously."
+---
+
+This error occurs when a Chrome process crashes without releasing its profile lock, or when two browser instances are started with the same `user_data_dir`.
+
+### Quick Fix
+
+```python
+import shutil
+import tempfile
+from nodriver import start
+
+profile_dir = tempfile.mkdtemp()
+browser = await start(user_data_dir=profile_dir, headless=True)
+```
+
+### Production Pattern
+
+Always use isolated, ephemeral profiles per session:
+
+```python
+import uuid
+from pathlib import Path
+
+def create_isolated_profile(base: Path = Path("/tmp/profiles")) -> Path:
+    profile = base / str(uuid.uuid4())[:8]
+    profile.mkdir(parents=True, exist_ok=True)
+    return profile
+```

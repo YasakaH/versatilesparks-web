@@ -1,0 +1,1550 @@
+[
+  {
+    "type": "concept",
+    "id": "anti-detection",
+    "slug": "anti-detection",
+    "title": "Anti Detection",
+    "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/anti-detection",
+    "tags": [
+      "bot evasion",
+      "stealth",
+      "bypass",
+      "stealth",
+      "cloudflare",
+      "datadome",
+      "bot-bypass",
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "authentication",
+    "slug": "authentication",
+    "title": "Authentication",
+    "summary": "Evading detection while managing multi-factor logins, persistent tokens, and secure state storage.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/concepts/authentication",
+    "tags": [
+      "login",
+      "credentials",
+      "mfa",
+      "auth",
+      "cookies",
+      "tokens",
+      "authentication"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "cdp",
+    "slug": "cdp",
+    "title": "Chrome DevTools Protocol (CDP)",
+    "summary": "Interacting directly with Chrome's native debugging port for advanced monitoring and low-level control.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/cdp",
+    "tags": [
+      "devtools",
+      "cdp commands",
+      "websocket connection",
+      "cdp",
+      "chrome-devtools",
+      "low-level",
+      "cdp"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "cookies",
+    "slug": "cookies",
+    "title": "Cookies",
+    "summary": "Parsing, serializing, and injecting cookies to maintain persistent session states and bypass repeat logins.",
+    "difficulty": "Beginner",
+    "url": "https://versatilesparks.qzz.io/concepts/cookies",
+    "tags": [
+      "cookie",
+      "cookie jar",
+      "session cookie",
+      "cookies",
+      "http",
+      "state",
+      "cookies"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "fingerprints",
+    "slug": "fingerprints",
+    "title": "Fingerprinting",
+    "summary": "Customizing browser parameters (user-agent, canvas, WebGL, fonts) to emulate distinct user devices.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/fingerprints",
+    "tags": [
+      "device spoofing",
+      "user agent",
+      "navigator overrides",
+      "fingerprint",
+      "stealth",
+      "canvas",
+      "webgl",
+      "fingerprints"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "network-interception",
+    "slug": "network-interception",
+    "title": "Network Interception",
+    "summary": "Listening, blocking, modifying, and mocking HTTP requests and responses at the network boundary.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/network-interception",
+    "tags": [
+      "request blocking",
+      "response mocking",
+      "network interception",
+      "network",
+      "interception",
+      "mocking",
+      "proxy",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "observability",
+    "slug": "observability",
+    "title": "Observability",
+    "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/concepts/observability",
+    "tags": [
+      "metrics logging",
+      "logs",
+      "monitoring metrics",
+      "telemetry",
+      "metrics",
+      "monitoring",
+      "grafana",
+      "observability"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "profiles",
+    "slug": "profiles",
+    "title": "Browser Profiles",
+    "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+    "difficulty": "Beginner",
+    "url": "https://versatilesparks.qzz.io/concepts/profiles",
+    "tags": [
+      "chrome profile",
+      "user data directory",
+      "profile configuration",
+      "profiles",
+      "storage",
+      "isolation",
+      "profiles"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "proxies",
+    "slug": "proxies",
+    "title": "Proxies & IP Rotation",
+    "summary": "Bypassing IP-based rate limits and geographic blocks by routing requests through proxy pools.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/concepts/proxies",
+    "tags": [
+      "proxy",
+      "residential proxy",
+      "rotation",
+      "ip pool",
+      "forward proxy",
+      "backconnect proxy",
+      "proxy",
+      "ip-rotation",
+      "scraping",
+      "stealth",
+      "proxies"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "recovery",
+    "slug": "recovery",
+    "title": "Self-Healing & Recovery",
+    "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/recovery",
+    "tags": [
+      "failover",
+      "process manager",
+      "retry systems",
+      "recovery",
+      "resilience",
+      "healing",
+      "daemons",
+      "recovery"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "scaling",
+    "slug": "scaling",
+    "title": "Scaling & Orchestration",
+    "summary": "Running concurrent browser pools inside containerized environments (Docker, Kubernetes).",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/concepts/scaling",
+    "tags": [
+      "concurrency",
+      "browser pool",
+      "docker configurations",
+      "scaling",
+      "docker",
+      "orchestration",
+      "performance",
+      "scaling"
+    ]
+  },
+  {
+    "type": "concept",
+    "id": "sessions",
+    "slug": "sessions",
+    "title": "Persistent Sessions",
+    "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/concepts/sessions",
+    "tags": [
+      "persistent login",
+      "profile sessions",
+      "user data dir",
+      "sessions",
+      "persistence",
+      "state",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-1",
+    "slug": "recipe-v1-1",
+    "title": "Launch and Close a Browser",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-1",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-10",
+    "slug": "recipe-v1-10",
+    "title": "Retry Transient Failures",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-10",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-11",
+    "slug": "recipe-v1-11",
+    "title": "Add Useful Logging",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-11",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-12",
+    "slug": "recipe-v1-12",
+    "title": "Customize Cookbook Configuration",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-12",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-13",
+    "slug": "recipe-v1-13",
+    "title": "Find Elements Using Stable Selectors",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-13",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-14",
+    "slug": "recipe-v1-14",
+    "title": "Click Elements Reliably",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-14",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-15",
+    "slug": "recipe-v1-15",
+    "title": "Fill Forms",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-15",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-16",
+    "slug": "recipe-v1-16",
+    "title": "Upload Files",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-16",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-17",
+    "slug": "recipe-v1-17",
+    "title": "Select Dropdown Options",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-17",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-18",
+    "slug": "recipe-v1-18",
+    "title": "Handle Dialogs and Pop-ups",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-18",
+    "tags": [
+      "cookies",
+      "sessions"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-19",
+    "slug": "recipe-v1-19",
+    "title": "Log In and Verify Authentication",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-19",
+    "tags": [
+      "anti-detection",
+      "fingerprints"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-2",
+    "slug": "recipe-v1-2",
+    "title": "Open and Manage Browser Tabs",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-2",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-20",
+    "slug": "recipe-v1-20",
+    "title": "Work with Cookies",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-20",
+    "tags": [
+      "anti-detection",
+      "fingerprints"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-21",
+    "slug": "recipe-v1-21",
+    "title": "Reuse Authenticated Sessions",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-21",
+    "tags": [
+      "anti-detection",
+      "fingerprints"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-22",
+    "slug": "recipe-v1-22",
+    "title": "Manage Multiple Accounts",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-22",
+    "tags": [
+      "anti-detection",
+      "fingerprints"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-23",
+    "slug": "recipe-v1-23",
+    "title": "Extract Structured Tables",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-23",
+    "tags": [
+      "cdp",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-24",
+    "slug": "recipe-v1-24",
+    "title": "Handle Pagination",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-24",
+    "tags": [
+      "cdp",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-25",
+    "slug": "recipe-v1-25",
+    "title": "Scrape Infinite Scroll Pages",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-25",
+    "tags": [
+      "cdp",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-26",
+    "slug": "recipe-v1-26",
+    "title": "Download Files Reliably",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-26",
+    "tags": [
+      "cdp",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-27",
+    "slug": "recipe-v1-27",
+    "title": "Extract Images and Media",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-27",
+    "tags": [
+      "cdp",
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-28",
+    "slug": "recipe-v1-28",
+    "title": "Build Automation That Resembles Normal Usage",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-28",
+    "tags": [
+      "observability"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-29",
+    "slug": "recipe-v1-29",
+    "title": "Build Resilient Browser Automation",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-29",
+    "tags": [
+      "observability"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-3",
+    "slug": "recipe-v1-3",
+    "title": "Reuse a Browser Profile Across Sessions",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-3",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-30",
+    "slug": "recipe-v1-30",
+    "title": "Production Browser Automation Starter Kit",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-30",
+    "tags": [
+      "scaling"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-4",
+    "slug": "recipe-v1-4",
+    "title": "Customize Browser Startup Options",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-4",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-5",
+    "slug": "recipe-v1-5",
+    "title": "Navigate Like a User",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-5",
+    "tags": [
+      "cdp"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-6",
+    "slug": "recipe-v1-6",
+    "title": "Capture Screenshots",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-6",
+    "tags": [
+      "cdp"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-7",
+    "slug": "recipe-v1-7",
+    "title": "Execute JavaScript in the Page",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-7",
+    "tags": [
+      "cdp"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-8",
+    "slug": "recipe-v1-8",
+    "title": "Inspect Browser State",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-8",
+    "tags": [
+      "cdp"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v1-9",
+    "slug": "recipe-v1-9",
+    "title": "Wait for Meaningful State",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "cookbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v1-9",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-1",
+    "slug": "recipe-v2-1",
+    "title": "Launch and Close a Browser",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-1",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-10",
+    "slug": "recipe-v2-10",
+    "title": "Retry Failures Intelligently",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-10",
+    "tags": [
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-11",
+    "slug": "recipe-v2-11",
+    "title": "Structured Logging",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-11",
+    "tags": [
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-12",
+    "slug": "recipe-v2-12",
+    "title": "Configuration Management",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-12",
+    "tags": [
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-13",
+    "slug": "recipe-v2-13",
+    "title": "Find Elements Reliably",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-13",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-14",
+    "slug": "recipe-v2-14",
+    "title": "Click Elements Without Race Conditions",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-14",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-15",
+    "slug": "recipe-v2-15",
+    "title": "Fill Forms Reliably",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-15",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-16",
+    "slug": "recipe-v2-16",
+    "title": "File Uploads",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-16",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-17",
+    "slug": "recipe-v2-17",
+    "title": "Select Dropdown Options",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-17",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-18",
+    "slug": "recipe-v2-18",
+    "title": "Dialogs, Alerts, and Popups",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-18",
+    "tags": [
+      "authentication"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-19",
+    "slug": "recipe-v2-19",
+    "title": "Login Forms",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-19",
+    "tags": [
+      "authentication",
+      "sessions",
+      "cookies",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-2",
+    "slug": "recipe-v2-2",
+    "title": "Open and Manage Browser Tabs",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-2",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-20",
+    "slug": "recipe-v2-20",
+    "title": "Cookie Persistence",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-20",
+    "tags": [
+      "authentication",
+      "sessions",
+      "cookies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-21",
+    "slug": "recipe-v2-21",
+    "title": "Session Reuse",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-21",
+    "tags": [
+      "authentication",
+      "sessions",
+      "cookies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-22",
+    "slug": "recipe-v2-22",
+    "title": "Multi-Account Isolation",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-22",
+    "tags": [
+      "authentication",
+      "sessions",
+      "cookies",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-23",
+    "slug": "recipe-v2-23",
+    "title": "Extract Data From Tables",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-23",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-24",
+    "slug": "recipe-v2-24",
+    "title": "Pagination",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-24",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-25",
+    "slug": "recipe-v2-25",
+    "title": "Infinite Scroll",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-25",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-26",
+    "slug": "recipe-v2-26",
+    "title": "Download Files",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-26",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-27",
+    "slug": "recipe-v2-27",
+    "title": "Extract Images and Media",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-27",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-28",
+    "slug": "recipe-v2-28",
+    "title": "Stealth Configuration",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-28",
+    "tags": [
+      "anti-detection",
+      "fingerprints",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-29",
+    "slug": "recipe-v2-29",
+    "title": "Resilient Automation Patterns",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-29",
+    "tags": [
+      "anti-detection",
+      "fingerprints",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-3",
+    "slug": "recipe-v2-3",
+    "title": "Reuse a Browser Profile Across Sessions",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-3",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-30",
+    "slug": "recipe-v2-30",
+    "title": "The Production Starter Kit",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-30",
+    "tags": [
+      "scaling"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-30a",
+    "slug": "recipe-v2-30a",
+    "title": "Docker Deployment",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-30a",
+    "tags": [
+      "scaling"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-31",
+    "slug": "recipe-v2-31",
+    "title": "Intercept and Analyze Network Traffic with CDP",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-31",
+    "tags": [
+      "cdp",
+      "network-interception",
+      "observability",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-32",
+    "slug": "recipe-v2-32",
+    "title": "Block Unnecessary Resources for Performance",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-32",
+    "tags": [
+      "cdp",
+      "network-interception",
+      "observability",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-33",
+    "slug": "recipe-v2-33",
+    "title": "Debug JavaScript Failures Through Console Logs",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-33",
+    "tags": [
+      "cdp",
+      "network-interception",
+      "observability",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-34",
+    "slug": "recipe-v2-34",
+    "title": "Measure Browser Performance",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-34",
+    "tags": [
+      "cdp",
+      "network-interception",
+      "observability",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-35",
+    "slug": "recipe-v2-35",
+    "title": "Emulate Different Browser Environments",
+    "summary": "",
+    "difficulty": "Intermediate",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-35",
+    "tags": [
+      "cdp",
+      "network-interception",
+      "observability",
+      "proxies"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-36",
+    "slug": "recipe-v2-36",
+    "title": "Audit Your Browser Environment",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-36",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-37",
+    "slug": "recipe-v2-37",
+    "title": "Build Reproducible Browser Environments",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-37",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-38",
+    "slug": "recipe-v2-38",
+    "title": "Browser Profile Isolation",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-38",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-39",
+    "slug": "recipe-v2-39",
+    "title": "Regional Configuration Testing",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-39",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-4",
+    "slug": "recipe-v2-4",
+    "title": "Customize Browser Startup Options",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-4",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-40",
+    "slug": "recipe-v2-40",
+    "title": "Diagnose Browser Compatibility",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-40",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-41",
+    "slug": "recipe-v2-41",
+    "title": "Reliable Drag and Drop",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-41",
+    "tags": [
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-42",
+    "slug": "recipe-v2-42",
+    "title": "Working With iFrames",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-42",
+    "tags": [
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-43",
+    "slug": "recipe-v2-43",
+    "title": "Shadow DOM Automation",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-43",
+    "tags": [
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-44",
+    "slug": "recipe-v2-44",
+    "title": "Rich Text Editors",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-44",
+    "tags": [
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-45",
+    "slug": "recipe-v2-45",
+    "title": "Keyboard and Clipboard Automation",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-45",
+    "tags": [
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-46",
+    "slug": "recipe-v2-46",
+    "title": "Deploy Browser Automation with Docker",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-46",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-47",
+    "slug": "recipe-v2-47",
+    "title": "Schedule Reliable Automation Jobs",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-47",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-48",
+    "slug": "recipe-v2-48",
+    "title": "Store Automation Data Safely",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-48",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-49",
+    "slug": "recipe-v2-49",
+    "title": "Observability and Metrics",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-49",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-5",
+    "slug": "recipe-v2-5",
+    "title": "Navigation and Wait Strategies",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-5",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-50",
+    "slug": "recipe-v2-50",
+    "title": "Recovery and Health Management",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-50",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-51",
+    "slug": "recipe-v2-51",
+    "title": "Secrets and Configuration Management",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-51",
+    "tags": [
+      "scaling",
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-52",
+    "slug": "recipe-v2-52",
+    "title": "Validate Scraped Records Before Storage",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-52",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-53",
+    "slug": "recipe-v2-53",
+    "title": "Normalize and Export Trusted Data",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-53",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-54",
+    "slug": "recipe-v2-54",
+    "title": "Incremental Scraping & Change Detection",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-54",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-55",
+    "slug": "recipe-v2-55",
+    "title": "Structural Page Comparison",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-55",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-56",
+    "slug": "recipe-v2-56",
+    "title": "Data Provenance & Audit Trails",
+    "summary": "",
+    "difficulty": "Advanced",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-56",
+    "tags": [
+      "network-interception"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-6",
+    "slug": "recipe-v2-6",
+    "title": "Page Navigation and Screenshots",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-6",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-7",
+    "slug": "recipe-v2-7",
+    "title": "JavaScript Execution",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-7",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-8",
+    "slug": "recipe-v2-8",
+    "title": "Browser State Persistence",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-8",
+    "tags": [
+      "profiles"
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-v2-9",
+    "slug": "recipe-v2-9",
+    "title": "Wait for Elements Correctly",
+    "summary": "",
+    "difficulty": "Beginner",
+    "book": "playbook",
+    "url": "https://versatilesparks.qzz.io/recipes/recipe-v2-9",
+    "tags": [
+      "observability",
+      "recovery"
+    ]
+  },
+  {
+    "type": "book",
+    "id": "cookbook",
+    "slug": "cookbook",
+    "title": "Python Browser Automation Cookbook",
+    "summary": "Working Smarter with nodriver",
+    "version": "1.0.0",
+    "url": "https://versatilesparks.qzz.io/books/cookbook",
+    "tags": [
+      "High-fidelity PDF (66 pages)",
+      "Reflowable EPUB",
+      "15 complete Python scripts"
+    ]
+  },
+  {
+    "type": "book",
+    "id": "playbook",
+    "slug": "playbook",
+    "title": "Browser Automation Playbook",
+    "summary": "Production Engineering Edition",
+    "version": "2.0.0",
+    "url": "https://versatilesparks.qzz.io/books/playbook",
+    "tags": [
+      "High-fidelity PDF (238 pages)",
+      "Reflowable EPUB",
+      "60 complete Python scripts",
+      "Docker Staging files"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "403-forbidden",
+    "slug": "403-forbidden",
+    "title": "403 Forbidden on target site",
+    "summary": "The server rejects the connection before any page content is delivered.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/problems/403-forbidden",
+    "tags": [
+      "403",
+      "forbidden",
+      "access denied",
+      "blocked",
+      "cloudflare 403",
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "browser-disconnected",
+    "slug": "browser-disconnected",
+    "title": "Browser disconnected unexpectedly",
+    "summary": "The CDP WebSocket connection dropped. The browser process may have crashed or been killed.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/problems/browser-disconnected",
+    "tags": [
+      "browser disconnected",
+      "websocket closed",
+      "target closed",
+      "connection closed",
+      "protocol error",
+      "recovery"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "captcha-every-request",
+    "slug": "captcha-every-request",
+    "title": "CAPTCHA appears on every request",
+    "summary": "Bot detection services are flagging your browser as automated. Every request is challenged.",
+    "difficulty": "Advanced",
+    "url": "https://versatilesparks.qzz.io/problems/captcha-every-request",
+    "tags": [
+      "captcha",
+      "recaptcha",
+      "automated queries",
+      "verify you are human",
+      "i am not a robot",
+      "anti-detection"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "element-not-found",
+    "slug": "element-not-found",
+    "title": "Element not found / timeout waiting for selector",
+    "summary": "The target element does not exist in the DOM at the time of query, or the page hasn't finished rendering.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/problems/element-not-found",
+    "tags": [
+      "element not found",
+      "timeout",
+      "no such element",
+      "cannot locate",
+      "element is not attached",
+      "observability"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "profile-locked",
+    "slug": "profile-locked",
+    "title": "Chrome profile is already in use",
+    "summary": "Chrome throws this when two instances try to access the same user_data_dir simultaneously.",
+    "difficulty": "Beginner",
+    "url": "https://versatilesparks.qzz.io/problems/profile-locked",
+    "tags": [
+      "profile is already in use",
+      "SingletonLock",
+      "cannot create profile",
+      "profile locked",
+      "user data directory is already in use",
+      "profiles"
+    ]
+  },
+  {
+    "type": "problem",
+    "id": "session-lost",
+    "slug": "session-lost",
+    "title": "Session cookies lost after restart",
+    "summary": "Authentication state is not persisting across browser restarts or profile switches.",
+    "difficulty": "Intermediate",
+    "url": "https://versatilesparks.qzz.io/problems/session-lost",
+    "tags": [
+      "session lost",
+      "cookies cleared",
+      "not authenticated",
+      "login expired",
+      "session expired",
+      "sessions"
+    ]
+  }
+]

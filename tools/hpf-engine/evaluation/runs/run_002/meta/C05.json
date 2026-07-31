@@ -1,0 +1,34 @@
+{
+  "qid": "C05",
+  "mode": "compare",
+  "question": "Exponential backoff vs fixed backoff",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 2
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Exponential backoff vs fixed backoff",
+        "mode": "compare",
+        "entities": [
+          "backoff"
+        ],
+        "retrieved": [
+          "retry-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Microsoft (Power Automate)
+Date: 2026-07-19 11:20:45
+=================================================================
+
+  What they do: Low-code automation platform
+  Their focus: Building automations, not verifying them
+  Threat to us: MEDIUM — could add, but incentives wrong
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  Microsoft sells licenses, not reliability. Power Automate is designed to be EASY, not VERIFIABLE. Adding real evidence would surface how often flows fail — which kills adoption. The incentive is to hide failure behind 'success' metrics.

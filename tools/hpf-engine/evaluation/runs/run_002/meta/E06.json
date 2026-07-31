@@ -1,0 +1,40 @@
+{
+  "qid": "E06",
+  "mode": "explain",
+  "question": "What is anti-detection in browser automation?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 14
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "What is anti-detection in browser automation?",
+        "mode": "explain",
+        "entities": [
+          "anti-detection",
+          "browser",
+          "automation"
+        ],
+        "retrieved": [
+          "browser-profiles-concept",
+          "playwright-concept",
+          "selenium-concept",
+          "session-lifecycle-concept",
+          "anti-detection-principle"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

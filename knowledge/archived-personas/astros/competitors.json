@@ -1,0 +1,213 @@
+{
+  "competitors": [
+    {
+      "name": "Ahrefs",
+      "url": "https://ahrefs.com",
+      "keywords": [
+        "SEO tutorial for beginners",
+        "complete SEO course 2026",
+        "AI SEO course",
+        "keyword research tutorial",
+        "how to rank #1 in Google",
+        "SEO strategies that work",
+        "ChatGPT SEO"
+      ],
+      "focus": "Video tutorials, educational YouTube channel, free SEO courses"
+    },
+    {
+      "name": "Semrush",
+      "url": "https://semrush.com",
+      "keywords": [
+        "competitor analysis tools",
+        "best SEO tools 2026",
+        "SEMrush vs Ahrefs",
+        "SEO software comparison",
+        "keyword research tool",
+        "site audit tool"
+      ],
+      "focus": "Product reviews, comparison pages, all-in-one SEO platform"
+    },
+    {
+      "name": "Surfer SEO",
+      "url": "https://surferseo.com",
+      "keywords": [
+        "SEO content optimization",
+        "content score SEO",
+        "SERP analyzer",
+        "AI content briefs",
+        "Surfer vs Semrush",
+        "coverage booster"
+      ],
+      "focus": "Content optimization, AI-powered content scoring"
+    },
+    {
+      "name": "Marketer Milk",
+      "url": "https://marketermilk.com",
+      "keywords": [
+        "SEO trends 2026",
+        "EEAT ranking factor",
+        "Search Everywhere Optimization",
+        "branded search tactics",
+        "human content SEO",
+        "AI generated content SEO"
+      ],
+      "focus": "SEO trend analysis, conference insights, EEAT deep dives"
+    },
+    {
+      "name": "EnvisionIT Agency",
+      "url": "https://envisionitagency.com",
+      "keywords": [
+        "SEO predictions 2026",
+        "AI agents search",
+        "entity clarity SEO",
+        "digital PR SEO",
+        "hyper-local SEO",
+        "AI overviews impact"
+      ],
+      "focus": "Industry predictions, multi-agency expert perspectives"
+    },
+    {
+      "name": "Jasper AI",
+      "url": "https://jasper.ai",
+      "keywords": [
+        "generative engine optimization",
+        "GEO vs SEO",
+        "GEO vs AEO",
+        "optimizing for ChatGPT",
+        "AI search visibility",
+        "citation rate SEO"
+      ],
+      "focus": "GEO/AEO education, AI search optimization guides"
+    },
+    {
+      "name": "Yotpo",
+      "url": "https://yotpo.com",
+      "keywords": [
+        "ChatGPT SEO tips 2026",
+        "get cited in AI answers",
+        "fact density SEO",
+        "SEO and GEO tactics",
+        "e-commerce AI visibility",
+        "share of model SEO"
+      ],
+      "focus": "E-commerce GEO, citation metrics, AI visibility playbooks"
+    }
+  ],
+  "trending_keyword_variations": {
+    "EEAT": [
+      "EEAT ranking factors 2026",
+      "build EEAT social proof",
+      "Google EEAT guidelines explained",
+      "thinking EEAT ranking factor wrong",
+      "EEAT not a ranking factor"
+    ],
+    "GEO": [
+      "generative engine optimization",
+      "GEO vs SEO vs AEO",
+      "optimize for ChatGPT citations",
+      "mastering GEO 2026 guide",
+      "SEO.com GEO trends 2026"
+    ],
+    "SEO Trends": [
+      "SEO trends 2026",
+      "search everywhere optimization",
+      "AI Overviews impact on SEO",
+      "Google I/O 2026 AI search overhaul",
+      "Gemini 3.5 search agents"
+    ],
+    "Video SEO": [
+      "YouTube SEO 2026",
+      "video tutorial SEO",
+      "short-form video SEO Google",
+      "zero-click search video optimization 2026"
+    ],
+    "Content Strategy": [
+      "human content vs AI content SEO",
+      "EEAT through lived experience",
+      "topical authority building",
+      "wiki voice tone LLM optimization",
+      "authoritative tone for AI citation"
+    ],
+    "Agentic Commerce": [
+      "agentic commerce optimization",
+      "Google UCP agentic shopping",
+      "Triple-A Framework agentic commerce",
+      "agentic AI retail SEO 2026"
+    ],
+    "Zero-Click Search": [
+      "zero click search SEO strategy 2026",
+      "zero-click survival guide 2026",
+      "optimize featured snippets zero click",
+      "zero click content storytelling"
+    ],
+    "Perplexity SEO": [
+      "Perplexity SEO vs Google",
+      "optimize for Perplexity citations",
+      "Perplexity vs ChatGPT SEO content",
+      "data-rich Perplexity optimization"
+    ],
+    "Cloudflare Monetization": [
+      "Cloudflare Monetization Gateway pay per crawl",
+      "charge AI agents for content pricing",
+      "Cloudflare Attribution Business Insights",
+      "machine traffic monetization 2026"
+    ],
+    "GEO Measurement": [
+      "Bing Citation Share metric",
+      "Google SGE performance reports Search Console",
+      "citation rate vs CTR GEO",
+      "AI visibility reporting tools 2026",
+      "Google AI impressions report UK rollout"
+    ],
+    "Google Spam Updates": [
+      "Google June 2026 Spam Update impact",
+      "SpamBrain June 2026 update",
+      "AI Overviews spam policies Google",
+      "Google spam update 15 percent traffic drop"
+    ],
+    "Voice and AI Search": [
+      "OpenAI GPT-Live voice SEO",
+      "Gemini Spark Chrome agent browser",
+      "AI voice search optimization 2026",
+      "voice AI search visibility GEO"
+    ],
+    "SXO and Framework Comparisons": [
+      "Search Everywhere Optimization SXO guide",
+      "GEO vs SEO vs AEO differences explained",
+      "SEO AEO GEO AIO SXO comparison",
+      "unified search optimization framework 2026"
+    ]
+  },
+  "missed_content_angles": [
+    "Agentic commerce — AI agents doing purchasing decisions (2028 prediction)",
+    "llms.txt deployment guide for AI crawler legibility",
+    "Zero-click search impact on content strategy",
+    "Citation rate as KPI replacing CTR",
+    "Trust moat theory — domain authority thresholds for AI citation",
+    "Consensus platforms — Reddit/G2/Capterra optimization for AI",
+    "Content-Answer Fit methodology",
+    "Statistical freshness requirements in GEO content",
+    "Wiki-voice tone for LLM optimization",
+    "Co-citation neighborhood strategy",
+    "Mobile-first SERP monitoring gap",
+    "Local SEO hyper-micro-market targeting",
+    "AI traffic report analysis — 527% increase data",
+    "Perplexity optimization differences from ChatGPT",
+    "Voice search overlap with GEO",
+    "Google I/O 2026: Gemini 3.5 replaces search box with AI agents",
+    "Reddit surpasses Wikipedia as top LLM citation source",
+    "G2 acquires Capterra — consolidation of B2B review platforms for AI search visibility",
+    "AI models treat Wikipedia as truth anchor — implications for content creators",
+    "Zero-click content formats for AI Overview inclusion",
+    "Cloudflare Monetization Gateway: pay-per-crawl model changes AI content economics (July 2026)",
+    "Google Search Console AI performance reports: first official GEO data but impressions-only blind spot",
+    "Google llms.txt clarification: not a ranking signal — what actually works for AI crawler visibility",
+    "Bing Citation Share: first first-party citation percentage metric for GEO measurement",
+    "Google June 2026 Spam Update: AI Overviews explicitly targeted by spam policies",
+    "Google Search Profiles: new publisher branding surface for AI discoverability",
+    "Gemini Spark operating directly in Chrome: analytics measurement blind spot for agentic browsing",
+    "OpenAI GPT-Live voice models: new content discovery surface for voice-optimized GEO",
+    "Google Search Console AI blocking toggle: strategic opt-in/opt-out implications for publishers",
+    "GEO vs SEO vs AEO vs AIO vs SXO framework confusion — comparison market demand surging"
+  ]
+}

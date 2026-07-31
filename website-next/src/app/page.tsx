@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react";
 import { ExternalLink, Bookmark } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import db from "../db/knowledge-base.json";
+import rawDb from "../db/knowledge-base.json";
+import type { KnowledgeBase } from "../types/knowledge";
 import ConsoleShell from "../components/ConsoleShell";
 import Navigator from "../components/Navigator";
+
+const db = rawDb as KnowledgeBase;
 
 /**
  * Home — the indexable landing route ("/").
@@ -46,14 +49,6 @@ export default function Home() {
     setActiveRecipeId(null);
     const bookObj = db.books.find((b) => b.id === id);
     if (bookObj) setBreadcrumb(["Library", bookObj.title]);
-  };
-
-  const handleSelectRecipe = (id: string) => {
-    setActiveRecipeId(id);
-    setActiveBookId(null);
-    setActiveConceptId(null);
-    const recipeObj = db.recipes.find((r) => r.id === id);
-    if (recipeObj) setBreadcrumb(["Recipes", recipeObj.title]);
   };
 
   const toggleBookmark = (id: string) => {

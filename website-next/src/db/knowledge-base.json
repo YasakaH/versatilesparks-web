@@ -10,7 +10,8 @@
       ],
       "used_by": [
         "fingerprints",
-        "profiles"
+        "profiles",
+        "proxies"
       ],
       "tags": [
         "stealth",
@@ -26,13 +27,17 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "detection",
+      "next_steps": [
+        "fingerprints",
+        "proxies"
+      ],
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
       "slug": "anti-detection",
       "body": "Modern anti-bot monitors evaluate browser characteristics, runtime properties, network signatures, and behavior cadence. Evading detection requires matching human-like telemetry signatures on every layer.\n\n### Primary Techniques\n\n1. **CDP Stealth:** Hide variables like `navigator.webdriver` by injecting custom scripts at document creation.\n2. **Network Signatures:** Match client TLS client-hello structures with standard Chrome handshakes.\n3. **Behavioral Timing:** Apply random delays and non-linear mouse paths to simulate organic human interactions.",
-      "related": [
-        "proxies"
-      ],
+      "_file": "anti-detection.mdx",
+      "related": [],
       "recipes": [
         {
           "id": "recipe-v1-19",
@@ -176,6 +181,81 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [
+        {
+          "id": "403-forbidden",
+          "title": "403 Forbidden on target site",
+          "slug": "403-forbidden",
+          "error_patterns": [
+            "403",
+            "forbidden",
+            "access denied",
+            "blocked",
+            "cloudflare 403"
+          ],
+          "severity": "common"
+        },
+        {
+          "id": "captcha-every-request",
+          "title": "CAPTCHA appears on every request",
+          "slug": "captcha-every-request",
+          "error_patterns": [
+            "captcha",
+            "recaptcha",
+            "automated queries",
+            "verify you are human",
+            "i am not a robot"
+          ],
+          "severity": "common"
+        }
+      ],
+      "articles": [
+        {
+          "slug": "automation-detection-signals",
+          "title": "What Automation Detection Looks Like in 2026",
+          "description": "Catalog current detection signals and their mitigation trade-offs. Covers: navigator.webdriver flag, cdp detection, permission query signals.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "anti-detection"
+          ]
+        },
+        {
+          "slug": "fresh-vs-persistent-profiles",
+          "title": "Fresh vs Persistent Browser Profiles: When to Use Which",
+          "description": "Help readers choose the right profile strategy for their use case. Covers: profile-locked, cross-session tracking.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "profiles"
+          ]
+        },
+        {
+          "slug": "browser-fingerprint-primer",
+          "title": "How Browser Fingerprinting Works",
+          "description": "Explain fingerprinting mechanisms and their role in automation detection. Covers: canvas fingerprint, WebGL fingerprint, audio fingerprint.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "fingerprints"
+          ]
+        },
+        {
+          "slug": "anti-detection-strategy-guide",
+          "title": "Anti-Detection Strategy: What Works, What Doesn't",
+          "description": "Systematic approach to reducing automation detection risk. Covers: navigator.webdriver, cdp detection, permission queries, canvas fingerprint.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "anti-detection",
+            "advanced"
+          ]
+        }
       ]
     },
     {
@@ -201,10 +281,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "fundamentals",
+      "next_steps": [
+        "cookies"
+      ],
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
       "slug": "authentication",
       "body": "Authentication is the entry point for most advanced browser automation tasks. When scraping protected user spaces, you must navigate multi-factor auth (MFA), password forms, and token verification without raising bot alerts.\n\n### Core Problems\n\n1. **Undetectable Form Fills:** Typing credentials via standard `.send_keys()` triggers Javascript event monitors that verify keyboard-timing cadence.\n2. **Persistence:** Constant relogins trigger rate limits and IP reputation drops. You must dump and reuse authentication states.\n3. **MFA Telemetry:** Bypassing OTP / App prompts requires synchronous manual handoffs or API webhooks.",
+      "_file": "authentication.mdx",
       "related": [],
       "recipes": [
         {
@@ -385,7 +470,9 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [],
+      "articles": []
     },
     {
       "id": "cdp",
@@ -412,10 +499,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "infrastructure",
+      "next_steps": [
+        "network-interception"
+      ],
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
       "slug": "cdp",
       "body": "The Chrome DevTools Protocol allows direct instrument control, inspection, and manipulation of Chromium-based browsers. Connecting over WebSocket bypasses standard API detection limits.\n\n### Essential Operations\n\n1. **Target Attachment:** Attach to specific pages, frames, or service workers via unique CDP targets.\n2. **Method Execution:** Send JSON payload commands (`Runtime.evaluate`, `Page.addScriptToEvaluateOnNewDocument`).\n3. **Event Subscriptions:** Listen to network logs (`Network.requestWillBeSent`) or console outputs.",
+      "_file": "cdp.mdx",
       "related": [
         "proxies"
       ],
@@ -593,6 +685,20 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [],
+      "articles": [
+        {
+          "slug": "5-mistakes-nodriver-beginners",
+          "title": "5 Mistakes New nodriver Users Make (and How to Avoid Them)",
+          "description": "You migrated to nodriver for the low-level CDP control. But that flexibility comes with its own production gotchas — here are the five I see most often and how to fix each one.",
+          "tags": [
+            "nodriver",
+            "python",
+            "webscraping",
+            "cdp"
+          ]
+        }
       ]
     },
     {
@@ -619,10 +725,15 @@
       "introduced": "v1.0.0",
       "updated": "v1.0.0",
       "deprecated": false,
+      "group": "fundamentals",
+      "next_steps": [
+        "sessions"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "cookies",
       "body": "Cookies are key-value state parameters sent by the browser in HTTP headers. In browser automation, dumping active cookies allows you to recreate states without walking through interactive login steps.\n\n### Strategic Implementation\n\n1. **JSON Serialization:** Convert cookies into array schemas containing expiry dates, domain bounds, and paths.\n2. **Injecting Before Navigation:** Set cookies via CDP before triggering page navigation to prevent redirection loops.\n3. **Decoupled domains:** Inject cookies targeting specific subdomains separately to honor security scopes.",
+      "_file": "cookies.mdx",
       "related": [],
       "recipes": [
         {
@@ -753,7 +864,9 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [],
+      "articles": []
     },
     {
       "id": "fingerprints",
@@ -780,10 +893,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "detection",
+      "next_steps": [
+        "cdp"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "fingerprints",
       "body": "A browser fingerprint is a unique identifier generated by compiling device characteristics. Anti-bot scripts run Canvas rendering, audio API, and font checks to detect mismatched environments.\n\n### Core Strategies\n\n1. **User Agent & Client Hints:** Match browser headers with navigator metadata.\n2. **Canvas Noise:** Inject minor variations to canvas rendering outputs to prevent tracking without breaking images.\n3. **Hardware Spoofing:** Override memory boundaries and core counts (`navigator.hardwareConcurrency`).",
+      "_file": "fingerprints.mdx",
       "related": [
         "proxies",
         "profiles"
@@ -871,6 +989,43 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [],
+      "articles": [
+        {
+          "slug": "automation-detection-signals",
+          "title": "What Automation Detection Looks Like in 2026",
+          "description": "Catalog current detection signals and their mitigation trade-offs. Covers: navigator.webdriver flag, cdp detection, permission query signals.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "anti-detection"
+          ]
+        },
+        {
+          "slug": "browser-fingerprint-primer",
+          "title": "How Browser Fingerprinting Works",
+          "description": "Explain fingerprinting mechanisms and their role in automation detection. Covers: canvas fingerprint, WebGL fingerprint, audio fingerprint.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "fingerprints"
+          ]
+        },
+        {
+          "slug": "anti-detection-strategy-guide",
+          "title": "Anti-Detection Strategy: What Works, What Doesn't",
+          "description": "Systematic approach to reducing automation detection risk. Covers: navigator.webdriver, cdp detection, permission queries, canvas fingerprint.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "anti-detection",
+            "advanced"
+          ]
+        }
       ]
     },
     {
@@ -898,10 +1053,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "infrastructure",
+      "next_steps": [
+        "scaling"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "network-interception",
       "body": "Intercepting network actions at the CDP level allows you to block heavy media files (images, CSS), mock API endpoints, inject custom authorization headers, and route traffic through specialized proxy configurations.\n\n### Key Applications\n\n1. **Asset Blocking:** Block image, font, and analytics requests to reduce bandwidth by up to 80%.\n2. **Payload Interception:** Intercept raw fetch payloads to extract JSON data streams directly without page DOM parsing.\n3. **Response Overriding:** Inject mock mockups or stub responses for testing error state workflows.",
+      "_file": "network-interception.mdx",
       "related": [
         "proxies"
       ],
@@ -1155,7 +1315,9 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [],
+      "articles": []
     },
     {
       "id": "observability",
@@ -1182,10 +1344,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "recovery",
+      "next_steps": [
+        "recovery"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "observability",
       "body": "Observability gives you visibility into running browser processes: CPU cycles, memory usage, task queues, success rates, and active proxy speeds.\n\n### Essential Metrics\n\n1. **Memory Allocations:** Track Chrome RSS memory to trigger rolling restarts before exhaustion occurs.\n2. **Page Telemetry:** Log navigation performance, DOM completion duration, and error frequencies.\n3. **Structured logs:** Format runtime console metrics into readable JSON schemas for log-aggregators (Loki, Elasticsearch).",
+      "_file": "observability.mdx",
       "related": [],
       "recipes": [
         {
@@ -1404,7 +1571,23 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [
+        {
+          "id": "element-not-found",
+          "title": "Element not found / timeout waiting for selector",
+          "slug": "element-not-found",
+          "error_patterns": [
+            "element not found",
+            "timeout",
+            "no such element",
+            "cannot locate",
+            "element is not attached"
+          ],
+          "severity": "common"
+        }
+      ],
+      "articles": []
     },
     {
       "id": "profiles",
@@ -1430,10 +1613,15 @@
       "introduced": "v1.0.0",
       "updated": "v1.0.0",
       "deprecated": false,
+      "group": "infrastructure",
+      "next_steps": [
+        "cdp"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "profiles",
       "body": "Chrome uses User Data Directories to store configuration profiles. Maintaining isolated profile directories allows concurrent daemons to run without colliding.\n\n### Implementation Checklist\n\n1. **Path Isolation:** Give each daemon container a dedicated profile subdirectory.\n2. **Lock Exclusions:** Remove `SingletonLock` symlinks when starting Chrome on POSIX environments.\n3. **Preference Patching:** Pre-edit `Preferences` JSON files to disable telemetry, updates, and crash prompts.",
+      "_file": "profiles.mdx",
       "related": [
         "fingerprints",
         "proxies"
@@ -1653,6 +1841,71 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [
+        {
+          "id": "profile-corruption",
+          "title": "Browser profile SQLite corruption",
+          "slug": "profile-corruption",
+          "error_patterns": [
+            "SQLite error",
+            "database disk image is malformed",
+            "unable to open database file",
+            "profile corruption",
+            "cookies database corruption",
+            "SQLite malformed"
+          ],
+          "severity": "common"
+        },
+        {
+          "id": "profile-locked",
+          "title": "Chrome profile is already in use",
+          "slug": "profile-locked",
+          "error_patterns": [
+            "profile is already in use",
+            "SingletonLock",
+            "cannot create profile",
+            "profile locked",
+            "user data directory is already in use"
+          ],
+          "severity": "common"
+        }
+      ],
+      "articles": [
+        {
+          "slug": "why-browser-profiles-break",
+          "title": "Why Your nodriver Browser Profiles Break (and How to Fix Them)",
+          "description": "Explain profile mechanics, common failure modes, and recovery strategies. Covers: profile-locked, profile-corruption.",
+          "tags": [
+            "nodriver",
+            "python",
+            "profiles",
+            "cdp"
+          ]
+        },
+        {
+          "slug": "fresh-vs-persistent-profiles",
+          "title": "Fresh vs Persistent Browser Profiles: When to Use Which",
+          "description": "Help readers choose the right profile strategy for their use case. Covers: profile-locked, cross-session tracking.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "profiles"
+          ]
+        },
+        {
+          "slug": "anti-detection-strategy-guide",
+          "title": "Anti-Detection Strategy: What Works, What Doesn't",
+          "description": "Systematic approach to reducing automation detection risk. Covers: navigator.webdriver, cdp detection, permission queries, canvas fingerprint.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "anti-detection",
+            "advanced"
+          ]
+        }
       ]
     },
     {
@@ -1684,10 +1937,16 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "detection",
+      "next_steps": [
+        "cdp",
+        "network-interception"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-19",
       "slug": "proxies",
       "body": "Proxies mask your crawler's origin IP address. To scrape at scale, you must rotate residential, datacenter, and mobile proxies dynamically while managing session cookies and headers.\n\n### Strategic Implementation\n\n1. **Residential Proxy Pools:** Use proxies with residential ISP associations to bypass Akamai and Cloudflare IP reputation scores.\n2. **Backconnect Gateways:** Route requests through a single entry point that auto-rotates IPs on every request or connection run.\n3. **Authentication & Protocol:** Configure proxies in nodriver using Chrome command-line args (`--proxy-server=http://user:pass@ip:port`).",
+      "_file": "proxies.mdx",
       "related": [
         "fingerprints",
         "profiles"
@@ -1809,7 +2068,9 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [],
+      "articles": []
     },
     {
       "id": "recovery",
@@ -1834,10 +2095,13 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "recovery",
+      "next_steps": [],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "recovery",
       "body": "Daemon scrapers operating 24/7 face network dropouts, proxy bans, and browser crashes. A self-healing system detects anomalies, terminates corrupt processes, and recovers automatically.\n\n### Architecture\n\n1. **Anomaly Detectors:** Set up watchdog monitors that check if a browser call is hung or executing too slowly.\n2. **Hard Terminations:** Force-kill Chrome processes via PID locks if WebSocket commands timeout.\n3. **Task Retries:** Queue tasks with backoff algorithms, dynamically routing retries through clean proxies.",
+      "_file": "recovery.mdx",
       "related": [],
       "recipes": [
         {
@@ -1968,7 +2232,23 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
-      ]
+      ],
+      "problems": [
+        {
+          "id": "browser-disconnected",
+          "title": "Browser disconnected unexpectedly",
+          "slug": "browser-disconnected",
+          "error_patterns": [
+            "browser disconnected",
+            "websocket closed",
+            "target closed",
+            "connection closed",
+            "protocol error"
+          ],
+          "severity": "common"
+        }
+      ],
+      "articles": []
     },
     {
       "id": "scaling",
@@ -1995,10 +2275,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "infrastructure",
+      "next_steps": [
+        "observability"
+      ],
       "compatible_with": "Chrome >= 110, nodriver >= 1.0",
       "last_reviewed": "2026-07-18",
       "slug": "scaling",
       "body": "Operating a cluster of browser instances requires scaling memory bounds, preventing memory leak loops, running inside head-deprived Linux environments, and managing proxy load balancers.\n\n### Execution Plan\n\n1. **Shared Memory Access:** Configure `/dev/shm` in Docker containers to avoid tab crashes from low memory limits.\n2. **Zombie Process Cleanup:** Use tiny-inits (`tini`) in Docker entries to clean up orphaned Chrome processes.\n3. **Queue Balancing:** Maintain a pool manager that routes tasks to warm, idling browser targets.",
+      "_file": "scaling.mdx",
       "related": [],
       "recipes": [
         {
@@ -2122,6 +2407,20 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [],
+      "articles": [
+        {
+          "slug": "why-browser-profiles-break",
+          "title": "Why Your nodriver Browser Profiles Break (and How to Fix Them)",
+          "description": "Explain profile mechanics, common failure modes, and recovery strategies. Covers: profile-locked, profile-corruption.",
+          "tags": [
+            "nodriver",
+            "python",
+            "profiles",
+            "cdp"
+          ]
+        }
       ]
     },
     {
@@ -2149,10 +2448,15 @@
       "introduced": "v1.0.0",
       "updated": "v2.0.0",
       "deprecated": false,
+      "group": "fundamentals",
+      "next_steps": [
+        "anti-detection"
+      ],
       "compatible_with": "Chrome >= 110",
       "last_reviewed": "2026-07-18",
       "slug": "sessions",
       "body": "A session encapsulates a user's entire state: cookies, local storage, indexedDB, cache files, and browser configurations. Reusing sessions reduces server overhead and decreases bot detection rates.\n\n### Best Practices\n\n1. **User Data Directory:** Launch Chrome pointing to a dedicated folder containing the browser profile data.\n2. **Graceful Shutdowns:** Ensure Chrome writes session states to disk before terminating the process.\n3. **Session Lock Bypass:** Clear stale `.lock` files from the Chrome profile directory before launching a daemon.",
+      "_file": "sessions.mdx",
       "related": [],
       "recipes": [
         {
@@ -2283,6 +2587,45 @@
           "slug": "playbook",
           "version": "2.0.0"
         }
+      ],
+      "problems": [
+        {
+          "id": "session-lost",
+          "title": "Session cookies lost after restart",
+          "slug": "session-lost",
+          "error_patterns": [
+            "session lost",
+            "cookies cleared",
+            "not authenticated",
+            "login expired",
+            "session expired"
+          ],
+          "severity": "common"
+        }
+      ],
+      "articles": [
+        {
+          "slug": "why-browser-profiles-break",
+          "title": "Why Your nodriver Browser Profiles Break (and How to Fix Them)",
+          "description": "Explain profile mechanics, common failure modes, and recovery strategies. Covers: profile-locked, profile-corruption.",
+          "tags": [
+            "nodriver",
+            "python",
+            "profiles",
+            "cdp"
+          ]
+        },
+        {
+          "slug": "fresh-vs-persistent-profiles",
+          "title": "Fresh vs Persistent Browser Profiles: When to Use Which",
+          "description": "Help readers choose the right profile strategy for their use case. Covers: profile-locked, cross-session tracking.",
+          "tags": [
+            "nodriver",
+            "python",
+            "browser-automation",
+            "profiles"
+          ]
+        }
       ]
     }
   ],
@@ -2304,6 +2647,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-1",
       "body": "This recipe covers 'Launch and Close a Browser' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-1.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -2318,7 +2662,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-10",
@@ -2337,6 +2682,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-10",
       "body": "This recipe covers 'Retry Transient Failures' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-10.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -2351,7 +2697,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-11",
@@ -2370,6 +2717,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-11",
       "body": "This recipe covers 'Add Useful Logging' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-11.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -2384,7 +2732,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-12",
@@ -2403,6 +2752,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-12",
       "body": "This recipe covers 'Customize Cookbook Configuration' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-12.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -2417,7 +2767,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-13",
@@ -2437,6 +2788,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-13",
       "body": "This recipe covers 'Find Elements Using Stable Selectors' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-13.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2458,7 +2810,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-14",
@@ -2478,6 +2831,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-14",
       "body": "This recipe covers 'Click Elements Reliably' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-14.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2499,7 +2853,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-15",
@@ -2519,6 +2874,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-15",
       "body": "This recipe covers 'Fill Forms' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-15.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2540,7 +2896,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-16",
@@ -2560,6 +2917,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-16",
       "body": "This recipe covers 'Upload Files' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-16.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2581,7 +2939,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-17",
@@ -2601,6 +2960,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-17",
       "body": "This recipe covers 'Select Dropdown Options' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-17.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2622,7 +2982,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-18",
@@ -2642,6 +3003,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-18",
       "body": "This recipe covers 'Handle Dialogs and Pop-ups' from Chapter 4 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-18.mdx",
       "conceptObjects": [
         {
           "id": "cookies",
@@ -2663,7 +3025,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-19",
@@ -2683,6 +3046,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-19",
       "body": "This recipe covers 'Log In and Verify Authentication' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-19.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -2704,7 +3068,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-2",
@@ -2723,6 +3088,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-2",
       "body": "This recipe covers 'Open and Manage Browser Tabs' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-2.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -2737,7 +3103,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-20",
@@ -2757,6 +3124,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-20",
       "body": "This recipe covers 'Work with Cookies' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-20.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -2778,7 +3146,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-21",
@@ -2798,6 +3167,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-21",
       "body": "This recipe covers 'Reuse Authenticated Sessions' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-21.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -2819,7 +3189,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-22",
@@ -2839,6 +3210,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-22",
       "body": "This recipe covers 'Manage Multiple Accounts' from Chapter 5 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-22.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -2860,7 +3232,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-23",
@@ -2880,6 +3253,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-23",
       "body": "This recipe covers 'Extract Structured Tables' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-23.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -2901,7 +3275,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-24",
@@ -2921,6 +3296,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-24",
       "body": "This recipe covers 'Handle Pagination' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-24.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -2942,7 +3318,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-25",
@@ -2962,6 +3339,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-25",
       "body": "This recipe covers 'Scrape Infinite Scroll Pages' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-25.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -2983,7 +3361,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-26",
@@ -3003,6 +3382,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-26",
       "body": "This recipe covers 'Download Files Reliably' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-26.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3024,7 +3404,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-27",
@@ -3044,6 +3425,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-27",
       "body": "This recipe covers 'Extract Images and Media' from Chapter 6 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-27.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3065,7 +3447,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-28",
@@ -3084,6 +3467,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-28",
       "body": "This recipe covers 'Build Automation That Resembles Normal Usage' from Chapter 7 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-28.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -3098,7 +3482,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-29",
@@ -3117,6 +3502,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-29",
       "body": "This recipe covers 'Build Resilient Browser Automation' from Chapter 7 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-29.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -3131,7 +3517,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-3",
@@ -3150,6 +3537,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-3",
       "body": "This recipe covers 'Reuse a Browser Profile Across Sessions' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-3.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -3164,7 +3552,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-30",
@@ -3183,6 +3572,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-30",
       "body": "This recipe covers 'Production Browser Automation Starter Kit' from Chapter 8 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-30.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -3197,7 +3587,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-4",
@@ -3216,6 +3607,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-4",
       "body": "This recipe covers 'Customize Browser Startup Options' from Chapter 1 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-4.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -3230,7 +3622,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-5",
@@ -3249,6 +3642,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-5",
       "body": "This recipe covers 'Navigate Like a User' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-5.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3263,7 +3657,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-6",
@@ -3282,6 +3677,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-6",
       "body": "This recipe covers 'Capture Screenshots' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-6.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3296,7 +3692,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-7",
@@ -3315,6 +3712,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-7",
       "body": "This recipe covers 'Execute JavaScript in the Page' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-7.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3329,7 +3727,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-8",
@@ -3348,6 +3747,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-8",
       "body": "This recipe covers 'Inspect Browser State' from Chapter 2 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-8.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -3362,7 +3762,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v1-9",
@@ -3381,6 +3782,7 @@
       "book": "cookbook",
       "slug": "recipe-v1-9",
       "body": "This recipe covers 'Wait for Meaningful State' from Chapter 3 of the Python Browser Automation Cookbook.\r\n\r\n### Implementation Goals\r\n\r\n* Understand low-level CDP triggers.\r\n* Implement structured async handlers.\r\n* Prevent resource leakage.",
+      "_file": "recipe-v1-9.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3395,7 +3797,8 @@
         "title": "Python Browser Automation Cookbook",
         "slug": "cookbook",
         "version": "1.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-1",
@@ -3415,6 +3818,7 @@
       "book": "playbook",
       "slug": "recipe-v2-1",
       "body": "This recipe covers 'Launch and Close a Browser' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-1.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -3429,7 +3833,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-10",
@@ -3450,6 +3855,7 @@
       "book": "playbook",
       "slug": "recipe-v2-10",
       "body": "This recipe covers 'Retry Failures Intelligently' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-10.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -3471,7 +3877,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-11",
@@ -3492,6 +3899,7 @@
       "book": "playbook",
       "slug": "recipe-v2-11",
       "body": "This recipe covers 'Structured Logging' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-11.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -3513,7 +3921,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-12",
@@ -3534,6 +3943,7 @@
       "book": "playbook",
       "slug": "recipe-v2-12",
       "body": "This recipe covers 'Configuration Management' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-12.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -3555,7 +3965,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-13",
@@ -3575,6 +3986,7 @@
       "book": "playbook",
       "slug": "recipe-v2-13",
       "body": "This recipe covers 'Find Elements Reliably' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-13.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3589,7 +4001,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-14",
@@ -3609,6 +4022,7 @@
       "book": "playbook",
       "slug": "recipe-v2-14",
       "body": "This recipe covers 'Click Elements Without Race Conditions' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-14.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3623,7 +4037,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-15",
@@ -3643,6 +4058,7 @@
       "book": "playbook",
       "slug": "recipe-v2-15",
       "body": "This recipe covers 'Fill Forms Reliably' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-15.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3657,7 +4073,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-16",
@@ -3677,6 +4094,7 @@
       "book": "playbook",
       "slug": "recipe-v2-16",
       "body": "This recipe covers 'File Uploads' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-16.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3691,7 +4109,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-17",
@@ -3711,6 +4130,7 @@
       "book": "playbook",
       "slug": "recipe-v2-17",
       "body": "This recipe covers 'Select Dropdown Options' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-17.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3725,7 +4145,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-18",
@@ -3745,6 +4166,7 @@
       "book": "playbook",
       "slug": "recipe-v2-18",
       "body": "This recipe covers 'Dialogs, Alerts, and Popups' from Chapter 4 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-18.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3759,7 +4181,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-19",
@@ -3782,6 +4205,7 @@
       "book": "playbook",
       "slug": "recipe-v2-19",
       "body": "This recipe covers 'Login Forms' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-19.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3817,7 +4241,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-2",
@@ -3837,6 +4262,7 @@
       "book": "playbook",
       "slug": "recipe-v2-2",
       "body": "This recipe covers 'Open and Manage Browser Tabs' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-2.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -3851,7 +4277,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-20",
@@ -3873,6 +4300,7 @@
       "book": "playbook",
       "slug": "recipe-v2-20",
       "body": "This recipe covers 'Cookie Persistence' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-20.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3901,7 +4329,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-21",
@@ -3923,6 +4352,7 @@
       "book": "playbook",
       "slug": "recipe-v2-21",
       "body": "This recipe covers 'Session Reuse' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-21.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -3951,7 +4381,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-22",
@@ -3974,6 +4405,7 @@
       "book": "playbook",
       "slug": "recipe-v2-22",
       "body": "This recipe covers 'Multi-Account Isolation' from Chapter 5 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-22.mdx",
       "conceptObjects": [
         {
           "id": "authentication",
@@ -4009,7 +4441,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-23",
@@ -4029,6 +4462,7 @@
       "book": "playbook",
       "slug": "recipe-v2-23",
       "body": "This recipe covers 'Extract Data From Tables' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-23.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -4043,7 +4477,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-24",
@@ -4063,6 +4498,7 @@
       "book": "playbook",
       "slug": "recipe-v2-24",
       "body": "This recipe covers 'Pagination' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-24.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -4077,7 +4513,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-25",
@@ -4097,6 +4534,7 @@
       "book": "playbook",
       "slug": "recipe-v2-25",
       "body": "This recipe covers 'Infinite Scroll' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-25.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -4111,7 +4549,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-26",
@@ -4131,6 +4570,7 @@
       "book": "playbook",
       "slug": "recipe-v2-26",
       "body": "This recipe covers 'Download Files' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-26.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -4145,7 +4585,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-27",
@@ -4165,6 +4606,7 @@
       "book": "playbook",
       "slug": "recipe-v2-27",
       "body": "This recipe covers 'Extract Images and Media' from Chapter 6 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-27.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -4179,7 +4621,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-28",
@@ -4201,6 +4644,7 @@
       "book": "playbook",
       "slug": "recipe-v2-28",
       "body": "This recipe covers 'Stealth Configuration' from Chapter 7 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-28.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -4229,7 +4673,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-29",
@@ -4251,6 +4696,7 @@
       "book": "playbook",
       "slug": "recipe-v2-29",
       "body": "This recipe covers 'Resilient Automation Patterns' from Chapter 7 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-29.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -4279,7 +4725,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-3",
@@ -4299,6 +4746,7 @@
       "book": "playbook",
       "slug": "recipe-v2-3",
       "body": "This recipe covers 'Reuse a Browser Profile Across Sessions' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-3.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4313,7 +4761,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-30",
@@ -4333,6 +4782,7 @@
       "book": "playbook",
       "slug": "recipe-v2-30",
       "body": "This recipe covers 'The Production Starter Kit' from Chapter 8 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-30.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -4347,7 +4797,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-30a",
@@ -4367,6 +4818,7 @@
       "book": "playbook",
       "slug": "recipe-v2-30a",
       "body": "This recipe covers 'Docker Deployment' from Chapter 8 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-30a.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -4381,7 +4833,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-31",
@@ -4404,6 +4857,7 @@
       "book": "playbook",
       "slug": "recipe-v2-31",
       "body": "This recipe covers 'Intercept and Analyze Network Traffic with CDP' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-31.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -4439,7 +4893,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-32",
@@ -4462,6 +4917,7 @@
       "book": "playbook",
       "slug": "recipe-v2-32",
       "body": "This recipe covers 'Block Unnecessary Resources for Performance' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-32.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -4497,7 +4953,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-33",
@@ -4520,6 +4977,7 @@
       "book": "playbook",
       "slug": "recipe-v2-33",
       "body": "This recipe covers 'Debug JavaScript Failures Through Console Logs' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-33.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -4555,7 +5013,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-34",
@@ -4578,6 +5037,7 @@
       "book": "playbook",
       "slug": "recipe-v2-34",
       "body": "This recipe covers 'Measure Browser Performance' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-34.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -4613,7 +5073,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-35",
@@ -4636,6 +5097,7 @@
       "book": "playbook",
       "slug": "recipe-v2-35",
       "body": "This recipe covers 'Emulate Different Browser Environments' from Chapter 9 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-35.mdx",
       "conceptObjects": [
         {
           "id": "cdp",
@@ -4671,7 +5133,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-36",
@@ -4691,6 +5154,7 @@
       "book": "playbook",
       "slug": "recipe-v2-36",
       "body": "This recipe covers 'Audit Your Browser Environment' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-36.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4705,7 +5169,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-37",
@@ -4725,6 +5190,7 @@
       "book": "playbook",
       "slug": "recipe-v2-37",
       "body": "This recipe covers 'Build Reproducible Browser Environments' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-37.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4739,7 +5205,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-38",
@@ -4759,6 +5226,7 @@
       "book": "playbook",
       "slug": "recipe-v2-38",
       "body": "This recipe covers 'Browser Profile Isolation' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-38.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4773,7 +5241,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-39",
@@ -4793,6 +5262,7 @@
       "book": "playbook",
       "slug": "recipe-v2-39",
       "body": "This recipe covers 'Regional Configuration Testing' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-39.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4807,7 +5277,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-4",
@@ -4827,6 +5298,7 @@
       "book": "playbook",
       "slug": "recipe-v2-4",
       "body": "This recipe covers 'Customize Browser Startup Options' from Chapter 1 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-4.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4841,7 +5313,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-40",
@@ -4861,6 +5334,7 @@
       "book": "playbook",
       "slug": "recipe-v2-40",
       "body": "This recipe covers 'Diagnose Browser Compatibility' from Chapter 10 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-40.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -4875,7 +5349,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-41",
@@ -4895,6 +5370,7 @@
       "book": "playbook",
       "slug": "recipe-v2-41",
       "body": "This recipe covers 'Reliable Drag and Drop' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-41.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -4909,7 +5385,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-42",
@@ -4929,6 +5406,7 @@
       "book": "playbook",
       "slug": "recipe-v2-42",
       "body": "This recipe covers 'Working With iFrames' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-42.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -4943,7 +5421,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-43",
@@ -4963,6 +5442,7 @@
       "book": "playbook",
       "slug": "recipe-v2-43",
       "body": "This recipe covers 'Shadow DOM Automation' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-43.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -4977,7 +5457,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-44",
@@ -4997,6 +5478,7 @@
       "book": "playbook",
       "slug": "recipe-v2-44",
       "body": "This recipe covers 'Rich Text Editors' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-44.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -5011,7 +5493,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-45",
@@ -5031,6 +5514,7 @@
       "book": "playbook",
       "slug": "recipe-v2-45",
       "body": "This recipe covers 'Keyboard and Clipboard Automation' from Chapter 11 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-45.mdx",
       "conceptObjects": [
         {
           "id": "anti-detection",
@@ -5045,7 +5529,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-46",
@@ -5067,6 +5552,7 @@
       "book": "playbook",
       "slug": "recipe-v2-46",
       "body": "This recipe covers 'Deploy Browser Automation with Docker' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-46.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5095,7 +5581,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-47",
@@ -5117,6 +5604,7 @@
       "book": "playbook",
       "slug": "recipe-v2-47",
       "body": "This recipe covers 'Schedule Reliable Automation Jobs' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-47.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5145,7 +5633,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-48",
@@ -5167,6 +5656,7 @@
       "book": "playbook",
       "slug": "recipe-v2-48",
       "body": "This recipe covers 'Store Automation Data Safely' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-48.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5195,7 +5685,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-49",
@@ -5217,6 +5708,7 @@
       "book": "playbook",
       "slug": "recipe-v2-49",
       "body": "This recipe covers 'Observability and Metrics' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-49.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5245,7 +5737,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-5",
@@ -5265,6 +5758,7 @@
       "book": "playbook",
       "slug": "recipe-v2-5",
       "body": "This recipe covers 'Navigation and Wait Strategies' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-5.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -5279,7 +5773,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-50",
@@ -5301,6 +5796,7 @@
       "book": "playbook",
       "slug": "recipe-v2-50",
       "body": "This recipe covers 'Recovery and Health Management' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-50.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5329,7 +5825,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-51",
@@ -5351,6 +5848,7 @@
       "book": "playbook",
       "slug": "recipe-v2-51",
       "body": "This recipe covers 'Secrets and Configuration Management' from Chapter 12 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-51.mdx",
       "conceptObjects": [
         {
           "id": "scaling",
@@ -5379,7 +5877,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-52",
@@ -5399,6 +5898,7 @@
       "book": "playbook",
       "slug": "recipe-v2-52",
       "body": "This recipe covers 'Validate Scraped Records Before Storage' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-52.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -5413,7 +5913,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-53",
@@ -5433,6 +5934,7 @@
       "book": "playbook",
       "slug": "recipe-v2-53",
       "body": "This recipe covers 'Normalize and Export Trusted Data' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-53.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -5447,7 +5949,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-54",
@@ -5467,6 +5970,7 @@
       "book": "playbook",
       "slug": "recipe-v2-54",
       "body": "This recipe covers 'Incremental Scraping & Change Detection' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-54.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -5481,7 +5985,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-55",
@@ -5501,6 +6006,7 @@
       "book": "playbook",
       "slug": "recipe-v2-55",
       "body": "This recipe covers 'Structural Page Comparison' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-55.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -5515,7 +6021,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-56",
@@ -5535,6 +6042,7 @@
       "book": "playbook",
       "slug": "recipe-v2-56",
       "body": "This recipe covers 'Data Provenance & Audit Trails' from Chapter 13 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-56.mdx",
       "conceptObjects": [
         {
           "id": "network-interception",
@@ -5549,7 +6057,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-6",
@@ -5569,6 +6078,7 @@
       "book": "playbook",
       "slug": "recipe-v2-6",
       "body": "This recipe covers 'Page Navigation and Screenshots' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-6.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -5583,7 +6093,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-7",
@@ -5603,6 +6114,7 @@
       "book": "playbook",
       "slug": "recipe-v2-7",
       "body": "This recipe covers 'JavaScript Execution' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-7.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -5617,7 +6129,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-8",
@@ -5637,6 +6150,7 @@
       "book": "playbook",
       "slug": "recipe-v2-8",
       "body": "This recipe covers 'Browser State Persistence' from Chapter 2 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-8.mdx",
       "conceptObjects": [
         {
           "id": "profiles",
@@ -5651,7 +6165,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     },
     {
       "id": "recipe-v2-9",
@@ -5672,6 +6187,7 @@
       "book": "playbook",
       "slug": "recipe-v2-9",
       "body": "This recipe covers 'Wait for Elements Correctly' from Chapter 3 of the Browser Automation Playbook.\r\n\r\n### Production Engineering Strategy\r\n\r\n* Evade standard browser timing metrics.\r\n* Route requests through backconnect residential proxy pools.\r\n* Configure auto-healing watchdogs for lifecycle monitoring.",
+      "_file": "recipe-v2-9.mdx",
       "conceptObjects": [
         {
           "id": "observability",
@@ -5693,7 +6209,8 @@
         "title": "Browser Automation Playbook",
         "slug": "playbook",
         "version": "2.0.0"
-      }
+      },
+      "prerequisites": []
     }
   ],
   "books": [
@@ -5712,7 +6229,8 @@
         "15 complete Python scripts"
       ],
       "slug": "cookbook",
-      "body": "### Working Smarter with nodriver\n\nThis cookbook provides 15 highly focused, production-grade recipes built on asynchronous Python and the native Chrome DevTools Protocol.\n\n* **Anti-Bot Evading:** Bypass standard webdriver detection boundaries.\n* **Shadow DOM Traversal:** Traverse virtual shadow roots natively.\n* **Session Persistence:** Save and reuse active authentication cookie jars."
+      "body": "### Working Smarter with nodriver\n\nThis cookbook provides 15 highly focused, production-grade recipes built on asynchronous Python and the native Chrome DevTools Protocol.\n\n* **Anti-Bot Evading:** Bypass standard webdriver detection boundaries.\n* **Shadow DOM Traversal:** Traverse virtual shadow roots natively.\n* **Session Persistence:** Save and reuse active authentication cookie jars.",
+      "_file": "cookbook.mdx"
     },
     {
       "id": "playbook",
@@ -5730,7 +6248,228 @@
         "Docker Staging files"
       ],
       "slug": "playbook",
-      "body": "### Production Engineering Edition\n\nA masterclass in designing, deploying, and maintaining high-performance headless browser pools. Written exclusively for senior SREs, backend developers, and scraping architects.\n\n* **Concurreny & Pooling:** Run headless clusters with optimized memory footprint.\n* **Low-Level CDP intercept:** Capture API request streams at the websocket layer.\n* **Process Watchdogs:** Auto-kill and repair leaking browser instances."
+      "body": "### Production Engineering Edition\n\nA masterclass in designing, deploying, and maintaining high-performance headless browser pools. Written exclusively for senior SREs, backend developers, and scraping architects.\n\n* **Concurreny & Pooling:** Run headless clusters with optimized memory footprint.\n* **Low-Level CDP intercept:** Capture API request streams at the websocket layer.\n* **Process Watchdogs:** Auto-kill and repair leaking browser instances.",
+      "_file": "playbook.mdx"
+    }
+  ],
+  "problems": [
+    {
+      "id": "403-forbidden",
+      "title": "403 Forbidden on target site",
+      "error_patterns": [
+        "403",
+        "forbidden",
+        "access denied",
+        "blocked",
+        "cloudflare 403"
+      ],
+      "severity": "common",
+      "concept": "anti-detection",
+      "description": "The server rejects the connection before any page content is delivered.",
+      "slug": "403-forbidden",
+      "body": "A 403 means the server identified your traffic as non-human at the TLS or HTTP layer.\n\n### Common Causes\n\n- Missing or invalid TLS fingerprint (JA3/JA3S)\n- Headers mismatch (missing `Accept-Language`, `Sec-*` headers)\n- Cloudflare WAF blocking datacenter IP ranges\n\n### Quick Debug\n\n```python\nimport asyncio\nfrom nodriver import start\n\nasync def check():\n    browser = await start()\n    page = await browser.get(\"https://example.com\")\n    print(await page.content)\n\nasyncio.run(check())\n```\n\nIf a simple GET works but the target doesn't, compare the TLS handshake and headers your browser sends against a real Chrome instance.",
+      "_file": "403-forbidden.mdx",
+      "conceptObject": {
+        "id": "anti-detection",
+        "title": "Anti Detection",
+        "slug": "anti-detection",
+        "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+        "difficulty": "Advanced"
+      }
+    },
+    {
+      "id": "browser-disconnected",
+      "title": "Browser disconnected unexpectedly",
+      "error_patterns": [
+        "browser disconnected",
+        "websocket closed",
+        "target closed",
+        "connection closed",
+        "protocol error"
+      ],
+      "severity": "common",
+      "concept": "recovery",
+      "description": "The CDP WebSocket connection dropped. The browser process may have crashed or been killed.",
+      "slug": "browser-disconnected",
+      "body": "This happens when the browser process crashes, runs out of memory, or is terminated externally.\n\n### Root Causes\n\n- Memory pressure (too many tabs / profiles)\n- Zombie browser processes from a previous session\n- OOM killer on Linux\n- Network timeout on the CDP WebSocket\n\n### Production Pattern\n\nWrap every operation with automatic reconnection:\n\n```python\nfrom nodriver import start\nfrom tenacity import retry, stop_after_attempt, wait_exponential\n\n@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))\nasync def with_reconnect():\n    browser = await start()\n    # ...\n```",
+      "_file": "browser-disconnected.mdx",
+      "conceptObject": {
+        "id": "recovery",
+        "title": "Self-Healing & Recovery",
+        "slug": "recovery",
+        "summary": "Writing intelligent retry networks and process recovery engines to survive transient failures.",
+        "difficulty": "Advanced"
+      }
+    },
+    {
+      "id": "captcha-every-request",
+      "title": "CAPTCHA appears on every request",
+      "error_patterns": [
+        "captcha",
+        "recaptcha",
+        "automated queries",
+        "verify you are human",
+        "i am not a robot"
+      ],
+      "severity": "common",
+      "concept": "anti-detection",
+      "description": "Bot detection services are flagging your browser as automated. Every request is challenged.",
+      "slug": "captcha-every-request",
+      "body": "When every page load triggers a CAPTCHA, your browser fingerprint is being detected as non-human.\n\n### Root Cause\n\nDetection services check: `navigator.webdriver`, CDP presence, TLS handshake signatures, and behavioral timing.\n\n### The Fix\n\nApply stealth patches before the browser creates its first connection:\n\n```python\nfrom nodriver import start\n\nbrowser = await start(\n    headless=True,\n    arguments=[\n        \"--disable-blink-features=AutomationControlled\",\n    ]\n)\n```\n\nIf CAPTCHAs persist, rotate the full fingerprint (viewport, user-agent, WebGL vendor).",
+      "_file": "captcha-every-request.mdx",
+      "conceptObject": {
+        "id": "anti-detection",
+        "title": "Anti Detection",
+        "slug": "anti-detection",
+        "summary": "Evading modern bot detection services (Cloudflare, DataDome, Akamai) by bypassing fingerprinting tests.",
+        "difficulty": "Advanced"
+      }
+    },
+    {
+      "id": "element-not-found",
+      "title": "Element not found / timeout waiting for selector",
+      "error_patterns": [
+        "element not found",
+        "timeout",
+        "no such element",
+        "cannot locate",
+        "element is not attached"
+      ],
+      "severity": "common",
+      "concept": "observability",
+      "description": "The target element does not exist in the DOM at the time of query, or the page hasn't finished rendering.",
+      "slug": "element-not-found",
+      "body": "This is the most common browser automation error. The page state doesn't match your assumption.\n\n### Root Cause\n\n- Race condition: script runs before the DOM is ready\n- SPA lazy-loading: the element appears only after a network request\n- Frame nesting: the element is inside an iframe\n\n### The Fix\n\nUse explicit wait strategies:\n\n```python\nfrom nodriver import start\nimport asyncio\n\nasync def wait_for(selector: str, timeout: float = 10.0):\n    browser = await start()\n    page = await browser.get(\"https://example.com\")\n    try:\n        elem = await page.wait_for(selector, timeout=timeout)\n        return elem\n    except asyncio.TimeoutError:\n        print(f\"Element '{selector}' not found within {timeout}s\")\n```\n\nFor SPAs, wait for specific network conditions or DOM mutations rather than fixed delays.",
+      "_file": "element-not-found.mdx",
+      "conceptObject": {
+        "id": "observability",
+        "title": "Observability",
+        "slug": "observability",
+        "summary": "Implementing instrumentation trackers, metrics logs, and dashboards to analyze cluster health.",
+        "difficulty": "Intermediate"
+      }
+    },
+    {
+      "id": "profile-corruption",
+      "title": "Browser profile SQLite corruption",
+      "error_patterns": [
+        "SQLite error",
+        "database disk image is malformed",
+        "unable to open database file",
+        "profile corruption",
+        "cookies database corruption",
+        "SQLite malformed"
+      ],
+      "severity": "common",
+      "concept": "profiles",
+      "description": "Unexpected termination (SIGKILL, power loss) during SQLite write operations on Cookies, History, or Login Data databases.",
+      "slug": "profile-corruption",
+      "body": "Unexpected termination (SIGKILL, power loss) during SQLite write operations on Cookies, History, or Login Data databases.\r\n\r\n### Recovery\r\n\r\nDelete or restore the corrupted profile directory from backup. Browser recreates it on next launch.\r\n\r\n### Recommendation\r\n\r\nAlways use graceful shutdown (SIGTERM) and monitor process exit codes.",
+      "_file": "profile-corruption.mdx",
+      "conceptObject": {
+        "id": "profiles",
+        "title": "Browser Profiles",
+        "slug": "profiles",
+        "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+        "difficulty": "Beginner"
+      }
+    },
+    {
+      "id": "profile-locked",
+      "title": "Chrome profile is already in use",
+      "error_patterns": [
+        "profile is already in use",
+        "SingletonLock",
+        "cannot create profile",
+        "profile locked",
+        "user data directory is already in use"
+      ],
+      "severity": "common",
+      "concept": "profiles",
+      "description": "Chrome throws this when two instances try to access the same user_data_dir simultaneously.",
+      "slug": "profile-locked",
+      "body": "This error occurs when a Chrome process crashes without releasing its profile lock, or when two browser instances are started with the same `user_data_dir`.\n\n### Quick Fix\n\n```python\nimport shutil\nimport tempfile\nfrom nodriver import start\n\nprofile_dir = tempfile.mkdtemp()\nbrowser = await start(user_data_dir=profile_dir, headless=True)\n```\n\n### Production Pattern\n\nAlways use isolated, ephemeral profiles per session:\n\n```python\nimport uuid\nfrom pathlib import Path\n\ndef create_isolated_profile(base: Path = Path(\"/tmp/profiles\")) -> Path:\n    profile = base / str(uuid.uuid4())[:8]\n    profile.mkdir(parents=True, exist_ok=True)\n    return profile\n```",
+      "_file": "profile-locked.mdx",
+      "conceptObject": {
+        "id": "profiles",
+        "title": "Browser Profiles",
+        "slug": "profiles",
+        "summary": "Isolating user directories, caches, cookies, and local storages using isolated directories.",
+        "difficulty": "Beginner"
+      }
+    },
+    {
+      "id": "session-lost",
+      "title": "Session cookies lost after restart",
+      "error_patterns": [
+        "session lost",
+        "cookies cleared",
+        "not authenticated",
+        "login expired",
+        "session expired"
+      ],
+      "severity": "common",
+      "concept": "sessions",
+      "description": "Authentication state is not persisting across browser restarts or profile switches.",
+      "slug": "session-lost",
+      "body": "Session cookies are stored in memory by default. When the browser restarts, authenticated state disappears.\n\n### Root Cause\n\nnodriver starts in ephemeral mode by default. The profile directory is temporary unless explicitly set.\n\n### The Fix\n\nPersist the profile:\n\n```python\nfrom nodriver import start\n\nasync def auth_once():\n    browser = await start(user_data_dir=\"./persistent-profile\", headless=False)\n    # log in manually, then reuse the same profile next time\n```\n\nOn subsequent runs, the session cookies survive browser restarts as long as the same `user_data_dir` is used.",
+      "_file": "session-lost.mdx",
+      "conceptObject": {
+        "id": "sessions",
+        "title": "Persistent Sessions",
+        "slug": "sessions",
+        "summary": "Reusing profiles and cookie states to maintain active authentications across browser runs.",
+        "difficulty": "Intermediate"
+      }
+    }
+  ],
+  "articles": [
+    {
+      "id": "5-mistakes-nodriver-beginners",
+      "title": "5 Mistakes New nodriver Users Make (and How to Avoid Them)",
+      "description": "You migrated to nodriver for the low-level CDP control. But that flexibility comes with its own production gotchas — here are the five I see most often and how to fix each one.",
+      "published": true,
+      "date": "2026-07-29",
+      "tags": [
+        "nodriver",
+        "python",
+        "webscraping",
+        "cdp"
+      ],
+      "concepts": [
+        "anti-detection",
+        "profiles"
+      ],
+      "canonical_url": "https://versatilesparks.qzz.io/blog/5-mistakes-nodriver-beginners",
+      "cover_image": "",
+      "series": "",
+      "slug": "5-mistakes-nodriver-beginners",
+      "body": "*This article is adapted from the Python Browser Automation Cookbook.*\n\nnodriver removes Selenium's abstraction layer. That gives you more control — but it also removes many of the safety rails you didn't know you were relying on.\n\nYour first nodriver script worked perfectly. The second one started failing. By the time you ran it against a real production site, you were seeing timeouts, profile locks, CAPTCHAs, and random crashes.\n\nThe five mistakes below all stem from treating nodriver like Selenium instead of treating it like a CDP client. Here they are — and how to fix each one.\n\n---\n\n## 1. Forgetting CDP Stealth\n\n**The mistake:** You launch a browser, navigate to a protected page, and get blocked instantly. You assume nodriver is \"detected\" and switch back to undetected-chromedriver or Playwright stealth.\n\n**The reality:** You didn't hide the automation signals.\n\n```python\n# ❌ Bare launch — detectable immediately\nbrowser = await nodriver.start()\npage = await browser.get(\"https://example.com\")\n```\n\nIf the sites you automate inspect browser fingerprints, you'll often need to verify and, where appropriate, customise the browser environment before page scripts execute.\n\n```python\n# ✅ Inject stealth at document creation\nbrowser = await nodriver.start()\npage = await browser.get(\"about:blank\")\n\nawait page.send(cdp.Page.addScriptToEvaluateOnNewDocument(\n    source=\"\"\"\n    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });\n    Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });\n    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });\n    \"\"\"\n))\n\npage = await browser.get(\"https://example.com\")\n```\n\n**Why this matters:** Anti-bot scripts check for these signals at DOM creation. If you patch them *after* the page loads, it's already too late.\n\n---\n\n## 2. Starting a Fresh Session Every Time\n\n**The mistake:** You launch a new browser, navigate, scrape, close — and repeat. Every request looks like a first-time visitor.\n\n**The reality:** Sites flag rapid new-session patterns. A browser that loads 50 pages from a fresh profile in 3 minutes screams automation.\n\n```python\n# ❌ Brand new profile every run\nbrowser = await nodriver.start(user_data_dir=None)\npage = await browser.get(\"https://example.com/logout\")\n```\n\n```python\n# ✅ Reuse a persistent Chrome profile\nbrowser = await nodriver.start(\n    user_data_dir=\"/path/to/persistent/profile\"\n)\npage = await browser.get(\"https://example.com/login\")\n```\n\nA persistent profile carries cookies, local storage, cached assets, and session tokens between runs. Your browser presents as a returning visitor — because it *is* one.\n\nI'll cover profile management and session restoration in more detail in a future article.\n\n---\n\n## 3. One Browser, One IP, No Rotation\n\n**The mistake:** You run a single browser instance from your home IP, scraping a site 1000 times.\n\n**The reality:** Rate limiting, IP bans, and CAPTCHAs are inevitable. Anti-bot services track request volume per IP and will block you after a threshold.\n\n```python\n# ❌ Single point of failure\nbrowser = await nodriver.start()\npage = await browser.get(...)  # Same IP every time\n```\n\nThe fix is proxy rotation at the browser level, not at the HTTP request level:\n\n```python\n# ✅ Rotate at browser launch\nproxies = [\n    \"http://user:pass@residential-proxy-1:8080\",\n    \"http://user:pass@residential-proxy-2:8080\",\n    \"http://user:pass@residential-proxy-3:8080\",\n]\n\nfor target_url in urls:\n    proxy = random.choice(proxies)\n    browser = await nodriver.start(\n        args=[f\"--proxy-server={proxy}\"]\n    )\n    page = await browser.get(target_url)\n    # ... process ...\n    await browser.stop()\n```\n\n10 good residential proxies > 100 datacenter proxies. Quality over quantity applies directly here.\n\n---\n\n## 4. Not Isolating Browser Profiles\n\n**The mistake:** Running multiple browser instances from the same user data directory.\n\n**The reality:** Chrome locks the profile directory. When two instances try to write to the same directory, you get corruption, crashes, or `SingletonLock` errors.\n\n```python\n# ❌ Both instances fight over the same profile\nbrowser1 = await nodriver.start(user_data_dir=\"./chrome-profile\")\nbrowser2 = await nodriver.start(user_data_dir=\"./chrome-profile\")\n```\n\n```python\n# ✅ Isolated profiles per instance\nbrowser1 = await nodriver.start(user_data_dir=\"./chrome-profile-job1\")\nbrowser2 = await nodriver.start(user_data_dir=\"./chrome-profile-job2\")\n```\n\nEach instance needs its own directory. A simple pattern is to generate profile paths from task IDs:\n\n```python\nprofile_dir = f\"./profiles/job-{task_id}\"\nPath(profile_dir).mkdir(parents=True, exist_ok=True)\nbrowser = await nodriver.start(user_data_dir=profile_dir)\n```\n\n---\n\n## 5. No Retry or Recovery Logic\n\n**The mistake:** The script crashes on the first error — a network timeout, a CAPTCHA redirect, a missing element — and you restart manually.\n\n**The reality:** In production, failures are the norm, not the exception. Without retry logic, your scraper runs for 15 minutes then dies silently at 2 AM.\n\n```python\n# ❌ Fragile — any exception kills the entire run\npage = await browser.get(\"https://example.com\")\nelement = await page.find(\"div.content\")\ntext = await element.text  # What if element is None?\n```\n\n```python\n# ✅ Retry with exponential backoff\nimport asyncio\n\nasync def robust_get(browser, url, retries=3):\n    for attempt in range(retries):\n        try:\n            page = await browser.get(url)\n            return page\n        except Exception as e:\n            if attempt == retries - 1:\n                raise\n            wait = 2 ** attempt\n            print(f\"Retry {attempt+1}/{retries} in {wait}s: {e}\")\n            await asyncio.sleep(wait)\n```\n\nAdd health checks to verify the browser is still responsive, and auto-recover by restarting dead instances. Retry strategies and health monitoring deserve their own deep dive — that's a topic for another article.\n\nExpect failures. Don't hope they won't happen.\n\n---\n\n## The Production Picture\n\nThese five fixes turn a toy script into something that runs unattended for days. Here's how the workflow changes:\n\n```\nToy Script                          Production Workflow\n───────────                         ────────────────────\nLaunch Browser                      Launch Browser\n       │                                   │\n       ▼                                   ▼\n    Scrape                            Inject Stealth\n       │                                   │\n       ▼                                   ▼\n    Crash                            Persistent Profile\n                                           │\n                                           ▼\n                                     Retry With Backoff\n                                           │\n                                           ▼\n                                     Health Check\n                                           │\n                                           ▼\n                                     Proxy Rotation\n                                           │\n                                           ▼\n                                      Success\n```\n\nThe difference is every step handles a real-world failure mode instead of assuming the happy path.\n\n| Mistake | Fix | Risk Reduced |\n|---|---|---|\n| No stealth patching | Inject CDP scripts | Fingerprint-based blocking |\n| Fresh session every run | Persistent user data dir | New-session rate limiting |\n| Single IP | Proxy rotation | IP-based throttling and bans |\n| Shared profiles | Isolated directories | Profile corruption and crashes |\n| No retry logic | Exponential backoff | Silent failures at scale |\n\n**If you're building automations that need to survive for days — not minutes — the cookbook goes much deeper.**\n\nIt includes:\n\n* 30+ production recipes ready to run\n* Complete examples with retry, proxy, and stealth logic built in\n* Reusable utility modules for profile management and health checks\n* Docker-ready project templates\n* Explanations of *why* each pattern works — not just the code\n\nEvery recipe is written for nodriver and tested in the same conditions this article describes.\n\n👉 [Python Browser Automation Cookbook](https://gum.co/python-browser-automation-cookbook?ref=5-mistakes-nodriver-beginners)\n\n---\n\n*Questions or corrections? Drop a comment below. I reply to every one.*",
+      "_file": "5-mistakes-nodriver-beginners.mdx"
+    },
+    {
+      "id": "why-browser-profiles-break",
+      "title": "Why Your nodriver Browser Profiles Break (and How to Fix Them)",
+      "description": "Your automation worked yesterday. Today it hangs on launch or asks for login again. The code didn't change — the profile did. Here's why profiles break and how to build reliable sessions.",
+      "published": true,
+      "date": "2026-07-31",
+      "tags": [
+        "nodriver",
+        "python",
+        "profiles",
+        "cdp"
+      ],
+      "concepts": [
+        "profiles",
+        "sessions",
+        "scaling"
+      ],
+      "canonical_url": "https://versatilesparks.qzz.io/blog/why-browser-profiles-break",
+      "cover_image": "",
+      "series": "",
+      "slug": "why-browser-profiles-break",
+      "body": "*This article is adapted from the Python Browser Automation Cookbook.*\n\nYour automation worked yesterday.\n\nToday it opens Chrome and hangs forever. Or worse — it starts fine, runs for an hour, then quietly asks for login again mid-job. You didn't change the code. You didn't change the site. The browser profile did.\n\nProfiles are where the browser keeps everything that makes it *your* browser: cookies, storage, preferences, session state. nodriver makes this easier to control because you work directly with the browser profile through CDP — but that also means you own the lifecycle decisions. And profiles are the most underestimated failure point in browser automation. Not because they're complex — because they sit silently between your code and the site, and only make themselves known when they break.\n\nHere are the five profile failures I see most often, and how to build sessions that survive them.\n\n---\n\n## What a Browser Profile Actually Contains\n\nA profile is a directory, and the browser treats it as a living database:\n\n```\nchrome-profile/\n├── Cookies          # SQLite — session + persistent cookies\n├── Local Storage    # leveldb — site data that survives restarts\n├── IndexedDB        # structured site storage\n├── Login Data       # saved credentials (SQLite)\n├── Preferences      # JSON — settings, flags, default behaviors\n├── Cache/           # cached responses and assets\n├── Extensions/      # installed extensions\n└── Session/         # tabs, history, restore state\n```\n\nWhen you launch with `user_data_dir=...`, Chrome opens these files, reads your state, and locks the directory. That single fact — the directory is a *locked, shared resource* — is the root of most profile failures.\n\n---\n\n## Mistake #1 — Treating Profiles as Folders\n\n**The mistake:** You point two instances at the same profile directory and expect them to share it politely.\n\n**The reality:** Chrome uses a filesystem lock to guarantee exclusive access. The second instance doesn't queue — it fails:\n\n```\nerror: User data directory is already in use\n       Specify a unique user data directory or relaunch Chrome\n       with a custom user data directory\n```\n\n```python\n# ❌ Both instances fight over the same directory\nbrowser1 = await nodriver.start(user_data_dir=\"./chrome-profile\")\nbrowser2 = await nodriver.start(user_data_dir=\"./chrome-profile\")\n```\n\n```python\n# ✅ One directory per instance\nbrowser1 = await nodriver.start(user_data_dir=\"./chrome-profile-job-1\")\nbrowser2 = await nodriver.start(user_data_dir=\"./chrome-profile-job-2\")\n```\n\nThe lock is a small file named `SingletonLock` inside the profile directory. It holds the PID of the running browser. You can check it from your own code before launching:\n\n```python\nfrom pathlib import Path\nimport os\n\ndef profile_is_locked(profile_dir: Path) -> bool:\n    lock = profile_dir / \"SingletonLock\"\n    if not lock.exists():\n        return False\n    try:\n        pid = int(lock.read_text().strip())\n        os.kill(pid, 0)          # signal 0 = \"does the process exist?\"\n    except (ValueError, ProcessLookupError):\n        return False             # stale lock from a dead process\n    return True\n\nif profile_is_locked(Path(\"./profiles/job-7\")):\n    raise SystemExit(\"profile is locked by another instance\")\n```\n\nA stale `SingletonLock` — from a crash, a leftover process, or a container that didn't shut down — will block your launch even though no browser is running. Checking and cleaning stale locks is cheap insurance.\n\n---\n\n## Mistake #2 — Sharing One Profile Across Jobs\n\n**The mistake:** Every job in your queue launches with the same `user_data_dir`, so the profile becomes the bottleneck *and* the crash point.\n\n**The reality:** When jobs run sequentially this mostly works — until one job crashes mid-run and leaves the profile locked or corrupted. Then every subsequent job inherits the damage.\n\n```\nBad:                            Good:\nJob A ─┐                        Job A → profile-a\n       ├── chrome-profile       Job B → profile-b\nJob B ─┘                        Job C → profile-c\n```\n\n```python\n# ❌ A single shared profile\nprofile = \"./profiles/shared\"\nfor task in queue:\n    browser = await nodriver.start(user_data_dir=profile)\n```\n\n```python\n# ✅ Profile path derived from the task — unique per job\nprofile_dir = Path(f\"./profiles/task-{task.id}\")\nprofile_dir.mkdir(parents=True, exist_ok=True)\nbrowser = await nodriver.start(user_data_dir=str(profile_dir))\n```\n\nOne profile per job isolates failures. A corrupted profile breaks one task, not the whole queue. This is also what makes horizontal scaling possible later: workers don't contend over shared state they don't actually need to share.\n\n---\n\n## Mistake #3 — No Profile Lifecycle Management\n\n**The mistake:** You create profiles implicitly (the browser makes one when you pass a new `user_data_dir`) and never think about them again — until the disk fills up with thousands of stale directories.\n\n**The reality:** A profile goes through stages, and each stage needs a decision:\n\n```\ncreate → initialize → authenticate → validate → reuse → retire\n```\n\n```python\nimport shutil\nfrom pathlib import Path\n\nPROFILES = Path(\"./profiles\")\n\ndef create_profile(task_id: str) -> Path:\n    profile = PROFILES / task_id\n    if profile.exists():\n        shutil.rmtree(profile)     # clean slate for a new run\n    profile.mkdir(parents=True)\n    return profile\n```\n\nThe stages that matter most:\n\n- **Authenticate** — do it once, explicitly, and treat it as a separate step from scraping.\n- **Validate** — verify the session is actually good *before* starting the real work. A cheap check: load a logged-in-only page and confirm you're not redirected to a login.\n\n```python\nasync def session_is_valid(browser, check_url: str) -> bool:\n    page = await browser.get(check_url)\n    return page.url != LOGIN_URL      # redirected → session is dead\n```\n\n- **Retire** — when a job finishes, decide the profile's fate: keep it (reuse later), or delete it (ephemeral). The default for automation should usually be ephemeral; persistence is a deliberate choice, not a default.\n\n---\n\n## Mistake #4 — Assuming Persistent = Permanent\n\n**The mistake:** You set up a persistent profile, logged in once, and assumed the session would last forever.\n\n**The reality:** Sessions die on schedules you don't control:\n\n- **Cookies expire.** Session cookies die when the browser closes; persistent cookies carry a `Max-Age`, often days or weeks.\n- **Tokens rotate.** OAuth refresh tokens are rotated on use, and sites increasingly invalidate tokens on suspicious activity — like a new IP or a new user agent.\n- **Sites invalidate sessions.** A password change, a security flag, or too many concurrent logins can kill every existing session instantly.\n\nThe failure mode is insidious: your persistent profile looks healthy, but the session inside it is dead. The script \"works\" for login checks and cache hits, then fails the moment it needs an authenticated request.\n\n```python\n# ❌ Trusting the profile, never verifying the session\nbrowser = await nodriver.start(user_data_dir=\"./profiles/task-42\")\npage = await browser.get(\"https://app.example.com/dashboard\")\ndata = await page.find(\"div.user-data\")      # redirected to login, data is None\n```\n\n```python\n# ✅ Validate the session before committing to the job\nif not await session_is_valid(browser, CHECK_URL):\n    raise RuntimeError(\"session expired — re-authenticate before scraping\")\n```\n\nPersistent means \"survives restarts.\" It does not mean \"survives forever.\" Treat re-authentication as a normal event in the lifecycle, not a surprise.\n\n---\n\n## Mistake #5 — No Recovery Strategy\n\n**The mistake:** When the profile dies, you fix it by hand: kill the browser, delete the directory, log in again, re-run.\n\n**The reality:** At 2 AM, unattended, there is no hand. The system needs to recover itself.\n\nCorruption happens when the browser is terminated abruptly — `kill -9`, power loss, a crashed container — during a SQLite write to `Cookies`, `History`, or `Login Data`. One common cause, and the signature errors look like:\n\n```\nsqlite3.DatabaseError: database disk image is malformed\nunable to open database file\nSQLite error: database or disk is full\n```\n\nA recovery path:\n\n```\nprofile unhealthy\n       ↓\ndetect\n       ↓\nbackup state\n       ↓\nrecreate\n       ↓\nre-authenticate\n```\n\n```python\nimport asyncio\n\nasync def recover_profile(browser, profile_dir: Path):\n    await browser.stop()                       # graceful shutdown\n    backup = profile_dir.with_name(profile_dir.name + \".corrupt\")\n    shutil.move(str(profile_dir), str(backup)) # keep evidence, don't delete\n    profile_dir.mkdir(parents=True)\n    browser = await nodriver.start(user_data_dir=str(profile_dir))\n    await authenticate(browser)                # re-login\n    return browser\n```\n\nThe browser will recreate a fresh profile on the next launch — but a brand-new profile is anonymous. That's why recovery ends with re-authentication, not relaunch.\n\nGraceful shutdown matters more than you'd think. `await browser.stop()` gives Chrome a chance to close its SQLite databases cleanly. A `SIGTERM`-handling wrapper around your worker means the difference between a healthy profile and a corrupted one.\n\n---\n\n## The Production Picture\n\nHere's how the workflow changes once profiles are handled deliberately:\n\n```\nToy Script                          Production Workflow\n────────────                        ────────────────────\nLaunch Browser                      Check Profile Lock\n        │                                   │\n        ▼                                   ▼\n     Scrape                          Unique Profile Per Job\n        │                                   │\n        ▼                                   ▼\n     Crash                            Validate Session\n                                            │\n                                            ▼\n                                      Graceful Shutdown\n                                            │\n                                            ▼\n                                      Detect + Recover\n                                            │\n                                            ▼\n                                        Retire\n```\n\n| Failure | Symptom | Fix |\n|---|---|---|\n| Concurrent access | `profile is already in use`, `SingletonLock` | Unique `user_data_dir` per instance |\n| Shared profiles | One crash poisons the whole queue | Profile per task, isolation |\n| No lifecycle | Disk full of stale profiles, unpredictable state | create → validate → retire |\n| Persistent ≠ permanent | Dead sessions, silent failures | Validate session before work |\n| Corruption | `database disk image is malformed` | Detect, backup, recreate, re-authenticate |\n\nProfiles aren't mysterious. They're directories with lock files and SQLite databases — and every failure mode above follows directly from treating them as either disposable or indestructible. The correct model is a managed resource with a lifecycle, a health check, and a recovery path.\n\n**If you're building automations that need to survive for days — not minutes — the Python Browser Automation Cookbook goes deeper into these production patterns.**\n\nIt includes:\n\n* 30+ production recipes ready to run\n* Complete profile and session management recipes with re-authentication logic\n* Reusable utility modules for lock checks, health monitoring, and recovery\n* Docker-ready project templates\n* Explanations of *why* each pattern works — not just the code\n\nEvery recipe is written for nodriver and tested in the same conditions this article describes.\n\n👉 [Python Browser Automation Cookbook](https://gum.co/python-browser-automation-cookbook?ref=why-browser-profiles-break)\n\n---\n\n*Questions or corrections? Drop a comment below. I reply to every one.*",
+      "_file": "why-browser-profiles-break.mdx"
     }
   ]
 }

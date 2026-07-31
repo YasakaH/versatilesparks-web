@@ -1,0 +1,32 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: B1
+Date: 2026-07-19 10:53:43
+Iteration: 2 | Depth: Level 3
+Path: B1 → B1_tech_cause → B1_tech_cause_delayed_detection
+=================================================================
+
+CURRENT PROBLEM: B1_tech_cause
+  Technical root cause
+  What technical mechanism enables this failure?
+  Score: 30pts
+  Financial evidence: $5,190,000,000
+  Industries: healthcare
+
+  Supporting evidence (3 cases):
+    [healthcare] GAO 2025: $5.1B improper payments. Average detection: 18 months. By then funds are un ($5,100,000,000)
+    [healthcare] Vohra DOJ detail: EHR programmed to auto-generate false billing documentation. Software was F ($45,000,000)
+    [healthcare] Vohra DOJ fraud mechanism: EHR designed to always select highest reimbursement code. Auto-generated fa ($45,000,000)
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] B1_tech_cause_delayed_detection: Detection delay exceeds recovery window (70pts $16,200,200,000 [cross,healthcare,logistics,procurement])
+       By the time it's found, it's too late. $5.1B improper payments. Average detection: 18 months. B
+       Evidence: 7 cases — top: [healthcare] $5.1B improper Medicare payments annually. $1.8B not medical
+
+  [2] B1_tech_cause_programmed_fraud: Software designed to generate false records (50pts $4,135,000,000 [healthcare])
+       System architecture enables fraud. EHR programmed to auto-generate false billing documentation.
+       Evidence: 5 cases — top: [healthcare] Vohra Wound Physicians: EHR programmed to ALWAYS bill highes
+
+DECISION: Descending into 'B1_tech_cause_delayed_detection' (score: 70)
+Path so far: B1 → B1_tech_cause → B1_tech_cause_delayed_detection

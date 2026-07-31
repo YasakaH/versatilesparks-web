@@ -1,0 +1,36 @@
+{
+  "qid": "E08",
+  "mode": "explain",
+  "question": "What is incremental extraction?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 10
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "What is incremental extraction?",
+        "mode": "explain",
+        "entities": [
+          "incremental extraction",
+          "extraction"
+        ],
+        "retrieved": [
+          "incremental-extraction-pattern",
+          "download-pipeline-pattern"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

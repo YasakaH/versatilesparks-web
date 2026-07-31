@@ -1,0 +1,31 @@
+---
+id: "browser-disconnected"
+title: "Browser disconnected unexpectedly"
+error_patterns: ["browser disconnected", "websocket closed", "target closed", "connection closed", "protocol error"]
+severity: "common"
+concept: "recovery"
+description: "The CDP WebSocket connection dropped. The browser process may have crashed or been killed."
+---
+
+This happens when the browser process crashes, runs out of memory, or is terminated externally.
+
+### Root Causes
+
+- Memory pressure (too many tabs / profiles)
+- Zombie browser processes from a previous session
+- OOM killer on Linux
+- Network timeout on the CDP WebSocket
+
+### Production Pattern
+
+Wrap every operation with automatic reconnection:
+
+```python
+from nodriver import start
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
+async def with_reconnect():
+    browser = await start()
+    # ...
+```

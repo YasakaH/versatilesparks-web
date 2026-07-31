@@ -1,0 +1,56 @@
+═══════════════════════════════════════════════════════════════════
+AGENT REPLAY — PRODUCT CONSTRAINT DECISION
+Date: 2026-07-19
+═══════════════════════════════════════════════════════════════════
+
+# THE DANGER IDENTIFIED
+
+If we add "AI that explains why your agent failed" — we drift into
+becoming another AI agent product. Agent Replay + LLM + reasoning
+engine = another AI agent. This contradicts the entire research
+conclusion.
+
+# THE RULE
+
+Agent Replay must never execute actions.
+
+No autonomous fixes.
+No autonomous retries.
+No autonomous decisions.
+No autonomous recommendations.
+No "AI-powered debugging assistant."
+
+Its job: "Show reality."
+
+# THE CORRECT ARCHITECTURE
+
+Existing AI Agent → Agent Replay Recorder → Execution Receipt → Human Developer
+
+The human remains the intelligence.
+Agent Replay does not decide. It reveals.
+
+# THE ANALOGY
+
+Chrome DevTools for AI agents.
+Git diff for AI behavior.
+Sentry for autonomous workflows.
+Flight recorder for AI workers.
+
+The airplane flies. The system explains what happened.
+
+# THE FOUR PRIMITIVES (what we capture)
+
+Identity  — who performed the action?
+Intent   — was the action actually intended?
+Evidence — can it be independently verified?
+Time     — was detection before recovery became impossible?
+
+# THE LINE (product rule)
+
+Bad: "I analyzed the problem. The best solution is..."
+Good: "Difference: Missing verification step. Evidence: tool call history."
+
+"The more AI you add, the more you risk becoming the thing you were
+trying to avoid. Build the layer around intelligence, not another
+intelligence layer."
+═══════════════════════════════════════════════════════════════════

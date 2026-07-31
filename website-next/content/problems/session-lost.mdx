@@ -1,0 +1,28 @@
+---
+id: "session-lost"
+title: "Session cookies lost after restart"
+error_patterns: ["session lost", "cookies cleared", "not authenticated", "login expired", "session expired"]
+severity: "common"
+concept: "sessions"
+description: "Authentication state is not persisting across browser restarts or profile switches."
+---
+
+Session cookies are stored in memory by default. When the browser restarts, authenticated state disappears.
+
+### Root Cause
+
+nodriver starts in ephemeral mode by default. The profile directory is temporary unless explicitly set.
+
+### The Fix
+
+Persist the profile:
+
+```python
+from nodriver import start
+
+async def auth_once():
+    browser = await start(user_data_dir="./persistent-profile", headless=False)
+    # log in manually, then reuse the same profile next time
+```
+
+On subsequent runs, the session cookies survive browser restarts as long as the same `user_data_dir` is used.

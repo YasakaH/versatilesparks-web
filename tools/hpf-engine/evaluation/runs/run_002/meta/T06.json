@@ -1,0 +1,33 @@
+{
+  "qid": "T06",
+  "mode": "troubleshoot",
+  "question": "Why does the health check keep failing?",
+  "answers": {
+    "A": {
+      "provider": "hpf",
+      "trace": {
+        "question": "Why does the health check keep failing?",
+        "mode": "troubleshoot",
+        "entities": [
+          "health check",
+          "failing"
+        ],
+        "retrieved": [
+          "health-check-pattern"
+        ],
+        "argument_keys": [
+          "problem",
+          "likely_causes",
+          "external_factors"
+        ]
+      }
+    },
+    "B": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 4
+      }
+    }
+  }
+}

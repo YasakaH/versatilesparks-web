@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Datadog
+Date: 2026-07-19 11:20:47
+=================================================================
+
+  What they do: Monitoring & observability (metrics, logs, traces)
+  Their focus: SHOWING data, not VERIFYING it
+  Threat to us: LOW — they'd need to rebuild from first principles
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  They sell monitoring — metrics, logs, traces. Verification is a DIFFERENT PRODUCT category. It requires asserting truth, not just displaying data. Their entire architecture is built around passive observation, not active verification. Rewriting for verification would be a rebuild, not a feature.

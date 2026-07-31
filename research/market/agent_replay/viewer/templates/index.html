@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Replay</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #252836;
+    --border: #2e3144;
+    --text: #e4e6f0;
+    --text2: #8b8fa3;
+    --green: #4ade80;
+    --red: #f87171;
+    --amber: #fbbf24;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+    --font: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 13px; line-height: 1.5; }
+  
+  .header { padding: 24px 32px; border-bottom: 1px solid var(--border); }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .meta { color: var(--text2); margin-top: 4px; font-size: 12px; }
+  .header .meta span { margin-right: 16px; }
+  
+  .summary { display: flex; gap: 24px; padding: 16px 32px; border-bottom: 1px solid var(--border); }
+  .stat { text-align: center; }
+  .stat .value { font-size: 24px; font-weight: 700; }
+  .stat .label { font-size: 11px; color: var(--text2); margin-top: 2px; }
+  .stat.error .value { color: var(--red); }
+  .stat.success .value { color: var(--green); }
+  
+  .timeline { padding: 16px 32px; max-width: 900px; }
+  
+  .event { display: flex; gap: 16px; padding: 12px 0; border-left: 2px solid var(--border); margin-left: 12px; padding-left: 24px; position: relative; }
+  .event::before { content: ''; position: absolute; left: -7px; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface2); border: 2px solid var(--border); }
+  .event.error::before { background: var(--red); border-color: var(--red); }
+  .event.tool_call::before { background: var(--blue); border-color: var(--blue); }
+  .event.llm_generation::before { background: var(--purple); border-color: var(--purple); }
+  .event.decision::before { background: var(--amber); border-color: var(--amber); }
+  
+  .event .seq { color: var(--text2); font-size: 11px; min-width: 24px; padding-top: 2px; }
+  .event .body { flex: 1; min-width: 0; }
+  .event .name { font-weight: 600; font-size: 13px; }
+  .event .type { color: var(--text2); font-size: 11px; margin-left: 8px; }
+  .event .detail { color: var(--text2); font-size: 12px; margin-top: 4px; }
+  .event .error-msg { color: var(--red); font-size: 12px; margin-top: 4px; padding: 6px 10px; background: rgba(248,113,113,0.1); border-radius: 4px; }
+  .event .duration { color: var(--text2); font-size: 11px; margin-top: 2px; }
+  .event .io { margin-top: 6px; }
+  .event .io summary { cursor: pointer; color: var(--text2); font-size: 11px; }
+  .event .io pre { background: var(--surface2); padding: 8px; border-radius: 4px; font-size: 11px; overflow-x: auto; margin-top: 4px; max-height: 200px; color: var(--text2); }
+  
+  .empty { padding: 48px; text-align: center; color: var(--text2); }
+  
+  .run-id { cursor: pointer; color: var(--blue); }
+  .run-id:hover { text-decoration: underline; }
+  
+  .goal-badge { display: inline-block; background: var(--surface2); padding: 2px 8px; border-radius: 4px; font-size: 12px; color: var(--text2); }
+
+  @media (max-width: 600px) {
+    .header, .summary, .timeline { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <h1 id="title">Agent Replay</h1>
+    <div class="meta">
+      <span id="run-id"></span>
+      <span id="agent-info"></span>
+      <span id="run-status"></span>
+      <span id="run-time"></span>
+    </div>
+    <div style="margin-top: 8px">
+      <span class="goal-badge" id="goal"></span>
+    </div>
+  </div>
+
+  <div class="summary" id="summary">
+    <div class="stat" id="stat-events"><div class="value">0</div><div class="label">Events</div></div>
+    <div class="stat" id="stat-tools"><div class="value">0</div><div class="label">Tool Calls</div></div>
+    <div class="stat error" id="stat-errors"><div class="value">0</div><div class="label">Errors</div></div>
+    <div class="stat" id="stat-duration"><div class="value">0ms</div><div class="label">Duration</div></div>
+  </div>
+
+  <div class="timeline" id="timeline">
+    <div class="empty">Loading...</div>
+  </div>
+</div>
+
+<script>
+/* RUN_DATA_PLACEHOLDER */
+// Will be replaced with: const RUN_DATA = {...};
+
+function render() {
+  const run = RUN_DATA.run || RUN_DATA;
+  
+  document.getElementById('title').textContent = `${run.agent?.name || 'Agent'} — Agent Replay`;
+  document.getElementById('run-id').textContent = `Run: ${run.run_id || '—'}`;
+  document.getElementById('agent-info').textContent = `${run.agent?.name || '?'} (${run.agent?.model || '?'})`;
+  document.getElementById('run-status').textContent = run.status || '—';
+  document.getElementById('run-time').textContent = run.started_at ? new Date(run.started_at).toLocaleString() : '';
+  document.getElementById('goal').textContent = run.goal ? `🎯 ${run.goal}` : '';
+
+  const events = run.events || [];
+  
+  // Summary stats
+  document.getElementById('stat-events').querySelector('.value').textContent = events.length;
+  document.getElementById('stat-tools').querySelector('.value').textContent = events.filter(e => e.event_type === 'tool_call').length;
+  document.getElementById('stat-errors').querySelector('.value').textContent = events.filter(e => e.event_type === 'error').length;
+  const totalMs = events.reduce((s, e) => s + (e.duration_ms || 0), 0);
+  document.getElementById('stat-duration').querySelector('.value').textContent = totalMs > 1000 ? `${(totalMs/1000).toFixed(1)}s` : `${totalMs.toFixed(0)}ms`;
+
+  // Timeline
+  const timeline = document.getElementById('timeline');
+  
+  if (events.length === 0) {
+    timeline.innerHTML = '<div class="empty">No events recorded yet.</div>';
+    return;
+  }
+
+  timeline.innerHTML = '';
+  
+  let lastType = '';
+  events.forEach((evt, i) => {
+    const div = document.createElement('div');
+    div.className = `event ${evt.event_type || ''}`;
+
+    const typeIcon = {tool_call: '🔧', llm_generation: '🧠', decision: '⚡', error: '❌', state_change: '📦'};
+    const icon = typeIcon[evt.event_type] || '•';
+    
+    div.innerHTML = `
+      <div class="seq">${String(i + 1).padStart(2, '0')}</div>
+      <div class="body">
+        <div>
+          <span class="name">${icon} ${evt.name || 'unknown'}</span>
+          <span class="type">${evt.event_type}</span>
+        </div>
+        ${evt.error ? `<div class="error-msg">${escapeHtml(evt.error)}</div>` : ''}
+        ${evt.duration_ms ? `<div class="duration">${evt.duration_ms.toFixed(0)}ms</div>` : ''}
+        ${evt.input || evt.output ? `
+          <div class="io">
+            <details>
+              <summary>${evt.input ? 'input' : ''}${evt.input && evt.output ? ' · ' : ''}${evt.output ? 'output' : ''}</summary>
+              ${evt.input ? `<pre>${escapeHtml(formatValue(evt.input))}</pre>` : ''}
+              ${evt.output ? `<pre>${escapeHtml(formatValue(evt.output))}</pre>` : ''}
+            </details>
+          </div>
+        ` : ''}
+      </div>
+    `;
+    
+    timeline.appendChild(div);
+  });
+}
+
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatValue(v) {
+  if (typeof v === 'string') return v.length > 300 ? v.slice(0, 300) + '...' : v;
+  try { return JSON.stringify(v, null, 2); } catch(e) { return String(v); }
+}
+
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

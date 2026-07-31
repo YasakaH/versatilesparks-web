@@ -1,0 +1,37 @@
+{
+  "qid": "E02",
+  "mode": "explain",
+  "question": "What is WebDriver?",
+  "answers": {
+    "A": {
+      "provider": "rag",
+      "trace": {
+        "provider": "rag",
+        "objects_consulted": 10
+      }
+    },
+    "B": {
+      "provider": "hpf",
+      "trace": {
+        "question": "What is WebDriver?",
+        "mode": "explain",
+        "entities": [
+          "webdriver"
+        ],
+        "retrieved": [
+          "webdriver-concept",
+          "nodriver-concept",
+          "selenium-concept",
+          "anti-detection-principle"
+        ],
+        "argument_keys": [
+          "target",
+          "definition",
+          "core_mechanics",
+          "examples",
+          "limitations"
+        ]
+      }
+    }
+  }
+}

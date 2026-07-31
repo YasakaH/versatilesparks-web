@@ -1,0 +1,37 @@
+=================================================================
+AUTOMATION RELIABILITY — DEEP DECOMPOSITION ITERATION
+Branch: D2
+Date: 2026-07-19 10:53:39
+Iteration: 3 | Depth: Level 4
+Path: D2 → D2_tech_cause → D2_tech_cause_delayed_detection → D2_tech_cause_delayed_detection_identity_not_verified
+=================================================================
+
+CURRENT PROBLEM: D2_tech_cause_delayed_detection
+  Detection delay exceeds recovery window
+  By the time it's found, it's too late. $5.1B improper payments. Average detection: 18 months. By then funds a
+  Score: 70pts
+  Financial evidence: $16,200,200,000
+  Industries: cross, healthcare, logistics, procurement
+
+  Supporting evidence (7 cases):
+    [healthcare] GAO 2025: $5.1B improper Medicare payments annually. $1.8B not medically necessary. $ ($5,100,000,000)
+    [procurement] FBI BEC 2025: BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake invoices, payment di ($3,000,000,000)
+    [cross] EDB #1064: Cron job sends report to dead email alias. 2 subscribers both left company.
+    [healthcare] GAO 2025: $5.1B improper payments. Average detection: 18 months. By then funds are un ($5,100,000,000)
+
+SUB-PROBLEMS (decomposing one level deeper):
+--------------------------------------------------
+  [1] D2_tech_cause_delayed_detection_identity_not_verified: Identity is not bound to real person (80pts $3,731,000,000 [logistics,procurement])
+       Credentials verified but identity not. BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake i
+       Evidence: 8 cases — top: [procurement] BEC fraud $3B in 2025. CEO fraud: spoofed emails, fake invoi
+
+  [2] D2_tech_cause_delayed_detection_delayed_detection: Detection delay exceeds recovery window (70pts $16,200,200,000 [cross,healthcare,logistics,procurement])
+       By the time it's found, it's too late. $5.1B improper Medicare payments annually. $1.8B not med
+       Evidence: 7 cases — top: [healthcare] $5.1B improper Medicare payments annually. $1.8B not medical
+
+  [3] D2_tech_cause_delayed_detection_no_alert: No notification channel configured (30pts [cross,procurement])
+       Evidence: Cron job sends report to dead email alias. 2 subscribers both left company. Fail...
+       Evidence: 3 cases — top: [cross] Cron job sends report to dead email alias. 2 subscribers bot
+
+DECISION: Descending into 'D2_tech_cause_delayed_detection_identity_not_verified' (score: 80)
+Path so far: D2 → D2_tech_cause → D2_tech_cause_delayed_detection → D2_tech_cause_delayed_detection_identity_not_verified

@@ -1,0 +1,12 @@
+=================================================================
+COMPETITOR ANALYSIS — Cloudflare
+Date: 2026-07-19 11:20:48
+=================================================================
+
+  What they do: Web infra & security
+  Their focus: Bot detection, not execution verification
+  Threat to us: LOW — adjacent but different problem
+
+WHY THEY WON'T BUILD VERIFIABLE EXECUTION:
+----------------------------------------
+  Cloudflare detects bots. They're on the OPPOSITE side — they help websites block automation. Building a verification layer for automation would be directly counter to their bot-fighting business. They won't help the people they're blocking.

@@ -3,7 +3,7 @@ project:
   output-dir: ../dist-v2
 
 book:
-  title: ""
+  title: "Browser Automation Playbook"
   subtitle: "Production Engineering Edition"
   author: "Yasaka Hanini"
   date: today
@@ -61,64 +61,44 @@ format:
   pdf:
     documentclass: report
     classoption:
+      - twoside
       - openany
-    fontsize: 11pt
+    papersize: 6in,9in
+    geometry:
+      - paperwidth=6in
+      - paperheight=9in
+      - inner=0.75in
+      - outer=0.60in
+      - top=0.65in
+      - bottom=0.65in
+      - headheight=14pt
+      - headsep=14pt
+      - footskip=22pt
+    fontsize: 10.5pt
     keep-tex: true
-    papersize: letter
     toc: true
     toc-depth: 2
     number-sections: true
-    colorlinks: true
-    linkcolor: blue
-    urlcolor: blue
-    citecolor: blue
+    colorlinks: false
     links-as-notes: false
-    pdf-engine: xelatex
+    pdf-engine: lualatex
     include-before-body:
       text: |
-        \renewenvironment{Shaded}{%
-          \begin{tcolorbox}[
-            enhanced,
-            breakable,
-            colback={shadecolor},
-            colframe={shadecolor},
-            leftrule=0.5pt,
-            rightrule=0pt,
-            toprule=0pt,
-            bottomrule=0pt,
-            arc=0pt,
-            outer arc=0pt,
-            left=14pt,
-            right=5pt,
-            top=5pt,
-            bottom=5pt,
-            boxsep=0pt
-          ]%
-        }{%
-          \end{tcolorbox}%
-        }
-        \thispagestyle{empty}
-        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{C:/Users/varas/personalities/cookbook/book/v2/Images/cover-front.png}}
-        \null
-        \newpage
         \thispagestyle{empty}
         \begin{center}
-        \vspace*{4cm}
-        {\Huge\bfseries Browser Automation Playbook}\\[1cm]
-        {\Large Production Engineering Edition}\\[2cm]
-        {\large Yasaka Hanini}\\[1cm]
-        {\large \today}
+        \vspace*{3.5cm}
+        {\Huge\bfseries Browser Automation Playbook}\\[0.8cm]
+        {\Large\itshape Production Engineering Edition}\\[2.0cm]
+        {\large\bfseries Yasaka Hanini}\\[1cm]
+        {\small \today}
         \vfill
         \end{center}
         \newpage
-    include-after-body:
-      text: |
-        \clearpage
-        \thispagestyle{empty}
-        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{C:/Users/varas/personalities/cookbook/book/v2/Images/cover-back.png}}
-        \null
     include-in-header:
       text: |
+        \setlength{\parindent}{0pt}
+        \setlength{\emergencystretch}{6em}
+        \sloppy
         \setcounter{secnumdepth}{1}
 
         \usepackage{eso-pic}
@@ -126,14 +106,19 @@ format:
         \usepackage{fontspec}
         \usepackage[most]{tcolorbox}
         \usepackage{float}
+        \usepackage{adjustbox}
+        \usepackage{booktabs}
+        \usepackage{array}
         \floatplacement{figure}{htbp}
         \setkeys{Gin}{width=\linewidth,keepaspectratio}
+        \AtBeginEnvironment{tabular}{\small\setlength{\tabcolsep}{3.5pt}}
+        \AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{3.5pt}}
+
         \makeatletter
         \newcommand{\centerfloat}{\centering}
         \makeatother
 
         \setmainfont{TeX Gyre Pagella}[
-          Scale=1.0,
           Ligatures={Common,TeX},
         ]
         \setsansfont{TeX Gyre Heros}[
@@ -141,44 +126,99 @@ format:
         ]
         \setmonofont{TeX Gyre Cursor}[
           Scale=0.88,
-          Ligatures=NoCommon,
         ]
 
         \usepackage{fancyhdr}
+        \fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
         \pagestyle{fancy}
         \fancyhf{}
-        \fancyhead[LE,RO]{\slshape \leftmark}
+        \fancyhead{} % Clean top header (no alternating chapter text), matching reference PDF
         \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
 
         \definecolor{codecolor}{HTML}{003b4f}
         \definecolor{shadecolor}{RGB}{241,243,245}
+        \definecolor{bordercolor}{HTML}{003b4f}
 
-        \newcommand{\codefs}{\fontsize{9.0}{12}\selectfont}
+        \newcommand{\codefs}{\fontsize{7.9}{10.5}\selectfont}
 
-        \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
-          commandchars=\\\{\},
-          breaklines=true,
-          fontsize=\codefs,
-          formatcom=\color{codecolor}\ttfamily,
+        \AtBeginDocument{
+          \renewenvironment{Shaded}{%
+            \begin{tcolorbox}[
+              enhanced,
+              breakable,
+              colback={shadecolor},
+              colframe={bordercolor},
+              leftrule=1.5pt,
+              rightrule=0pt,
+              toprule=0pt,
+              bottomrule=0pt,
+              arc=0pt,
+              outer arc=0pt,
+              left=10pt,
+              right=6pt,
+              top=6pt,
+              bottom=6pt,
+              boxsep=0pt
+            ]%
+          }{%
+            \end{tcolorbox}%
+          }
+
+          \fvset{
+            commandchars=\\\{\},
+            breaklines=true,
+            breakanywhere=true,
+            breakautoindent=true,
+            fontsize=\codefs,
+            formatcom=\color{codecolor}\ttfamily,
+          }
+
+          \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+            commandchars=\\\{\},
+            breaklines=true,
+            breakanywhere=true,
+            breakautoindent=true,
+            fontsize=\codefs,
+            formatcom=\color{codecolor}\ttfamily,
+          }
+
+          \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
+            commandchars=\\\{\},
+            breaklines=true,
+            breakanywhere=true,
+            breakautoindent=true,
+            fontsize=\codefs,
+            formatcom=\color{codecolor}\ttfamily,
+          }
+
+          \hypersetup{
+            draft=true,
+            hidelinks,
+            pdfborder={0 0 0}
+          }
         }
 
-        % Section heading colors
+        % Chapter & section titles (matching reference PDF elegance)
         \usepackage{titlesec}
-        \titleformat{\chapter}{\Huge\bfseries\color{blue!60!black}}{}{0em}{}
-        \titleformat{\section}{\Large\bfseries\color{blue!50!black}}{}{0em}{}
-        \titleformat{\subsection}{\large\bfseries\color{blue!40!black}}{}{0em}{}
+        \titleformat{\chapter}{\Huge\bfseries}{}{0pt}{}
+        \titleformat{\section}{\Large\bfseries}{}{0pt}{}
+        \titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+        \titlespacing*{\section}{0pt}{1.5\baselineskip}{0.5\baselineskip}
+        
+        % Allow hyphenation/breaks in consecutive bold macros (fixes recipe headers)
+        \makeatletter
+        \def\bfstring#1{{\bfseries\interwordpenalty=500 #1}}
+        \makeatother
 
         % Table styling
         \usepackage{booktabs}
         \usepackage{array}
         \renewcommand{\arraystretch}{1.2}
-        \usepackage{etoolbox}
-        \AtBeginEnvironment{longtable}{\small}
-        \AtBeginEnvironment{tabular}{\small}
 
         % Prevent orphans
         \clubpenalty=10000
-        \widowpenalty=10000
+        \widowpenalty=1000000
     fig-format: png
     fig-dpi: 300
     fig-width: 5.5

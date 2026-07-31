@@ -12,9 +12,12 @@ import {
     Maximize2,
 } from "lucide-react";
 
-import db from "../db/knowledge-base.json";
+import dbData from "../db/knowledge-base.json";
+import type { KnowledgeBase } from "../types/knowledge";
 import KnowledgeGraph from "./KnowledgeGraph";
 import CommandPalette from "./CommandPalette";
+
+const db = dbData as KnowledgeBase;
 
 interface ConsoleShellProps {
     activeConceptId: string | null;
@@ -86,6 +89,11 @@ export default function ConsoleShell({
             else if (actionId === "download-v2")
                 window.open("/downloads/browser-automation-playbook-sample.pdf");
             else if (actionId.startsWith("concept-")) onSelectConcept(actionId.replace("concept-", ""));
+            else if (actionId.startsWith("problem-")) {
+                const pid = actionId.replace("problem-", "");
+                const p = db.problems?.find((x) => x.id === pid);
+                if (p && p.conceptObject) onSelectConcept(p.conceptObject.id);
+            }
         },
         [onSelectConcept]
     );
@@ -102,8 +110,8 @@ export default function ConsoleShell({
                 const title = (c.title || "").toLowerCase();
                 const summary = (c.summary || "").toLowerCase();
                 const body = (c.body || "").toLowerCase();
-                const tags: string[] = c.tags || [];
-                const aliases: string[] = c.aliases || [];
+                const tags = c.tags || [];
+                const aliases = c.aliases || [];
                 let score = 0;
                 if (title.includes(q)) score = Math.max(score, 100 + (title === q ? 50 : 0));
                 if (aliases.some((a) => a.toLowerCase().includes(q))) score = Math.max(score, 90);
@@ -261,7 +269,7 @@ export default function ConsoleShell({
                                         <div>
                                             <span className="text-[10px] font-mono text-[#8a8a8a] uppercase">Indexer Tags</span>
                                             <div className="flex flex-wrap gap-1 mt-2">
-                                                {currentConcept.tags.map((t: string) => (
+                                                {currentConcept.tags.map((t) => (
                                                     <span key={t} className="text-[9px] font-mono bg-[#161616] border border-[#242424] px-1.5 py-0.5 rounded text-[#8a8a8a]">
                                                         {t}
                                                     </span>

@@ -1,0 +1,918 @@
+{
+  "total_personas": 37,
+  "total_actions": 747,
+  "cross_cutting_themes": {
+    "missing_sections": 35,
+    "decision_framework": 20,
+    "workflow": 19,
+    "mental_models": 9,
+    "domain_boundaries": 7,
+    "evaluation": 4,
+    "operational_constraints": 3
+  },
+  "personas": [
+    {
+      "file": "00_core_thinking_models_md___core_decision_.md",
+      "target": "ChatGPT Response 1: CORE/THINKING_MODELS.md + CORE/DECISION_ENGINE.md",
+      "action_count": 49,
+      "top_themes": [
+        "missing_sections",
+        "mental_models",
+        "operational_constraints"
+      ],
+      "actions": [
+        "Overall assessment: Strong conceptual foundation. These two files provide Hermes with the missing \"cognitive layer\" — not just rules, but reusable reasoning patterns and a decision mechanism.",
+        "Recommend:",
+        "Issue 4 — Missing anti-models",
+        "Issue 5 — Missing confidence weighting",
+        "Not every model should have equal authority.",
+        "Issue 6 — Missing domain boundaries",
+        "This should become the default for Level 2+ decisions.",
+        "Issue 1 — Missing constitutional check",
+        "Should be:",
+        "Issue 3 — Missing evidence weighting",
+        "systems-thinking",
+        "bottleneck-analysis",
+        "inversion",
+        "first-principles",
+        "novel_problem"
+      ]
+    },
+    {
+      "file": "01_core_decision_engine_md__continued____co.md",
+      "target": "ChatGPT Response 2: CORE/DECISION_ENGINE.md (continued) + CORE/REVIEW_FRAMEWORK.md",
+      "action_count": 29,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "domain_boundaries"
+      ],
+      "actions": [
+        "Issue 2 — Missing \"information gathering\" as an option",
+        "Add a decision type:",
+        "Issue 3 — Missing decision lifecycle",
+        "The engine should only define:",
+        "Issue 5 — Missing decision ownership",
+        "Issue 6 — Missing kill criteria",
+        "Sometimes a decision should be stopped.",
+        "Issue 1 — Reviewer selection missing",
+        "Recommendations",
+        "But missing:",
+        "architecture-review",
+        "estimate_only",
+        "routine",
+        "tradeoff",
+        "novel"
+      ]
+    },
+    {
+      "file": "02_core_constitution_md___core_architecture.md",
+      "target": "ChatGPT Response 3: CORE/CONSTITUTION.md + CORE/ARCHITECTURE_PRINCIPLES.md + CORE/ENGINEERING_PRINCIPLES.md",
+      "action_count": 11,
+      "top_themes": [
+        "missing_sections",
+        "mental_models",
+        "decision_framework"
+      ],
+      "actions": [
+        "Overall assessment: This is the strongest foundational layer so far. These three documents define Hermes' \"physics\" — what cannot be violated, how systems should be designed, and how engineers should",
+        "The main issue is not missing principles. There are enough.",
+        "Recommendation",
+        "This should become a universal output metadata requirement.",
+        "classification: recommendation",
+        "change_policy:",
+        "- changed priority",
+        "Issue 3 — Missing violation severity",
+        "- unsafe recommendation",
+        "- missing evidence",
+        "benchmark-results"
+      ]
+    },
+    {
+      "file": "03_core_decision_framework_md___core_execut.md",
+      "target": "ChatGPT Response 4: CORE/DECISION_FRAMEWORK.md + CORE/EXECUTION_WORKFLOW.md + CORE/QUALITY_STANDARDS.md",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework"
+      ],
+      "actions": [
+        "But previous Constitution suggested:",
+        "Safety/Truth should override.",
+        "Recommendation:",
+        "\"Should we change CTA wording?\"",
+        "Security persona should not override marketing.",
+        "Issue 3 — Missing reversible decision rule",
+        "Issue 4 — \"Score options\" is missing",
+        "Issue 5 — Missing \"Do Nothing\" in framework",
+        "It should appear here:",
+        "Every decision must consider:"
+      ]
+    },
+    {
+      "file": "04_core_thinking_models_md___core_decision_.md",
+      "target": "ChatGPT Response 5: CORE/THINKING_MODELS.md + CORE/DECISION_ENGINE.md",
+      "action_count": 18,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "operational_constraints"
+      ],
+      "actions": [
+        "\"When exactly should I activate this?\"",
+        "Recommend:",
+        "Difference should be explicit.",
+        "Issue 4 — Missing model relationships",
+        "Issue 5 — Missing anti-models",
+        "Issue 6 — Missing evidence requirement",
+        "Change:",
+        "Issue 2 — Missing uncertainty dimension",
+        "Should we decide?",
+        "If missing information could change decision:",
+        "novel_problem",
+        "existing_solution_failure",
+        "conflicting_assumptions",
+        "premature_optimization",
+        "assumptions"
+      ]
+    },
+    {
+      "file": "05_decision_priority_weights___core_review_.md",
+      "target": "ChatGPT Response 6: Decision Priority Weights + CORE/REVIEW_FRAMEWORK.md",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework"
+      ],
+      "actions": [
+        "Security should have a threshold.",
+        "Change from:",
+        "Issue 2 — Missing user intent",
+        "Missing:",
+        "Recommended:",
+        "Issue 3 — Missing reversibility",
+        "Issue 4 — Missing cost/resource awareness",
+        "Issue 5 — Weights should be persona overrides, not universal truth",
+        "Recommended Priority Structure",
+        "This should remain constitutional."
+      ]
+    },
+    {
+      "file": "06_core_prioritization_framework_md___core_.md",
+      "target": "ChatGPT Response 7: CORE/PRIORITIZATION_FRAMEWORK.md + CORE/CONTINUOUS_IMPROVEMENT.md",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections"
+      ],
+      "actions": [
+        "What should Hermes do first? → Prioritization",
+        "How should Hermes improve over time? → Continuous improvement",
+        "Continuous improvement currently allows behavioral adaptation but lacks strong governance around what is allowed to change automatically.",
+        "Issue 2 — Missing urgency dimension",
+        "Issue 3 — Missing effort estimation",
+        "Change:",
+        "Issue 5 — Missing dependency ordering",
+        "Remove tasks blocked by unfinished prerequisites.",
+        "Issue 6 — Missing \"learning value\"",
+        "Prioritization should include it."
+      ]
+    },
+    {
+      "file": "07_core_personality_schema_md___core_base_p.md",
+      "target": "ChatGPT Response 8: CORE/PERSONALITY_SCHEMA.md + CORE/BASE_PERSONALITY.md",
+      "action_count": 19,
+      "top_themes": [
+        "missing_sections",
+        "mental_models",
+        "domain_boundaries"
+      ],
+      "actions": [
+        "Issue 1 — Missing Personality Lifecycle State",
+        "Missing:",
+        "L2 Suggest",
+        "Issue 3 — Missing Personality Selection Metadata",
+        "Issue 4 — thinking_model should be plural",
+        "Change:",
+        "Issue 5 — Missing \"knowledge boundaries\"",
+        "But missing:",
+        "Issue 6 — Missing \"confidence calibration\"",
+        "A personality should know where it is reliable.",
+        "architecture decisions",
+        "system design",
+        "frontend styling",
+        "systems-thinking",
+        "inversion"
+      ]
+    },
+    {
+      "file": "08_core_base_personality_md__remaining_sect.md",
+      "target": "ChatGPT Response 9: CORE/BASE_PERSONALITY.md (remaining sections) + CORE/PERSONALITY_CREATION_GUIDE.md",
+      "action_count": 40,
+      "top_themes": [
+        "decision_framework",
+        "missing_sections",
+        "workflow"
+      ],
+      "actions": [
+        "Issue 1 — Missing \"Decision Boundaries\"",
+        "But missing:",
+        "- architecture recommendations",
+        "A production log change ≠ production database migration.",
+        "Change API contract\tL2",
+        "Issue 5 — Skill Orchestration Should Reference Capability Registry",
+        "Skills change.",
+        "A personality should not depend directly on skill names.",
+        "Issue 6 — Missing Personality Testing Levels",
+        "Issue 2 — Missing Personality Retirement Process",
+        "architecture recommendations",
+        "technical tradeoffs",
+        "security-engineer",
+        "product-manager",
+        "business priorities"
+      ]
+    },
+    {
+      "file": "09_core_skill_selection_policy_md__ending_s.md",
+      "target": "ChatGPT Response 10: CORE/SKILL_SELECTION_POLICY.md (ending section)",
+      "action_count": 18,
+      "top_themes": [
+        "missing_sections",
+        "domain_boundaries"
+      ],
+      "actions": [
+        "The policy optimizes selecting a skill, but not deciding whether a skill should be selected at all.",
+        "Issue 1 — Missing Skill Invocation Gate (P0)",
+        "Missing:",
+        "Issue 5 — Missing Skill Health Score",
+        "but selection should consider operational health.",
+        "Issue 6 — Missing User Preference Weighting",
+        "Issue 7 — Missing Skill Composition Rules",
+        "Recommendation:",
+        "Issue 9 — Missing Skill Timeout / Failure Handling",
+        "Issue 10 — Missing Learning Feedback Loop",
+        "external data required",
+        "computation required",
+        "code execution required",
+        "specialized reasoning required",
+        "general explanation"
+      ]
+    },
+    {
+      "file": "10_core_quality_gates_md___core_output_stan.md",
+      "target": "ChatGPT Response 11: CORE/QUALITY_GATES.md + CORE/OUTPUT_STANDARD.md",
+      "action_count": 31,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "workflow"
+      ],
+      "actions": [
+        "Recommendation",
+        "This should remain immutable.",
+        "Missing citation:",
+        "Suggested classification:",
+        "Issue 4 — Missing Source Trust Ranking",
+        "Recommendations",
+        "Decision/recommendation",
+        "Issue 8 — Missing Audience Adaptation",
+        "- Input validation considered",
+        "Change:",
+        "Safety",
+        "Verification",
+        "Correctness",
+        "Completeness",
+        "Source-backed"
+      ]
+    },
+    {
+      "file": "11_evolution_engine_md___observability_md__.md",
+      "target": "ChatGPT Response 12: EVOLUTION_ENGINE.md + OBSERVABILITY.md + EVALUATION.md",
+      "action_count": 29,
+      "top_themes": [
+        "workflow",
+        "evaluation",
+        "decision_framework"
+      ],
+      "actions": [
+        "This chunk is the operational nervous system of Hermes. The previous files define how Hermes should think and behave; these define how Hermes knows whether it is improving.",
+        "Hermes currently has a good monitoring → recommendation loop, but the automatic improvement loop is too powerful and under-governed.",
+        "\"How should we improve?\"",
+        "Generate Recommendations",
+        "unintended behavior changes",
+        "Evaluation metric changes",
+        "Recommendation",
+        "Change:",
+        "change_classes:",
+        "- workflow changes",
+        "documentation updates",
+        "examples",
+        "metadata cleanup",
+        "workflow changes",
+        "personality changes"
+      ]
+    },
+    {
+      "file": "12_conflict_resolution_policy_md___orchestr.md",
+      "target": "ChatGPT Response 13: CONFLICT_RESOLUTION_POLICY.md + ORCHESTRATION_POLICY.md + ESCALATION_POLICY.md",
+      "action_count": 14,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework"
+      ],
+      "actions": [
+        "I would change:",
+        "Issue 3 — Missing conflict types",
+        "Issue 5 — Missing Planner/Executor separation",
+        "Wrong result\tRemove skill from ranking",
+        "Should we migrate database?",
+        "Issue 12 — Missing emergency bypass",
+        "- minimize changes",
+        "Add a Unified Decision Object",
+        "Priority Recommendations",
+        "Change\tReason",
+        "prioritize restoration",
+        "minimize changes",
+        "log all actions",
+        "require retrospective review"
+      ]
+    },
+    {
+      "file": "13_governance_layer__escalation__authority_.md",
+      "target": "ChatGPT Response 14: governance layer (ESCALATION, AUTHORITY, AUDIT, CONTRIBUTION, DEPRECATION, PERSONALITY, SECURITY, SKILL policies)",
+      "action_count": 43,
+      "top_themes": [
+        "missing_sections",
+        "domain_boundaries",
+        "workflow"
+      ],
+      "actions": [
+        "This governance layer is a significant improvement over the previous CORE files. It adds the missing operational controls:",
+        "Issue 2 — Missing escalation ownership hierarchy",
+        "Issue 4 — Missing emergency mode",
+        "Recommendation:",
+        "Issue 6 — Authority inheritance missing",
+        "Issue 11 — Missing compatibility checks",
+        "- change existing capability output?",
+        "Issue 14 — Missing migration compatibility",
+        "Recommendation:",
+        "Issue 17 — Missing data classification",
+        "outage",
+        "security breach",
+        "data corruption",
+        "minimum viable action",
+        "full logging"
+      ]
+    },
+    {
+      "file": "14_skill_policy___version_policy.md",
+      "target": "ChatGPT Response 15: Skill Policy + Version Policy",
+      "action_count": 35,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "mental_models"
+      ],
+      "actions": [
+        "Change management governance — how compatibility and history are preserved.",
+        "However, there are several architectural issues that should be addressed before implementation.",
+        "Good, but missing:",
+        "Issue 2 — Missing skill contract versioning",
+        "Recommendation:",
+        "Issue 8 — Missing observability requirements",
+        "Every skill should expose:",
+        "A new skill should not immediately become available.",
+        "Recommended:",
+        "A new mental model can radically change behavior.",
+        "web-research",
+        "repository-analysis",
+        "threat-modeling",
+        "success_rate",
+        "latency"
+      ]
+    },
+    {
+      "file": "15_engineering_personas__performance_engine.md",
+      "target": "ChatGPT Response 16: Engineering Personas (Performance Engineer, Principal Engineer, Staff Engineer)",
+      "action_count": 40,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "workflow"
+      ],
+      "actions": [
+        "These personas describe how experts think, but not enough about how Hermes should decide which engineering persona to activate.",
+        "Issue 1 — Missing domain boundaries",
+        "\"Should we split this monolith?\"",
+        "Issue 2 — Missing performance workflow",
+        "Issue 3 — Missing performance budget concept",
+        "Suggested:",
+        "\"What architecture should exist?\"",
+        "Issue 6 — Missing technical decision ownership",
+        "Issue 7 — Missing failure modes",
+        "\"Rejecting useful change to preserve purity\"",
+        "profiling",
+        "benchmarking",
+        "latency analysis",
+        "throughput optimization",
+        "architecture ownership"
+      ]
+    },
+    {
+      "file": "16_architecture___systems_architect_persona.md",
+      "target": "ChatGPT Response 17: Architecture / Systems Architect Persona",
+      "action_count": 16,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework",
+        "domain_boundaries"
+      ],
+      "actions": [
+        "This persona describes architectural philosophy well, but it does not yet describe how Hermes should perform architecture work.",
+        "Issue 1 — Missing Systems Architect vs Principal Engineer boundary",
+        "Recommended:",
+        "\"What should the system structure and boundaries be?\"",
+        "Issue 2 — Missing architecture workflow",
+        "Issue 3 — Missing architecture decision criteria",
+        "Contracts should evolve deliberately through compatibility strategies.",
+        "Never change API",
+        "Change APIs safely with versioning and migration paths.",
+        "Important because many systems should not become distributed.",
+        "architecture structure",
+        "interfaces",
+        "dependencies",
+        "technical direction",
+        "decision quality"
+      ]
+    },
+    {
+      "file": "17_ai___agent_architect___ai_engineer_perso.md",
+      "target": "ChatGPT Response 18: AI / Agent Architect + AI Engineer Personas",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow"
+      ],
+      "actions": [
+        "Agent Architect\t\"How should autonomous systems be structured?\"",
+        "Workflow\tMissing\tMissing",
+        "Governance\tMissing\tMissing",
+        "Issue 2 — Missing \"workflow before multi-agent\"",
+        "Issue 3 — Missing agent lifecycle model",
+        "Issue 4 — Missing agent failure taxonomy",
+        "Issue 6 — Missing agent evaluation",
+        "This should almost be in CORE.",
+        "Structured reasoning improves reliability, but internal reasoning should not be treated as the product output. Prefer summaries, plans, and evidence.",
+        "Issue 2 — Missing model evaluation framework"
+      ]
+    },
+    {
+      "file": "18_devops___reliability___sre_personas.md",
+      "target": "ChatGPT Response 19: DevOps / Reliability / SRE Personas",
+      "action_count": 35,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "decision_framework"
+      ],
+      "actions": [
+        "Workflow\tMissing\tMissing\tMissing",
+        "Decision framework\tMissing\tMissing\tMissing",
+        "The main missing layer is not knowledge. The personas know the domain.",
+        "The missing layer is operational judgment.",
+        "\"Should I call DevOps Engineer or SRE?\"",
+        "Recommended Boundary Matrix",
+        "Issue 1 — \"No manual changes to production\" is too absolute",
+        "No manual changes to production.",
+        "Manual production changes are exceptional, temporary, audited, and followed by reconciliation into infrastructure code.",
+        "Issue 2 — Missing platform engineering mindset",
+        "CI/CD",
+        "infrastructure",
+        "deployments",
+        "environments",
+        "automation"
+      ]
+    },
+    {
+      "file": "19_security_architect___threat_modeler_pers.md",
+      "target": "ChatGPT Response 20: Security Architect + Threat Modeler Personas",
+      "action_count": 18,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "mental_models"
+      ],
+      "actions": [
+        "Security Architect\t\"How should the system be designed to be secure?\"",
+        "Workflow\tMissing\tMissing",
+        "The biggest missing piece:",
+        "\"Should I call security-architect or threat-modeler?\"",
+        "\"How should we defend against it?\"",
+        "Issue 1 — Missing security lifecycle",
+        "Issue 2 — Missing asset classification",
+        "Issue 4 — Missing secure-by-default principle",
+        "A system should be safe before customization.",
+        "Issue 5 — Missing threat-to-control mapping",
+        "identify threats",
+        "analyze attack paths",
+        "rank risks",
+        "propose mitigations",
+        "choose security patterns"
+      ]
+    },
+    {
+      "file": "20_data_engineer___data_scientist_personas.md",
+      "target": "ChatGPT Response 21: Data Engineer + Data Scientist Personas",
+      "action_count": 20,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "mental_models"
+      ],
+      "actions": [
+        "The quality is comparable to the security personas. The biggest missing pieces are not knowledge — both have strong mental models — but operational boundaries, workflows, evaluation criteria, and life",
+        "Workflow\tMissing\tMissing",
+        "Failure modes\tMissing\tMissing",
+        "1. Major Issue: Missing Data Domain Map",
+        "Issue 1 — Missing Data Platform Architecture",
+        "Issue 2 — Missing Streaming vs Batch Thinking",
+        "Issue 4 — Missing Data Observability",
+        "- volume changes",
+        "- schema changes",
+        "- distribution changes",
+        "pipelines",
+        "storage",
+        "ingestion",
+        "data reliability",
+        "data platforms"
+      ]
+    },
+    {
+      "file": "21_research_personas__academic_reviewer__re.md",
+      "target": "ChatGPT Response 22: Research Personas (Academic Reviewer, Research Scientist, Skeptical Researcher)",
+      "action_count": 22,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "mental_models"
+      ],
+      "actions": [
+        "Skeptical Researcher\t\"Should we believe this claim?\"",
+        "Workflow\tMissing\tMissing\tMissing",
+        "Failure modes\tMissing\tMissing\tMissing",
+        "Tool orchestration\tMissing\tMissing\tMissing",
+        "Recommendation",
+        "1. Missing Research Domain Router",
+        "- publication recommendation",
+        "\"How should we investigate this?\"",
+        "\"Should we believe this claim?\"",
+        "This should probably become a CORE research principle.",
+        "evaluate papers",
+        "peer review",
+        "methodology critique",
+        "publication recommendation",
+        "generate knowledge"
+      ]
+    },
+    {
+      "file": "22_instructional_designer_persona.md",
+      "target": "ChatGPT Response 23: Instructional Designer Persona",
+      "action_count": 23,
+      "top_themes": [
+        "missing_sections",
+        "workflow"
+      ],
+      "actions": [
+        "This is a strong education persona. It is noticeably better than many generic \"teacher\" agents because it focuses on learning outcomes, cognitive science, assessment, and behavior change rather than c",
+        "Workflow\tMissing",
+        "Failure modes\tMissing",
+        "Skill orchestration\tMissing",
+        "\"How should learning be designed?\"",
+        "\"How should this course be structured?\"",
+        "2. Missing Workflow",
+        "3. Missing Failure Modes",
+        "A few missing ones:",
+        "1. What should learners be able to do?",
+        "learning architecture",
+        "curriculum structure",
+        "instructional strategy",
+        "assessment design",
+        "one-on-one explanation"
+      ]
+    },
+    {
+      "file": "23_healthcare_analyst_persona.md",
+      "target": "ChatGPT Response 24: Healthcare Analyst Persona",
+      "action_count": 38,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "decision_framework"
+      ],
+      "actions": [
+        "Workflow\tMissing",
+        "Failure modes\tMissing",
+        "Evaluation criteria\tMissing",
+        "Tool orchestration\tMissing",
+        "- patient-specific medical recommendations",
+        "\"Evidence-based = proven. Best practice should mean proven to work.\"",
+        "This is context-dependent and changes over time.",
+        "5. Missing Healthcare Data Standards",
+        "Healthcare optimization almost always touches data exchange.",
+        "6. Missing Clinical Informatics Model",
+        "healthcare operations analysis",
+        "workflow improvement",
+        "regulatory analysis",
+        "population health analysis",
+        "healthcare technology assessment"
+      ]
+    },
+    {
+      "file": "24_product_manager_persona.md",
+      "target": "ChatGPT Response 25: Product Manager Persona",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "evaluation"
+      ],
+      "actions": [
+        "Failure handling\tMissing",
+        "Workflow\tMissing",
+        "Quality gates\tMissing",
+        "Escalation boundaries\tMissing",
+        "Recommend",
+        "Missing:",
+        "Add a formal workflow.",
+        "Recommended:",
+        "- Did behavior change?",
+        "3. Missing Product Risk Model"
+      ]
+    },
+    {
+      "file": "25_design_personas__ux_critic___ux_designer.md",
+      "target": "ChatGPT Response 26: Design Personas (UX Critic + UX Designer)",
+      "action_count": 18,
+      "top_themes": [
+        "missing_sections",
+        "evaluation",
+        "workflow"
+      ],
+      "actions": [
+        "Failure modes\tMissing\tMissing",
+        "Quality gates\tMissing\tMissing",
+        "Escalation\tMissing\tMissing",
+        "consider accessibility",
+        "Diagnosis → Findings → Severity → Recommendations",
+        "\"What should we design instead?\"",
+        "2. Missing UX Workflow",
+        "8. Recommend fixes",
+        "3. Missing Severity Framework for UX Critic",
+        "4. Missing UX Metrics",
+        "evaluation",
+        "diagnosis",
+        "usability scoring",
+        "finding prioritization",
+        "solution creation"
+      ]
+    },
+    {
+      "file": "26_creative_director_persona.md",
+      "target": "ChatGPT Response 27: Creative Director Persona",
+      "action_count": 19,
+      "top_themes": [
+        "missing_sections",
+        "evaluation",
+        "workflow"
+      ],
+      "actions": [
+        "Quality gates\tMissing",
+        "Escalation rules\tMissing",
+        "What should this communicate?",
+        "2. Missing Creative Workflow",
+        "- Why should they care?",
+        "3. Missing Creative Strategy Framework",
+        "Why should they believe us?",
+        "How should it feel?",
+        "What cannot change?",
+        "4. Missing Evaluation Framework",
+        "creative vision",
+        "concept evaluation",
+        "strategic alignment",
+        "creative standards",
+        "feedback direction"
+      ]
+    },
+    {
+      "file": "27_business_domain_personas_chunk.md",
+      "target": "ChatGPT Response 28: Business Domain Personas Chunk",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "mental_models",
+        "decision_framework"
+      ],
+      "actions": [
+        "These personas understand what good looks like, but they need stronger definitions of how Hermes should execute, decide, measure, and interact with other personas.",
+        "That should probably become a global strategy principle.",
+        "Gap 1: Missing Strategy Workflow",
+        "\"Analyze → Recommend\"",
+        "6. Recommend choice",
+        "Gap 2: Missing Strategic Decision Framework",
+        "A strategist should not only produce recommendations.",
+        "They should structure decisions.",
+        "What cannot change",
+        "Gap 3: Missing Financial Thinking"
+      ]
+    },
+    {
+      "file": "28_sales_engineer_persona__completed_chunk_.md",
+      "target": "ChatGPT Response 29: Sales Engineer Persona (Completed Chunk)",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "domain_boundaries"
+      ],
+      "actions": [
+        "That should become a reusable sales capability rule.",
+        "Gap 1: Missing Sales Engineering Workflow",
+        "Gap 2: Missing Activation Criteria",
+        "\"When should Sales Engineer persona be selected?\"",
+        "Gap 3: Missing Output Templates",
+        "Every Hermes persona should define outputs.",
+        "Recommended Next Step:",
+        "Gap 4: Missing Boundary With Adjacent Personas",
+        "Gap 5: Missing Technical Discovery Framework",
+        "Gap 6: Missing Objection Handling Model"
+      ]
+    },
+    {
+      "file": "29_financial_analyst_persona.md",
+      "target": "ChatGPT Response 30: Financial Analyst Persona",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "mental_models"
+      ],
+      "actions": [
+        "should probably be a cross-domain reasoning rule.",
+        "Gap 1: Missing Financial Analyst Workflow",
+        "- Should we invest?",
+        "- Should we acquire?",
+        "- Where should capital be allocated?",
+        "7. Produce Recommendation",
+        "- What would change the conclusion",
+        "Gap 3: Missing FP&A Mental Models",
+        "Gap 4: Missing Accounting Foundation",
+        "Gap 5: Missing Risk Framework"
+      ]
+    },
+    {
+      "file": "30_legal_advisor_persona.md",
+      "target": "ChatGPT Response 31: Legal Advisor Persona",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow"
+      ],
+      "actions": [
+        "It knows how to reason like a lawyer, but it does not yet define how Hermes should operate safely as a legal assistant.",
+        "Legal is a high-risk domain. Governance, boundaries, escalation, and evidence discipline need to be stronger.",
+        "\"Draw clear lines between legal advice (what the law requires) and business advice (what the client should do).\"",
+        "Hermes should inherit this mindset.",
+        "Legal answers should never sound more certain than the authority supports.",
+        "Gap 1: Missing Legal Workflow",
+        "- What facts are missing?",
+        "6. Recommend Action",
+        "Gap 2: Missing IRAC Framework",
+        "Legal reasoning should explicitly use:"
+      ]
+    },
+    {
+      "file": "31_leadership_personas_chunk__cto___enginee.md",
+      "target": "ChatGPT Response 32: Leadership Personas Chunk (CTO + Engineering Manager)",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework"
+      ],
+      "actions": [
+        "A CTO should treat it economically.",
+        "Gap 1: Missing CTO Decision Framework",
+        "Every major technology decision should answer:",
+        "7. Recommendation",
+        "Gap 2: Missing Technology Portfolio Management",
+        "Gap 3: Missing Engineering Economics",
+        "Gap 4: Missing CTO Operating Rhythm",
+        "Gap 5: Missing Executive Communication Model",
+        "Gap 6: Missing CTO Failure Modes",
+        "Gap 1: Missing Manager Operating System"
+      ]
+    },
+    {
+      "file": "32_marketing_strategist_persona.md",
+      "target": "ChatGPT Response 33: Marketing Strategist Persona",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "decision_framework"
+      ],
+      "actions": [
+        "Hermes should preserve this philosophy across marketing personas.",
+        "Gap 1: Missing Marketing Strategy Framework",
+        "Missing:",
+        "Every marketing decision should answer:",
+        "What changed?",
+        "What will we change based on results?",
+        "Gap 2: Missing Positioning Framework",
+        "Gap 3: Missing Market Segmentation",
+        "Gap 4: Missing Brand Strategy",
+        "Missing:"
+      ]
+    },
+    {
+      "file": "33_writing_personas__copy_editor___technica.md",
+      "target": "ChatGPT Response 34: Writing Personas (Copy Editor + Technical Writer)",
+      "action_count": 10,
+      "top_themes": [
+        "missing_sections",
+        "workflow",
+        "decision_framework"
+      ],
+      "actions": [
+        "They describe what good writing looks like, but not enough about how Hermes should decide which writing mode, process, or quality bar applies.",
+        "Cross-Persona Issue: Missing Writing Pipeline",
+        "Add a shared writing workflow capability.",
+        "Gap 1: Missing Edit Severity Classification",
+        "missing context",
+        "Gap 2: Missing Editorial Decision Rules",
+        "- Never change meaning to improve style.",
+        "- Do not remove technical detail without understanding its purpose.",
+        "Gap 3: Missing Fact-Checking Boundary",
+        "A copy editor should not pretend to be a subject expert."
+      ]
+    },
+    {
+      "file": "34_project_manager_persona.md",
+      "target": "ChatGPT Response 35: Project Manager Persona",
+      "action_count": 25,
+      "top_themes": [
+        "missing_sections",
+        "operational_constraints",
+        "decision_framework"
+      ],
+      "actions": [
+        "Hermes should preserve:",
+        "Gap 1: Missing Project Type Awareness",
+        "Gap 2: Missing Agile / Product Delivery Models",
+        "Missing:",
+        "Gap 3: Missing Outcome Management",
+        "Missing:",
+        "Something changed",
+        "Gap 4: Missing Discovery Before Planning",
+        "Gap 5: Missing Dependency Management Model",
+        "missing expertise",
+        "Product Owner",
+        "Scrum Master",
+        "Development Team",
+        "Sprint Planning",
+        "Daily Scrum"
+      ]
+    },
+    {
+      "file": "35_chief_of_staff_persona__meta-personality.md",
+      "target": "ChatGPT Response 36: Chief of Staff Persona (Meta-Personality)",
+      "action_count": 17,
+      "top_themes": [
+        "missing_sections",
+        "domain_boundaries",
+        "decision_framework"
+      ],
+      "actions": [
+        "Gap 1: Missing Routing Algorithm",
+        "The biggest missing piece.",
+        "Gap 2: Missing Task Complexity Assessment",
+        "Production security change",
+        "Gap 3: Missing Persona Selection Rules",
+        "Gap 4: Missing Conflict Resolution Framework",
+        "Gap 5: Missing Confidence Management",
+        "Chief of Staff should own this.",
+        "what evidence would change the decision",
+        "Gap 6: Missing Execution DAG Design",
+        "domain",
+        "intent",
+        "complexity",
+        "risk",
+        "required skills"
+      ]
+    },
+    {
+      "file": "chunk_0.md",
+      "target": "ChatGPT Feedback: chunk_0",
+      "action_count": 0,
+      "top_themes": [],
+      "actions": []
+    }
+  ]
+}
