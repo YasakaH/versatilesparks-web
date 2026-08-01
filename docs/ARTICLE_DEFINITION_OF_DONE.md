@@ -28,6 +28,15 @@ An article is complete only when ALL of the following hold. This is the gate bet
 - [ ] Published date recorded (Dev.to)
 - [ ] Gumroad `?ref=` tracking verified (end-to-end click test)
 
+## Learning (D-026 operating principle)
+
+Every article must teach something measurable. After publication, answer at
+least: impressions vs. previous article? CTA clicks? Which derivative platform
+drove traffic? Did the GitHub pattern get visits? Did readers reach the book
+page? An article that only increases the content count is incomplete — one
+that teaches something about the audience or funnel has produced value even
+before revenue.
+
 ## Rules
 
 - Article #N+1 starts only after Article #N's derivatives are deployed and observed
