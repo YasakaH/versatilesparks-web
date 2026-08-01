@@ -519,3 +519,9 @@ python tests/test_contracts.py   # 71/71 pass
 node website-next/scripts/compile-content.js
 npx next build   # in website-next/
 ```
+## Iteration 16 (2026-08-01) - GSC verification + Safe Browsing flag
+
+- GSC domain-property DNS verification failed despite a provably-live TXT record (Google's own error listed the token as found - internal resolver caching). Switched to Path A: URL-prefix property + HTML file verification via CI deployment (commit d36e8a7).
+- Post-verification, GSC reported **Harmful downloads** (Sample URLs: N/A). Investigation: the only downloadable files ever hosted were two MuPDF-generated sample PDFs (clean - no /JavaScript, no action dictionaries, benign URLs), served only during the manual-deploy window (00:04-00:26); they are gitignored so CI builds never deployed them (404 on live since).
+- Fix: repointed all sample-PDF links (homepage card, command palette, console commands) to the Gumroad product pages (commit d9791fa, deployment verified - zero /downloads/ references in served bundles).
+- Pending: GSC review request - Google re-crawls the flagged URLs, sees 404, clears the flag (typically days). No files remain to remove.

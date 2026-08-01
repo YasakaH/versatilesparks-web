@@ -66,5 +66,6 @@ Verify after deploy:
 - `npm run build` wipes `website-next/out/` (deleted the CNAME during Iteration 13 — only relevant if GH Pages is ever re-enabled, which it should not be).
 - Never run `git add -A` from inside the cookbook while a deployment repo's `.git` is missing — this is how `.reddit-creds.json` leaked (Iteration 13 post-mortem).
 - `knowledge/hpf-core` is a nested repo — never commit it to the publishing repo (gitlink removed 2026-08-01).
+- `website-next/public/downloads/` is gitignored — anything there exists only in manual `wrangler pages deploy` builds; CI deployments will 404 those URLs. Sample PDFs were removed from hosting 2026-08-01 (Google Safe Browsing "harmful downloads" false positive on MuPDF samples); UI links now point to Gumroad product pages.
 - API token minting is dashboard-only; wrangler OAuth scopes cannot create tokens.
 - OAuth access via `npx wrangler login` only (refresh token auto-renews on this machine).
