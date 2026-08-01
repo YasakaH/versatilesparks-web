@@ -15,14 +15,23 @@ in `tools/publisher/consume_handoff.py` but was never recognized as a contract.
 
 ## The boundary rule
 
-> **HPF owns knowledge. Publishing owns presentation. Neither repository may
-> directly depend on the other's internal structure. All integration occurs
-> exclusively through versioned exchange contracts (Knowledge Package → Publishing,
-> Feedback Package → HPF).**
+> **HPF owns canonical knowledge. Publishing owns presentation. Neither
+> repository may directly depend on the other's internal structure. All
+> integration occurs exclusively through versioned exchange contracts
+> (Knowledge Package → Publishing, Feedback Package → HPF).**
+
+Publishing also holds knowledge (article URLs, derivative locations, metrics,
+publication dates) — but that is publishing knowledge, not canonical domain
+knowledge. The distinction is explicit: canonical concepts, patterns, and
+briefs belong to HPF; the record of what was published belongs to publishing.
 
 HPF may change 100 internal files; publishing changes zero. Publishing may
 reorganize everything; HPF changes zero. Changes happen at the contract
 boundary, not inside either codebase.
+
+> **This contract describes communication, not implementation. Either
+> repository may be rewritten internally (new language, new framework, new
+> internals) provided these contracts continue to hold.**
 
 ## Exactly two contracts
 
@@ -45,7 +54,8 @@ Everything HPF exports, in one versioned artifact:
 - `contract: { knowledge_package: <n> }` — explicit declaration
 - `producer: { name, version }` + `schema_version` + `compatibility` (semver range; mismatch → explicit `Unsupported contract. Need adapter.` failure, never a silent degrade)
 - `generated_at` provenance
-- **`capabilities` — mandatory** (e.g. `briefs: true`, `diagrams: false`, `quizzes: false`). Publishing may ignore it today; the day HPF grows a capability, the package advertises it — no schema migration.
+- **`capabilities` — mandatory and declarative, not imperative** (e.g. `briefs: true`, `diagrams: false`, `quizzes: false`). HPF advertises what it *can* produce; it never instructs publishing what to do with it. Publishing decides whether to use each capability — so `diagrams: true` is legal, `generate_pinterest: true` is not. Publishing may ignore all of it today; the day HPF grows a capability, the package advertises it — no schema migration.
+- **Consumer tolerance:** consumers must ignore unknown fields. A package with a new `videos: []` field must not fail publishing v1 — it ignores what it doesn't recognize. This is what makes forward-compatible schema evolution painless.
 - **`mappings` — generalized concept map** (replaces `concept-map.json`): `mappings: { concepts, problems, articles, patterns }`. Today only concepts exist; future ID families extend the dict, not the schema.
 - `concepts`, `briefs`, `problems`
 
