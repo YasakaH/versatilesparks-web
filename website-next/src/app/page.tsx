@@ -217,11 +217,12 @@ export default function Home() {
                   </p>
                 </div>
                 <a
-                  href={`/downloads/${currentBook.id === "cookbook" ? "python-browser-automation-cookbook-sample.pdf" : "browser-automation-playbook-sample.pdf"}`}
+                  href={currentBook.gumroad_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full text-center py-2.5 text-xs rounded border border-[#f5f2eb] hover:bg-[#f5f2eb] hover:text-[#090909] text-[#f5f2eb] font-semibold transition-all mt-6"
-                  download
                 >
-                  Download Sample PDF
+                  Preview Sample on Gumroad
                 </a>
               </div>
             </div>

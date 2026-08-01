@@ -84,10 +84,13 @@ export default function ConsoleShell({
             else if (actionId === "mode-study") setWorkspaceMode("study");
             else if (actionId === "mode-reference") setWorkspaceMode("reference");
             else if (actionId === "toggle-workspace") setIsFullscreen((prev) => !prev);
-            else if (actionId === "download-v1")
-                window.open("/downloads/python-browser-automation-cookbook-sample.pdf");
-            else if (actionId === "download-v2")
-                window.open("/downloads/browser-automation-playbook-sample.pdf");
+            else if (actionId === "download-v1") {
+                const book = db.books.find((b) => b.id === "cookbook");
+                if (book?.gumroad_url) window.open(book.gumroad_url);
+            } else if (actionId === "download-v2") {
+                const book = db.books.find((b) => b.id === "playbook");
+                if (book?.gumroad_url) window.open(book.gumroad_url);
+            }
             else if (actionId.startsWith("concept-")) onSelectConcept(actionId.replace("concept-", ""));
             else if (actionId.startsWith("problem-")) {
                 const pid = actionId.replace("problem-", "");

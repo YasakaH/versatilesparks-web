@@ -49,8 +49,8 @@ export default function CommandPalette({ isOpen, onClose, onSelectAction, db }: 
     { id: "mode-study", title: "Switch to Study Mode", subtitle: "Calm, focused reading workspace", category: "System", icon: Settings },
     { id: "mode-reference", title: "Switch to Reference Mode", subtitle: "Dense DevDocs style registry", category: "System", icon: Settings },
     { id: "toggle-workspace", title: "Toggle Workspace Mode (Shift+Space)", subtitle: "Toggle absolute fullscreen", category: "System", icon: Settings },
-    { id: "download-v1", title: "Download Cookbook Sample PDF", subtitle: "Free preview including Recipe 1", category: "Downloads", icon: BookOpen },
-    { id: "download-v2", title: "Download Playbook Sample PDF", subtitle: "Free preview including Chapter 1 & 2", category: "Downloads", icon: BookOpen },
+    { id: "download-v1", title: "Preview Cookbook on Gumroad", subtitle: "Open the product page on Gumroad", category: "Downloads", icon: BookOpen },
+    { id: "download-v2", title: "Preview Playbook on Gumroad", subtitle: "Open the product page on Gumroad", category: "Downloads", icon: BookOpen },
   ];
 
   const conceptActions = db.concepts.map(c => ({
