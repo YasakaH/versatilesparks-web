@@ -472,7 +472,7 @@ Until: traffic exists, clicks measured, sales measured.
 - No Cloudflare credentials existed on this machine (no env keys, no wrangler config, no tokens in `.env` files, no hardcoded account ID in any git history).
 - The earlier public-DNS test failures were caused by the local VPN (`bdvpnservice_1`, DNS 198.18.0.33/127.0.0.1) blocking direct DNS/IP traffic — DoH (dns.google / cloudflare-dns.com) resolves everything correctly. DNS was never broken.
 
-**Answer (user-provided):** Cloudflare account email = **libdynwordpress@yahoo.com**. The zone `qzz.io` + Pages project `versatilesparks` + custom domain binding `versatilesparks.qzz.io` live in this account.
+**Answer (user-provided):** Cloudflare account email = user's account (identifiers in local gitignored `docs/DEPLOYMENT_PRIVATE.md`). The zone `versatilesparks.qzz.io` + Pages project `versatilesparks` + custom domain binding live in this account.
 
 **Secrets policy:** never store the account email in public files; do not commit any CF token. Deployment credentials live in GitHub Actions secrets + hermes `.env` (user-scoped machine file).
 
@@ -481,7 +481,7 @@ Until: traffic exists, clicks measured, sales measured.
 **Access obtained:** user ran `npx wrangler login` (Cloudflare OAuth, wrangler 4.118.0). Credentials stored at `C:\Users\varas\AppData\Roaming\xdg.config\.wrangler\config\default.toml` (NOT `~/.wrangler`). OAuth token has `pages:write`, `zone:read`, `ssl_certs:write` — enough to deploy, not enough to mint API tokens (POST /user/tokens → 403) or purge cache (401).
 
 **Account map (verified via API):**
-- Account: `Libdynwordpress@yahoo.com's Account` — ID `64fde5841a5f46bceb8bff5ccffa6a34` (stored in hermes `.env` as `CLOUDFLARE_ACCOUNT_ID`)
+- Account: user's Cloudflare account (ID in `docs/DEPLOYMENT_PRIVATE.md` + hermes `.env` as `CLOUDFLARE_ACCOUNT_ID`)
 - Zones: `libdynconnect.com` (active) + `versatilesparks.qzz.io` (active) — the canonical is its own zone, not a record in a parent qzz.io zone
 - Pages project `versatilesparks`: domains `versatilesparks.pages.dev` + `versatilesparks.qzz.io`, production branch `main`
 

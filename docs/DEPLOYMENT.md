@@ -1,6 +1,8 @@
 # Deployment — versatilesparks.qzz.io
 
-Permanent reference for the hosting architecture. Verified live 2026-08-01.
+Workflow and commands for the hosting architecture. Account identifiers and
+machine-specific paths are intentionally **not** here — they live in the
+local, gitignored `docs/DEPLOYMENT_PRIVATE.md`.
 
 ## Architecture
 
@@ -18,20 +20,6 @@ Cloudflare Pages → versatilesparks.qzz.io
 
 One origin. DNS untouched (stays Cloudflare). GitHub Pages: retired, do not re-enable.
 
-## Cloudflare account
-
-| Item | Value |
-|---|---|
-| Email | `libdynwordpress@yahoo.com` |
-| Account ID | `64fde5841a5f46bceb8bff5ccffa6a34` |
-| Login method | `npx wrangler login` (OAuth, browser) |
-
-Wrangler stores credentials at
-`C:\Users\varas\AppData\Roaming\xdg.config\.wrangler\config\default.toml`
-(note: NOT `~/.wrangler` on this machine). The OAuth token has `pages:write`,
-`zone:read`, `ssl_certs:write` — enough to deploy manually, not enough to
-mint API tokens (403) or purge cache (401).
-
 ## Pages project
 
 | Item | Value |
@@ -41,19 +29,19 @@ mint API tokens (403) or purge cache (401).
 | Production branch | `main` |
 | Output dir | `website-next/out` (static export, `trailingSlash: true`) |
 
-## Zones in this account
-
-- `versatilesparks.qzz.io` — **its own zone** (not a record under `qzz.io`); DNS record for the Pages binding lives here
-- `libdynconnect.com` — unrelated zone, same account
+The canonical hostname is its own Cloudflare zone (not a record under a parent
+zone), so the custom domain binding is independent.
 
 ## GitHub secrets (YasakaH/versatilesparks-web)
 
-| Secret | Value source |
+| Secret | Purpose |
 |---|---|
-| `CLOUDFLARE_API_TOKEN` | Dashboard → Profile → API Tokens (scoped: Account → Cloudflare Pages → Edit). Stored: GitHub Actions secret + hermes `.env`. **Never commit.** |
-| `CLOUDFLARE_ACCOUNT_ID` | See table above. Stored: GitHub Actions secret + hermes `.env`. |
+| `CLOUDFLARE_API_TOKEN` | Scoped token (Account → Cloudflare Pages → Edit) |
+| `CLOUDFLARE_ACCOUNT_ID` | Account identifier |
 
-Token status: set and validated via workflow run `30675512185` (2026-08-01, success).
+Both set and validated (workflow run `30675512185`, 2026-08-01, success).
+Tokens are never committed; they live in GitHub Actions secrets and the local
+hermes `.env`.
 
 ## Commands
 
@@ -65,7 +53,7 @@ npm run build
 npx wrangler pages deploy website-next/out --project-name=versatilesparks --branch main
 ```
 
-CI trigger: push to `main` touching `website-next/**` or `workflow_dispatch`.
+CI trigger: push to `main` touching `website-next/**`, or `workflow_dispatch`.
 
 Verify after deploy:
 
@@ -78,4 +66,5 @@ Verify after deploy:
 - `npm run build` wipes `website-next/out/` (deleted the CNAME during Iteration 13 — only relevant if GH Pages is ever re-enabled, which it should not be).
 - Never run `git add -A` from inside the cookbook while a deployment repo's `.git` is missing — this is how `.reddit-creds.json` leaked (Iteration 13 post-mortem).
 - `knowledge/hpf-core` is a nested repo — never commit it to the publishing repo (gitlink removed 2026-08-01).
-- API token minting is dashboard-only; the OAuth scopes cannot create tokens.
+- API token minting is dashboard-only; wrangler OAuth scopes cannot create tokens.
+- OAuth access via `npx wrangler login` only (refresh token auto-renews on this machine).

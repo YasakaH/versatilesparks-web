@@ -31,3 +31,4 @@ Products/
 # Reddit session files
 .reddit-*
 knowledge/hpf-core/
+docs/DEPLOYMENT_PRIVATE.md
