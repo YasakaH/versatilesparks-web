@@ -476,6 +476,28 @@ Until: traffic exists, clicks measured, sales measured.
 
 **Secrets policy:** never store the account email in public files; do not commit any CF token. Deployment credentials live in GitHub Actions secrets + hermes `.env` (user-scoped machine file).
 
+## Iteration 15b — First successful deployment to qzz.io
+
+**Access obtained:** user ran `npx wrangler login` (Cloudflare OAuth, wrangler 4.118.0). Credentials stored at `C:\Users\varas\AppData\Roaming\xdg.config\.wrangler\config\default.toml` (NOT `~/.wrangler`). OAuth token has `pages:write`, `zone:read`, `ssl_certs:write` — enough to deploy, not enough to mint API tokens (POST /user/tokens → 403) or purge cache (401).
+
+**Account map (verified via API):**
+- Account: `Libdynwordpress@yahoo.com's Account` — ID `64fde5841a5f46bceb8bff5ccffa6a34` (stored in hermes `.env` as `CLOUDFLARE_ACCOUNT_ID`)
+- Zones: `libdynconnect.com` (active) + `versatilesparks.qzz.io` (active) — the canonical is its own zone, not a record in a parent qzz.io zone
+- Pages project `versatilesparks`: domains `versatilesparks.pages.dev` + `versatilesparks.qzz.io`, production branch `main`
+
+**Deployment executed (2026-08-01):** `npx wrangler pages deploy website-next/out --project-name=versatilesparks --branch main` → 1080 files uploaded, deployment `a0956c3a`.
+
+**Verified live on https://versatilesparks.qzz.io:**
+- `/` 200 (new build), article `/blog/why-browser-profiles-break/` 200 with GitHub pattern links + Gumroad CTA
+- `/robots.txt` 200, `/sitemap.xml` 200 (initial 404 was a stale edge-cached 404 from the previous deployment; self-healed)
+
+**Remaining for full CI:** the GitHub Actions workflow needs `CLOUDFLARE_API_TOKEN` (scoped: Account → Cloudflare Pages → Edit). Cannot be created via API (OAuth lacks token-edit permission). User creates it in dashboard (Profile → API Tokens → Create Custom Token → Pages:Edit → Account). Fallback until then: manual deploy per push:
+```
+cd website-next && npm run build
+npx wrangler pages deploy website-next/out --project-name=versatilesparks --branch main
+```
+wrangler is authenticated on this machine, so the OAuth flow stays valid (refresh token auto-renews).
+
 ---
 
 ## Session Context Preservation
