@@ -11,6 +11,13 @@ Execution instructions per channel. Not strategy (see DECISIONS.md) — how to p
 **Format:** single post OR thread (5-7 tweets, ~5 min spacing between tweets, or native thread composer)
 **Link:** canonical website URL at the end, once
 **Never:** buy-my-book posts, repeated links, daily posting (cap ~2-3 posts/week)
+**Plan:** Free tier ONLY (500 posts/month, no billing). ~2-3 posts/week ≈ 10-15/month, well under the allowance. Never exceed ~400 posts in a rolling month.
+**Posting:** drafts live in `articles/derivatives/<slug>/x-thread.md` (or `x-post.md` for single posts). Post with:
+```
+python tools/publisher/adapters/x.py --slug <slug> --dry-run   # review
+python tools/publisher/adapters/x.py --slug <slug> --post      # publish
+```
+Credentials: `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET` (OAuth 1.0a, Read+Write) in `.env`.
 
 Template:
 ```
