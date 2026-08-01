@@ -31,10 +31,25 @@ POST_BUTTON = '[data-testid="tweetButton"]'
 
 
 def _launch(playwright, headless: bool):
+    args = [
+        "--disable-blink-features=AutomationControlled",
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--no-first-run",
+        "--no-default-browser-check",
+    ]
     try:
-        return playwright.chromium.launch(channel="msedge", headless=headless)
+        return playwright.chromium.launch(
+            channel="msedge",
+            headless=headless,
+            args=args,
+            ignore_default_args=["--enable-automation"],
+        )
     except Exception:
-        return playwright.chromium.launch(headless=headless)
+        return playwright.chromium.launch(
+            headless=headless,
+            args=args,
+            ignore_default_args=["--enable-automation"],
+        )
 
 
 def capture_session():
@@ -42,7 +57,7 @@ def capture_session():
         browser = _launch(p, headless=False)
         context = browser.new_context()
         page = context.new_page()
-        page.goto("https://x.com/home")
+        page.goto("https://x.com/home", wait_until="domcontentloaded")
         deadline = time.time() + 180
         logged_in = False
         while time.time() < deadline:
@@ -61,33 +76,47 @@ def capture_session():
         browser.close()
 
 
-def _newest_tweet_url(page) -> str:
-    page.goto(f"https://x.com/{USERNAME}")
-    page.wait_for_selector('a[href*="/status/"]', timeout=30000)
-    hrefs = page.eval_on_selector_all(
-        'a[href*="/status/"]', "els => els.map(e => e.href)"
-    )
-    hrefs = [h for h in hrefs if f"/{USERNAME}/status/" in h]
-    if not hrefs:
-        raise Exception("no status links found on profile")
-    return hrefs[0]
+def _newest_tweet_url(page, previous: str | None, probe: str) -> str:
+    for _ in range(6):
+        page.goto(f"https://x.com/{USERNAME}", wait_until="domcontentloaded")
+        page.wait_for_timeout(2500)
+        hrefs = page.eval_on_selector_all(
+            'a[href*="/status/"]', "els => els.map(e => e.href)"
+        )
+        hrefs = [h for h in hrefs if f"/{USERNAME}/status/" in h]
+        for h in hrefs:
+            if previous and h == previous:
+                continue
+            try:
+                page.goto(h, wait_until="domcontentloaded")
+                page.wait_for_timeout(1500)
+                if probe and probe in page.inner_text("body"):
+                    return h
+            except Exception:
+                continue
+    return previous
 
 
 def _post_text(page, text: str, reply_to: str | None) -> str:
     if reply_to:
-        page.goto(reply_to)
+        page.goto(reply_to, wait_until="domcontentloaded")
         page.wait_for_selector(TWEET_BOX, timeout=30000)
     else:
-        page.goto("https://x.com/home")
+        page.goto("https://x.com/home", wait_until="domcontentloaded")
         page.wait_for_selector(COMPOSE_BUTTON, timeout=30000)
         page.click(COMPOSE_BUTTON)
         page.wait_for_selector(TWEET_BOX, timeout=30000)
-    page.click(TWEET_BOX)
-    page.keyboard.type(text)
-    page.wait_for_timeout(800)
-    page.click(POST_BUTTON)
+    page.focus(TWEET_BOX)
+    page.keyboard.type(text, delay=12)
+    page.wait_for_timeout(600)
+    button = '[data-testid="tweetButton"], [data-testid="tweetButtonInline"]'
+    try:
+        page.click(button, timeout=5000)
+    except Exception:
+        page.click(button, force=True, timeout=5000)
     page.wait_for_timeout(6000)
-    return _newest_tweet_url(page)
+    probe = text[:30].strip()
+    return _newest_tweet_url(page, reply_to, probe)
 
 
 def post_thread(texts: list[str]):

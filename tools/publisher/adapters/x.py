@@ -88,7 +88,7 @@ def post_tweet(text: str, config: dict, reply_to: str | None = None) -> str:
     resp = requests.post(
         API_URL,
         json=payload,
-        headers=_oauth_header("POST", API_URL, payload, config),
+        headers=_oauth_header("POST", API_URL, {}, config),
     )
     if not resp.ok:
         raise Exception(f"X API {resp.status_code}: {resp.text[:500]}")
