@@ -12,12 +12,15 @@ Execution instructions per channel. Not strategy (see DECISIONS.md) — how to p
 **Link:** canonical website URL at the end, once
 **Never:** buy-my-book posts, repeated links, daily posting (cap ~2-3 posts/week)
 **Plan:** Free tier ONLY (500 posts/month, no billing). ~2-3 posts/week ≈ 10-15/month, well under the allowance. Never exceed ~400 posts in a rolling month.
-**Posting:** drafts live in `articles/derivatives/<slug>/x-thread.md` (or `x-post.md` for single posts). Post with:
+**Channel status (2026-08-01):** X API requires pay-per-use credits (no free tier on this account, 402 credits depleted) — API adapter kept for future use, but posting runs through the **UI path** below.
+**Posting (UI path):** drafts live in `articles/derivatives/<slug>/x-thread.md` (or `x-post.md`). First time: log in via browser session capture, then post:
 ```
-python tools/publisher/adapters/x.py --slug <slug> --dry-run   # review
-python tools/publisher/adapters/x.py --slug <slug> --post      # publish
+python tools/publisher/post_x_ui.py --capture        # once: login in the opened window
+python tools/publisher/post_x_ui.py --slug <slug> --dry-run   # review
+python tools/publisher/post_x_ui.py --slug <slug> --post      # publish
 ```
-Credentials: `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET` (OAuth 1.0a, Read+Write) in `.env`.
+Session is saved to `x_session.json` (gitignored); re-run `--capture` if it expires.
+**API path (if credits ever exist):** `python tools/publisher/adapters/x.py --slug <slug> --post` — credentials `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET` (OAuth 1.0a, Read+Write) in `.env`.
 
 Template:
 ```

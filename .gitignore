@@ -32,3 +32,4 @@ Products/
 .reddit-*
 knowledge/hpf-core/
 docs/DEPLOYMENT_PRIVATE.md
+x_session.json
