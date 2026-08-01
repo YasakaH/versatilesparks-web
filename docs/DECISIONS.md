@@ -137,3 +137,7 @@ Only after that: optimization questions (topics that convert, platform that prod
 ## D-025 - Weekly production cadence and newsroom layout (deferred restructure)
 **Date:** 2026-08-01
 **Decision:** Per-article cadence: Mon write, Tue publish, Wed GitHub pattern, Thu derivatives (X/LinkedIn/Pinterest), Fri metrics review. Existing directories stay in place (no churn during active distribution); when the article count approaches ~30-40, restructure to newsroom layout: articles/ (briefs, outlines, draft, review, published, derivatives, metrics), patterns/github/, visuals/ (pinterest, linkedin, x/), distribution/ (x, reddit, linkedin, pinterest).
+
+## D-026 - Architecture phase closed; review triggers defined
+**Date:** 2026-08-01
+**Decision:** Platform architecture is frozen. No new foundational documents, no architecture reviews, and no contract work until one of these triggers fires: (1) first breaking HPF contract change, (2) first attributable cookbook sale, (3) ~10 published articles with enough metrics to reveal a weakness. INTEGRATION_CONTRACT.md is a constitution, not a protocol spec - schema details belong in handoff/schema/ only. All effort goes to publish -> distribute -> measure -> learn.
